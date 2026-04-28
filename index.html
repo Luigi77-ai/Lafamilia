@@ -271,26 +271,27 @@
         /* Transition image above Built for What's Next */
         .section-transition-art {
             background: var(--bg-light);
-            padding: 110px 0 0;
+            padding: 70px 0 0;
+            margin-top: -75px;
             position: relative;
-            z-index: 3;
+            z-index: 4;
         }
         .section-transition-art-wrap {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end;
         }
         .section-transition-art img {
-            width: min(100%, 220px);
+            width: min(100%, 420px);
             height: auto;
             object-fit: contain;
-            filter: drop-shadow(0 16px 30px rgba(0,0,0,0.10));
+            filter: drop-shadow(0 24px 40px rgba(0,0,0,0.14));
         }
 
         /* Built for What's Next */
         .built-next {
             background: var(--bg-light);
-            padding-top: 40px;
+            padding-top: 20px;
         }
         .built-grid {
             display: grid;
@@ -452,14 +453,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 18px;
+            gap: 26px;
             flex-wrap: wrap;
         }
         .section-title-art {
-            width: 110px;
+            width: 180px;
             height: auto;
             object-fit: contain;
-            filter: drop-shadow(0 12px 24px rgba(0,0,0,0.10));
+            filter: drop-shadow(0 18px 28px rgba(0,0,0,0.12));
         }
         .services-grid {
             display: grid;
@@ -719,8 +720,12 @@
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .built-logo { font-size: 5rem; }
             .built-characters { justify-content: center; }
-            .section-transition-art img { width: min(100%, 170px); }
-            .section-title-art { width: 90px; }
+            .section-transition-art {
+                padding-top: 45px;
+                margin-top: -50px;
+            }
+            .section-transition-art img { width: min(100%, 300px); }
+            .section-title-art { width: 130px; }
         }
         @media (max-width: 600px) {
             .services-grid, .footer-grid { grid-template-columns: 1fr; }
@@ -729,10 +734,13 @@
             .hero-title { font-size: 3rem; }
             .section-title { font-size: 2.5rem; }
             .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-            .section-transition-art { padding-top: 95px; }
-            .section-transition-art img { width: min(100%, 130px); }
-            .section-title-with-art { gap: 10px; }
-            .section-title-art { width: 72px; }
+            .section-transition-art {
+                padding-top: 30px;
+                margin-top: -34px;
+            }
+            .section-transition-art img { width: min(100%, 210px); }
+            .section-title-with-art { gap: 14px; }
+            .section-title-art { width: 110px; }
         }
     </style>
 </head>
@@ -868,7 +876,7 @@
             <div class="section-header">
                 <span class="section-label">What We Do</span>
                 <div class="section-title-with-art">
-                    <img src="./a3e195481b951656ce48f849ea5e71e2-removebg-preview.png" alt="Decorative media graphic" class="section-title-art" />
+                    <img src="./descarga__6_-removebg-preview.png" alt="Decorative arrow graphic" class="section-title-art" />
                     <h2 class="section-title">Built Together</h2>
                 </div>
                 <p class="section-sub">Our full range of creative services designed to elevate your brand and connect with your audience.</p>
