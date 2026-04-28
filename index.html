@@ -716,89 +716,6 @@
       line-height: 1.7;
     }
 
-    .about-orbit-wrap {
-      margin-top: 3rem;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .about-orbit {
-      position: relative;
-      width: min(100%, 960px);
-      height: 540px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .about-orbit-track {
-      position: absolute;
-      inset: 0;
-      animation: lafamiliaOrbit 26s linear infinite;
-      transform-origin: 50% 50%;
-    }
-
-    .orbit-panel {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 210px;
-      aspect-ratio: 1 / 1;
-      margin-left: -105px;
-      margin-top: -105px;
-      overflow: hidden;
-      border-radius: 0;
-      background: #111;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-      transform:
-        rotate(var(--angle))
-        translateY(calc(var(--radius) * -1))
-        rotate(calc(var(--angle) * -1));
-    }
-
-    .orbit-panel img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .orbit-panel-1 { --angle: 0deg; --radius: 225px; }
-    .orbit-panel-2 { --angle: 60deg; --radius: 225px; }
-    .orbit-panel-3 { --angle: 120deg; --radius: 225px; }
-    .orbit-panel-4 { --angle: 180deg; --radius: 225px; }
-    .orbit-panel-5 { --angle: 240deg; --radius: 225px; }
-    .orbit-panel-6 { --angle: 300deg; --radius: 225px; }
-
-    .about-orbit-center {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 320px;
-      pointer-events: none;
-    }
-
-    .about-orbit-label {
-      display: inline-block;
-      margin-bottom: 0.85rem;
-      letter-spacing: 0.16em;
-      font-size: 0.72rem;
-      opacity: 0.72;
-    }
-
-    .about-orbit-center h3 {
-      margin: 0;
-      line-height: 1.02;
-      font-family: "Syne", sans-serif;
-      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
-    }
-
-    .about-orbit-center h3 + h3 {
-      margin-top: 0.28rem;
-    }
-
     .contact-grid {
       display: grid;
       grid-template-columns: 0.92fr 1.08fr;
@@ -966,15 +883,6 @@
       }
     }
 
-    @keyframes lafamiliaOrbit {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
     @media (max-width: 1120px) {
       .hero-grid,
       .section-header,
@@ -1004,25 +912,6 @@
       .menu-main {
         border-right: 0;
         border-bottom: 1px solid rgba(255,255,255,0.06);
-      }
-
-      .about-orbit {
-        height: 470px;
-      }
-
-      .orbit-panel {
-        width: 170px;
-        margin-left: -85px;
-        margin-top: -85px;
-      }
-
-      .orbit-panel-1,
-      .orbit-panel-2,
-      .orbit-panel-3,
-      .orbit-panel-4,
-      .orbit-panel-5,
-      .orbit-panel-6 {
-        --radius: 190px;
       }
     }
 
@@ -1063,29 +952,6 @@
 
       .about-copy {
         order: 2;
-      }
-
-      .about-orbit {
-        height: 380px;
-      }
-
-      .orbit-panel {
-        width: 118px;
-        margin-left: -59px;
-        margin-top: -59px;
-      }
-
-      .orbit-panel-1,
-      .orbit-panel-2,
-      .orbit-panel-3,
-      .orbit-panel-4,
-      .orbit-panel-5,
-      .orbit-panel-6 {
-        --radius: 148px;
-      }
-
-      .about-orbit-center {
-        max-width: 210px;
       }
 
       .contact-card h3,
@@ -1353,41 +1219,21 @@
               to the full brand experience.
             </p>
 
-            <div class="about-orbit-wrap">
-              <div class="about-orbit" aria-label="La Familia services orbit">
-                <div class="about-orbit-track">
-                  <article class="orbit-panel orbit-panel-1">
-                    <img src="image.jpg" alt="Branding preview" />
-                  </article>
+            <div class="about-points">
+              <article class="about-point">
+                <h3>Branding</h3>
+                <p>Visual systems, identity direction and cohesive brand language.</p>
+              </article>
 
-                  <article class="orbit-panel orbit-panel-2">
-                    <img src="image.jpg" alt="Web preview" />
-                  </article>
+              <article class="about-point">
+                <h3>Web</h3>
+                <p>Modern websites designed to communicate clearly and convert better.</p>
+              </article>
 
-                  <article class="orbit-panel orbit-panel-3">
-                    <img src="image.jpg" alt="Content preview" />
-                  </article>
-
-                  <article class="orbit-panel orbit-panel-4">
-                    <img src="image.jpg" alt="Creative preview" />
-                  </article>
-
-                  <article class="orbit-panel orbit-panel-5">
-                    <img src="image.jpg" alt="Studio preview" />
-                  </article>
-
-                  <article class="orbit-panel orbit-panel-6">
-                    <img src="image.jpg" alt="Visual preview" />
-                  </article>
-                </div>
-
-                <div class="about-orbit-center">
-                  <span class="about-orbit-label">SERVICES</span>
-                  <h3>Branding</h3>
-                  <h3>Web</h3>
-                  <h3>Content</h3>
-                </div>
-              </div>
+              <article class="about-point">
+                <h3>Content</h3>
+                <p>Photography, print and creative assets built for visibility and polish.</p>
+              </article>
             </div>
           </div>
         </div>
