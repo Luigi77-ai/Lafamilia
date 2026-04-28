@@ -25,6 +25,7 @@
             --bg-light: #FAFAFA;
             --text-dark: #1A1A1A;
             --text-light: #F5F5F5;
+            --platinum: #d9d9d9;
             --max: 1320px;
             --radius: 24px;
             --radius-lg: 40px;
@@ -268,12 +269,12 @@
             margin-right: auto;
         }
 
-        /* Transition image above Built for What's Next */
+        /* Transition between Hero and Built */
         .section-transition-art {
             background: var(--bg-light);
             padding: 0;
-            margin-top: -135px;
-            margin-bottom: -18px;
+            margin-top: -100px;
+            margin-bottom: 0;
             position: relative;
             z-index: 5;
         }
@@ -284,16 +285,30 @@
             padding-left: 6%;
         }
         .section-transition-art img {
-            width: min(100%, 430px);
+            width: min(100%, 390px);
             height: auto;
             object-fit: contain;
-            filter: drop-shadow(0 24px 40px rgba(0,0,0,0.14));
+            filter: drop-shadow(0 22px 36px rgba(0,0,0,0.12));
+        }
+
+        .section-divider-line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 8px;
+        }
+        .section-divider-line span {
+            display: block;
+            width: min(180px, 28vw);
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(217,217,217,0), rgba(217,217,217,0.95), rgba(217,217,217,0));
         }
 
         /* Built for What's Next */
         .built-next {
             background: var(--bg-light);
-            padding-top: 0;
+            padding-top: 26px;
         }
         .built-grid {
             display: grid;
@@ -723,14 +738,13 @@
             .built-logo { font-size: 5rem; }
             .built-characters { justify-content: center; }
             .section-transition-art {
-                margin-top: -95px;
-                margin-bottom: -10px;
+                margin-top: -72px;
             }
             .section-transition-art-wrap {
                 padding-left: 0;
                 justify-content: center;
             }
-            .section-transition-art img { width: min(100%, 300px); }
+            .section-transition-art img { width: min(100%, 280px); }
             .section-title-art { width: 130px; }
         }
         @media (max-width: 600px) {
@@ -741,12 +755,14 @@
             .section-title { font-size: 2.5rem; }
             .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
             .section-transition-art {
-                margin-top: -70px;
-                margin-bottom: -8px;
+                margin-top: -52px;
             }
-            .section-transition-art img { width: min(100%, 220px); }
+            .section-transition-art img { width: min(100%, 210px); }
             .section-title-with-art { gap: 14px; }
             .section-title-art { width: 110px; }
+            .section-divider-line span {
+                width: 110px;
+            }
         }
     </style>
 </head>
@@ -802,6 +818,9 @@
         <div class="container">
             <div class="section-transition-art-wrap">
                 <img src="./a3e195481b951656ce48f849ea5e71e2-removebg-preview.png" alt="Decorative media graphic" />
+            </div>
+            <div class="section-divider-line" aria-hidden="true">
+                <span></span>
             </div>
         </div>
     </section>
