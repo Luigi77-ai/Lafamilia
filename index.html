@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <style>
-      
         :root {
             --doodles-mint: #83FFC1;
             --doodles-pink: #FF94DB;
@@ -125,6 +124,7 @@
         .shape-1 { width: 500px; height: 500px; background: var(--doodles-pink); top: -100px; right: -100px; }
         .shape-2 { width: 400px; height: 400px; background: var(--doodles-mint); bottom: -50px; left: -100px; }
         .shape-3 { width: 300px; height: 300px; background: var(--doodles-purple); top: 40%; left: 40%; }
+
         .hero-inner {
             position: relative;
             z-index: 2;
@@ -268,9 +268,29 @@
             margin-right: auto;
         }
 
+        /* Transition image above Built for What's Next */
+        .section-transition-art {
+            background: var(--bg-light);
+            padding: 110px 0 0;
+            position: relative;
+            z-index: 3;
+        }
+        .section-transition-art-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section-transition-art img {
+            width: min(100%, 220px);
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 16px 30px rgba(0,0,0,0.10));
+        }
+
         /* Built for What's Next */
         .built-next {
             background: var(--bg-light);
+            padding-top: 40px;
         }
         .built-grid {
             display: grid;
@@ -311,9 +331,6 @@
             transform: scale(1.05);
             box-shadow: 0 15px 40px rgba(131,255,193,0.4);
         }
-        .built-visual {
-            position: relative;
-        }
         .built-characters {
             display: flex;
             gap: 10px;
@@ -338,24 +355,6 @@
         .character:nth-child(5) { background: var(--doodles-purple); }
         .character:nth-child(6) { background: var(--doodles-teal); }
 
-        /* Arrow Divider */
-        .arrow-divider {
-            padding: 10px 0 30px;
-            background: var(--bg-light);
-        }
-        .arrow-divider-wrap {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .arrow-divider img {
-            width: min(100%, 170px);
-            height: auto;
-            object-fit: contain;
-            mix-blend-mode: multiply;
-            filter: contrast(1.08) saturate(1.02);
-        }
-
         /* Stories in Motion */
         .stories {
             background: var(--bg-light);
@@ -374,18 +373,18 @@
             transition: all 0.3s ease;
         }
         .story-card:hover { transform: scale(1.05); z-index: 2; }
-        .story-card:nth-child(1) { grid-column: span 1; background: var(--doodles-pink); }
-        .story-card:nth-child(2) { grid-column: span 1; background: var(--doodles-lightblue); }
-        .story-card:nth-child(3) { grid-column: span 1; background: var(--doodles-yellow); }
-        .story-card:nth-child(4) { grid-column: span 1; background: var(--doodles-mint); }
-        .story-card:nth-child(5) { grid-column: span 1; background: var(--doodles-purple); }
-        .story-card:nth-child(6) { grid-column: span 1; background: var(--doodles-coral); }
-        .story-card:nth-child(7) { grid-column: span 1; background: var(--doodles-teal); }
-        .story-card:nth-child(8) { grid-column: span 1; background: var(--doodles-lavender); }
-        .story-card:nth-child(9) { grid-column: span 1; background: var(--doodles-electric); }
-        .story-card:nth-child(10) { grid-column: span 1; background: var(--doodles-orange); }
-        .story-card:nth-child(11) { grid-column: span 1; background: var(--doodles-pink); }
-        .story-card:nth-child(12) { grid-column: span 1; background: var(--doodles-mint); }
+        .story-card:nth-child(1) { background: var(--doodles-pink); }
+        .story-card:nth-child(2) { background: var(--doodles-lightblue); }
+        .story-card:nth-child(3) { background: var(--doodles-yellow); }
+        .story-card:nth-child(4) { background: var(--doodles-mint); }
+        .story-card:nth-child(5) { background: var(--doodles-purple); }
+        .story-card:nth-child(6) { background: var(--doodles-coral); }
+        .story-card:nth-child(7) { background: var(--doodles-teal); }
+        .story-card:nth-child(8) { background: var(--doodles-lavender); }
+        .story-card:nth-child(9) { background: var(--doodles-electric); }
+        .story-card:nth-child(10) { background: var(--doodles-orange); }
+        .story-card:nth-child(11) { background: var(--doodles-pink); }
+        .story-card:nth-child(12) { background: var(--doodles-mint); }
         .story-card-inner {
             position: absolute;
             inset: 0;
@@ -449,6 +448,19 @@
         .built-together {
             background: var(--bg-light);
         }
+        .section-title-with-art {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .section-title-art {
+            width: 110px;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 12px 24px rgba(0,0,0,0.10));
+        }
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -483,7 +495,7 @@
             opacity: 0.85;
         }
 
-        /* About / Family */
+        /* Family */
         .family {
             background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
             color: var(--text-light);
@@ -707,7 +719,8 @@
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .built-logo { font-size: 5rem; }
             .built-characters { justify-content: center; }
-            .arrow-divider img { width: min(100%, 130px); }
+            .section-transition-art img { width: min(100%, 170px); }
+            .section-title-art { width: 90px; }
         }
         @media (max-width: 600px) {
             .services-grid, .footer-grid { grid-template-columns: 1fr; }
@@ -716,9 +729,10 @@
             .hero-title { font-size: 3rem; }
             .section-title { font-size: 2.5rem; }
             .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-            .arrow-divider {
-                padding: 0 0 18px;
-            }
+            .section-transition-art { padding-top: 95px; }
+            .section-transition-art img { width: min(100%, 130px); }
+            .section-title-with-art { gap: 10px; }
+            .section-title-art { width: 72px; }
         }
     </style>
 </head>
@@ -769,6 +783,15 @@
         </div>
     </section>
 
+    <!-- Transition Art Above Built for What's Next -->
+    <section class="section-transition-art" aria-label="Decorative media graphic">
+        <div class="container">
+            <div class="section-transition-art-wrap">
+                <img src="./a3e195481b951656ce48f849ea5e71e2-removebg-preview.png" alt="Decorative media graphic" />
+            </div>
+        </div>
+    </section>
+
     <!-- Built for What's Next -->
     <section id="about" class="section built-next">
         <div class="container">
@@ -789,15 +812,6 @@
                 <div class="character">&#128424;</div>
                 <div class="character">&#127909;</div>
                 <div class="character">&#128200;</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Arrow Divider -->
-    <section class="arrow-divider" aria-label="Decorative divider">
-        <div class="container">
-            <div class="arrow-divider-wrap">
-                <img src="./descarga (6).jpg" alt="Decorative arrow" />
             </div>
         </div>
     </section>
@@ -853,7 +867,10 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">What We Do</span>
-                <h2 class="section-title">Built Together</h2>
+                <div class="section-title-with-art">
+                    <img src="./a3e195481b951656ce48f849ea5e71e2-removebg-preview.png" alt="Decorative media graphic" class="section-title-art" />
+                    <h2 class="section-title">Built Together</h2>
+                </div>
                 <p class="section-sub">Our full range of creative services designed to elevate your brand and connect with your audience.</p>
             </div>
             <div class="services-grid">
@@ -1027,7 +1044,6 @@
     </footer>
 
     <script>
-        // Sticky Navigation
         window.addEventListener('scroll', function() {
             const nav = document.getElementById('nav');
             if (window.scrollY > 50) {
