@@ -271,18 +271,20 @@
         /* Transition image above Built for What's Next */
         .section-transition-art {
             background: var(--bg-light);
-            padding: 70px 0 0;
-            margin-top: -75px;
+            padding: 0;
+            margin-top: -135px;
+            margin-bottom: -18px;
             position: relative;
-            z-index: 4;
+            z-index: 5;
         }
         .section-transition-art-wrap {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: flex-end;
+            padding-left: 6%;
         }
         .section-transition-art img {
-            width: min(100%, 420px);
+            width: min(100%, 430px);
             height: auto;
             object-fit: contain;
             filter: drop-shadow(0 24px 40px rgba(0,0,0,0.14));
@@ -291,7 +293,7 @@
         /* Built for What's Next */
         .built-next {
             background: var(--bg-light);
-            padding-top: 20px;
+            padding-top: 0;
         }
         .built-grid {
             display: grid;
@@ -721,8 +723,12 @@
             .built-logo { font-size: 5rem; }
             .built-characters { justify-content: center; }
             .section-transition-art {
-                padding-top: 45px;
-                margin-top: -50px;
+                margin-top: -95px;
+                margin-bottom: -10px;
+            }
+            .section-transition-art-wrap {
+                padding-left: 0;
+                justify-content: center;
             }
             .section-transition-art img { width: min(100%, 300px); }
             .section-title-art { width: 130px; }
@@ -735,10 +741,10 @@
             .section-title { font-size: 2.5rem; }
             .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
             .section-transition-art {
-                padding-top: 30px;
-                margin-top: -34px;
+                margin-top: -70px;
+                margin-bottom: -8px;
             }
-            .section-transition-art img { width: min(100%, 210px); }
+            .section-transition-art img { width: min(100%, 220px); }
             .section-title-with-art { gap: 14px; }
             .section-title-art { width: 110px; }
         }
