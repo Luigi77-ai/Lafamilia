@@ -429,7 +429,6 @@
 
     .section-head h2,
     .founder-copy h3,
-    .portfolio-head h3,
     .services-center-copy h3,
     .blog-card h3,
     .contact-card h3,
@@ -524,19 +523,31 @@
 
     .services-scatter{
       position:relative;
-      min-height:760px;
+      min-height:920px;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:70px 20px;
+      padding:80px 20px;
+      overflow:hidden;
+    }
+
+    .services-orbit{
+      position:relative;
+      width:min(100%, 1200px);
+      height:820px;
+      animation:orbitSpin 24s linear infinite;
+      transform-origin:center center;
     }
 
     .services-center-copy{
-      position:relative;
-      z-index:5;
-      width:min(100%, 560px);
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      z-index:20;
+      width:min(100%, 580px);
       text-align:center;
-      padding:34px 26px;
+      padding:36px 28px;
       background:rgba(15,16,18,.72);
       border:1px solid rgba(255,255,255,.08);
       border-radius:30px;
@@ -545,7 +556,7 @@
     }
 
     .services-center-copy h3{
-      font-size:clamp(2.8rem,4.6vw,4.8rem);
+      font-size:clamp(2.9rem,4.8vw,5rem);
       line-height:.94;
       margin-bottom:16px;
     }
@@ -558,15 +569,16 @@
 
     .service-card{
       position:absolute;
-      width:220px;
-      height:150px;
+      width:250px;
+      height:170px;
       border-radius:24px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,.10);
       box-shadow:var(--shadow);
       background:#111;
       transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-      animation:floatCard 7s ease-in-out infinite;
+      animation:floatCard 4.8s ease-in-out infinite;
+      transform-origin:center center;
     }
 
     .service-card img{
@@ -585,9 +597,10 @@
     }
 
     .service-card:hover{
-      transform:scale(1.06) translateY(-8px) rotate(var(--rotate));
+      transform:scale(1.07) rotate(var(--rotate));
       border-color:rgba(188,141,93,.38);
       box-shadow:0 30px 90px rgba(0,0,0,.42);
+      z-index:30;
     }
 
     .service-card:hover img{
@@ -595,97 +608,112 @@
     }
 
     .service-card.one{
-      top:20px;
-      left:90px;
-      transform:rotate(-8deg);
+      top:18px;
+      left:70px;
       --rotate:-8deg;
+      transform:rotate(-8deg);
       animation-delay:0s;
     }
 
     .service-card.two{
-      top:70px;
-      right:90px;
-      width:245px;
-      height:165px;
-      transform:rotate(7deg);
-      --rotate:7deg;
-      animation-delay:.8s;
+      top:40px;
+      left:365px;
+      width:230px;
+      height:156px;
+      --rotate:-2deg;
+      transform:rotate(-2deg);
+      animation-delay:.35s;
     }
 
     .service-card.three{
-      top:250px;
-      left:10px;
+      top:38px;
+      right:355px;
       width:230px;
-      height:160px;
-      transform:rotate(-5deg);
-      --rotate:-5deg;
-      animation-delay:1.4s;
+      height:156px;
+      --rotate:3deg;
+      transform:rotate(3deg);
+      animation-delay:.65s;
     }
 
     .service-card.four{
-      top:265px;
-      right:35px;
-      width:210px;
-      height:145px;
-      transform:rotate(6deg);
-      --rotate:6deg;
-      animation-delay:2s;
+      top:30px;
+      right:65px;
+      width:252px;
+      height:172px;
+      --rotate:7deg;
+      transform:rotate(7deg);
+      animation-delay:.95s;
     }
 
     .service-card.five{
-      bottom:105px;
-      left:110px;
-      width:250px;
-      height:170px;
-      transform:rotate(5deg);
-      --rotate:5deg;
-      animation-delay:2.6s;
+      top:248px;
+      left:18px;
+      width:238px;
+      height:162px;
+      --rotate:-6deg;
+      transform:rotate(-6deg);
+      animation-delay:1.2s;
     }
 
     .service-card.six{
-      bottom:90px;
-      right:120px;
-      width:225px;
-      height:152px;
-      transform:rotate(-7deg);
-      --rotate:-7deg;
-      animation-delay:3.2s;
+      top:265px;
+      right:28px;
+      width:222px;
+      height:150px;
+      --rotate:6deg;
+      transform:rotate(6deg);
+      animation-delay:1.55s;
     }
 
     .service-card.seven{
-      bottom:5px;
-      left:360px;
-      width:205px;
-      height:138px;
-      transform:rotate(-3deg);
-      --rotate:-3deg;
-      animation-delay:3.8s;
+      bottom:150px;
+      left:78px;
+      width:270px;
+      height:182px;
+      --rotate:5deg;
+      transform:rotate(5deg);
+      animation-delay:1.85s;
     }
 
     .service-card.eight{
-      bottom:10px;
-      right:330px;
-      width:218px;
-      height:146px;
-      transform:rotate(4deg);
+      bottom:150px;
+      right:78px;
+      width:246px;
+      height:166px;
+      --rotate:-7deg;
+      transform:rotate(-7deg);
+      animation-delay:2.1s;
+    }
+
+    .service-card.nine{
+      bottom:28px;
+      left:265px;
+      width:220px;
+      height:148px;
+      --rotate:-4deg;
+      transform:rotate(-4deg);
+      animation-delay:2.35s;
+    }
+
+    .service-card.ten{
+      bottom:28px;
+      left:50%;
+      margin-left:-110px;
+      width:230px;
+      height:154px;
+      --rotate:0deg;
+      transform:rotate(0deg);
+      animation-delay:2.65s;
+    }
+
+    .service-card.eleven{
+      bottom:28px;
+      right:255px;
+      width:220px;
+      height:148px;
       --rotate:4deg;
-      animation-delay:4.2s;
-    }
-
-    .portfolio-head{
-      margin-bottom:26px;
-    }
-
-    .portfolio-head h3{
-      font-size:clamp(2.6rem,5vw,4.8rem);
-      line-height:.94;
-      margin-bottom:12px;
-      max-width:12ch;
-    }
-
-    .portfolio-head p{
-      color:var(--muted);
-      max-width:58ch;
+      transform:rotate(4deg);
+      animation-delay:2.95s;
     }
 
     .blog-grid{
@@ -737,41 +765,6 @@
       letter-spacing:.14em;
       text-transform:uppercase;
       color:var(--cream);
-    }
-
-    .testimonials-shell{
-      overflow:hidden;
-      position:relative;
-    }
-
-    .testimonials-track{
-      display:flex;
-      gap:20px;
-      width:max-content;
-      animation:testimonialsSlide 28s linear infinite;
-    }
-
-    .testimonial-card{
-      width:min(420px, 82vw);
-      flex:0 0 auto;
-      padding:28px;
-      border-radius:28px;
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      box-shadow:var(--shadow);
-    }
-
-    .testimonial-card p{
-      color:var(--muted);
-      font-size:1rem;
-      margin-bottom:16px;
-    }
-
-    .testimonial-name{
-      color:var(--text);
-      font-size:.88rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
     }
 
     .contact-grid{
@@ -886,11 +879,6 @@
       to{ transform:translateX(-50%); }
     }
 
-    @keyframes testimonialsSlide{
-      from{ transform:translateX(0); }
-      to{ transform:translateX(-50%); }
-    }
-
     @keyframes wordPulse{
       0%, 100%{
         transform:scale(1);
@@ -907,8 +895,13 @@
         translate:0 0;
       }
       50%{
-        translate:0 -14px;
+        translate:0 -10px;
       }
+    }
+
+    @keyframes orbitSpin{
+      from{ transform:rotate(0deg); }
+      to{ transform:rotate(360deg); }
     }
 
     @media (max-width:1120px){
@@ -953,17 +946,36 @@
       }
 
       .services-scatter{
-        min-height:960px;
+        min-height:980px;
       }
 
-      .service-card.one{ top:10px; left:40px; }
-      .service-card.two{ top:50px; right:40px; }
-      .service-card.three{ top:250px; left:40px; }
-      .service-card.four{ top:260px; right:30px; }
-      .service-card.five{ bottom:170px; left:70px; }
-      .service-card.six{ bottom:160px; right:60px; }
-      .service-card.seven{ bottom:25px; left:170px; }
-      .service-card.eight{ bottom:30px; right:170px; }
+      .services-orbit{
+        width:min(100%, 980px);
+        height:860px;
+      }
+
+      .service-card{
+        width:220px;
+        height:148px;
+      }
+
+      .service-card.two,
+      .service-card.three{
+        width:210px;
+        height:142px;
+      }
+
+      .service-card.one{ left:30px; top:32px; }
+      .service-card.two{ left:255px; top:42px; }
+      .service-card.three{ right:250px; top:42px; }
+      .service-card.four{ right:28px; top:36px; }
+      .service-card.five{ left:14px; top:278px; }
+      .service-card.six{ right:14px; top:285px; }
+      .service-card.seven{ left:44px; bottom:148px; }
+      .service-card.eight{ right:40px; bottom:148px; }
+      .service-card.nine{ left:180px; bottom:24px; }
+      .service-card.ten{ bottom:20px; left:50%; margin-left:-105px; }
+      .service-card.eleven{ right:176px; bottom:24px; }
     }
 
     @media (max-width:760px){
@@ -1059,7 +1071,19 @@
         padding:0;
       }
 
+      .services-orbit{
+        animation:none;
+        width:100%;
+        height:auto;
+        display:grid;
+        gap:18px;
+      }
+
       .services-center-copy{
+        position:relative;
+        top:auto;
+        left:auto;
+        transform:none;
         width:100%;
         order:1;
         margin-bottom:8px;
@@ -1067,25 +1091,14 @@
 
       .service-card{
         position:relative;
-        width:100%;
-        height:220px;
+        width:100% !important;
+        height:220px !important;
         top:auto !important;
         left:auto !important;
         right:auto !important;
         bottom:auto !important;
+        margin:0 !important;
         transform:none !important;
-      }
-
-      .service-card.one,
-      .service-card.two,
-      .service-card.three,
-      .service-card.four,
-      .service-card.five,
-      .service-card.six,
-      .service-card.seven,
-      .service-card.eight{
-        width:100%;
-        height:220px;
       }
     }
   </style>
@@ -1242,44 +1255,58 @@
   <section class="section" id="services">
     <div class="container">
       <div class="services-scatter" data-reveal>
-        <article class="service-card one">
-          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80" alt="Banner image 1">
-        </article>
+        <div class="services-orbit">
+          <article class="service-card one">
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80" alt="Banner image 1">
+          </article>
 
-        <article class="service-card two">
-          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80" alt="Banner image 2">
-        </article>
+          <article class="service-card two">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80" alt="Banner image 2">
+          </article>
 
-        <article class="service-card three">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80" alt="Banner image 3">
-        </article>
+          <article class="service-card three">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80" alt="Banner image 3">
+          </article>
 
-        <article class="service-card four">
-          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&q=80" alt="Banner image 4">
-        </article>
+          <article class="service-card four">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&q=80" alt="Banner image 4">
+          </article>
 
-        <article class="service-card five">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80" alt="Banner image 5">
-        </article>
+          <article class="service-card five">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80" alt="Banner image 5">
+          </article>
 
-        <article class="service-card six">
-          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80" alt="Banner image 6">
-        </article>
+          <article class="service-card six">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80" alt="Banner image 6">
+          </article>
 
-        <article class="service-card seven">
-          <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1000&q=80" alt="Banner image 7">
-        </article>
+          <article class="service-card seven">
+            <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1000&q=80" alt="Banner image 7">
+          </article>
 
-        <article class="service-card eight">
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" alt="Banner image 8">
-        </article>
+          <article class="service-card eight">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" alt="Banner image 8">
+          </article>
 
-        <div class="services-center-copy">
-          <span class="kicker">Services</span>
-          <h3>A visual section for image, branding, and presence.</h3>
-          <p>
-            These large frames are designed for featured imagery. Each one fades into the next to create a clean and continuous visual rhythm.
-          </p>
+          <article class="service-card nine">
+            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1000&q=80" alt="Banner image 9">
+          </article>
+
+          <article class="service-card ten">
+            <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=1000&q=80" alt="Banner image 10">
+          </article>
+
+          <article class="service-card eleven">
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80" alt="Banner image 11">
+          </article>
+
+          <div class="services-center-copy">
+            <span class="kicker">Services</span>
+            <h3>A visual section for image, branding, and presence.</h3>
+            <p>
+              These large frames are designed for featured imagery. Each one fades into the next to create a clean and continuous visual rhythm.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -1373,64 +1400,6 @@
             <span class="read-more">READ MORE</span>
           </div>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="testimonials">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="kicker" data-reveal>Testimonials</span>
-          <h2 data-reveal>Reviews and memories presented in motion.</h2>
-        </div>
-        <p data-reveal>
-          Each testimonial moves from right to left in a continuous band to create an elegant and dynamic reading experience.
-        </p>
-      </div>
-
-      <div class="testimonials-shell" data-reveal>
-        <div class="testimonials-track">
-          <article class="testimonial-card">
-            <p>“Working with LA FAMILIA always leaves a feeling of closeness, elegance, and authenticity.”</p>
-            <div class="testimonial-name">TEMP REVIEW · CLIENT / GUEST</div>
-          </article>
-
-          <article class="testimonial-card">
-            <p>“There is a very clear identity behind this brand. Everything feels coherent, warm, and intentional.”</p>
-            <div class="testimonial-name">TEMP REVIEW · COLLABORATOR</div>
-          </article>
-
-          <article class="testimonial-card">
-            <p>“The visual and emotional experience communicates real values, presence, and a powerful story.”</p>
-            <div class="testimonial-name">TEMP REVIEW · ALLY</div>
-          </article>
-
-          <article class="testimonial-card">
-            <p>“The way LA FAMILIA presents its image makes everything feel more solid and memorable.”</p>
-            <div class="testimonial-name">TEMP REVIEW · EXTERNAL CONTACT</div>
-          </article>
-
-          <article class="testimonial-card">
-            <p>“You can feel the intention behind every detail, and that gives the brand a very strong presence.”</p>
-            <div class="testimonial-name">TEMP REVIEW · GUEST</div>
-          </article>
-
-          <article class="testimonial-card">
-            <p>“Working with LA FAMILIA always leaves a feeling of closeness, elegance, and authenticity.”</p>
-            <div class="testimonial-name">TEMP REVIEW · CLIENT / GUEST</div>
-          </article>
-
-          <article class="testimonial-card">
-            <p>“There is a very clear identity behind this brand. Everything feels coherent, warm, and intentional.”</p>
-            <div class="testimonial-name">TEMP REVIEW · COLLABORATOR</div>
-          </article>
-
-          <article class="testimonial-card">
-            <p>“The visual and emotional experience communicates real values, presence, and a powerful story.”</p>
-            <div class="testimonial-name">TEMP REVIEW · ALLY</div>
-          </article>
-        </div>
       </div>
     </div>
   </section>
