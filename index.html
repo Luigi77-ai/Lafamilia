@@ -521,42 +521,32 @@
       background:rgba(188,141,93,.08);
     }
 
+    /* SERVICES FIXED CENTER + ORBITING CARDS */
     .services-scatter{
       position:relative;
-      min-height:920px;
+      min-height:980px;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:80px 20px;
       overflow:hidden;
-    }
-
-    .services-orbit{
-      position:relative;
-      width:min(100%, 1200px);
-      height:820px;
-      animation:orbitSpin 24s linear infinite;
-      transform-origin:center center;
+      padding:40px 20px;
     }
 
     .services-center-copy{
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%, -50%);
+      position:relative;
       z-index:20;
-      width:min(100%, 580px);
+      width:min(100%, 590px);
       text-align:center;
-      padding:36px 28px;
-      background:rgba(15,16,18,.72);
+      padding:38px 30px;
+      background:rgba(15,16,18,.76);
       border:1px solid rgba(255,255,255,.08);
-      border-radius:30px;
+      border-radius:32px;
       backdrop-filter:blur(10px);
       box-shadow:var(--shadow);
     }
 
     .services-center-copy h3{
-      font-size:clamp(2.9rem,4.8vw,5rem);
+      font-size:clamp(2.9rem,4.9vw,5rem);
       line-height:.94;
       margin-bottom:16px;
     }
@@ -567,18 +557,45 @@
       margin:0 auto;
     }
 
+    .service-orbit{
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:var(--orbit-size);
+      height:var(--orbit-size);
+      margin-left:calc(var(--orbit-size) / -2);
+      margin-top:calc(var(--orbit-size) / -2);
+      border-radius:50%;
+      animation:spinOrbit var(--orbit-speed) linear infinite;
+      pointer-events:none;
+    }
+
+    .service-orbit.reverse{
+      animation-direction:reverse;
+    }
+
     .service-card{
       position:absolute;
-      width:250px;
-      height:170px;
+      top:50%;
+      left:50%;
+      width:var(--card-w);
+      height:var(--card-h);
+      margin-left:calc(var(--card-w) / -2);
+      margin-top:calc(var(--card-h) / -2);
+      transform:
+        rotate(var(--angle))
+        translateY(calc(var(--radius) * -1))
+        rotate(calc(var(--angle) * -1))
+        rotate(var(--tilt));
+      transform-origin:center center;
       border-radius:24px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,.10);
       box-shadow:var(--shadow);
       background:#111;
       transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      pointer-events:auto;
       animation:floatCard 4.8s ease-in-out infinite;
-      transform-origin:center center;
     }
 
     .service-card img{
@@ -597,124 +614,25 @@
     }
 
     .service-card:hover{
-      transform:scale(1.07) rotate(var(--rotate));
-      border-color:rgba(188,141,93,.38);
-      box-shadow:0 30px 90px rgba(0,0,0,.42);
-      z-index:30;
+      border-color:rgba(188,141,93,.42);
+      box-shadow:0 34px 100px rgba(0,0,0,.44);
     }
 
     .service-card:hover img{
-      transform:scale(1.09);
+      transform:scale(1.08);
     }
 
-    .service-card.one{
-      top:18px;
-      left:70px;
-      --rotate:-8deg;
-      transform:rotate(-8deg);
-      animation-delay:0s;
-    }
-
-    .service-card.two{
-      top:40px;
-      left:365px;
-      width:230px;
-      height:156px;
-      --rotate:-2deg;
-      transform:rotate(-2deg);
-      animation-delay:.35s;
-    }
-
-    .service-card.three{
-      top:38px;
-      right:355px;
-      width:230px;
-      height:156px;
-      --rotate:3deg;
-      transform:rotate(3deg);
-      animation-delay:.65s;
-    }
-
-    .service-card.four{
-      top:30px;
-      right:65px;
-      width:252px;
-      height:172px;
-      --rotate:7deg;
-      transform:rotate(7deg);
-      animation-delay:.95s;
-    }
-
-    .service-card.five{
-      top:248px;
-      left:18px;
-      width:238px;
-      height:162px;
-      --rotate:-6deg;
-      transform:rotate(-6deg);
-      animation-delay:1.2s;
-    }
-
-    .service-card.six{
-      top:265px;
-      right:28px;
-      width:222px;
-      height:150px;
-      --rotate:6deg;
-      transform:rotate(6deg);
-      animation-delay:1.55s;
-    }
-
-    .service-card.seven{
-      bottom:150px;
-      left:78px;
-      width:270px;
-      height:182px;
-      --rotate:5deg;
-      transform:rotate(5deg);
-      animation-delay:1.85s;
-    }
-
-    .service-card.eight{
-      bottom:150px;
-      right:78px;
-      width:246px;
-      height:166px;
-      --rotate:-7deg;
-      transform:rotate(-7deg);
-      animation-delay:2.1s;
-    }
-
-    .service-card.nine{
-      bottom:28px;
-      left:265px;
-      width:220px;
-      height:148px;
-      --rotate:-4deg;
-      transform:rotate(-4deg);
-      animation-delay:2.35s;
-    }
-
-    .service-card.ten{
-      bottom:28px;
-      left:50%;
-      margin-left:-110px;
-      width:230px;
-      height:154px;
-      --rotate:0deg;
-      transform:rotate(0deg);
-      animation-delay:2.65s;
-    }
-
-    .service-card.eleven{
-      bottom:28px;
-      right:255px;
-      width:220px;
-      height:148px;
-      --rotate:4deg;
-      transform:rotate(4deg);
-      animation-delay:2.95s;
-    }
+    .service-card.s1{ --angle: 8deg;   --tilt:-8deg; --card-w:250px; --card-h:170px; --radius:420px; animation-delay:0s; }
+    .service-card.s2{ --angle: 42deg;  --tilt:6deg;  --card-w:220px; --card-h:148px; --radius:395px; animation-delay:.35s; }
+    .service-card.s3{ --angle: 78deg;  --tilt:2deg;  --card-w:228px; --card-h:154px; --radius:385px; animation-delay:.7s; }
+    .service-card.s4{ --angle: 112deg; --tilt:7deg;  --card-w:246px; --card-h:168px; --radius:415px; animation-delay:1s; }
+    .service-card.s5{ --angle: 148deg; --tilt:-6deg; --card-w:234px; --card-h:158px; --radius:400px; animation-delay:1.35s; }
+    .service-card.s6{ --angle: 182deg; --tilt:5deg;  --card-w:240px; --card-h:162px; --radius:430px; animation-delay:1.7s; }
+    .service-card.s7{ --angle: 215deg; --tilt:-7deg; --card-w:224px; --card-h:150px; --radius:395px; animation-delay:2.05s; }
+    .service-card.s8{ --angle: 250deg; --tilt:4deg;  --card-w:248px; --card-h:168px; --radius:420px; animation-delay:2.4s; }
+    .service-card.s9{ --angle: 286deg; --tilt:-4deg; --card-w:216px; --card-h:146px; --radius:390px; animation-delay:2.75s; }
+    .service-card.s10{ --angle: 320deg; --tilt:3deg; --card-w:232px; --card-h:156px; --radius:405px; animation-delay:3.1s; }
+    .service-card.s11{ --angle: 350deg; --tilt:-3deg; --card-w:222px; --card-h:148px; --radius:435px; animation-delay:3.45s; }
 
     .blog-grid{
       display:grid;
@@ -891,15 +809,11 @@
     }
 
     @keyframes floatCard{
-      0%,100%{
-        translate:0 0;
-      }
-      50%{
-        translate:0 -10px;
-      }
+      0%,100%{ translate:0 0; }
+      50%{ translate:0 -10px; }
     }
 
-    @keyframes orbitSpin{
+    @keyframes spinOrbit{
       from{ transform:rotate(0deg); }
       to{ transform:rotate(360deg); }
     }
@@ -946,36 +860,12 @@
       }
 
       .services-scatter{
-        min-height:980px;
+        min-height:920px;
       }
 
-      .services-orbit{
-        width:min(100%, 980px);
-        height:860px;
+      .service-orbit{
+        transform:scale(.88);
       }
-
-      .service-card{
-        width:220px;
-        height:148px;
-      }
-
-      .service-card.two,
-      .service-card.three{
-        width:210px;
-        height:142px;
-      }
-
-      .service-card.one{ left:30px; top:32px; }
-      .service-card.two{ left:255px; top:42px; }
-      .service-card.three{ right:250px; top:42px; }
-      .service-card.four{ right:28px; top:36px; }
-      .service-card.five{ left:14px; top:278px; }
-      .service-card.six{ right:14px; top:285px; }
-      .service-card.seven{ left:44px; bottom:148px; }
-      .service-card.eight{ right:40px; bottom:148px; }
-      .service-card.nine{ left:180px; bottom:24px; }
-      .service-card.ten{ bottom:20px; left:50%; margin-left:-105px; }
-      .service-card.eleven{ right:176px; bottom:24px; }
     }
 
     @media (max-width:760px){
@@ -1071,34 +961,38 @@
         padding:0;
       }
 
-      .services-orbit{
-        animation:none;
+      .services-center-copy{
+        width:100%;
+        padding:28px 22px;
+      }
+
+      .service-orbit{
+        position:relative;
+        top:auto;
+        left:auto;
         width:100%;
         height:auto;
+        margin:0;
+        animation:none;
         display:grid;
         gap:18px;
       }
 
-      .services-center-copy{
+      .service-card{
         position:relative;
         top:auto;
         left:auto;
-        transform:none;
-        width:100%;
-        order:1;
-        margin-bottom:8px;
-      }
-
-      .service-card{
-        position:relative;
         width:100% !important;
         height:220px !important;
-        top:auto !important;
-        left:auto !important;
-        right:auto !important;
-        bottom:auto !important;
-        margin:0 !important;
+        margin:0;
         transform:none !important;
+        animation:floatCard 4.8s ease-in-out infinite;
+      }
+
+      .service-card.s1,.service-card.s2,.service-card.s3,.service-card.s4,.service-card.s5,
+      .service-card.s6,.service-card.s7,.service-card.s8,.service-card.s9,.service-card.s10,.service-card.s11{
+        --card-w:100%;
+        --card-h:220px;
       }
     }
   </style>
@@ -1255,58 +1149,51 @@
   <section class="section" id="services">
     <div class="container">
       <div class="services-scatter" data-reveal>
-        <div class="services-orbit">
-          <article class="service-card one">
+        <div class="service-orbit" style="--orbit-size: 940px; --orbit-speed: 23s;">
+          <article class="service-card s1">
             <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80" alt="Banner image 1">
           </article>
-
-          <article class="service-card two">
-            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80" alt="Banner image 2">
-          </article>
-
-          <article class="service-card three">
+          <article class="service-card s3">
             <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80" alt="Banner image 3">
           </article>
-
-          <article class="service-card four">
-            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&q=80" alt="Banner image 4">
-          </article>
-
-          <article class="service-card five">
+          <article class="service-card s5">
             <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80" alt="Banner image 5">
           </article>
-
-          <article class="service-card six">
-            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80" alt="Banner image 6">
-          </article>
-
-          <article class="service-card seven">
+          <article class="service-card s7">
             <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1000&q=80" alt="Banner image 7">
           </article>
-
-          <article class="service-card eight">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" alt="Banner image 8">
-          </article>
-
-          <article class="service-card nine">
+          <article class="service-card s9">
             <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1000&q=80" alt="Banner image 9">
           </article>
-
-          <article class="service-card ten">
-            <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=1000&q=80" alt="Banner image 10">
-          </article>
-
-          <article class="service-card eleven">
+          <article class="service-card s11">
             <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80" alt="Banner image 11">
           </article>
+        </div>
 
-          <div class="services-center-copy">
-            <span class="kicker">Services</span>
-            <h3>A visual section for image, branding, and presence.</h3>
-            <p>
-              These large frames are designed for featured imagery. Each one fades into the next to create a clean and continuous visual rhythm.
-            </p>
-          </div>
+        <div class="service-orbit reverse" style="--orbit-size: 760px; --orbit-speed: 18s;">
+          <article class="service-card s2">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80" alt="Banner image 2">
+          </article>
+          <article class="service-card s4">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&q=80" alt="Banner image 4">
+          </article>
+          <article class="service-card s6">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80" alt="Banner image 6">
+          </article>
+          <article class="service-card s8">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" alt="Banner image 8">
+          </article>
+          <article class="service-card s10">
+            <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=1000&q=80" alt="Banner image 10">
+          </article>
+        </div>
+
+        <div class="services-center-copy">
+          <span class="kicker">Services</span>
+          <h3>A visual section for image, branding, and presence.</h3>
+          <p>
+            These large frames are designed for featured imagery. Each one fades into the next to create a clean and continuous visual rhythm.
+          </p>
         </div>
       </div>
     </div>
