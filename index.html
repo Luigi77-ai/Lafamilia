@@ -1,35 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La Familia Media | Design, Web, Photo & Print</title>
+  <title>LA FAMILIA</title>
   <meta
     name="description"
-    content="La Familia Media creates elegant brand experiences through graphic design, websites, photography, printing and visual storytelling."
+    content="LA FAMILIA es un espacio digital para honrar recuerdos, celebrar la historia compartida y mantener vivos los momentos que nos unen."
   />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
+
   <style>
     :root {
-      --bg: #0b0b0c;
-      --bg-soft: #111214;
+      --bg: #0f1114;
+      --bg-soft: #171a1f;
       --panel: rgba(255,255,255,0.04);
       --panel-2: rgba(255,255,255,0.06);
       --border: rgba(255,255,255,0.09);
-      --text: #f6f2ea;
-      --muted: rgba(246,242,234,0.72);
-      --faint: rgba(246,242,234,0.44);
-      --lime: #b7ff65;
-      --lime-deep: #92d84a;
-      --white: #ffffff;
-      --max: 1280px;
-      --radius: 22px;
-      --shadow: 0 20px 80px rgba(0,0,0,0.35);
+      --text: #f6efe7;
+      --muted: rgba(246,239,231,0.72);
+      --faint: rgba(246,239,231,0.42);
+      --accent: #b68b5a;
+      --accent-soft: rgba(182,139,90,0.14);
+      --beige: #f4e6d2;
+      --shadow: 0 24px 80px rgba(0,0,0,0.34);
+      --radius: 26px;
+      --max: 1320px;
+      --transition: 320ms cubic-bezier(.16,1,.3,1);
     }
 
     * {
@@ -44,18 +47,13 @@
 
     body {
       font-family: "Inter", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(183,255,101,0.07), transparent 30%),
-        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04), transparent 20%),
-        linear-gradient(180deg, #0a0a0b 0%, #0c0d0f 100%);
       color: var(--text);
-      line-height: 1.5;
+      background:
+        radial-gradient(circle at top left, rgba(182,139,90,0.10), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(255,255,255,0.04), transparent 18%),
+        linear-gradient(180deg, #0c0d10 0%, #121419 100%);
       overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+      line-height: 1.55;
     }
 
     img,
@@ -64,319 +62,170 @@
       max-width: 100%;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+      color: inherit;
+    }
+
     .container {
       width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
     }
 
-    .top-bar {
-      width: 100%;
-      overflow: hidden;
-      background: var(--lime);
-      color: #0b0b0c;
-      border-bottom: 1px solid rgba(0,0,0,0.12);
-      position: relative;
-      z-index: 60;
-    }
-
-    .top-bar-track {
-      display: flex;
-      width: max-content;
-      white-space: nowrap;
-      animation: marquee 24s linear infinite;
-      font-family: "Syne", sans-serif;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.84rem;
-    }
-
-    .top-bar-group {
-      display: flex;
-      align-items: center;
-      gap: 38px;
-      padding: 14px 24px;
-    }
-
-    .top-bar-group span::after {
-      content: "•";
-      margin-left: 38px;
-      opacity: 0.7;
-    }
-
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 100;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      background: rgba(11,11,12,0.66);
+      background: rgba(12, 13, 16, 0.62);
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .header-inner {
-      width: min(calc(100% - 32px), 1380px);
-      margin: 0 auto;
-      min-height: 78px;
+      min-height: 86px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      position: relative;
-    }
-
-    .menu-trigger,
-    .menu-close {
-      border: 0;
-      background: transparent;
-      color: var(--text);
-      cursor: pointer;
-      font: inherit;
-    }
-
-    .menu-trigger {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.8rem;
-    }
-
-    .menu-trigger-lines {
-      display: inline-grid;
-      gap: 5px;
-    }
-
-    .menu-trigger-lines span {
-      width: 22px;
-      height: 1.5px;
-      background: var(--text);
-      display: block;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      gap: 20px;
     }
 
     .brand {
-      font-family: "Syne", sans-serif;
-      font-size: 1.08rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
-    .header-right {
+    .nav {
       display: flex;
       align-items: center;
-      gap: 14px;
-    }
-
-    .header-pill {
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      color: var(--muted);
-      font-size: 0.86rem;
-    }
-
-    .menu-overlay {
-      position: fixed;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(12,12,12,0.92), rgba(12,12,12,0.98)),
-        radial-gradient(circle at top left, rgba(183,255,101,0.09), transparent 25%);
-      z-index: 100;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 0.35s ease, visibility 0.35s ease;
-    }
-
-    .menu-overlay.active {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .menu-panel {
-      width: min(calc(100% - 32px), 1280px);
-      margin: 24px auto;
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      background: rgba(255,255,255,0.03);
-      box-shadow: var(--shadow);
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      overflow: hidden;
-      transform: translateY(16px);
-      transition: transform 0.35s ease;
-    }
-
-    .menu-overlay.active .menu-panel {
-      transform: translateY(0);
-    }
-
-    .menu-main,
-    .menu-side {
-      padding: 32px;
-    }
-
-    .menu-main {
-      border-right: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .menu-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 34px;
-    }
-
-    .menu-label {
-      color: var(--faint);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.76rem;
-    }
-
-    .menu-close {
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-    }
-
-    .menu-links {
-      list-style: none;
-      display: grid;
-      gap: 14px;
-    }
-
-    .menu-links a {
-      display: inline-flex;
-      font-family: "Syne", sans-serif;
-      font-size: clamp(2rem, 4vw, 4.3rem);
-      line-height: 0.94;
-      letter-spacing: -0.05em;
-      transition: transform 0.28s ease, color 0.28s ease;
-    }
-
-    .menu-links a:hover {
-      transform: translateX(10px);
-      color: var(--lime);
-    }
-
-    .menu-side {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       gap: 24px;
-    }
-
-    .menu-copy h3 {
-      font-family: "Syne", sans-serif;
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .menu-copy p {
-      color: var(--muted);
-      max-width: 34ch;
-    }
-
-    .social-list {
-      display: flex;
-      align-items: center;
-      gap: 12px;
       flex-wrap: wrap;
     }
 
-    .social-list a {
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      font-size: 0.92rem;
-      transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    .nav a {
+      color: var(--muted);
+      font-size: 0.88rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color var(--transition);
     }
 
-    .social-list a:hover {
+    .nav a:hover {
+      color: var(--text);
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid rgba(182,139,90,0.28);
+      background: var(--accent-soft);
+      color: var(--text);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: transform var(--transition), border-color var(--transition), background var(--transition);
+    }
+
+    .header-cta:hover {
       transform: translateY(-2px);
-      border-color: rgba(183,255,101,0.42);
-      color: var(--lime);
+      border-color: rgba(182,139,90,0.52);
+      background: rgba(182,139,90,0.2);
     }
 
     .hero {
-      min-height: calc(100vh - 78px);
       position: relative;
+      min-height: 100vh;
       display: flex;
-      align-items: center;
+      align-items: end;
       overflow: hidden;
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    .hero::before {
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-media::after {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(8,8,8,0.42), rgba(8,8,8,0.82)),
-        radial-gradient(circle at 20% 20%, rgba(183,255,101,0.10), transparent 24%);
-      z-index: 0;
+        linear-gradient(180deg, rgba(7,8,10,0.28), rgba(7,8,10,0.72) 60%, rgba(7,8,10,0.92) 100%),
+        radial-gradient(circle at 20% 18%, rgba(182,139,90,0.18), transparent 22%);
+    }
+
+    .hero-media video,
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.04);
     }
 
     .hero-grid {
       position: relative;
-      z-index: 1;
-      width: min(calc(100% - 32px), 1320px);
+      z-index: 2;
+      width: min(calc(100% - 32px), 1380px);
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
+      gap: 28px;
       align-items: end;
-      padding: 72px 0 80px;
+      padding: 132px 0 72px;
+    }
+
+    .hero-copy {
+      max-width: 720px;
     }
 
     .eyebrow {
       display: inline-block;
       margin-bottom: 18px;
-      color: var(--lime);
+      color: var(--beige);
       font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
       letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.82;
     }
 
     .hero h1 {
-      font-family: "Syne", sans-serif;
-      font-size: clamp(3.2rem, 10vw, 8rem);
-      line-height: 0.9;
-      letter-spacing: -0.06em;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(4rem, 11vw, 8.8rem);
+      line-height: 0.88;
+      font-weight: 600;
+      letter-spacing: -0.04em;
       max-width: 8ch;
     }
 
-    .hero h1 span {
-      color: var(--lime);
-    }
-
     .hero-copy p {
-      margin-top: 22px;
-      max-width: 56ch;
+      margin-top: 24px;
       color: var(--muted);
-      font-size: clamp(1rem, 1.5vw, 1.12rem);
+      font-size: clamp(1rem, 1.3vw, 1.12rem);
+      max-width: 58ch;
     }
 
     .hero-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-top: 28px;
+      margin-top: 32px;
     }
 
     .btn-primary,
@@ -387,444 +236,344 @@
       min-height: 50px;
       padding: 0 22px;
       border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 700;
+      font-size: 0.84rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      transition: transform 0.25s ease, filter 0.25s ease, border-color 0.25s ease;
+      letter-spacing: 0.12em;
+      transition: transform var(--transition), filter var(--transition), border-color var(--transition), background var(--transition);
     }
 
     .btn-primary {
-      background: var(--lime);
-      color: #0b0b0c;
+      background: var(--beige);
+      color: #111317;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      filter: brightness(1.04);
+      filter: brightness(1.02);
     }
 
     .btn-secondary {
-      border: 1px solid var(--border);
+      border: 1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.03);
       color: var(--text);
     }
 
     .btn-secondary:hover {
       transform: translateY(-2px);
-      border-color: rgba(183,255,101,0.36);
+      border-color: rgba(182,139,90,0.5);
+      background: rgba(182,139,90,0.08);
     }
 
-    .hero-visual {
-      position: relative;
-      min-height: 560px;
-      display: grid;
-      place-items: center;
-    }
-
-    .hero-card {
-      position: absolute;
-      border-radius: 28px;
-      overflow: hidden;
+    .hero-note {
+      justify-self: end;
+      align-self: end;
+      max-width: 380px;
+      padding: 24px;
+      border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      background: rgba(13,14,17,0.42);
+      backdrop-filter: blur(12px);
       box-shadow: var(--shadow);
-      animation: floatCard 6s ease-in-out infinite;
     }
 
-    .hero-card.large {
-      width: min(420px, 100%);
-      aspect-ratio: 0.85;
-      right: 30px;
-      top: 10px;
-      z-index: 2;
-    }
-
-    .hero-card.small {
-      width: min(240px, 44%);
-      aspect-ratio: 0.95;
-      left: 20px;
-      bottom: 20px;
-      z-index: 3;
-      animation-delay: -2s;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(5,5,5,0.08), rgba(5,5,5,0.72)),
-        var(--card-image) center/cover no-repeat;
-    }
-
-    .hero-card-content {
-      position: absolute;
-      inset: auto 18px 18px 18px;
-      z-index: 2;
-      display: grid;
-      gap: 8px;
-    }
-
-    .hero-card-content span {
-      color: var(--lime);
+    .hero-note span {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--beige);
       font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
+      opacity: 0.78;
     }
 
-    .hero-card-content strong {
-      font-family: "Syne", sans-serif;
-      font-size: 1.28rem;
-      line-height: 0.98;
-    }
-
-    .hero-card-content p {
-      color: rgba(246,242,234,0.82);
-      font-size: 0.92rem;
-      max-width: 28ch;
+    .hero-note p {
+      color: rgba(246,239,231,0.82);
+      font-size: 0.98rem;
     }
 
     .section {
-      padding: 96px 0;
+      padding: 110px 0;
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .section-header {
       display: grid;
-      grid-template-columns: 0.75fr 1fr;
-      gap: 32px;
+      grid-template-columns: 0.8fr 1fr;
+      gap: 30px;
       align-items: end;
-      margin-bottom: 34px;
+      margin-bottom: 44px;
     }
 
     .section-kicker {
       display: inline-block;
       margin-bottom: 14px;
-      color: var(--lime);
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
+      color: var(--accent);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
     .section h2 {
-      font-family: "Syne", sans-serif;
-      font-size: clamp(2.2rem, 6vw, 4.8rem);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.5rem, 6vw, 5.4rem);
       line-height: 0.92;
-      letter-spacing: -0.05em;
-      max-width: 10ch;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      max-width: 9ch;
     }
 
     .section-header p {
       color: var(--muted);
-      max-width: 56ch;
+      max-width: 58ch;
       justify-self: end;
     }
 
-    .services-grid {
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .intro-card,
+    .intro-visual {
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+    }
+
+    .intro-card {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 520px;
+    }
+
+    .intro-card p {
+      color: var(--muted);
+      max-width: 60ch;
+      margin-bottom: 18px;
+    }
+
+    .intro-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .intro-list div {
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+    }
+
+    .intro-list strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .intro-visual {
+      min-height: 520px;
+      position: relative;
+    }
+
+    .intro-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .intro-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(8,8,10,0.10), rgba(8,8,10,0.46));
+    }
+
+    .members-grid,
+    .pillars-grid,
+    .stories-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .members-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .pillars-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stories-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .member-card,
+    .pillar-card,
+    .story-card {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+    }
+
+    .member-photo,
+    .pillar-photo,
+    .story-photo {
+      aspect-ratio: 0.9;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .member-photo img,
+    .pillar-photo img,
+    .story-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 900ms ease;
+    }
+
+    .member-card:hover img,
+    .pillar-card:hover img,
+    .story-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .member-content,
+    .pillar-content,
+    .story-content {
+      padding: 22px;
+    }
+
+    .member-content span,
+    .pillar-content span,
+    .story-content span,
+    .testimonial-card span,
+    .album-card span {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .member-content h3,
+    .pillar-content h3,
+    .story-content h3,
+    .album-card h3,
+    .testimonial-card h3,
+    .contact-card h3,
+    .contact-form h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 0.96;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .member-content p,
+    .pillar-content p,
+    .story-content p,
+    .album-card p,
+    .testimonial-card p,
+    .contact-card p,
+    .contact-form p {
+      color: var(--muted);
+    }
+
+    .testimonials-wrap {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 20px;
     }
 
-    .service-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 24px;
+    .testimonial-card {
+      padding: 28px;
+      border-radius: 26px;
       border: 1px solid var(--border);
       background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      padding: 24px;
-      min-height: 280px;
+      box-shadow: var(--shadow);
+      min-height: 250px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      isolation: isolate;
-      transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(183,255,101,0.34);
-    }
-
-    .service-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -40px -40px auto;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(183,255,101,0.12), transparent 70%);
-      z-index: -1;
-    }
-
-    .service-card span {
-      color: var(--faint);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .service-card h3 {
-      font-family: "Syne", sans-serif;
-      font-size: 1.42rem;
+    .testimonial-quote {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.9rem;
       line-height: 1;
-      margin: 18px 0 14px;
+      color: var(--beige);
+      margin-bottom: 12px;
     }
 
-    .service-card p {
-      color: var(--muted);
-      max-width: 28ch;
+    .testimonial-meta {
+      margin-top: 18px;
+      color: var(--faint);
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
     }
 
-    .service-card a {
-      margin-top: 26px;
-      color: var(--lime);
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .portfolio-grid {
+    .album-layout {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 20px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
     }
 
-    .portfolio-main,
-    .portfolio-stack article {
+    .album-main,
+    .album-stack article {
       position: relative;
-      border-radius: 28px;
+      border-radius: 30px;
       overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
       min-height: 340px;
-      border: 1px solid rgba(255,255,255,0.08);
       box-shadow: var(--shadow);
     }
 
-    .portfolio-main {
-      min-height: 700px;
+    .album-main {
+      min-height: 760px;
     }
 
-    .portfolio-stack {
+    .album-stack {
       display: grid;
-      gap: 20px;
+      gap: 22px;
     }
 
-    .portfolio-main::before,
-    .portfolio-stack article::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(7,7,7,0.14), rgba(7,7,7,0.78)),
-        var(--bg-image) center/cover no-repeat;
-      transition: transform 0.5s ease;
-    }
-
-    .portfolio-main:hover::before,
-    .portfolio-stack article:hover::before {
-      transform: scale(1.05);
-    }
-
-    .portfolio-content {
-      position: absolute;
-      inset: auto 22px 22px 22px;
-      z-index: 2;
-      display: grid;
-      gap: 10px;
-    }
-
-    .portfolio-content span {
-      color: var(--lime);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .portfolio-content h3 {
-      font-family: "Syne", sans-serif;
-      font-size: 1.7rem;
-      line-height: 0.96;
-    }
-
-    .portfolio-content p {
-      color: rgba(246,242,234,0.82);
-      max-width: 36ch;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .about-visual {
-      min-height: 520px;
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      position: relative;
-      box-shadow: var(--shadow);
-    }
-
-    .about-visual::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(9,9,9,0.14), rgba(9,9,9,0.62)),
-        url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-    }
-
-    .about-badge {
-      position: absolute;
-      left: 22px;
-      bottom: 22px;
-      z-index: 2;
-      max-width: 280px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(11,11,12,0.62);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
-      padding: 18px;
-    }
-
-    .about-badge span {
-      color: var(--lime);
-      display: inline-block;
-      margin-bottom: 10px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .about-badge p {
-      color: rgba(246,242,234,0.82);
-      font-size: 0.95rem;
-    }
-
-    .about-copy p {
-      color: var(--muted);
-      max-width: 58ch;
-      margin-bottom: 18px;
-    }
-
-    .about-points {
-      display: grid;
-      gap: 18px;
-      margin-top: 26px;
-    }
-
-    .about-point {
-      padding: 18px 20px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-    }
-
-    .about-point h3 {
-      font-family: "Syne", sans-serif;
-      font-size: 1.12rem;
-      margin-bottom: 8px;
-    }
-
-    .about-point p {
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .about-orbit-wrap {
-      margin-top: 3rem;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .about-orbit {
-      position: relative;
-      width: min(100%, 960px);
-      height: 540px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .about-orbit-track {
-      position: absolute;
-      inset: 0;
-      animation: lafamiliaOrbit 26s linear infinite;
-      transform-origin: 50% 50%;
-    }
-
-    .orbit-panel {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 210px;
-      aspect-ratio: 1 / 1;
-      margin-left: -105px;
-      margin-top: -105px;
-      overflow: hidden;
-      border-radius: 0;
-      background: #111;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-      transform:
-        rotate(var(--angle))
-        translateY(calc(var(--radius) * -1))
-        rotate(calc(var(--angle) * -1));
-    }
-
-    .orbit-panel img {
+    .album-main img,
+    .album-stack article img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
-    .orbit-panel-1 { --angle: 0deg; --radius: 225px; }
-    .orbit-panel-2 { --angle: 60deg; --radius: 225px; }
-    .orbit-panel-3 { --angle: 120deg; --radius: 225px; }
-    .orbit-panel-4 { --angle: 180deg; --radius: 225px; }
-    .orbit-panel-5 { --angle: 240deg; --radius: 225px; }
-    .orbit-panel-6 { --angle: 300deg; --radius: 225px; }
+    .album-main::after,
+    .album-stack article::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7,8,10,0.08), rgba(7,8,10,0.72));
+    }
 
-    .about-orbit-center {
-      position: relative;
+    .album-card {
+      position: absolute;
+      inset: auto 22px 22px 22px;
       z-index: 2;
-      text-align: center;
-      max-width: 320px;
-      pointer-events: none;
-    }
-
-    .about-orbit-label {
-      display: inline-block;
-      margin-bottom: 0.85rem;
-      letter-spacing: 0.16em;
-      font-size: 0.72rem;
-      opacity: 0.72;
-    }
-
-    .about-orbit-center h3 {
-      margin: 0;
-      line-height: 1.02;
-      font-family: "Syne", sans-serif;
-      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
-    }
-
-    .about-orbit-center h3 + h3 {
-      margin-top: 0.28rem;
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: 0.92fr 1.08fr;
-      gap: 20px;
+      gap: 22px;
     }
 
     .contact-card,
@@ -832,62 +581,43 @@
       border-radius: 28px;
       border: 1px solid var(--border);
       background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      padding: 28px;
+      padding: 30px;
       box-shadow: var(--shadow);
-    }
-
-    .contact-card h3,
-    .contact-form h3 {
-      font-family: "Syne", sans-serif;
-      font-size: 1.8rem;
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-
-    .contact-card p,
-    .contact-form p {
-      color: var(--muted);
-      max-width: 42ch;
     }
 
     .contact-items {
       display: grid;
       gap: 14px;
-      margin-top: 26px;
+      margin-top: 24px;
     }
 
     .contact-item {
-      display: grid;
-      gap: 6px;
       padding: 16px 18px;
       border-radius: 18px;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(255,255,255,0.08);
       background: rgba(255,255,255,0.03);
     }
 
     .contact-item span {
+      display: block;
+      margin-bottom: 6px;
       color: var(--faint);
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-    }
-
-    .contact-item strong {
-      font-size: 1rem;
     }
 
     form {
       display: grid;
       gap: 14px;
-      margin-top: 26px;
+      margin-top: 22px;
     }
 
     label {
       display: grid;
       gap: 8px;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.94rem;
     }
 
     input,
@@ -897,18 +627,24 @@
       border-radius: 18px;
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.03);
-      color: var(--text);
       padding: 14px 16px;
-      font: inherit;
-      resize: vertical;
+      outline: none;
+      transition: border-color var(--transition), background var(--transition);
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(182,139,90,0.52);
+      background: rgba(182,139,90,0.06);
     }
 
     textarea {
       min-height: 150px;
+      resize: vertical;
     }
 
-    .site-footer {
-      padding: 26px 0 34px;
+    .footer {
+      padding: 30px 0 42px;
     }
 
     .footer-inner {
@@ -922,380 +658,383 @@
     }
 
     .footer-brand {
-      font-family: "Syne", sans-serif;
-      text-transform: uppercase;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.2rem;
       letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    [data-animate] {
+    [data-reveal] {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(24px);
+      transition: opacity 900ms ease, transform 900ms ease;
     }
 
-    [data-animate].visible {
+    [data-reveal].visible {
       opacity: 1;
       transform: translateY(0);
-    }
-
-    @keyframes marquee {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    @keyframes floatCard {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    @keyframes lafamiliaOrbit {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
     }
 
     @media (max-width: 1120px) {
       .hero-grid,
       .section-header,
-      .portfolio-grid,
-      .about-grid,
-      .contact-grid,
-      .menu-panel {
+      .intro-grid,
+      .album-layout,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .menu-main {
-        border-right: 0;
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-      }
-
-      .services-grid {
+      .members-grid,
+      .stories-grid,
+      .testimonials-wrap {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .portfolio-main {
-        min-height: 460px;
+      .hero-note {
+        justify-self: start;
+        max-width: 100%;
       }
 
-      .about-orbit {
-        height: 470px;
-      }
-
-      .orbit-panel {
-        width: 170px;
-        margin-left: -85px;
-        margin-top: -85px;
-      }
-
-      .orbit-panel-1,
-      .orbit-panel-2,
-      .orbit-panel-3,
-      .orbit-panel-4,
-      .orbit-panel-5,
-      .orbit-panel-6 {
-        --radius: 190px;
+      .album-main {
+        min-height: 520px;
       }
     }
 
-    @media (max-width: 760px) {
-      .top-bar-group {
-        gap: 22px;
-        padding: 12px 16px;
+    @media (max-width: 780px) {
+      .header-inner {
+        min-height: auto;
+        padding: 18px 0;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .header-pill {
-        display: none;
+      .nav {
+        gap: 12px 16px;
       }
 
-      .hero-grid,
-      .section {
-        padding-top: 64px;
+      .hero-grid {
+        padding: 112px 0 56px;
       }
 
-      .services-grid {
+      .members-grid,
+      .pillars-grid,
+      .stories-grid,
+      .testimonials-wrap {
         grid-template-columns: 1fr;
       }
 
-      .hero-visual {
-        min-height: 420px;
+      .section {
+        padding: 84px 0;
       }
 
-      .hero-card.large {
-        width: min(310px, 82%);
-        right: 0;
-      }
-
-      .hero-card.small {
-        width: min(200px, 52%);
-        left: 0;
-      }
-
-      .portfolio-main,
-      .portfolio-stack article,
-      .about-visual {
+      .album-main,
+      .album-stack article,
+      .intro-card,
+      .intro-visual {
         min-height: 320px;
       }
 
-      .about-orbit {
-        height: 380px;
-      }
-
-      .orbit-panel {
-        width: 118px;
-        margin-left: -59px;
-        margin-top: -59px;
-      }
-
-      .orbit-panel-1,
-      .orbit-panel-2,
-      .orbit-panel-3,
-      .orbit-panel-4,
-      .orbit-panel-5,
-      .orbit-panel-6 {
-        --radius: 148px;
-      }
-
-      .about-orbit-center {
-        max-width: 210px;
-      }
-
       .contact-card,
-      .contact-form,
-      .menu-main,
-      .menu-side {
-        padding: 22px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
+      .contact-form {
+        padding: 24px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="top-bar">
-    <div class="top-bar-track">
-      <div class="top-bar-group">
-        <span>Graphic Design</span>
-        <span>Web Design</span>
-        <span>Photography</span>
-        <span>Printing</span>
-        <span>Branding</span>
-        <span>Creative Direction</span>
-      </div>
-      <div class="top-bar-group" aria-hidden="true">
-        <span>Graphic Design</span>
-        <span>Web Design</span>
-        <span>Photography</span>
-        <span>Printing</span>
-        <span>Branding</span>
-        <span>Creative Direction</span>
-      </div>
-    </div>
-  </div>
-
   <header class="site-header">
-    <div class="header-inner">
-      <button class="menu-trigger" aria-expanded="false" aria-controls="menuOverlay">
-        <span>Menu</span>
-        <span class="menu-trigger-lines" aria-hidden="true">
-          <span></span>
-          <span></span>
-        </span>
-      </button>
+    <div class="container header-inner">
+      <a href="#inicio" class="brand">LA FAMILIA</a>
 
-      <a href="#home" class="brand">LAFAMILIA</a>
+      <nav class="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#historia">Historia</a>
+        <a href="#miembros">Miembros</a>
+        <a href="#pilares">Pilares</a>
+        <a href="#recuerdos">Recuerdos</a>
+        <a href="#album">Álbum</a>
+        <a href="#historias">Historias</a>
+      </nav>
 
-      <div class="header-right">
-        <span class="header-pill">Design. Digital. Culture.</span>
-      </div>
+      <a href="#contacto" class="header-cta">Conectar</a>
     </div>
   </header>
 
-  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
-    <div class="menu-panel">
-      <div class="menu-main">
-        <div class="menu-top">
-          <span class="menu-label">Menu</span>
-          <button class="menu-close" aria-label="Close menu">Close</button>
-        </div>
+  <section class="hero" id="inicio">
+    <div class="hero-media">
+      <!-- REEMPLAZA ESTE VIDEO O IMAGEN DESPUÉS -->
+      <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=80">
+        <source src="https://cdn.coverr.co/videos/coverr-happy-family-at-the-beach-1564278732266?download=1080p" type="video/mp4" />
+      </video>
+    </div>
 
-        <ul class="menu-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+    <div class="hero-grid">
+      <div class="hero-copy" data-reveal>
+        <span class="eyebrow">Nuestra historia compartida</span>
+        <h1>LA FAMILIA</h1>
+        <p>
+          Un espacio para celebrar lo que hemos construido juntos: recuerdos, valores, tradiciones y
+          momentos que siguen dando forma a quienes somos. Esta página guarda la esencia de nuestra historia
+          y la proyecta con elegancia hacia todo lo que aún está por venir.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#historia" class="btn-primary">Explorar historia</a>
+          <a href="#album" class="btn-secondary">Ver álbum</a>
+        </div>
       </div>
 
-      <aside class="menu-side">
-        <div class="menu-copy">
-          <h3>Creative Studio</h3>
-          <p>
-            Elegant design, modern web experiences and visual content crafted for brands that want to
-            stand out with clarity and polish.
-          </p>
-        </div>
-
-        <div class="social-list">
-          <a href="#contact">Email</a>
-          <a href="#portfolio">Work</a>
-          <a href="#about">About</a>
-        </div>
+      <aside class="hero-note" data-reveal>
+        <span>Un legado vivo</span>
+        <p>
+          Aquí cada imagen, cada nombre y cada recuerdo tiene un lugar. Hoy comenzamos con una base visual
+          elegante; mañana la completaremos con sus fotos, sus videos y las historias reales que hacen única a esta familia.
+        </p>
       </aside>
     </div>
-  </div>
+  </section>
 
-  <section class="hero" id="home">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow" data-animate>Creative Studio</span>
-        <h1 data-animate>Welcome to the <span>Family</span></h1>
-        <p data-animate>
-          La Familia Media builds elegant brand experiences through graphic design, web design,
-          photography, printing and creative direction.
-        </p>
-
-        <div class="hero-actions" data-animate>
-          <a href="#services" class="btn-primary">Explore Services</a>
-          <a href="#portfolio" class="btn-secondary">View Work</a>
+  <section class="section" id="historia">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker" data-reveal>Nuestra historia</span>
+          <h2 data-reveal>Memoria, identidad y unión.</h2>
         </div>
+        <p data-reveal>
+          Esta familia se define por la cercanía, el esfuerzo compartido y los momentos que marcan generaciones.
+          Más allá de los años, hay una esencia que permanece: el cuidado mutuo, la alegría en lo cotidiano y
+          la capacidad de convertir instantes simples en recuerdos duraderos.
+        </p>
       </div>
 
-      <div class="hero-visual" data-animate>
-        <article
-          class="hero-card large"
-          style="--card-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80');"
-        >
-          <div class="hero-card-content">
-            <span>Visual Impact</span>
-            <strong>Elegant. Bold. Clear.</strong>
-            <p>Modern creative direction with premium brand presence.</p>
+      <div class="intro-grid">
+        <article class="intro-card" data-reveal>
+          <div>
+            <p>
+              Nuestra historia no se mide solamente en fechas, sino en abrazos, celebraciones, viajes,
+              sobremesas, aprendizajes y la presencia constante de quienes han estado ahí en cada etapa.
+            </p>
+            <p>
+              Esta página nace como una forma de honrar ese camino con una mirada elegante, íntima y contemporánea,
+              reuniendo en un solo lugar todo lo que representa a LA FAMILIA.
+            </p>
+          </div>
+
+          <div class="intro-list">
+            <div>
+              <strong>Valores que perduran</strong>
+              Respeto, cariño, trabajo, fe, cercanía y una fuerte conexión entre generaciones.
+            </div>
+            <div>
+              <strong>Momentos que nos forman</strong>
+              Cumpleaños, reuniones, viajes, tradiciones y nuevos comienzos que fortalecen el vínculo.
+            </div>
+            <div>
+              <strong>Una memoria compartida</strong>
+              Fotografías, videos y anécdotas que convierten esta historia en un legado vivo.
+            </div>
           </div>
         </article>
 
-        <article
-          class="hero-card small"
-          style="--card-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80');"
-        >
-          <div class="hero-card-content">
-            <span>Digital Presence</span>
-            <strong>Design that communicates.</strong>
+        <figure class="intro-visual" data-reveal>
+          <img
+            src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1400&q=80"
+            alt="Fotografía temporal para historia familiar"
+          />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="miembros">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker" data-reveal>Nuestros miembros</span>
+          <h2 data-reveal>Las personas que dan vida al hogar.</h2>
+        </div>
+        <p data-reveal>
+          Cada miembro aporta una energía distinta a la familia. Aquí puedes luego reemplazar estos perfiles
+          con nombres reales, fotos personales y pequeñas biografías que reflejen su personalidad y su lugar en esta historia.
+        </p>
+      </div>
+
+      <div class="members-grid">
+        <article class="member-card" data-reveal>
+          <div class="member-photo">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80" alt="Miembro de familia temporal 1" />
+          </div>
+          <div class="member-content">
+            <span>Miembro 01</span>
+            <h3>Nombre Apellido</h3>
+            <p>
+              Presencia cálida, espíritu generoso y una sensibilidad especial para mantener unida a la familia
+              en cada etapa importante.
+            </p>
+          </div>
+        </article>
+
+        <article class="member-card" data-reveal>
+          <div class="member-photo">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Miembro de familia temporal 2" />
+          </div>
+          <div class="member-content">
+            <span>Miembro 02</span>
+            <h3>Nombre Apellido</h3>
+            <p>
+              Carácter firme, visión positiva y una forma auténtica de dejar huella en cada encuentro y en cada recuerdo.
+            </p>
+          </div>
+        </article>
+
+        <article class="member-card" data-reveal>
+          <div class="member-photo">
+            <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80" alt="Miembro de familia temporal 3" />
+          </div>
+          <div class="member-content">
+            <span>Miembro 03</span>
+            <h3>Nombre Apellido</h3>
+            <p>
+              Alegría, creatividad y una energía que hace que cada momento compartido se sienta más vivo y especial.
+            </p>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="services">
+  <section class="section" id="pilares">
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="section-kicker" data-animate>Services</span>
-          <h2 data-animate>What we create.</h2>
+          <span class="section-kicker" data-reveal>Nuestros pilares</span>
+          <h2 data-reveal>El origen de todo lo valioso.</h2>
         </div>
-        <p data-animate>
-          We design visual identities, websites and content systems that help businesses show up with
-          clarity, confidence and consistency.
+        <p data-reveal>
+          Este espacio está pensado para honrar a quienes sembraron el carácter, la fe, el amor y las tradiciones
+          que hoy siguen acompañando a LA FAMILIA.
         </p>
       </div>
 
-      <div class="services-grid">
-        <article class="service-card" data-animate>
-          <div>
-            <span>Branding</span>
-            <h3>Design Systems</h3>
-            <p>Visual systems, identity direction and cohesive brand language.</p>
+      <div class="pillars-grid">
+        <article class="pillar-card" data-reveal>
+          <div class="pillar-photo">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=80" alt="Pilar familiar temporal 1" />
           </div>
-          <a href="#contact">Learn more</a>
+          <div class="pillar-content">
+            <span>Pilar fundador</span>
+            <h3>Nombre del Abuelo o Figura Central</h3>
+            <p>
+              Su ejemplo dejó una base firme de trabajo, integridad y amor por la familia, convirtiéndose en una referencia permanente para todos.
+            </p>
+          </div>
         </article>
 
-        <article class="service-card" data-animate>
-          <div>
-            <span>Web</span>
-            <h3>Modern Websites</h3>
-            <p>Modern websites designed to communicate clearly and convert better.</p>
+        <article class="pillar-card" data-reveal>
+          <div class="pillar-photo">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80" alt="Pilar familiar temporal 2" />
           </div>
-          <a href="#contact">Learn more</a>
-        </article>
-
-        <article class="service-card" data-animate>
-          <div>
-            <span>Content</span>
-            <h3>Content Production</h3>
-            <p>Photography, print and creative assets built for visibility and polish.</p>
+          <div class="pillar-content">
+            <span>Pilar fundador</span>
+            <h3>Nombre de la Abuela o Figura Central</h3>
+            <p>
+              Su sensibilidad, fortaleza y dedicación construyeron una memoria afectiva que aún hoy reúne, guía y abraza a toda la familia.
+            </p>
           </div>
-          <a href="#contact">Learn more</a>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="portfolio">
+  <section class="section" id="recuerdos">
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="section-kicker" data-animate>Portfolio</span>
-          <h2 data-animate>Selected visual direction.</h2>
+          <span class="section-kicker" data-reveal>Mensajes y recuerdos</span>
+          <h2 data-reveal>Palabras que permanecen.</h2>
         </div>
-        <p data-animate>
-          A look into premium brand presentation across digital, print and campaign-based creative
-          work.
+        <p data-reveal>
+          Estos testimonios son temporales y luego podrás sustituirlos por recuerdos reales, anécdotas familiares
+          y mensajes de personas cercanas.
         </p>
       </div>
 
-      <div class="portfolio-grid">
-        <article
-          class="portfolio-main"
-          data-animate
-          style="--bg-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80');"
-        >
-          <div class="portfolio-content">
-            <span>Campaign</span>
-            <h3>Refined visuals with impact.</h3>
-            <p>Creative direction, photography and design language tailored to elevate perception.</p>
+      <div class="testimonials-wrap">
+        <article class="testimonial-card" data-reveal>
+          <div>
+            <div class="testimonial-quote">“</div>
+            <p>
+              Siempre que pienso en esta familia, pienso en calidez, unión y una forma muy especial de hacer sentir a todos en casa.
+            </p>
+          </div>
+          <div class="testimonial-meta">Recuerdo temporal · Familiar cercano</div>
+        </article>
+
+        <article class="testimonial-card" data-reveal>
+          <div>
+            <div class="testimonial-quote">“</div>
+            <p>
+              Hay familias que se recuerdan por sus momentos; esta se recuerda por la manera en que convierte cada momento en algo inolvidable.
+            </p>
+          </div>
+          <div class="testimonial-meta">Mensaje temporal · Amistad de años</div>
+        </article>
+
+        <article class="testimonial-card" data-reveal>
+          <div>
+            <div class="testimonial-quote">“</div>
+            <p>
+              La energía de LA FAMILIA deja huella: cercanía, elegancia, fuerza y una historia que merece ser celebrada.
+            </p>
+          </div>
+          <div class="testimonial-meta">Texto temporal · Invitado especial</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="album">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker" data-reveal>Álbum familiar</span>
+          <h2 data-reveal>Momentos que merecen volver a verse.</h2>
+        </div>
+        <p data-reveal>
+          Esta galería funciona como base visual temporal. Luego podrás sustituir cada bloque con fotos y videos familiares
+          organizados por viajes, celebraciones, generaciones o años.
+        </p>
+      </div>
+
+      <div class="album-layout">
+        <article class="album-main" data-reveal>
+          <img src="https://images.unsplash.com/photo-1516589091380-5d8e87df6999?auto=format&fit=crop&w=1600&q=80" alt="Momento familiar principal temporal" />
+          <div class="album-card">
+            <span>Celebraciones</span>
+            <h3>Instantes que reúnen generaciones.</h3>
+            <p>
+              Un espacio para cumpleaños, aniversarios, reuniones especiales y todos esos días que merecen seguir vivos en la memoria.
+            </p>
           </div>
         </article>
 
-        <div class="portfolio-stack">
-          <article
-            data-animate
-            style="--bg-image:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80');"
-          >
-            <div class="portfolio-content">
-              <span>Branding</span>
-              <h3>Identity built with intention.</h3>
-              <p>Systems and assets designed to stay consistent across every brand touchpoint.</p>
+        <div class="album-stack">
+          <article data-reveal>
+            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1200&q=80" alt="Viaje familiar temporal" />
+            <div class="album-card">
+              <span>Viajes</span>
+              <h3>Rutas compartidas.</h3>
+              <p>Lugares, paisajes y recuerdos que ampliaron la historia de la familia.</p>
             </div>
           </article>
 
-          <article
-            data-animate
-            style="--bg-image:url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80');"
-          >
-            <div class="portfolio-content">
-              <span>Production</span>
-              <h3>Content made for visibility.</h3>
-              <p>Photography, print and supporting media designed for polished presentation.</p>
+          <article data-reveal>
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Encuentro familiar temporal" />
+            <div class="album-card">
+              <span>Encuentros</span>
+              <h3>La alegría de coincidir.</h3>
+              <p>Conversaciones, risas, abrazos y escenas cotidianas convertidas en tesoros.</p>
             </div>
           </article>
         </div>
@@ -1303,205 +1042,142 @@
     </div>
   </section>
 
-  <section class="section" id="about">
+  <section class="section" id="historias">
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="section-kicker" data-animate>About Us</span>
-          <h2 data-animate>Design. Digital. Culture.</h2>
+          <span class="section-kicker" data-reveal>Historias y recetas</span>
+          <h2 data-reveal>Tradiciones contadas con cariño.</h2>
         </div>
-        <p data-animate>
-          We blend creative direction, digital design and visual storytelling to help brands feel more
-          elevated, more modern and more memorable.
+        <p data-reveal>
+          Esta sección puede convertirse luego en un blog familiar con anécdotas, recetas, enseñanzas y recuerdos escritos por distintos miembros.
         </p>
       </div>
 
-      <div class="about-grid">
-        <div class="about-visual" data-animate>
-          <div class="about-badge">
-            <span>Studio Focus</span>
-            <p>Creative services with a premium aesthetic and a clear digital point of view.</p>
+      <div class="stories-grid">
+        <article class="story-card" data-reveal>
+          <div class="story-photo">
+            <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=1200&q=80" alt="Historia familiar temporal 1" />
           </div>
-        </div>
-
-        <div class="about-copy" data-animate>
-          <p>
-            We work across branding, web and content to shape experiences that feel cohesive from first
-            impression to final delivery.
-          </p>
-
-          <div class="about-orbit-wrap">
-            <div class="about-orbit" aria-label="La Familia services orbit">
-              <div class="about-orbit-track">
-                <article class="orbit-panel orbit-panel-1">
-                  <img src="image.jpg" alt="Branding preview" />
-                </article>
-
-                <article class="orbit-panel orbit-panel-2">
-                  <img src="image.jpg" alt="Web preview" />
-                </article>
-
-                <article class="orbit-panel orbit-panel-3">
-                  <img src="image.jpg" alt="Content preview" />
-                </article>
-
-                <article class="orbit-panel orbit-panel-4">
-                  <img src="image.jpg" alt="Creative preview" />
-                </article>
-
-                <article class="orbit-panel orbit-panel-5">
-                  <img src="image.jpg" alt="Studio preview" />
-                </article>
-
-                <article class="orbit-panel orbit-panel-6">
-                  <img src="image.jpg" alt="Visual preview" />
-                </article>
-              </div>
-
-              <div class="about-orbit-center">
-                <span class="about-orbit-label">SERVICES</span>
-                <h3>Branding</h3>
-                <h3>Web</h3>
-                <h3>Content</h3>
-              </div>
-            </div>
+          <div class="story-content">
+            <span>Historia</span>
+            <h3>Las sobremesas que nos formaron.</h3>
+            <p>
+              Un espacio para contar esas conversaciones largas, sencillas y valiosas que terminan convirtiéndose en tradición.
+            </p>
           </div>
-        </div>
+        </article>
+
+        <article class="story-card" data-reveal>
+          <div class="story-photo">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Receta familiar temporal" />
+          </div>
+          <div class="story-content">
+            <span>Receta</span>
+            <h3>Sabores que saben a casa.</h3>
+            <p>
+              Ideal para guardar esas recetas que acompañan los momentos más importantes y mantienen viva la tradición.
+            </p>
+          </div>
+        </article>
+
+        <article class="story-card" data-reveal>
+          <div class="story-photo">
+            <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=80" alt="Reflexión familiar temporal" />
+          </div>
+          <div class="story-content">
+            <span>Memoria</span>
+            <h3>Pequeños gestos, grandes recuerdos.</h3>
+            <p>
+              Un rincón para dejar por escrito lo que a veces el tiempo intenta borrar, pero el corazón no olvida.
+            </p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="contact">
+  <section class="section" id="contacto">
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="section-kicker" data-animate>Contact</span>
-          <h2 data-animate>Let’s build something strong.</h2>
+          <span class="section-kicker" data-reveal>Conéctate con nosotros</span>
+          <h2 data-reveal>Comparte un recuerdo, una idea o un mensaje.</h2>
         </div>
-        <p data-animate>
-          Reach out to start a branding project, redesign your website or build polished content for
-          your business.
+        <p data-reveal>
+          Esta parte puede servir luego como formulario para enviar saludos, proponer reuniones familiares, compartir fotos o sugerir nuevas historias para la página.
         </p>
       </div>
 
       <div class="contact-grid">
-        <div class="contact-card" data-animate>
-          <h3>Get in touch</h3>
+        <article class="contact-card" data-reveal>
+          <h3>Un espacio abierto para la familia</h3>
           <p>
-            Tell us about your project and we’ll help shape the right creative direction for your
-            brand.
+            Puedes reemplazar esta información luego con correos reales, enlaces privados, redes familiares o detalles para próximos encuentros.
           </p>
 
           <div class="contact-items">
             <div class="contact-item">
-              <span>Email</span>
-              <strong>hello@lafamiliamedia.com</strong>
+              <span>Correo</span>
+              contacto@lafamilia.com
             </div>
             <div class="contact-item">
-              <span>Instagram</span>
-              <strong>@lafamiliamedia</strong>
+              <span>Próximo encuentro</span>
+              Reunión familiar · Próximamente
             </div>
             <div class="contact-item">
-              <span>Services</span>
-              <strong>Branding / Web / Content</strong>
+              <span>Propósito</span>
+              Guardar memorias, celebrar vínculos y seguir construyendo legado
             </div>
           </div>
-        </div>
+        </article>
 
-        <div class="contact-form" data-animate>
-          <h3>Start your next project</h3>
-          <p>Fill out the form and we’ll connect with you soon.</p>
+        <div class="contact-form" data-reveal>
+          <h3>Déjanos un mensaje</h3>
+          <p>Formulario temporal para que después lo conectes a tu correo o plataforma preferida.</p>
 
           <form>
             <label>
-              Name
-              <input type="text" placeholder="Your name" />
+              Nombre
+              <input type="text" placeholder="Tu nombre" />
             </label>
 
             <label>
-              Email
-              <input type="email" placeholder="Your email" />
+              Correo electrónico
+              <input type="email" placeholder="Tu correo" />
             </label>
 
             <label>
-              Project details
-              <textarea placeholder="Tell us about your project"></textarea>
+              Mensaje
+              <textarea placeholder="Escribe aquí tu recuerdo, saludo o idea"></textarea>
             </label>
 
-            <button type="submit" class="btn-primary">Send Message</button>
+            <button type="submit" class="btn-primary">Enviar mensaje</button>
           </form>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="site-footer">
+  <footer class="footer">
     <div class="container footer-inner">
-      <div class="footer-brand">La Familia Media</div>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
+      <div class="footer-brand">LA FAMILIA</div>
+      <div>Una historia compartida que sigue creciendo.</div>
     </div>
   </footer>
 
   <script>
-    const trigger = document.querySelector(".menu-trigger");
-    const closeBtn = document.querySelector(".menu-close");
-    const overlay = document.getElementById("menuOverlay");
-    const menuLinks = document.querySelectorAll(".menu-links a");
+    const revealItems = document.querySelectorAll("[data-reveal]");
 
-    function openMenu() {
-      overlay.classList.add("active");
-      overlay.setAttribute("aria-hidden", "false");
-      trigger.setAttribute("aria-expanded", "true");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeMenu() {
-      overlay.classList.remove("active");
-      overlay.setAttribute("aria-hidden", "true");
-      trigger.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-    }
-
-    trigger.addEventListener("click", () => {
-      if (overlay.classList.contains("active")) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    });
-
-    closeBtn.addEventListener("click", closeMenu);
-
-    overlay.addEventListener("click", (event) => {
-      if (event.target === overlay) {
-        closeMenu();
-      }
-    });
-
-    menuLinks.forEach((link) => link.addEventListener("click", closeMenu));
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && overlay.classList.contains("active")) {
-        closeMenu();
-      }
-    });
-
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.14 });
 
-    document.querySelectorAll("[data-animate]").forEach((element) => {
-      observer.observe(element);
-    });
+    revealItems.forEach((item) => revealObserver.observe(item));
   </script>
 </body>
 </html>
