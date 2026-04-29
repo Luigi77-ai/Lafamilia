@@ -6,7 +6,7 @@
   <title>LA FAMILIA</title>
   <meta
     name="description"
-    content="LA FAMILIA es un espacio digital para honrar recuerdos, celebrar la historia compartida y mantener vivos los momentos que nos unen."
+    content="LA FAMILIA es un espacio editorial y emocional para reunir recuerdos, honrar generaciones y mantener viva una historia compartida."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,726 +17,920 @@
   />
 
   <style>
-    :root {
-      --bg: #0f1114;
-      --bg-soft: #171a1f;
-      --panel: rgba(255,255,255,0.04);
-      --panel-2: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.09);
-      --text: #f6efe7;
-      --muted: rgba(246,239,231,0.72);
-      --faint: rgba(246,239,231,0.42);
-      --accent: #b68b5a;
-      --accent-soft: rgba(182,139,90,0.14);
-      --beige: #f4e6d2;
-      --shadow: 0 24px 80px rgba(0,0,0,0.34);
-      --radius: 26px;
-      --max: 1320px;
-      --transition: 320ms cubic-bezier(.16,1,.3,1);
+    :root{
+      --bg:#121314;
+      --bg-soft:#18191c;
+      --panel:rgba(255,255,255,.045);
+      --panel-2:rgba(255,255,255,.07);
+      --line:rgba(255,255,255,.09);
+      --text:#f5eee6;
+      --muted:rgba(245,238,230,.72);
+      --faint:rgba(245,238,230,.44);
+      --accent:#b98856;
+      --accent-soft:rgba(185,136,86,.14);
+      --beige:#efe2cf;
+      --shadow:0 28px 90px rgba(0,0,0,.34);
+      --radius:28px;
+      --max:1320px;
+      --transition:260ms cubic-bezier(.16,1,.3,1);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html{
+      scroll-behavior:smooth;
     }
 
-    body {
-      font-family: "Inter", sans-serif;
-      color: var(--text);
+    body{
+      font-family:"Inter",sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(circle at top left, rgba(182,139,90,0.10), transparent 28%),
-        radial-gradient(circle at 85% 10%, rgba(255,255,255,0.04), transparent 18%),
-        linear-gradient(180deg, #0c0d10 0%, #121419 100%);
-      overflow-x: hidden;
-      line-height: 1.55;
+        radial-gradient(circle at top left, rgba(185,136,86,.10), transparent 24%),
+        linear-gradient(180deg,#101113 0%,#14161a 100%);
+      overflow-x:hidden;
+      line-height:1.5;
     }
 
-    img,
-    video {
-      display: block;
-      max-width: 100%;
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    img,video{
+      display:block;
+      max-width:100%;
     }
 
-    button,
-    input,
-    textarea {
-      font: inherit;
-      color: inherit;
+    button,input,textarea{
+      font:inherit;
+      color:inherit;
     }
 
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
+    .container{
+      width:min(calc(100% - 32px),var(--max));
+      margin:0 auto;
     }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      background: rgba(12, 13, 16, 0.62);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      background:rgba(14,15,17,.68);
+      border-bottom:1px solid rgba(255,255,255,.05);
     }
 
-    .header-inner {
-      min-height: 86px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+    .header-inner{
+      min-height:82px;
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:20px;
     }
 
-    .brand {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.45rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+    .menu-link{
+      font-size:.82rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--text);
     }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
+    .brand{
+      justify-self:center;
+      font-family:"Cormorant Garamond",serif;
+      font-size:1.48rem;
+      font-weight:600;
+      letter-spacing:.22em;
+      text-transform:uppercase;
     }
 
-    .nav a {
-      color: var(--muted);
-      font-size: 0.88rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      transition: color var(--transition);
+    .header-cta{
+      justify-self:end;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.03);
+      font-size:.8rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      transition:transform var(--transition), border-color var(--transition), background var(--transition);
     }
 
-    .nav a:hover {
-      color: var(--text);
+    .header-cta:hover{
+      transform:translateY(-2px);
+      border-color:rgba(185,136,86,.48);
+      background:rgba(185,136,86,.08);
     }
 
-    .header-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
-      border: 1px solid rgba(182,139,90,0.28);
-      background: var(--accent-soft);
-      color: var(--text);
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: transform var(--transition), border-color var(--transition), background var(--transition);
+    .hero{
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      border-bottom:1px solid rgba(255,255,255,.05);
+      overflow:hidden;
     }
 
-    .header-cta:hover {
-      transform: translateY(-2px);
-      border-color: rgba(182,139,90,0.52);
-      background: rgba(182,139,90,0.2);
+    .hero-media{
+      position:absolute;
+      inset:0;
     }
 
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: end;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .hero-media {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-    }
-
-    .hero-media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
+    .hero-media::after{
+      content:"";
+      position:absolute;
+      inset:0;
       background:
-        linear-gradient(180deg, rgba(7,8,10,0.28), rgba(7,8,10,0.72) 60%, rgba(7,8,10,0.92) 100%),
-        radial-gradient(circle at 20% 18%, rgba(182,139,90,0.18), transparent 22%);
+        linear-gradient(180deg, rgba(8,8,10,.24), rgba(8,8,10,.72) 62%, rgba(8,8,10,.92) 100%),
+        radial-gradient(circle at 18% 18%, rgba(185,136,86,.18), transparent 20%);
     }
 
     .hero-media video,
-    .hero-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.04);
+    .hero-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform:scale(1.03);
     }
 
-    .hero-grid {
-      position: relative;
-      z-index: 2;
-      width: min(calc(100% - 32px), 1380px);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      align-items: end;
-      padding: 132px 0 72px;
+    .hero-grid{
+      position:relative;
+      z-index:2;
+      width:min(calc(100% - 32px),1380px);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1.06fr .94fr;
+      gap:40px;
+      align-items:end;
+      padding:128px 0 70px;
     }
 
-    .hero-copy {
-      max-width: 720px;
+    .hero-copy{
+      max-width:780px;
     }
 
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 18px;
-      color: var(--beige);
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      opacity: 0.82;
+    .hero-topline{
+      display:inline-block;
+      margin-bottom:14px;
+      font-size:.78rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--beige);
+      opacity:.82;
     }
 
-    .hero h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(4rem, 11vw, 8.8rem);
-      line-height: 0.88;
-      font-weight: 600;
-      letter-spacing: -0.04em;
-      max-width: 8ch;
+    .hero h1{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(4.2rem,10vw,7.8rem);
+      line-height:.9;
+      letter-spacing:-.04em;
+      font-weight:600;
+      max-width:10ch;
     }
 
-    .hero-copy p {
-      margin-top: 24px;
-      color: var(--muted);
-      font-size: clamp(1rem, 1.3vw, 1.12rem);
-      max-width: 58ch;
+    .hero-subline{
+      margin-top:18px;
+      font-size:1rem;
+      color:var(--beige);
+      letter-spacing:.12em;
+      text-transform:uppercase;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 32px;
+    .hero-form-card{
+      margin-top:28px;
+      max-width:420px;
+      padding:26px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(16,17,20,.44);
+      backdrop-filter:blur(12px);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-form-card span{
+      display:block;
+      margin-bottom:14px;
+      color:var(--beige);
+      font-size:.8rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    .hero-form-card p{
+      color:var(--muted);
+      margin-bottom:18px;
+      font-size:.97rem;
+    }
+
+    .hero-form{
+      display:grid;
+      gap:12px;
+    }
+
+    .hero-form input{
+      min-height:50px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      padding:0 14px;
+      outline:none;
+      transition:border-color var(--transition), background var(--transition);
+    }
+
+    .hero-form input:focus{
+      border-color:rgba(185,136,86,.45);
+      background:rgba(185,136,86,.06);
     }
 
     .btn-primary,
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 0 22px;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      transition: transform var(--transition), filter var(--transition), border-color var(--transition), background var(--transition);
+    .btn-secondary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:0 20px;
+      border-radius:999px;
+      font-size:.84rem;
+      font-weight:600;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      transition:transform var(--transition), filter var(--transition), border-color var(--transition), background var(--transition);
     }
 
-    .btn-primary {
-      background: var(--beige);
-      color: #111317;
+    .btn-primary{
+      background:var(--beige);
+      color:#101214;
+      border:none;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.02);
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.03);
     }
 
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
+    .btn-secondary{
+      margin-top:24px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
     }
 
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-      border-color: rgba(182,139,90,0.5);
-      background: rgba(182,139,90,0.08);
+    .btn-secondary:hover{
+      transform:translateY(-2px);
+      border-color:rgba(185,136,86,.5);
+      background:rgba(185,136,86,.08);
     }
 
-    .hero-note {
-      justify-self: end;
-      align-self: end;
-      max-width: 380px;
-      padding: 24px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(13,14,17,0.42);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
+    .hero-side{
+      display:flex;
+      align-items:end;
+      justify-content:end;
     }
 
-    .hero-note span {
-      display: inline-block;
-      margin-bottom: 12px;
-      color: var(--beige);
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      opacity: 0.78;
+    .hero-side-card{
+      width:min(460px,100%);
+      border-radius:30px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+      background:rgba(255,255,255,.03);
     }
 
-    .hero-note p {
-      color: rgba(246,239,231,0.82);
-      font-size: 0.98rem;
+    .hero-side-card img{
+      width:100%;
+      aspect-ratio:.88;
+      object-fit:cover;
     }
 
-    .section {
-      padding: 110px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+    .section{
+      padding:110px 0;
+      border-bottom:1px solid rgba(255,255,255,.05);
     }
 
-    .section-header {
-      display: grid;
-      grid-template-columns: 0.8fr 1fr;
-      gap: 30px;
-      align-items: end;
-      margin-bottom: 44px;
+    .intro-band{
+      display:grid;
+      grid-template-columns:1.02fr .98fr;
+      gap:32px;
+      align-items:center;
     }
 
-    .section-kicker {
-      display: inline-block;
-      margin-bottom: 14px;
-      color: var(--accent);
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .section h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2.5rem, 6vw, 5.4rem);
-      line-height: 0.92;
-      letter-spacing: -0.04em;
-      font-weight: 600;
-      max-width: 9ch;
-    }
-
-    .section-header p {
-      color: var(--muted);
-      max-width: 58ch;
-      justify-self: end;
-    }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .intro-card,
-    .intro-visual {
-      border-radius: 30px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      box-shadow: var(--shadow);
-    }
-
-    .intro-card {
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 520px;
-    }
-
-    .intro-card p {
-      color: var(--muted);
-      max-width: 60ch;
-      margin-bottom: 18px;
-    }
-
-    .intro-list {
-      display: grid;
-      gap: 16px;
-      margin-top: 14px;
-    }
-
-    .intro-list div {
-      padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-    }
-
-    .intro-list strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .intro-visual {
-      min-height: 520px;
-      position: relative;
-    }
-
-    .intro-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .intro-visual::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(8,8,10,0.10), rgba(8,8,10,0.46));
-    }
-
-    .members-grid,
-    .pillars-grid,
-    .stories-grid {
-      display: grid;
-      gap: 22px;
-    }
-
-    .members-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .pillars-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .stories-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .member-card,
-    .pillar-card,
-    .story-card {
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      box-shadow: var(--shadow);
-    }
-
-    .member-photo,
-    .pillar-photo,
-    .story-photo {
-      aspect-ratio: 0.9;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .member-photo img,
-    .pillar-photo img,
-    .story-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 900ms ease;
-    }
-
-    .member-card:hover img,
-    .pillar-card:hover img,
-    .story-card:hover img {
-      transform: scale(1.06);
-    }
-
-    .member-content,
-    .pillar-content,
-    .story-content {
-      padding: 22px;
-    }
-
-    .member-content span,
-    .pillar-content span,
-    .story-content span,
-    .testimonial-card span,
-    .album-card span {
-      display: inline-block;
-      margin-bottom: 10px;
-      color: var(--accent);
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .member-content h3,
-    .pillar-content h3,
-    .story-content h3,
-    .album-card h3,
-    .testimonial-card h3,
+    .intro-band h2,
+    .section-title,
+    .service-feature h3,
+    .feature-card h3,
+    .testimonial-spotlight h3,
+    .founder-copy h3,
+    .blog-card h3,
+    .newsletter-copy h3,
     .contact-card h3,
-    .contact-form h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2rem;
-      line-height: 0.96;
-      font-weight: 600;
-      margin-bottom: 12px;
+    .contact-form-card h3{
+      font-family:"Cormorant Garamond",serif;
+      font-weight:600;
+      letter-spacing:-.03em;
     }
 
-    .member-content p,
-    .pillar-content p,
-    .story-content p,
-    .album-card p,
-    .testimonial-card p,
-    .contact-card p,
-    .contact-form p {
-      color: var(--muted);
+    .intro-band h2{
+      font-size:clamp(2.8rem,5vw,5rem);
+      line-height:.95;
+      max-width:9ch;
     }
 
-    .testimonials-wrap {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+    .intro-band p{
+      color:var(--muted);
+      max-width:62ch;
+      margin-bottom:16px;
     }
 
-    .testimonial-card {
-      padding: 28px;
-      border-radius: 26px;
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      box-shadow: var(--shadow);
-      min-height: 250px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .small-kicker{
+      display:inline-block;
+      margin-bottom:14px;
+      color:var(--accent);
+      font-size:.75rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
     }
 
-    .testimonial-quote {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.9rem;
-      line-height: 1;
-      color: var(--beige);
-      margin-bottom: 12px;
+    .founder-block{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:22px;
+      align-items:stretch;
+      margin-top:58px;
     }
 
-    .testimonial-meta {
-      margin-top: 18px;
-      color: var(--faint);
-      font-size: 0.88rem;
-      letter-spacing: 0.04em;
+    .founder-media{
+      border-radius:30px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      min-height:520px;
+      background:#0f1013;
     }
 
-    .album-layout {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
+    .founder-media video,
+    .founder-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
     }
 
-    .album-main,
-    .album-stack article {
-      position: relative;
-      border-radius: 30px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      min-height: 340px;
-      box-shadow: var(--shadow);
+    .founder-copy{
+      padding:34px;
+      border-radius:30px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
 
-    .album-main {
-      min-height: 760px;
+    .founder-copy h3{
+      font-size:clamp(2.2rem,4vw,4rem);
+      line-height:.95;
+      margin-bottom:16px;
+      max-width:12ch;
     }
 
-    .album-stack {
-      display: grid;
-      gap: 22px;
+    .founder-copy p{
+      color:var(--muted);
+      margin-bottom:16px;
+      max-width:58ch;
     }
 
-    .album-main img,
-    .album-stack article img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .service-list{
+      margin-top:50px;
+      display:grid;
+      gap:0;
+      border-top:1px solid rgba(255,255,255,.08);
     }
 
-    .album-main::after,
-    .album-stack article::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(7,8,10,0.08), rgba(7,8,10,0.72));
+    .service-feature{
+      display:grid;
+      grid-template-columns:.7fr 1.3fr;
+      gap:30px;
+      padding:26px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
 
-    .album-card {
-      position: absolute;
-      inset: auto 22px 22px 22px;
-      z-index: 2;
+    .service-feature h3{
+      font-size:1.9rem;
+      line-height:1;
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: 22px;
+    .service-feature p{
+      color:var(--muted);
+      margin-bottom:12px;
+      max-width:62ch;
+    }
+
+    .mini-list{
+      display:grid;
+      gap:6px;
+      color:var(--text);
+      font-size:.95rem;
+    }
+
+    .section-head{
+      display:grid;
+      grid-template-columns:.78fr 1fr;
+      gap:28px;
+      align-items:end;
+      margin-bottom:36px;
+    }
+
+    .section-title{
+      font-size:clamp(2.6rem,5vw,4.8rem);
+      line-height:.94;
+      max-width:10ch;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      max-width:58ch;
+      justify-self:end;
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:20px;
+    }
+
+    .feature-card{
+      min-height:300px;
+      border-radius:28px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      padding:24px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .feature-card h3{
+      font-size:1.85rem;
+      line-height:.98;
+      margin:16px 0 14px;
+    }
+
+    .feature-card p{
+      color:var(--muted);
+    }
+
+    .testimonial-spotlight{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:20px;
+      align-items:stretch;
+    }
+
+    .testimonial-big,
+    .testimonial-side{
+      border-radius:30px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    }
+
+    .testimonial-big{
+      padding:34px;
+      display:grid;
+      grid-template-columns:.78fr 1.22fr;
+      gap:24px;
+      align-items:center;
+    }
+
+    .testimonial-big img{
+      width:100%;
+      aspect-ratio:.9;
+      object-fit:cover;
+      border-radius:22px;
+    }
+
+    .testimonial-big h3{
+      font-size:2.4rem;
+      line-height:.95;
+      margin-bottom:16px;
+      max-width:13ch;
+    }
+
+    .testimonial-big p,
+    .testimonial-side p{
+      color:var(--muted);
+    }
+
+    .testimonial-name{
+      margin-top:18px;
+      color:var(--faint);
+      font-size:.88rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .testimonial-side{
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .testimonial-side h4{
+      font-family:"Cormorant Garamond",serif;
+      font-size:2rem;
+      line-height:.96;
+      margin-bottom:14px;
+      font-weight:600;
+    }
+
+    .work-grid{
+      display:grid;
+      grid-template-columns:1.06fr .94fr;
+      gap:20px;
+    }
+
+    .work-main,
+    .work-stack article{
+      position:relative;
+      border-radius:30px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+      min-height:320px;
+    }
+
+    .work-main{
+      min-height:760px;
+    }
+
+    .work-stack{
+      display:grid;
+      gap:20px;
+    }
+
+    .work-main img,
+    .work-stack article img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .work-main::after,
+    .work-stack article::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(8,9,10,.08), rgba(8,9,10,.74));
+    }
+
+    .work-copy{
+      position:absolute;
+      inset:auto 22px 22px 22px;
+      z-index:2;
+    }
+
+    .work-copy span,
+    .blog-card span,
+    .newsletter-copy span,
+    .feature-card span{
+      display:inline-block;
+      margin-bottom:10px;
+      color:var(--accent);
+      font-size:.72rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .work-copy h3{
+      font-family:"Cormorant Garamond",serif;
+      font-size:2rem;
+      line-height:.96;
+      font-weight:600;
+      margin-bottom:10px;
+    }
+
+    .work-copy p{
+      color:rgba(245,238,230,.82);
+      max-width:42ch;
+    }
+
+    .blog-layout{
+      display:grid;
+      grid-template-columns:.76fr 1.24fr;
+      gap:26px;
+      align-items:start;
+    }
+
+    .blog-intro p{
+      color:var(--muted);
+      max-width:44ch;
+      margin-top:12px;
+    }
+
+    .blog-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:20px;
+    }
+
+    .blog-card{
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+    }
+
+    .blog-card img{
+      width:100%;
+      aspect-ratio:1.15;
+      object-fit:cover;
+    }
+
+    .blog-content{
+      padding:22px;
+    }
+
+    .blog-card h3{
+      font-size:1.8rem;
+      line-height:.97;
+      margin-bottom:10px;
+    }
+
+    .blog-card p{
+      color:var(--muted);
+      margin-bottom:12px;
+    }
+
+    .newsletter-block{
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      gap:22px;
+      align-items:center;
+    }
+
+    .newsletter-visual,
+    .newsletter-copy{
+      border-radius:30px;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    }
+
+    .newsletter-visual img{
+      width:100%;
+      aspect-ratio:1;
+      object-fit:cover;
+    }
+
+    .newsletter-copy{
+      padding:34px;
+    }
+
+    .newsletter-copy h3{
+      font-size:clamp(2.4rem,4vw,4.2rem);
+      line-height:.94;
+      max-width:11ch;
+      margin-bottom:14px;
+    }
+
+    .newsletter-copy p{
+      color:var(--muted);
+      max-width:56ch;
+      margin-bottom:18px;
+    }
+
+    .newsletter-form{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .newsletter-form input{
+      min-height:52px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      padding:0 16px;
+      outline:none;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:20px;
     }
 
     .contact-card,
-    .contact-form {
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      padding: 30px;
-      box-shadow: var(--shadow);
+    .contact-form-card{
+      border-radius:28px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+      padding:30px;
     }
 
-    .contact-items {
-      display: grid;
-      gap: 14px;
-      margin-top: 24px;
+    .contact-card h3,
+    .contact-form-card h3{
+      font-size:2.2rem;
+      line-height:.95;
+      margin-bottom:14px;
     }
 
-    .contact-item {
-      padding: 16px 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
+    .contact-card p,
+    .contact-form-card p{
+      color:var(--muted);
     }
 
-    .contact-item span {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--faint);
-      font-size: 0.74rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+    .contact-meta{
+      display:grid;
+      gap:14px;
+      margin-top:24px;
     }
 
-    form {
-      display: grid;
-      gap: 14px;
-      margin-top: 22px;
+    .contact-meta div{
+      padding:16px 18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
     }
 
-    label {
-      display: grid;
-      gap: 8px;
-      color: var(--muted);
-      font-size: 0.94rem;
+    .contact-meta span{
+      display:block;
+      margin-bottom:6px;
+      color:var(--faint);
+      font-size:.72rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
     }
 
-    input,
-    textarea {
-      width: 100%;
-      min-height: 52px;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      padding: 14px 16px;
-      outline: none;
-      transition: border-color var(--transition), background var(--transition);
+    form{
+      display:grid;
+      gap:12px;
+      margin-top:22px;
     }
 
-    input:focus,
-    textarea:focus {
-      border-color: rgba(182,139,90,0.52);
-      background: rgba(182,139,90,0.06);
+    label{
+      display:grid;
+      gap:8px;
+      color:var(--muted);
+      font-size:.92rem;
     }
 
-    textarea {
-      min-height: 150px;
-      resize: vertical;
+    input,textarea{
+      width:100%;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      border-radius:16px;
+      padding:14px 16px;
+      outline:none;
+      transition:border-color var(--transition), background var(--transition);
     }
 
-    .footer {
-      padding: 30px 0 42px;
+    textarea{
+      min-height:148px;
+      resize:vertical;
     }
 
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      color: var(--faint);
-      font-size: 0.9rem;
+    input:focus,textarea:focus{
+      border-color:rgba(185,136,86,.45);
+      background:rgba(185,136,86,.05);
     }
 
-    .footer-brand {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.2rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .footer{
+      padding:34px 0 42px;
     }
 
-    [data-reveal] {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 900ms ease, transform 900ms ease;
+    .footer-top{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:30px;
+      align-items:start;
+      margin-bottom:26px;
     }
 
-    [data-reveal].visible {
-      opacity: 1;
-      transform: translateY(0);
+    .footer-brand{
+      font-family:"Cormorant Garamond",serif;
+      font-size:1.3rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
     }
 
-    @media (max-width: 1120px) {
+    .footer-nav{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      color:var(--faint);
+      font-size:.88rem;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+
+    .footer-bottom{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      color:var(--faint);
+      font-size:.88rem;
+    }
+
+    [data-reveal]{
+      opacity:0;
+      transform:translateY(22px);
+      transition:opacity .9s ease, transform .9s ease;
+    }
+
+    [data-reveal].visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (max-width:1120px){
       .hero-grid,
-      .section-header,
-      .intro-grid,
-      .album-layout,
-      .contact-grid {
-        grid-template-columns: 1fr;
+      .intro-band,
+      .founder-block,
+      .section-head,
+      .testimonial-spotlight,
+      .work-grid,
+      .blog-layout,
+      .newsletter-block,
+      .contact-grid,
+      .service-feature{
+        grid-template-columns:1fr;
       }
 
-      .members-grid,
-      .stories-grid,
-      .testimonials-wrap {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .feature-grid,
+      .blog-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
       }
 
-      .hero-note {
-        justify-self: start;
-        max-width: 100%;
+      .testimonial-big{
+        grid-template-columns:1fr;
       }
 
-      .album-main {
-        min-height: 520px;
+      .work-main{
+        min-height:520px;
+      }
+
+      .hero-side{
+        justify-content:start;
       }
     }
 
-    @media (max-width: 780px) {
-      .header-inner {
-        min-height: auto;
-        padding: 18px 0;
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width:760px){
+      .header-inner{
+        grid-template-columns:1fr;
+        justify-items:start;
+        padding:18px 0;
+        min-height:auto;
       }
 
-      .nav {
-        gap: 12px 16px;
+      .brand{
+        justify-self:start;
       }
 
-      .hero-grid {
-        padding: 112px 0 56px;
+      .header-cta{
+        justify-self:start;
       }
 
-      .members-grid,
-      .pillars-grid,
-      .stories-grid,
-      .testimonials-wrap {
-        grid-template-columns: 1fr;
+      .hero-grid{
+        padding:116px 0 56px;
       }
 
-      .section {
-        padding: 84px 0;
+      .feature-grid,
+      .blog-grid{
+        grid-template-columns:1fr;
       }
 
-      .album-main,
-      .album-stack article,
-      .intro-card,
-      .intro-visual {
-        min-height: 320px;
+      .newsletter-form{
+        grid-template-columns:1fr;
       }
 
+      .section{
+        padding:86px 0;
+      }
+
+      .hero-form-card,
+      .founder-copy,
+      .newsletter-copy,
       .contact-card,
-      .contact-form {
-        padding: 24px;
+      .contact-form-card{
+        padding:24px;
       }
     }
   </style>
@@ -744,160 +938,159 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
+      <a href="#inicio" class="menu-link">Menu</a>
       <a href="#inicio" class="brand">LA FAMILIA</a>
-
-      <nav class="nav">
-        <a href="#inicio">Inicio</a>
-        <a href="#historia">Historia</a>
-        <a href="#miembros">Miembros</a>
-        <a href="#pilares">Pilares</a>
-        <a href="#recuerdos">Recuerdos</a>
-        <a href="#album">Álbum</a>
-        <a href="#historias">Historias</a>
-      </nav>
-
       <a href="#contacto" class="header-cta">Conectar</a>
     </div>
   </header>
 
   <section class="hero" id="inicio">
     <div class="hero-media">
-      <!-- REEMPLAZA ESTE VIDEO O IMAGEN DESPUÉS -->
-      <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=80">
-        <source src="https://cdn.coverr.co/videos/coverr-happy-family-at-the-beach-1564278732266?download=1080p" type="video/mp4" />
+      <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1600&q=80">
+        <source src="https://cdn.coverr.co/videos/coverr-happy-family-at-the-beach-1564278732266?download=1080p" type="video/mp4">
       </video>
     </div>
 
     <div class="hero-grid">
       <div class="hero-copy" data-reveal>
-        <span class="eyebrow">Nuestra historia compartida</span>
+        <span class="hero-topline">Recuerdos, legado y unión</span>
         <h1>LA FAMILIA</h1>
-        <p>
-          Un espacio para celebrar lo que hemos construido juntos: recuerdos, valores, tradiciones y
-          momentos que siguen dando forma a quienes somos. Esta página guarda la esencia de nuestra historia
-          y la proyecta con elegancia hacia todo lo que aún está por venir.
-        </p>
+        <div class="hero-subline">Momentos reales. Historia viva. Memoria compartida.</div>
 
-        <div class="hero-actions">
-          <a href="#historia" class="btn-primary">Explorar historia</a>
-          <a href="#album" class="btn-secondary">Ver álbum</a>
+        <div class="hero-form-card">
+          <span>Nuestro archivo emocional</span>
+          <p>
+            Este espacio reúne imágenes, anécdotas, nombres y recuerdos que cuentan quiénes somos.
+            Hoy comienza como una base elegante; después se llenará con las fotos y videos reales de la familia.
+          </p>
+
+          <form class="hero-form">
+            <input type="text" placeholder="Tu nombre">
+            <input type="email" placeholder="Tu correo">
+            <button type="button" class="btn-primary">Ver la historia</button>
+          </form>
         </div>
+
+        <a href="#historia" class="btn-secondary">Explorar la familia</a>
       </div>
 
-      <aside class="hero-note" data-reveal>
-        <span>Un legado vivo</span>
-        <p>
-          Aquí cada imagen, cada nombre y cada recuerdo tiene un lugar. Hoy comenzamos con una base visual
-          elegante; mañana la completaremos con sus fotos, sus videos y las historias reales que hacen única a esta familia.
-        </p>
-      </aside>
+      <div class="hero-side" data-reveal>
+        <article class="hero-side-card">
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=80" alt="Imagen temporal de familia">
+        </article>
+      </div>
     </div>
   </section>
 
   <section class="section" id="historia">
     <div class="container">
-      <div class="section-header">
-        <div>
-          <span class="section-kicker" data-reveal>Nuestra historia</span>
-          <h2 data-reveal>Memoria, identidad y unión.</h2>
+      <div class="intro-band">
+        <div data-reveal>
+          <span class="small-kicker">Nuestra historia</span>
+          <h2>Hay recuerdos que no se guardan. Se heredan.</h2>
         </div>
-        <p data-reveal>
-          Esta familia se define por la cercanía, el esfuerzo compartido y los momentos que marcan generaciones.
-          Más allá de los años, hay una esencia que permanece: el cuidado mutuo, la alegría en lo cotidiano y
-          la capacidad de convertir instantes simples en recuerdos duraderos.
-        </p>
+
+        <div data-reveal>
+          <p>
+            Construir una familia no ocurre de un día para otro. Se forma con años, con conversaciones largas,
+            con viajes, con celebraciones, con pérdidas, con aprendizajes y con la presencia constante de quienes
+            hacen del hogar algo más grande que un lugar.
+          </p>
+          <p>
+            Esta página nace para reunir todo eso en un solo espacio: la memoria de LA FAMILIA, contada con una
+            estética íntima, sobria y editorial, donde cada imagen y cada palabra tengan el peso emocional que merecen.
+          </p>
+          <p>
+            Aquí no se trata solo de mostrar fotografías. Se trata de preservar una identidad compartida, dar valor
+            a lo vivido y dejar una base para que las próximas generaciones también puedan reconocerse en esta historia.
+          </p>
+        </div>
       </div>
 
-      <div class="intro-grid">
-        <article class="intro-card" data-reveal>
+      <div class="founder-block">
+        <div class="founder-media" data-reveal>
+          <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1400&q=80">
+            <source src="https://cdn.coverr.co/videos/coverr-family-walking-on-the-beach-1577964359458?download=1080p" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="founder-copy" data-reveal>
+          <span class="small-kicker">Nuestros pilares</span>
+          <h3>Las raíces que sostienen todo lo que somos.</h3>
+          <p>
+            Esta sección está pensada para honrar a los abuelos, padres o figuras fundacionales que sembraron
+            valores, carácter, cariño y dirección dentro de LA FAMILIA.
+          </p>
+          <p>
+            Más adelante podrás sustituir este contenido por nombres reales, historias personales y videos
+            familiares que representen el origen emocional de toda la página.
+          </p>
+          <a href="#pilares" class="btn-secondary">Conocer los pilares</a>
+        </div>
+      </div>
+
+      <div class="service-list" id="miembros">
+        <article class="service-feature" data-reveal>
+          <h3>Nuestros Miembros</h3>
           <div>
             <p>
-              Nuestra historia no se mide solamente en fechas, sino en abrazos, celebraciones, viajes,
-              sobremesas, aprendizajes y la presencia constante de quienes han estado ahí en cada etapa.
+              Un espacio para presentar a cada miembro con fotografía, una breve biografía y los rasgos que hacen
+              especial su presencia dentro de la familia.
             </p>
-            <p>
-              Esta página nace como una forma de honrar ese camino con una mirada elegante, íntima y contemporánea,
-              reuniendo en un solo lugar todo lo que representa a LA FAMILIA.
-            </p>
-          </div>
-
-          <div class="intro-list">
-            <div>
-              <strong>Valores que perduran</strong>
-              Respeto, cariño, trabajo, fe, cercanía y una fuerte conexión entre generaciones.
-            </div>
-            <div>
-              <strong>Momentos que nos forman</strong>
-              Cumpleaños, reuniones, viajes, tradiciones y nuevos comienzos que fortalecen el vínculo.
-            </div>
-            <div>
-              <strong>Una memoria compartida</strong>
-              Fotografías, videos y anécdotas que convierten esta historia en un legado vivo.
+            <div class="mini-list">
+              <div>• Fotos personales y retratos familiares</div>
+              <div>• Breves descripciones y personalidad</div>
+              <div>• Intereses, recuerdos y momentos favoritos</div>
+              <div>• Vínculos entre generaciones</div>
             </div>
           </div>
         </article>
 
-        <figure class="intro-visual" data-reveal>
-          <img
-            src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1400&q=80"
-            alt="Fotografía temporal para historia familiar"
-          />
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="miembros">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <span class="section-kicker" data-reveal>Nuestros miembros</span>
-          <h2 data-reveal>Las personas que dan vida al hogar.</h2>
-        </div>
-        <p data-reveal>
-          Cada miembro aporta una energía distinta a la familia. Aquí puedes luego reemplazar estos perfiles
-          con nombres reales, fotos personales y pequeñas biografías que reflejen su personalidad y su lugar en esta historia.
-        </p>
-      </div>
-
-      <div class="members-grid">
-        <article class="member-card" data-reveal>
-          <div class="member-photo">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80" alt="Miembro de familia temporal 1" />
-          </div>
-          <div class="member-content">
-            <span>Miembro 01</span>
-            <h3>Nombre Apellido</h3>
+        <article class="service-feature" data-reveal>
+          <h3>Álbum Familiar</h3>
+          <div>
             <p>
-              Presencia cálida, espíritu generoso y una sensibilidad especial para mantener unida a la familia
-              en cada etapa importante.
+              Una galería editorial para viajes, cumpleaños, reuniones, celebraciones, tradiciones y escenas cotidianas
+              convertidas en patrimonio visual.
             </p>
+            <div class="mini-list">
+              <div>• Fotos por año o por evento</div>
+              <div>• Videos y momentos destacados</div>
+              <div>• Recuerdos de infancia y reuniones especiales</div>
+              <div>• Archivo visual siempre en crecimiento</div>
+            </div>
           </div>
         </article>
 
-        <article class="member-card" data-reveal>
-          <div class="member-photo">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Miembro de familia temporal 2" />
-          </div>
-          <div class="member-content">
-            <span>Miembro 02</span>
-            <h3>Nombre Apellido</h3>
+        <article class="service-feature" data-reveal>
+          <h3>Historias y Recetas</h3>
+          <div>
             <p>
-              Carácter firme, visión positiva y una forma auténtica de dejar huella en cada encuentro y en cada recuerdo.
+              Un rincón para guardar anécdotas, enseñanzas, costumbres y sabores que ayudan a que la identidad de la
+              familia siga viva con el tiempo.
             </p>
+            <div class="mini-list">
+              <div>• Recetas tradicionales</div>
+              <div>• Historias escritas por distintos miembros</div>
+              <div>• Consejos y enseñanzas heredadas</div>
+              <div>• Reflexiones sobre la vida en familia</div>
+            </div>
           </div>
         </article>
 
-        <article class="member-card" data-reveal>
-          <div class="member-photo">
-            <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80" alt="Miembro de familia temporal 3" />
-          </div>
-          <div class="member-content">
-            <span>Miembro 03</span>
-            <h3>Nombre Apellido</h3>
+        <article class="service-feature" data-reveal>
+          <h3>Mensajes y Recuerdos</h3>
+          <div>
             <p>
-              Alegría, creatividad y una energía que hace que cada momento compartido se sienta más vivo y especial.
+              Comentarios, dedicatorias y testimonios que pueden ser añadidos después para fortalecer la dimensión emocional
+              y colectiva de la página.
             </p>
+            <div class="mini-list">
+              <div>• Mensajes de familiares y amistades cercanas</div>
+              <div>• Recuerdos escritos para ocasiones especiales</div>
+              <div>• Frases memorables y homenajes</div>
+              <div>• Espacio para futuras generaciones</div>
+            </div>
           </div>
         </article>
       </div>
@@ -906,135 +1099,112 @@
 
   <section class="section" id="pilares">
     <div class="container">
-      <div class="section-header">
+      <div class="section-head">
         <div>
-          <span class="section-kicker" data-reveal>Nuestros pilares</span>
-          <h2 data-reveal>El origen de todo lo valioso.</h2>
+          <span class="small-kicker" data-reveal>Secciones principales</span>
+          <h2 class="section-title" data-reveal>La estructura emocional de LA FAMILIA.</h2>
         </div>
         <p data-reveal>
-          Este espacio está pensado para honrar a quienes sembraron el carácter, la fe, el amor y las tradiciones
-          que hoy siguen acompañando a LA FAMILIA.
+          Igual que la página de referencia organiza su propuesta en bloques claros de marca, servicios, testimonios,
+          trabajo y conexión, aquí adaptamos esa lógica a una narrativa familiar elegante y fácil de recorrer. [page:23][file:7]
         </p>
       </div>
 
-      <div class="pillars-grid">
-        <article class="pillar-card" data-reveal>
-          <div class="pillar-photo">
-            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=80" alt="Pilar familiar temporal 1" />
-          </div>
-          <div class="pillar-content">
-            <span>Pilar fundador</span>
-            <h3>Nombre del Abuelo o Figura Central</h3>
-            <p>
-              Su ejemplo dejó una base firme de trabajo, integridad y amor por la familia, convirtiéndose en una referencia permanente para todos.
-            </p>
+      <div class="feature-grid">
+        <article class="feature-card" data-reveal>
+          <div>
+            <span>Nuestra Historia</span>
+            <h3>El relato que une generaciones.</h3>
+            <p>Un texto central con profundidad emocional para explicar quiénes somos, de dónde venimos y qué valores compartimos.</p>
           </div>
         </article>
 
-        <article class="pillar-card" data-reveal>
-          <div class="pillar-photo">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80" alt="Pilar familiar temporal 2" />
+        <article class="feature-card" data-reveal>
+          <div>
+            <span>Nuestros Pilares</span>
+            <h3>Las figuras que dejaron huella.</h3>
+            <p>Un bloque especial para abuelos, padres o fundadores emocionales de la familia, con imágenes y legado.</p>
           </div>
-          <div class="pillar-content">
-            <span>Pilar fundador</span>
-            <h3>Nombre de la Abuela o Figura Central</h3>
-            <p>
-              Su sensibilidad, fortaleza y dedicación construyeron una memoria afectiva que aún hoy reúne, guía y abraza a toda la familia.
-            </p>
+        </article>
+
+        <article class="feature-card" data-reveal>
+          <div>
+            <span>Nuestros Recuerdos</span>
+            <h3>La memoria convertida en archivo.</h3>
+            <p>Una sección visual para que fotos, videos y palabras convivan con una estética sobria y premium.</p>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="recuerdos">
+  <section class="section" id="testimonios">
     <div class="container">
-      <div class="section-header">
-        <div>
-          <span class="section-kicker" data-reveal>Mensajes y recuerdos</span>
-          <h2 data-reveal>Palabras que permanecen.</h2>
-        </div>
-        <p data-reveal>
-          Estos testimonios son temporales y luego podrás sustituirlos por recuerdos reales, anécdotas familiares
-          y mensajes de personas cercanas.
-        </p>
-      </div>
-
-      <div class="testimonials-wrap">
-        <article class="testimonial-card" data-reveal>
+      <div class="testimonial-spotlight">
+        <article class="testimonial-big" data-reveal>
+          <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1000&q=80" alt="Testimonio temporal">
           <div>
-            <div class="testimonial-quote">“</div>
+            <span class="small-kicker">Recuerdo destacado</span>
+            <h3>“Estar con esta familia siempre se ha sentido como volver a casa.”</h3>
             <p>
-              Siempre que pienso en esta familia, pienso en calidez, unión y una forma muy especial de hacer sentir a todos en casa.
+              Este testimonio es temporal y después puedes sustituirlo por una historia real. La idea aquí es replicar
+              el bloque de testimonio protagonista de la página de referencia con una presencia visual fuerte y emotiva. [page:23]
             </p>
+            <div class="testimonial-name">Mensaje temporal · Familiar cercano</div>
           </div>
-          <div class="testimonial-meta">Recuerdo temporal · Familiar cercano</div>
         </article>
 
-        <article class="testimonial-card" data-reveal>
-          <div>
-            <div class="testimonial-quote">“</div>
-            <p>
-              Hay familias que se recuerdan por sus momentos; esta se recuerda por la manera en que convierte cada momento en algo inolvidable.
-            </p>
-          </div>
-          <div class="testimonial-meta">Mensaje temporal · Amistad de años</div>
-        </article>
-
-        <article class="testimonial-card" data-reveal>
-          <div>
-            <div class="testimonial-quote">“</div>
-            <p>
-              La energía de LA FAMILIA deja huella: cercanía, elegancia, fuerza y una historia que merece ser celebrada.
-            </p>
-          </div>
-          <div class="testimonial-meta">Texto temporal · Invitado especial</div>
-        </article>
+        <aside class="testimonial-side" data-reveal>
+          <span class="small-kicker">Mensajes y recuerdos</span>
+          <h4>Palabras que luego podrás personalizar.</h4>
+          <p>
+            “Siempre hubo cariño, conversación y una sensación de pertenencia muy difícil de explicar.”
+          </p>
+          <div class="testimonial-name">Texto temporal · Amistad de años</div>
+        </aside>
       </div>
     </div>
   </section>
 
   <section class="section" id="album">
     <div class="container">
-      <div class="section-header">
+      <div class="section-head">
         <div>
-          <span class="section-kicker" data-reveal>Álbum familiar</span>
-          <h2 data-reveal>Momentos que merecen volver a verse.</h2>
+          <span class="small-kicker" data-reveal>Álbum familiar</span>
+          <h2 class="section-title" data-reveal>Momentos recientes que merecen permanecer.</h2>
         </div>
         <p data-reveal>
-          Esta galería funciona como base visual temporal. Luego podrás sustituir cada bloque con fotos y videos familiares
-          organizados por viajes, celebraciones, generaciones o años.
+          Esta sección cumple el papel del bloque de “work” del sitio de referencia, pero aquí se transforma en una
+          galería de recuerdos y escenas familiares. [page:23][file:7]
         </p>
       </div>
 
-      <div class="album-layout">
-        <article class="album-main" data-reveal>
-          <img src="https://images.unsplash.com/photo-1516589091380-5d8e87df6999?auto=format&fit=crop&w=1600&q=80" alt="Momento familiar principal temporal" />
-          <div class="album-card">
+      <div class="work-grid">
+        <article class="work-main" data-reveal>
+          <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1600&q=80" alt="Imagen principal temporal">
+          <div class="work-copy">
             <span>Celebraciones</span>
-            <h3>Instantes que reúnen generaciones.</h3>
-            <p>
-              Un espacio para cumpleaños, aniversarios, reuniones especiales y todos esos días que merecen seguir vivos en la memoria.
-            </p>
+            <h3>Instantes que reúnen a todos.</h3>
+            <p>Un espacio para cumpleaños, aniversarios, cenas, reuniones y todos esos días que merecen ser revisitados una y otra vez.</p>
           </div>
         </article>
 
-        <div class="album-stack">
+        <div class="work-stack">
           <article data-reveal>
-            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1200&q=80" alt="Viaje familiar temporal" />
-            <div class="album-card">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Viajes familiares temporales">
+            <div class="work-copy">
               <span>Viajes</span>
               <h3>Rutas compartidas.</h3>
-              <p>Lugares, paisajes y recuerdos que ampliaron la historia de la familia.</p>
+              <p>Recuerdos fuera de casa que también forman parte del corazón familiar.</p>
             </div>
           </article>
 
           <article data-reveal>
-            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Encuentro familiar temporal" />
-            <div class="album-card">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=80" alt="Encuentros familiares temporales">
+            <div class="work-copy">
               <span>Encuentros</span>
               <h3>La alegría de coincidir.</h3>
-              <p>Conversaciones, risas, abrazos y escenas cotidianas convertidas en tesoros.</p>
+              <p>Abrazo, conversación y presencia: lo que convierte cualquier día en algo valioso.</p>
             </div>
           </article>
         </div>
@@ -1044,115 +1214,118 @@
 
   <section class="section" id="historias">
     <div class="container">
-      <div class="section-header">
-        <div>
-          <span class="section-kicker" data-reveal>Historias y recetas</span>
-          <h2 data-reveal>Tradiciones contadas con cariño.</h2>
+      <div class="blog-layout">
+        <div class="blog-intro" data-reveal>
+          <span class="small-kicker">Historias y recetas</span>
+          <h2 class="section-title">Un blog íntimo para guardar lo que importa.</h2>
+          <p>
+            Igual que la web de referencia dedica un bloque entero a contenido editorial, aquí esa lógica se convierte
+            en un espacio para recetas, anécdotas y memorias escritas. [page:23][file:7]
+          </p>
+          <a href="#contacto" class="btn-secondary">Compartir una historia</a>
         </div>
-        <p data-reveal>
-          Esta sección puede convertirse luego en un blog familiar con anécdotas, recetas, enseñanzas y recuerdos escritos por distintos miembros.
-        </p>
+
+        <div class="blog-grid">
+          <article class="blog-card" data-reveal>
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Receta temporal">
+            <div class="blog-content">
+              <span>Receta</span>
+              <h3>Sabores que saben a hogar.</h3>
+              <p>Un lugar para guardar esa receta que siempre aparece en las fechas importantes.</p>
+              <div class="testimonial-name">Lectura temporal · 3 min</div>
+            </div>
+          </article>
+
+          <article class="blog-card" data-reveal>
+            <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=80" alt="Historia temporal">
+            <div class="blog-content">
+              <span>Historia</span>
+              <h3>Los recuerdos que nacen en lo cotidiano.</h3>
+              <p>Una escena sencilla puede convertirse con el tiempo en una de las memorias más queridas.</p>
+              <div class="testimonial-name">Lectura temporal · 2 min</div>
+            </div>
+          </article>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="stories-grid">
-        <article class="story-card" data-reveal>
-          <div class="story-photo">
-            <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=1200&q=80" alt="Historia familiar temporal 1" />
-          </div>
-          <div class="story-content">
-            <span>Historia</span>
-            <h3>Las sobremesas que nos formaron.</h3>
-            <p>
-              Un espacio para contar esas conversaciones largas, sencillas y valiosas que terminan convirtiéndose en tradición.
-            </p>
-          </div>
-        </article>
+  <section class="section" id="newsletter">
+    <div class="container">
+      <div class="newsletter-block">
+        <figure class="newsletter-visual" data-reveal>
+          <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=80" alt="Visual temporal para recuerdos">
+        </figure>
 
-        <article class="story-card" data-reveal>
-          <div class="story-photo">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Receta familiar temporal" />
-          </div>
-          <div class="story-content">
-            <span>Receta</span>
-            <h3>Sabores que saben a casa.</h3>
-            <p>
-              Ideal para guardar esas recetas que acompañan los momentos más importantes y mantienen viva la tradición.
-            </p>
-          </div>
-        </article>
+        <div class="newsletter-copy" data-reveal>
+          <span>Archivo familiar</span>
+          <h3>Nuestra memoria merece un lugar hermoso donde quedarse.</h3>
+          <p>
+            Este bloque reemplaza la parte de newsletter/lead magnet de la web original con una invitación más íntima:
+            guardar recuerdos, compartir materiales y seguir construyendo esta página con el tiempo. [page:23]
+          </p>
+          <p>
+            Más adelante puedes usarlo para recibir fotos, videos, recetas, mensajes o nuevas historias familiares.
+          </p>
 
-        <article class="story-card" data-reveal>
-          <div class="story-photo">
-            <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=80" alt="Reflexión familiar temporal" />
-          </div>
-          <div class="story-content">
-            <span>Memoria</span>
-            <h3>Pequeños gestos, grandes recuerdos.</h3>
-            <p>
-              Un rincón para dejar por escrito lo que a veces el tiempo intenta borrar, pero el corazón no olvida.
-            </p>
-          </div>
-        </article>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Tu correo electrónico">
+            <button type="button" class="btn-primary">Guardar recuerdos</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section" id="contacto">
     <div class="container">
-      <div class="section-header">
-        <div>
-          <span class="section-kicker" data-reveal>Conéctate con nosotros</span>
-          <h2 data-reveal>Comparte un recuerdo, una idea o un mensaje.</h2>
-        </div>
-        <p data-reveal>
-          Esta parte puede servir luego como formulario para enviar saludos, proponer reuniones familiares, compartir fotos o sugerir nuevas historias para la página.
-        </p>
-      </div>
-
       <div class="contact-grid">
         <article class="contact-card" data-reveal>
-          <h3>Un espacio abierto para la familia</h3>
+          <h3>Conéctate con nosotros</h3>
           <p>
-            Puedes reemplazar esta información luego con correos reales, enlaces privados, redes familiares o detalles para próximos encuentros.
+            Este espacio puede servir para recibir mensajes, saludar a la familia, proponer reuniones o compartir
+            materiales que luego se integrarán a la página.
           </p>
 
-          <div class="contact-items">
-            <div class="contact-item">
+          <div class="contact-meta">
+            <div>
               <span>Correo</span>
-              contacto@lafamilia.com
+              hola@lafamilia.com
             </div>
-            <div class="contact-item">
-              <span>Próximo encuentro</span>
-              Reunión familiar · Próximamente
-            </div>
-            <div class="contact-item">
+            <div>
               <span>Propósito</span>
-              Guardar memorias, celebrar vínculos y seguir construyendo legado
+              Reunir recuerdos, preservar identidad y fortalecer vínculos
+            </div>
+            <div>
+              <span>Próximo encuentro</span>
+              Fecha por definir · Reunión familiar
             </div>
           </div>
         </article>
 
-        <div class="contact-form" data-reveal>
+        <div class="contact-form-card" data-reveal>
           <h3>Déjanos un mensaje</h3>
-          <p>Formulario temporal para que después lo conectes a tu correo o plataforma preferida.</p>
+          <p>
+            Formulario temporal para que después lo conectes a tu correo o a la plataforma que prefieras.
+          </p>
 
           <form>
             <label>
               Nombre
-              <input type="text" placeholder="Tu nombre" />
+              <input type="text" placeholder="Tu nombre">
             </label>
 
             <label>
-              Correo electrónico
-              <input type="email" placeholder="Tu correo" />
+              Correo
+              <input type="email" placeholder="Tu correo">
             </label>
 
             <label>
               Mensaje
-              <textarea placeholder="Escribe aquí tu recuerdo, saludo o idea"></textarea>
+              <textarea placeholder="Escribe aquí tu saludo, recuerdo o idea"></textarea>
             </label>
 
-            <button type="submit" class="btn-primary">Enviar mensaje</button>
+            <button type="button" class="btn-primary">Enviar mensaje</button>
           </form>
         </div>
       </div>
@@ -1160,24 +1333,38 @@
   </section>
 
   <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">LA FAMILIA</div>
-      <div>Una historia compartida que sigue creciendo.</div>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">LA FAMILIA</div>
+        <nav class="footer-nav">
+          <a href="#inicio">Inicio</a>
+          <a href="#historia">Historia</a>
+          <a href="#miembros">Miembros</a>
+          <a href="#album">Álbum</a>
+          <a href="#historias">Historias</a>
+          <a href="#contacto">Conectar</a>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 LA FAMILIA</div>
+        <div>Una historia compartida que sigue creciendo.</div>
+      </div>
     </div>
   </footer>
 
   <script>
     const revealItems = document.querySelectorAll("[data-reveal]");
 
-    const revealObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
         }
       });
-    }, { threshold: 0.14 });
+    }, { threshold: 0.12 });
 
-    revealItems.forEach((item) => revealObserver.observe(item));
+    revealItems.forEach((item) => observer.observe(item));
   </script>
 </body>
 </html>
