@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LA FAMILIA</title>
   <meta
     name="description"
-    content="LA FAMILIA es una página editorial y visual para presentar su historia, valores, servicios, portafolio, blog, testimonios y contacto."
+    content="LA FAMILIA is an editorial and visual website to present its story, values, services, portfolio, blog, testimonials, and contact information."
   />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
@@ -225,7 +225,7 @@
       min-height:100vh;
       display:flex;
       align-items:center;
-      padding:30px 0 60px;
+      padding:30px 0 70px;
       border-bottom:1px solid rgba(255,255,255,.05);
       overflow:hidden;
     }
@@ -239,22 +239,22 @@
 
     .hero-stage{
       position:relative;
-      min-height:860px;
+      min-height:900px;
       display:flex;
       flex-direction:column;
       align-items:center;
       justify-content:flex-start;
-      padding-top:30px;
+      padding-top:26px;
     }
 
     .hero-video-box{
       position:relative;
       z-index:3;
-      width:min(100%, 940px);
+      width:min(100%, 820px);
       border-radius:32px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,.08);
-      min-height:500px;
+      min-height:430px;
       background:#0d0f12;
       box-shadow:var(--shadow);
     }
@@ -270,7 +270,7 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg, rgba(8,8,10,.12), rgba(8,8,10,.42));
+      background:linear-gradient(180deg, rgba(8,8,10,.10), rgba(8,8,10,.34));
       pointer-events:none;
     }
 
@@ -278,7 +278,7 @@
       position:absolute;
       left:0;
       right:0;
-      top:430px;
+      top:500px;
       z-index:1;
       overflow:hidden;
       white-space:nowrap;
@@ -295,53 +295,73 @@
 
     .values-group{
       display:flex;
-      gap:50px;
-      padding-right:50px;
+      gap:64px;
+      padding-right:64px;
     }
 
     .values-group span{
       font-family:"Cormorant Garamond",serif;
-      font-size:clamp(3.1rem,8vw,7.3rem);
-      line-height:.9;
-      letter-spacing:-.05em;
+      font-size:clamp(4.2rem,10vw,9rem);
+      line-height:.82;
+      letter-spacing:-.06em;
       text-transform:uppercase;
-      color:rgba(240,224,204,.26);
+      color:rgba(240,224,204,.24);
       white-space:nowrap;
     }
 
     .hero-bottom{
       position:relative;
       z-index:4;
-      margin-top:170px;
-      width:min(100%, 900px);
+      margin-top:120px;
+      width:min(100%, 960px);
       display:flex;
       flex-direction:column;
       align-items:center;
       justify-content:center;
       text-align:center;
-      gap:18px;
+      gap:20px;
     }
 
     .hero-copy h1{
       font-family:"Cormorant Garamond",serif;
-      font-size:clamp(2.7rem,5vw,4.6rem);
-      line-height:.94;
-      letter-spacing:-.04em;
+      font-size:clamp(3.1rem,5.4vw,5.2rem);
+      line-height:.92;
+      letter-spacing:-.05em;
       font-weight:600;
       max-width:13ch;
-      margin:0 auto 14px;
+      margin:0 auto 16px;
     }
 
     .hero-copy p{
       color:var(--muted);
-      max-width:58ch;
+      max-width:62ch;
       margin:0 auto;
+      font-size:1.04rem;
+    }
+
+    .zoom-word{
+      display:inline-block;
+      animation:wordPulse 5s ease-in-out infinite;
+      transform-origin:center;
+    }
+
+    .zoom-word:nth-child(1){
+      animation-delay:0s;
+    }
+
+    .zoom-word:nth-child(2){
+      animation-delay:.8s;
+    }
+
+    .zoom-word:nth-child(3){
+      animation-delay:1.6s;
     }
 
     .services-link{
       display:inline-block;
-      font-size:.9rem;
-      letter-spacing:.18em;
+      margin-top:4px;
+      font-size:1rem;
+      letter-spacing:.2em;
       text-transform:uppercase;
       color:var(--cream);
       border-bottom:1px solid rgba(240,224,204,.7);
@@ -766,6 +786,17 @@
       to{ transform:translateX(-50%); }
     }
 
+    @keyframes wordPulse{
+      0%, 100%{
+        transform:scale(1);
+        color:var(--text);
+      }
+      50%{
+        transform:scale(1.08);
+        color:var(--cream);
+      }
+    }
+
     @media (max-width:1120px){
       .section-head,
       .founder-card,
@@ -778,20 +809,20 @@
       }
 
       .hero-stage{
-        min-height:780px;
+        min-height:830px;
       }
 
       .hero-video-box{
-        width:min(100%, 860px);
-        min-height:460px;
+        width:min(100%, 760px);
+        min-height:390px;
       }
 
       .values-layer{
-        top:390px;
+        top:455px;
       }
 
       .hero-bottom{
-        margin-top:150px;
+        margin-top:106px;
       }
     }
 
@@ -816,26 +847,35 @@
       }
 
       .hero-stage{
-        min-height:650px;
-        padding-top:20px;
+        min-height:670px;
+        padding-top:18px;
       }
 
       .hero-video-box{
-        min-height:300px;
+        min-height:260px;
         width:min(100%, 100%);
       }
 
       .values-layer{
-        top:270px;
+        top:285px;
+      }
+
+      .values-group{
+        gap:36px;
+        padding-right:36px;
       }
 
       .values-group span{
-        font-size:clamp(2.1rem, 10vw, 4rem);
+        font-size:clamp(2.8rem, 12vw, 5.2rem);
       }
 
       .hero-bottom{
-        margin-top:105px;
+        margin-top:88px;
         width:min(100%, 94%);
+      }
+
+      .hero-copy h1{
+        font-size:clamp(2.55rem, 9vw, 3.7rem);
       }
 
       .portfolio-slider{
@@ -917,28 +957,33 @@
         <div class="values-layer" data-reveal>
           <div class="values-track">
             <div class="values-group">
-              <span>LEGADO</span>
-              <span>UNIÓN</span>
-              <span>VALORES</span>
-              <span>HISTORIA</span>
-              <span>IDENTIDAD</span>
+              <span>LEGACY</span>
+              <span>UNITY</span>
+              <span>VALUES</span>
+              <span>HISTORY</span>
+              <span>IDENTITY</span>
             </div>
             <div class="values-group" aria-hidden="true">
-              <span>LEGADO</span>
-              <span>UNIÓN</span>
-              <span>VALORES</span>
-              <span>HISTORIA</span>
-              <span>IDENTIDAD</span>
+              <span>LEGACY</span>
+              <span>UNITY</span>
+              <span>VALUES</span>
+              <span>HISTORY</span>
+              <span>IDENTITY</span>
             </div>
           </div>
         </div>
 
         <div class="hero-bottom" data-reveal>
           <div class="hero-copy">
-            <h1>Una marca visual construida sobre historia, presencia y conexión.</h1>
+            <h1>
+              A visual brand built on
+              <span class="zoom-word">history</span>,
+              <span class="zoom-word">presence</span>,
+              and
+              <span class="zoom-word">connection</span>.
+            </h1>
             <p>
-              LA FAMILIA se dedica a crear una identidad sólida alrededor de su legado, su imagen y su historia,
-              reuniendo contenido visual, presencia de marca y una narrativa clara que conecte con quienes la conocen.
+              LA FAMILIA is dedicated to building a strong identity around its legacy, image, and story, bringing together visual content, brand presence, and a clear narrative that connects with the people who experience it.
             </p>
           </div>
 
@@ -972,28 +1017,25 @@
       <div class="section-head">
         <div>
           <span class="kicker" data-reveal>About Us</span>
-          <h2 data-reveal>La biografía del fundador de la familia.</h2>
+          <h2 data-reveal>The biography of the family founder.</h2>
         </div>
         <p data-reveal>
-          Esta sección está pensada para contar el origen, la trayectoria, los valores y la visión de la figura
-          fundadora de LA FAMILIA, con un enfoque elegante y editorial similar a la sección “Meet the Founder”
-          de la página de referencia.
+          This section is designed to present the founder’s origin, journey, values, and vision in an elegant editorial way.
         </p>
       </div>
 
       <div class="founder-card">
         <div class="founder-media" data-reveal>
-          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1400&q=80" alt="Fundador temporal">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1400&q=80" alt="Founder placeholder">
         </div>
 
         <div class="founder-copy" data-reveal>
-          <h3>Una figura central que transformó historia en identidad.</h3>
+          <h3>A central figure who transformed history into identity.</h3>
           <p>
-            Aquí podrás colocar la biografía completa del fundador: sus inicios, sus decisiones, su visión y la manera
-            en que dejó una marca que sigue viva en cada nuevo paso de LA FAMILIA.
+            Here you can place the full founder biography: the beginning, key decisions, vision, and the legacy that still shapes LA FAMILIA today.
           </p>
           <p>
-            Por ahora este texto funciona como placeholder elegante hasta que añadas la información real y las imágenes definitivas.
+            For now, this text works as an elegant placeholder until you add the final information and imagery.
           </p>
           <a href="#" class="btn-outline">VIEW MORE</a>
         </div>
@@ -1005,27 +1047,26 @@
     <div class="container">
       <div class="portfolio-head" data-reveal>
         <span class="kicker">Services</span>
-        <h3>Una sección visual para mostrar imagen, branding y presencia.</h3>
+        <h3>A visual section for image, branding, and presence.</h3>
         <p>
-          Estos cuadros grandes están pensados para que luego coloques imágenes destacadas. La animación hace que una se muestre
-          y luego desaparezca para dar paso a la siguiente, creando un efecto visual continuo.
+          These large frames are designed for featured imagery. Each one fades into the next to create a clean and continuous visual rhythm.
         </p>
       </div>
 
       <div class="portfolio-slider" data-reveal>
         <article class="portfolio-slide active">
-          <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1600&q=80" alt="Imagen temporal 1">
-          <div class="portfolio-caption">BRANDING / IMAGEN 01</div>
+          <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1600&q=80" alt="Temporary image 1">
+          <div class="portfolio-caption">BRANDING / IMAGE 01</div>
         </article>
 
         <article class="portfolio-slide">
-          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80" alt="Imagen temporal 2">
-          <div class="portfolio-caption">BRANDING / IMAGEN 02</div>
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80" alt="Temporary image 2">
+          <div class="portfolio-caption">BRANDING / IMAGE 02</div>
         </article>
 
         <article class="portfolio-slide">
-          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1600&q=80" alt="Imagen temporal 3">
-          <div class="portfolio-caption">BRANDING / IMAGEN 03</div>
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1600&q=80" alt="Temporary image 3">
+          <div class="portfolio-caption">BRANDING / IMAGE 03</div>
         </article>
       </div>
     </div>
@@ -1036,42 +1077,41 @@
       <div class="section-head">
         <div>
           <span class="kicker" data-reveal>Portfolio</span>
-          <h2 data-reveal>Una galería para proyectos, imágenes y momentos visuales.</h2>
+          <h2 data-reveal>A gallery for projects, imagery, and visual moments.</h2>
         </div>
         <p data-reveal>
-          Este bloque puede servir después para presentar fotos editoriales, campañas visuales, archivos familiares
-          o cualquier colección importante para la presencia de LA FAMILIA.
+          This block can later hold editorial photography, campaign visuals, family archives, or any curated collection that supports the presence of LA FAMILIA.
         </p>
       </div>
 
       <div class="blog-grid">
         <article class="blog-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1200&q=80" alt="Portfolio temporal 1">
+          <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1200&q=80" alt="Portfolio placeholder 1">
           <div class="blog-content">
             <span class="blog-meta">Portfolio</span>
-            <h3>Presencia visual construida con intención.</h3>
-            <p>Un bloque ideal para imágenes que representen elegancia, unidad y narrativa de marca.</p>
-            <span class="read-more">View work</span>
+            <h3>Visual presence built with intention.</h3>
+            <p>An ideal space for imagery that reflects elegance, unity, and narrative depth.</p>
+            <span class="read-more">VIEW WORK</span>
           </div>
         </article>
 
         <article class="blog-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80" alt="Portfolio temporal 2">
+          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80" alt="Portfolio placeholder 2">
           <div class="blog-content">
             <span class="blog-meta">Portfolio</span>
-            <h3>Contenido visual con identidad clara.</h3>
-            <p>Perfecto para retratos, sesiones, behind the scenes o imágenes de archivo.</p>
-            <span class="read-more">View work</span>
+            <h3>Visual content with a clear identity.</h3>
+            <p>Perfect for portraits, sessions, behind-the-scenes visuals, or archival imagery.</p>
+            <span class="read-more">VIEW WORK</span>
           </div>
         </article>
 
         <article class="blog-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80" alt="Portfolio temporal 3">
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80" alt="Portfolio placeholder 3">
           <div class="blog-content">
             <span class="blog-meta">Portfolio</span>
-            <h3>Un sistema visual que puede crecer con el tiempo.</h3>
-            <p>Luego podrás convertir esta sección en una galería más amplia o en un carrusel editorial.</p>
-            <span class="read-more">View work</span>
+            <h3>A visual system designed to grow over time.</h3>
+            <p>Later this can become a larger gallery or a more editorial carousel experience.</p>
+            <span class="read-more">VIEW WORK</span>
           </div>
         </article>
       </div>
@@ -1083,41 +1123,41 @@
       <div class="section-head">
         <div>
           <span class="kicker" data-reveal>Blog</span>
-          <h2 data-reveal>Un espacio para historias, ideas y publicaciones.</h2>
+          <h2 data-reveal>A space for stories, ideas, and publications.</h2>
         </div>
         <p data-reveal>
-          Aquí puedes colocar artículos, noticias, reflexiones, recetas o cualquier contenido editorial que quieras que forme parte de la página.
+          Here you can place articles, news, reflections, recipes, or any editorial content you want to include in the site.
         </p>
       </div>
 
       <div class="blog-grid">
         <article class="blog-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=80" alt="Blog temporal 1">
+          <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=80" alt="Blog placeholder 1">
           <div class="blog-content">
-            <span class="blog-meta">Artículo</span>
-            <h3>Cómo preservar los recuerdos más valiosos.</h3>
-            <p>Un texto placeholder para una publicación futura sobre memoria, legado y archivo visual.</p>
-            <span class="read-more">Read more</span>
+            <span class="blog-meta">Article</span>
+            <h3>How to preserve the most valuable memories.</h3>
+            <p>A placeholder for a future post about memory, legacy, and visual archives.</p>
+            <span class="read-more">READ MORE</span>
           </div>
         </article>
 
         <article class="blog-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Blog temporal 2">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Blog placeholder 2">
           <div class="blog-content">
-            <span class="blog-meta">Historia</span>
-            <h3>Momentos que crecen con el paso del tiempo.</h3>
-            <p>Otro espacio ideal para relatos, tradiciones o recuerdos escritos con tono editorial.</p>
-            <span class="read-more">Read more</span>
+            <span class="blog-meta">Story</span>
+            <h3>Moments that grow with time.</h3>
+            <p>Another ideal space for stories, traditions, and editorial writing with emotional depth.</p>
+            <span class="read-more">READ MORE</span>
           </div>
         </article>
 
         <article class="blog-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=1200&q=80" alt="Blog temporal 3">
+          <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=1200&q=80" alt="Blog placeholder 3">
           <div class="blog-content">
-            <span class="blog-meta">Receta</span>
-            <h3>Sabores, costumbres y memorias del hogar.</h3>
-            <p>Una publicación placeholder para recetas familiares o tradiciones culinarias importantes.</p>
-            <span class="read-more">Read more</span>
+            <span class="blog-meta">Recipe</span>
+            <h3>Flavors, customs, and memories of home.</h3>
+            <p>A placeholder for family recipes or meaningful culinary traditions.</p>
+            <span class="read-more">READ MORE</span>
           </div>
         </article>
       </div>
@@ -1129,69 +1169,53 @@
       <div class="section-head">
         <div>
           <span class="kicker" data-reveal>Testimonials</span>
-          <h2 data-reveal>Reseñas y recuerdos que se muestran en movimiento.</h2>
+          <h2 data-reveal>Reviews and memories presented in motion.</h2>
         </div>
         <p data-reveal>
-          Cada testimonio aquí se mueve de derecha a izquierda en una banda continua, para crear una lectura dinámica y elegante.
+          Each testimonial moves from right to left in a continuous band to create an elegant and dynamic reading experience.
         </p>
       </div>
 
       <div class="testimonials-shell" data-reveal>
         <div class="testimonials-track">
           <article class="testimonial-card">
-            <p>
-              “Trabajar con LA FAMILIA siempre deja una sensación de cercanía, elegancia y autenticidad.”
-            </p>
-            <div class="testimonial-name">Review temporal · Cliente / Invitado</div>
+            <p>“Working with LA FAMILIA always leaves a feeling of closeness, elegance, and authenticity.”</p>
+            <div class="testimonial-name">TEMP REVIEW · CLIENT / GUEST</div>
           </article>
 
           <article class="testimonial-card">
-            <p>
-              “Hay una identidad muy clara detrás de esta marca: todo se siente coherente, cálido y bien pensado.”
-            </p>
-            <div class="testimonial-name">Review temporal · Colaborador</div>
+            <p>“There is a very clear identity behind this brand. Everything feels coherent, warm, and intentional.”</p>
+            <div class="testimonial-name">TEMP REVIEW · COLLABORATOR</div>
           </article>
 
           <article class="testimonial-card">
-            <p>
-              “La experiencia visual y emocional transmite valores reales, presencia y una historia con mucho peso.”
-            </p>
-            <div class="testimonial-name">Review temporal · Aliado</div>
+            <p>“The visual and emotional experience communicates real values, presence, and a powerful story.”</p>
+            <div class="testimonial-name">TEMP REVIEW · ALLY</div>
           </article>
 
           <article class="testimonial-card">
-            <p>
-              “La forma en que LA FAMILIA presenta su imagen hace que todo se perciba más sólido y memorable.”
-            </p>
-            <div class="testimonial-name">Review temporal · Contacto externo</div>
+            <p>“The way LA FAMILIA presents its image makes everything feel more solid and memorable.”</p>
+            <div class="testimonial-name">TEMP REVIEW · EXTERNAL CONTACT</div>
           </article>
 
           <article class="testimonial-card">
-            <p>
-              “Se nota una intención clara detrás de cada detalle, y eso hace que la marca tenga una presencia muy fuerte.”
-            </p>
-            <div class="testimonial-name">Review temporal · Invitado</div>
+            <p>“You can feel the intention behind every detail, and that gives the brand a very strong presence.”</p>
+            <div class="testimonial-name">TEMP REVIEW · GUEST</div>
           </article>
 
           <article class="testimonial-card">
-            <p>
-              “Trabajar con LA FAMILIA siempre deja una sensación de cercanía, elegancia y autenticidad.”
-            </p>
-            <div class="testimonial-name">Review temporal · Cliente / Invitado</div>
+            <p>“Working with LA FAMILIA always leaves a feeling of closeness, elegance, and authenticity.”</p>
+            <div class="testimonial-name">TEMP REVIEW · CLIENT / GUEST</div>
           </article>
 
           <article class="testimonial-card">
-            <p>
-              “Hay una identidad muy clara detrás de esta marca: todo se siente coherente, cálido y bien pensado.”
-            </p>
-            <div class="testimonial-name">Review temporal · Colaborador</div>
+            <p>“There is a very clear identity behind this brand. Everything feels coherent, warm, and intentional.”</p>
+            <div class="testimonial-name">TEMP REVIEW · COLLABORATOR</div>
           </article>
 
           <article class="testimonial-card">
-            <p>
-              “La experiencia visual y emocional transmite valores reales, presencia y una historia con mucho peso.”
-            </p>
-            <div class="testimonial-name">Review temporal · Aliado</div>
+            <p>“The visual and emotional experience communicates real values, presence, and a powerful story.”</p>
+            <div class="testimonial-name">TEMP REVIEW · ALLY</div>
           </article>
         </div>
       </div>
@@ -1204,13 +1228,13 @@
         <article class="contact-card" data-reveal>
           <h3>Contact</h3>
           <p>
-            Esta sección queda lista para que luego pongas los datos reales de contacto, redes, dirección o cualquier forma de conexión directa con LA FAMILIA.
+            This section is ready for your real contact details, social links, address, or any other direct way to connect with LA FAMILIA.
           </p>
 
           <div class="contact-list">
             <div class="contact-item">
               <span>Email</span>
-              hola@lafamilia.com
+              hello@lafamilia.com
             </div>
 
             <div class="contact-item">
@@ -1219,35 +1243,35 @@
             </div>
 
             <div class="contact-item">
-              <span>Ubicación</span>
+              <span>Location</span>
               San Pedro Sula, Honduras
             </div>
           </div>
         </article>
 
         <div class="contact-form" data-reveal>
-          <h3>Envíanos un mensaje</h3>
+          <h3>Send us a message</h3>
           <p>
-            Formulario temporal para que después lo conectes a tu correo o al sistema que prefieras.
+            A temporary form that you can later connect to your email or preferred system.
           </p>
 
           <form>
             <label>
-              Nombre
-              <input type="text" placeholder="Tu nombre">
+              Name
+              <input type="text" placeholder="Your name">
             </label>
 
             <label>
-              Correo
-              <input type="email" placeholder="Tu correo">
+              Email
+              <input type="email" placeholder="Your email">
             </label>
 
             <label>
-              Mensaje
-              <textarea placeholder="Escribe aquí tu mensaje"></textarea>
+              Message
+              <textarea placeholder="Write your message here"></textarea>
             </label>
 
-            <button type="button" class="btn-outline">Enviar</button>
+            <button type="button" class="btn-outline">SEND</button>
           </form>
         </div>
       </div>
@@ -1257,7 +1281,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div>LA FAMILIA</div>
-      <div>Una identidad visual con historia, valores y presencia.</div>
+      <div>A visual identity shaped by story, values, and presence.</div>
     </div>
   </footer>
 
