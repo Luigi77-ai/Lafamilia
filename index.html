@@ -521,7 +521,7 @@
       background:rgba(188,141,93,.08);
     }
 
-    /* SERVICES FIXED CENTER + ORBITING CARDS */
+    /* SERVICES */
     .services-scatter{
       position:relative;
       min-height:980px;
@@ -593,9 +593,9 @@
       border:1px solid rgba(255,255,255,.10);
       box-shadow:var(--shadow);
       background:#111;
-      transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      transition:box-shadow var(--transition), border-color var(--transition);
       pointer-events:auto;
-      animation:floatCard 4.8s ease-in-out infinite;
+      animation:floatCard 5.4s ease-in-out infinite;
     }
 
     .service-card img{
@@ -810,7 +810,7 @@
 
     @keyframes floatCard{
       0%,100%{ translate:0 0; }
-      50%{ translate:0 -10px; }
+      50%{ translate:0 -8px; }
     }
 
     @keyframes spinOrbit{
@@ -986,13 +986,7 @@
         height:220px !important;
         margin:0;
         transform:none !important;
-        animation:floatCard 4.8s ease-in-out infinite;
-      }
-
-      .service-card.s1,.service-card.s2,.service-card.s3,.service-card.s4,.service-card.s5,
-      .service-card.s6,.service-card.s7,.service-card.s8,.service-card.s9,.service-card.s10,.service-card.s11{
-        --card-w:100%;
-        --card-h:220px;
+        animation:floatCard 5.4s ease-in-out infinite;
       }
     }
   </style>
@@ -1149,7 +1143,7 @@
   <section class="section" id="services">
     <div class="container">
       <div class="services-scatter" data-reveal>
-        <div class="service-orbit" style="--orbit-size: 940px; --orbit-speed: 23s;">
+        <div class="service-orbit" style="--orbit-size: 940px; --orbit-speed: 34s;">
           <article class="service-card s1">
             <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80" alt="Banner image 1">
           </article>
@@ -1170,7 +1164,7 @@
           </article>
         </div>
 
-        <div class="service-orbit reverse" style="--orbit-size: 760px; --orbit-speed: 18s;">
+        <div class="service-orbit reverse" style="--orbit-size: 760px; --orbit-speed: 28s;">
           <article class="service-card s2">
             <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80" alt="Banner image 2">
           </article>
