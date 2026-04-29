@@ -524,12 +524,12 @@
     /* SERVICES */
     .services-scatter{
       position:relative;
-      min-height:980px;
+      min-height:1100px;
       display:flex;
       align-items:center;
       justify-content:center;
-      overflow:hidden;
-      padding:40px 20px;
+      overflow:visible;
+      padding:90px 20px 120px;
     }
 
     .services-center-copy{
@@ -633,6 +633,120 @@
     .service-card.s9{ --angle: 286deg; --tilt:-4deg; --card-w:216px; --card-h:146px; --radius:390px; animation-delay:2.75s; }
     .service-card.s10{ --angle: 320deg; --tilt:3deg; --card-w:232px; --card-h:156px; --radius:405px; animation-delay:3.1s; }
     .service-card.s11{ --angle: 350deg; --tilt:-3deg; --card-w:222px; --card-h:148px; --radius:435px; animation-delay:3.45s; }
+
+    /* PORTFOLIO */
+    .portfolio-section{
+      overflow:hidden;
+    }
+
+    .portfolio-stage{
+      position:relative;
+      min-height:760px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+    }
+
+    .portfolio-copy-wrap{
+      position:relative;
+      z-index:15;
+      width:min(620px, 100%);
+      padding:22px 0;
+    }
+
+    .portfolio-copy-wrap .kicker{
+      margin-bottom:16px;
+    }
+
+    .portfolio-copy-wrap h2{
+      font-family:"Cormorant Garamond",serif;
+      font-weight:600;
+      letter-spacing:-.04em;
+      font-size:clamp(3rem,5.4vw,5.4rem);
+      line-height:.94;
+      max-width:10ch;
+      margin-bottom:22px;
+    }
+
+    .portfolio-copy-wrap p{
+      font-size:clamp(1.12rem, 1.4vw, 1.32rem);
+      line-height:1.85;
+      color:rgba(246,239,230,.82);
+      max-width:44ch;
+      position:relative;
+      z-index:20;
+    }
+
+    .portfolio-marquee{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      z-index:5;
+      pointer-events:none;
+      overflow:hidden;
+    }
+
+    .portfolio-track{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      width:max-content;
+      animation:portfolioFlow 42s linear infinite;
+      padding-left:40px;
+    }
+
+    .portfolio-group{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      padding-right:26px;
+    }
+
+    .portfolio-card{
+      width:310px;
+      height:420px;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.09);
+      box-shadow:var(--shadow);
+      position:relative;
+      flex:0 0 auto;
+      opacity:.92;
+    }
+
+    .portfolio-card.tall{
+      height:470px;
+      width:320px;
+    }
+
+    .portfolio-card.wide{
+      width:360px;
+      height:400px;
+    }
+
+    .portfolio-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .portfolio-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(8,8,10,.08), rgba(8,8,10,.28));
+      pointer-events:none;
+    }
+
+    .portfolio-fade{
+      position:absolute;
+      inset:0;
+      z-index:12;
+      pointer-events:none;
+      background:
+        linear-gradient(90deg, rgba(15,16,18,.92) 0%, rgba(15,16,18,.84) 20%, rgba(15,16,18,0) 40%, rgba(15,16,18,0) 100%);
+    }
 
     .blog-grid{
       display:grid;
@@ -818,6 +932,11 @@
       to{ transform:rotate(360deg); }
     }
 
+    @keyframes portfolioFlow{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(-50%); }
+    }
+
     @media (max-width:1120px){
       .section-head,
       .contact-grid{
@@ -860,11 +979,31 @@
       }
 
       .services-scatter{
-        min-height:920px;
+        min-height:1020px;
+        padding-bottom:140px;
       }
 
       .service-orbit{
         transform:scale(.88);
+      }
+
+      .portfolio-stage{
+        min-height:700px;
+      }
+
+      .portfolio-card{
+        width:270px;
+        height:370px;
+      }
+
+      .portfolio-card.tall{
+        width:286px;
+        height:420px;
+      }
+
+      .portfolio-card.wide{
+        width:320px;
+        height:360px;
       }
     }
 
@@ -958,7 +1097,7 @@
         min-height:auto;
         display:grid;
         gap:18px;
-        padding:0;
+        padding:0 0 40px;
       }
 
       .services-center-copy{
@@ -987,6 +1126,47 @@
         margin:0;
         transform:none !important;
         animation:floatCard 5.4s ease-in-out infinite;
+      }
+
+      .portfolio-stage{
+        min-height:auto;
+        padding-bottom:26px;
+      }
+
+      .portfolio-copy-wrap{
+        width:100%;
+      }
+
+      .portfolio-copy-wrap p{
+        font-size:1.05rem;
+      }
+
+      .portfolio-marquee{
+        position:relative;
+        margin-top:28px;
+      }
+
+      .portfolio-fade{
+        display:none;
+      }
+
+      .portfolio-track{
+        animation-duration:36s;
+      }
+
+      .portfolio-card{
+        width:240px;
+        height:310px;
+      }
+
+      .portfolio-card.tall{
+        width:250px;
+        height:350px;
+      }
+
+      .portfolio-card.wide{
+        width:280px;
+        height:300px;
       }
     }
   </style>
@@ -1193,48 +1373,66 @@
     </div>
   </section>
 
-  <section class="section" id="portfolio">
+  <section class="section portfolio-section" id="portfolio">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="kicker" data-reveal>Portfolio</span>
-          <h2 data-reveal>A gallery for projects, imagery, and visual moments.</h2>
+      <div class="portfolio-stage" data-reveal>
+        <div class="portfolio-marquee">
+          <div class="portfolio-track">
+            <div class="portfolio-group">
+              <article class="portfolio-card tall">
+                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 1">
+              </article>
+
+              <article class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 2">
+              </article>
+
+              <article class="portfolio-card wide">
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80" alt="Portfolio image 3">
+              </article>
+
+              <article class="portfolio-card tall">
+                <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 4">
+              </article>
+
+              <article class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 5">
+              </article>
+            </div>
+
+            <div class="portfolio-group" aria-hidden="true">
+              <article class="portfolio-card tall">
+                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 1 duplicate">
+              </article>
+
+              <article class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 2 duplicate">
+              </article>
+
+              <article class="portfolio-card wide">
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80" alt="Portfolio image 3 duplicate">
+              </article>
+
+              <article class="portfolio-card tall">
+                <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 4 duplicate">
+              </article>
+
+              <article class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 5 duplicate">
+              </article>
+            </div>
+          </div>
         </div>
-        <p data-reveal>
-          This block can later hold editorial photography, campaign visuals, family archives, or any curated collection that supports the presence of LA FAMILIA.
-        </p>
-      </div>
 
-      <div class="blog-grid">
-        <article class="blog-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1200&q=80" alt="Portfolio placeholder 1">
-          <div class="blog-content">
-            <span class="blog-meta">Portfolio</span>
-            <h3>Visual presence built with intention.</h3>
-            <p>An ideal space for imagery that reflects elegance, unity, and narrative depth.</p>
-            <span class="read-more">VIEW WORK</span>
-          </div>
-        </article>
+        <div class="portfolio-fade"></div>
 
-        <article class="blog-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80" alt="Portfolio placeholder 2">
-          <div class="blog-content">
-            <span class="blog-meta">Portfolio</span>
-            <h3>Visual content with a clear identity.</h3>
-            <p>Perfect for portraits, sessions, behind-the-scenes visuals, or archival imagery.</p>
-            <span class="read-more">VIEW WORK</span>
-          </div>
-        </article>
-
-        <article class="blog-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80" alt="Portfolio placeholder 3">
-          <div class="blog-content">
-            <span class="blog-meta">Portfolio</span>
-            <h3>A visual system designed to grow over time.</h3>
-            <p>Later this can become a larger gallery or a more editorial carousel experience.</p>
-            <span class="read-more">VIEW WORK</span>
-          </div>
-        </article>
+        <div class="portfolio-copy-wrap">
+          <span class="kicker">Portfolio</span>
+          <h2>A gallery for projects, imagery, and visual moments.</h2>
+          <p>
+            This block can later hold editorial photography, campaign visuals, family archives, or any curated collection that supports the presence of LA FAMILIA.
+          </p>
+        </div>
       </div>
     </div>
   </section>
