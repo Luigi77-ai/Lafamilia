@@ -227,49 +227,34 @@
       align-items:center;
       padding:30px 0 60px;
       border-bottom:1px solid rgba(255,255,255,.05);
+      overflow:hidden;
     }
 
     .hero-grid{
       width:100%;
       display:grid;
-      gap:26px;
+      gap:0;
+      position:relative;
     }
 
-    .values-marquee{
-      overflow:hidden;
-      white-space:nowrap;
-      mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-      -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-    }
-
-    .values-track{
+    .hero-stage{
+      position:relative;
+      min-height:860px;
       display:flex;
-      width:max-content;
-      animation:marqueeLeft 24s linear infinite;
-    }
-
-    .values-group{
-      display:flex;
-      gap:50px;
-      padding-right:50px;
-    }
-
-    .values-group span{
-      font-family:"Cormorant Garamond",serif;
-      font-size:clamp(2.8rem,7vw,6.8rem);
-      line-height:.9;
-      letter-spacing:-.05em;
-      text-transform:uppercase;
-      color:rgba(240,224,204,.92);
-      white-space:nowrap;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      padding-top:30px;
     }
 
     .hero-video-box{
       position:relative;
+      z-index:3;
+      width:min(100%, 940px);
       border-radius:32px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,.08);
-      min-height:540px;
+      min-height:500px;
       background:#0d0f12;
       box-shadow:var(--shadow);
     }
@@ -289,11 +274,52 @@
       pointer-events:none;
     }
 
+    .values-layer{
+      position:absolute;
+      left:0;
+      right:0;
+      top:430px;
+      z-index:1;
+      overflow:hidden;
+      white-space:nowrap;
+      pointer-events:none;
+      mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .values-track{
+      display:flex;
+      width:max-content;
+      animation:marqueeLeft 24s linear infinite;
+    }
+
+    .values-group{
+      display:flex;
+      gap:50px;
+      padding-right:50px;
+    }
+
+    .values-group span{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(3.1rem,8vw,7.3rem);
+      line-height:.9;
+      letter-spacing:-.05em;
+      text-transform:uppercase;
+      color:rgba(240,224,204,.26);
+      white-space:nowrap;
+    }
+
     .hero-bottom{
-      display:grid;
-      grid-template-columns:1.02fr .98fr;
-      gap:24px;
-      align-items:end;
+      position:relative;
+      z-index:4;
+      margin-top:170px;
+      width:min(100%, 900px);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:18px;
     }
 
     .hero-copy h1{
@@ -302,18 +328,18 @@
       line-height:.94;
       letter-spacing:-.04em;
       font-weight:600;
-      max-width:12ch;
-      margin-bottom:14px;
+      max-width:13ch;
+      margin:0 auto 14px;
     }
 
     .hero-copy p{
       color:var(--muted);
       max-width:58ch;
+      margin:0 auto;
     }
 
     .services-link{
-      justify-self:end;
-      align-self:end;
+      display:inline-block;
       font-size:.9rem;
       letter-spacing:.18em;
       text-transform:uppercase;
@@ -741,7 +767,6 @@
     }
 
     @media (max-width:1120px){
-      .hero-bottom,
       .section-head,
       .founder-card,
       .contact-grid{
@@ -752,8 +777,21 @@
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
 
-      .services-link{
-        justify-self:start;
+      .hero-stage{
+        min-height:780px;
+      }
+
+      .hero-video-box{
+        width:min(100%, 860px);
+        min-height:460px;
+      }
+
+      .values-layer{
+        top:390px;
+      }
+
+      .hero-bottom{
+        margin-top:150px;
       }
     }
 
@@ -777,8 +815,27 @@
         padding-top:18px;
       }
 
+      .hero-stage{
+        min-height:650px;
+        padding-top:20px;
+      }
+
       .hero-video-box{
-        min-height:360px;
+        min-height:300px;
+        width:min(100%, 100%);
+      }
+
+      .values-layer{
+        top:270px;
+      }
+
+      .values-group span{
+        font-size:clamp(2.1rem, 10vw, 4rem);
+      }
+
+      .hero-bottom{
+        margin-top:105px;
+        width:min(100%, 94%);
       }
 
       .portfolio-slider{
@@ -850,41 +907,43 @@
 
   <section class="hero" id="home">
     <div class="container hero-grid">
-      <div class="values-marquee" data-reveal>
-        <div class="values-track">
-          <div class="values-group">
-            <span>LEGADO</span>
-            <span>UNIÓN</span>
-            <span>VALORES</span>
-            <span>HISTORIA</span>
-            <span>IDENTIDAD</span>
-          </div>
-          <div class="values-group" aria-hidden="true">
-            <span>LEGADO</span>
-            <span>UNIÓN</span>
-            <span>VALORES</span>
-            <span>HISTORIA</span>
-            <span>IDENTIDAD</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-video-box" data-reveal>
-        <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1600&q=80">
-          <source src="https://cdn.coverr.co/videos/coverr-happy-family-at-the-beach-1564278732266?download=1080p" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="hero-bottom">
-        <div class="hero-copy" data-reveal>
-          <h1>Una marca visual construida sobre historia, presencia y conexión.</h1>
-          <p>
-            LA FAMILIA se dedica a crear una identidad sólida alrededor de su legado, su imagen y su historia,
-            reuniendo contenido visual, presencia de marca y una narrativa clara que conecte con quienes la conocen.
-          </p>
+      <div class="hero-stage">
+        <div class="hero-video-box" data-reveal>
+          <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1600&q=80">
+            <source src="https://cdn.coverr.co/videos/coverr-happy-family-at-the-beach-1564278732266?download=1080p" type="video/mp4">
+          </video>
         </div>
 
-        <a href="#services" class="services-link" data-reveal>SERVICES</a>
+        <div class="values-layer" data-reveal>
+          <div class="values-track">
+            <div class="values-group">
+              <span>LEGADO</span>
+              <span>UNIÓN</span>
+              <span>VALORES</span>
+              <span>HISTORIA</span>
+              <span>IDENTIDAD</span>
+            </div>
+            <div class="values-group" aria-hidden="true">
+              <span>LEGADO</span>
+              <span>UNIÓN</span>
+              <span>VALORES</span>
+              <span>HISTORIA</span>
+              <span>IDENTIDAD</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-bottom" data-reveal>
+          <div class="hero-copy">
+            <h1>Una marca visual construida sobre historia, presencia y conexión.</h1>
+            <p>
+              LA FAMILIA se dedica a crear una identidad sólida alrededor de su legado, su imagen y su historia,
+              reuniendo contenido visual, presencia de marca y una narrativa clara que conecte con quienes la conocen.
+            </p>
+          </div>
+
+          <a href="#services" class="services-link">SERVICES</a>
+        </div>
       </div>
     </div>
   </section>
@@ -918,7 +977,7 @@
         <p data-reveal>
           Esta sección está pensada para contar el origen, la trayectoria, los valores y la visión de la figura
           fundadora de LA FAMILIA, con un enfoque elegante y editorial similar a la sección “Meet the Founder”
-          de la página de referencia. [page:23]
+          de la página de referencia.
         </p>
       </div>
 
@@ -949,7 +1008,7 @@
         <h3>Una sección visual para mostrar imagen, branding y presencia.</h3>
         <p>
           Estos cuadros grandes están pensados para que luego coloques imágenes destacadas. La animación hace que una se muestre
-          y luego desaparezca para dar paso a la siguiente, creando un efecto visual continuo. [page:23]
+          y luego desaparezca para dar paso a la siguiente, creando un efecto visual continuo.
         </p>
       </div>
 
