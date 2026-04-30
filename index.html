@@ -3,15 +3,1181 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La Familia Media | Graphic Design, Web Design & Printing — South Florida</title>
+  <title>LA FAMILIA</title>
   <meta
     name="description"
-    content="La Familia Media is South Florida's full-service creative agency specializing in logo design, web development, print marketing, and social media. Serving Miami-Dade, Broward & Palm Beach since 2012. Hablamos español."
+    content="LA FAMILIA is an editorial and visual website to present its story, values, services, portfolio, blog, testimonials, and contact information."
   />
-  <!-- aquí seguirían tus <link> a fuentes y el <style> que ya tienes, sin cambios -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root{
+      --bg:#101114;
+      --bg-soft:#17191d;
+      --panel:rgba(255,255,255,.04);
+      --panel-2:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.08);
+      --text:#f6efe6;
+      --muted:rgba(246,239,230,.72);
+      --faint:rgba(246,239,230,.42);
+      --accent:#bc8d5d;
+      --accent-soft:rgba(188,141,93,.16);
+      --cream:#f0e0cc;
+      --radius:28px;
+      --shadow:0 28px 80px rgba(0,0,0,.34);
+      --max:1320px;
+      --transition:280ms cubic-bezier(.16,1,.3,1);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:"Inter",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(188,141,93,.10), transparent 24%),
+        linear-gradient(180deg,#0f1012 0%,#14171b 100%);
+      color:var(--text);
+      overflow-x:hidden;
+      line-height:1.55;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img,video{
+      display:block;
+      max-width:100%;
+    }
+
+    button,input,textarea{
+      font:inherit;
+      color:inherit;
+    }
+
+    .container{
+      width:min(calc(100% - 32px),var(--max));
+      margin:0 auto;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:120;
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      background:rgba(12,13,15,.68);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .header-inner{
+      min-height:84px;
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:20px;
+    }
+
+    .menu-btn{
+      appearance:none;
+      border:none;
+      background:transparent;
+      color:var(--text);
+      font-size:.82rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      cursor:pointer;
+    }
+
+    .brand{
+      justify-self:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .brand img{
+      width:auto;
+      height:46px;
+      object-fit:contain;
+    }
+
+    .header-spacer{
+      width:72px;
+      justify-self:end;
+    }
+
+    .menu-panel{
+      position:fixed;
+      inset:0 auto 0 0;
+      width:min(420px,100%);
+      background:rgba(14,15,18,.97);
+      border-right:1px solid rgba(255,255,255,.08);
+      transform:translateX(-102%);
+      transition:transform var(--transition);
+      z-index:140;
+      padding:28px 24px 30px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      box-shadow:var(--shadow);
+    }
+
+    .menu-panel.open{
+      transform:translateX(0);
+    }
+
+    .menu-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:26px;
+    }
+
+    .menu-title{
+      font-size:.76rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--faint);
+    }
+
+    .menu-close{
+      border:none;
+      background:transparent;
+      color:var(--text);
+      font-size:.82rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      cursor:pointer;
+    }
+
+    .menu-links{
+      display:grid;
+      gap:16px;
+    }
+
+    .menu-links a{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(2rem,5vw,3.7rem);
+      line-height:.92;
+      letter-spacing:-.04em;
+      transition:transform var(--transition), color var(--transition);
+    }
+
+    .menu-links a:hover{
+      transform:translateX(8px);
+      color:var(--cream);
+    }
+
+    .menu-socials{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:30px;
+    }
+
+    .menu-socials a{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.12);
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.03);
+      transition:transform var(--transition), border-color var(--transition), background var(--transition);
+    }
+
+    .menu-socials a:hover{
+      transform:translateY(-2px);
+      border-color:rgba(188,141,93,.45);
+      background:rgba(188,141,93,.08);
+    }
+
+    .menu-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.46);
+      opacity:0;
+      visibility:hidden;
+      transition:opacity var(--transition), visibility var(--transition);
+      z-index:130;
+    }
+
+    .menu-backdrop.show{
+      opacity:1;
+      visibility:visible;
+    }
+
+    .hero{
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:30px 0 70px;
+      border-bottom:1px solid rgba(255,255,255,.05);
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      width:100%;
+      display:grid;
+      gap:0;
+      position:relative;
+    }
+
+    .hero-stage{
+      position:relative;
+      min-height:930px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      padding-top:22px;
+    }
+
+    .hero-video-box{
+      position:relative;
+      z-index:3;
+      width:min(100%, 720px);
+      border-radius:32px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      min-height:380px;
+      background:#0d0f12;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-video-box video,
+    .hero-video-box img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .hero-video-box::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(8,8,10,.30), rgba(8,8,10,.52));
+      pointer-events:none;
+    }
+
+    .values-layer{
+      position:absolute;
+      left:0;
+      right:0;
+      top:455px;
+      z-index:5;
+      overflow:hidden;
+      white-space:nowrap;
+      pointer-events:none;
+      mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+      -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    }
+
+    .values-track{
+      display:flex;
+      width:max-content;
+      animation:marqueeLeft 24s linear infinite;
+    }
+
+    .values-group{
+      display:flex;
+      gap:64px;
+      padding-right:64px;
+    }
+
+    .values-group span{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(5rem,12vw,10.5rem);
+      line-height:.82;
+      letter-spacing:-.07em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.92);
+      white-space:nowrap;
+      text-shadow:0 10px 28px rgba(0,0,0,.18);
+    }
+
+    .hero-bottom{
+      position:relative;
+      z-index:6;
+      margin-top:118px;
+      width:min(100%, 960px);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:20px;
+    }
+
+    .hero-copy h1{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(3.1rem,5.4vw,5.2rem);
+      line-height:.92;
+      letter-spacing:-.05em;
+      font-weight:600;
+      max-width:13ch;
+      margin:0 auto 16px;
+    }
+
+    .hero-copy p{
+      color:var(--muted);
+      max-width:62ch;
+      margin:0 auto;
+      font-size:1.04rem;
+    }
+
+    .zoom-word{
+      display:inline-block;
+      animation:wordPulse 5s ease-in-out infinite;
+      transform-origin:center;
+    }
+
+    .zoom-word:nth-of-type(1){ animation-delay:0s; }
+    .zoom-word:nth-of-type(2){ animation-delay:.8s; }
+    .zoom-word:nth-of-type(3){ animation-delay:1.6s; }
+
+    .services-link{
+      display:inline-block;
+      margin-top:4px;
+      font-size:1rem;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      color:var(--cream);
+      border-bottom:1px solid rgba(240,224,204,.7);
+      padding-bottom:8px;
+      transition:opacity var(--transition), transform var(--transition);
+    }
+
+    .services-link:hover{
+      opacity:.78;
+      transform:translateY(-2px);
+    }
+
+    .sponsors-bar{
+      padding:28px 0;
+      border-bottom:1px solid rgba(255,255,255,.05);
+      overflow:hidden;
+      background:transparent;
+    }
+
+    .sponsors-track{
+      display:flex;
+      width:max-content;
+      animation:marqueeLeft 18s linear infinite;
+    }
+
+    .sponsors-group{
+      display:flex;
+      align-items:center;
+      gap:68px;
+      padding-right:68px;
+    }
+
+    .sponsor-logo{
+      min-width:auto;
+      height:auto;
+      border:none;
+      border-radius:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0;
+      color:rgba(255,255,255,.88);
+      background:transparent;
+      font-size:1rem;
+      font-weight:600;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .section{
+      padding:110px 0;
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .section-head{
+      display:grid;
+      grid-template-columns:.82fr 1fr;
+      gap:30px;
+      align-items:end;
+      margin-bottom:38px;
+    }
+
+    .kicker{
+      display:inline-block;
+      margin-bottom:14px;
+      color:var(--accent);
+      font-size:.76rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .section-head h2,
+    .founder-copy h3,
+    .services-center-copy h3,
+    .blog-card h3,
+    .contact-card h3,
+    .contact-form h3{
+      font-family:"Cormorant Garamond",serif;
+      font-weight:600;
+      letter-spacing:-.04em;
+    }
+
+    .section-head h2{
+      font-size:clamp(2.8rem,5vw,5rem);
+      line-height:.94;
+      max-width:10ch;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      max-width:60ch;
+      justify-self:end;
+    }
+
+    .founder-card{
+      display:grid;
+      grid-template-columns:minmax(260px, 380px) minmax(0, 1fr);
+      gap:34px;
+      align-items:center;
+    }
+
+    .founder-media{
+      width:100%;
+      max-width:360px;
+      border-radius:26px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      min-height:440px;
+      box-shadow:var(--shadow);
+      justify-self:start;
+    }
+
+    .founder-media img,
+    .founder-media video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .founder-copy{
+      padding:18px 0;
+      border:none;
+      background:transparent;
+      box-shadow:none;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      max-width:720px;
+    }
+
+    .founder-copy h3{
+      font-size:clamp(2.3rem,4vw,4rem);
+      line-height:.95;
+      margin-bottom:14px;
+      max-width:12ch;
+    }
+
+    .founder-copy p{
+      color:var(--muted);
+      margin-bottom:16px;
+      max-width:60ch;
+    }
+
+    .btn-outline{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:max-content;
+      min-height:48px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.03);
+      font-size:.82rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      transition:transform var(--transition), border-color var(--transition), background var(--transition);
+    }
+
+    .btn-outline:hover{
+      transform:translateY(-2px);
+      border-color:rgba(188,141,93,.46);
+      background:rgba(188,141,93,.08);
+    }
+
+    .services-scatter{
+      position:relative;
+      min-height:1100px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:visible;
+      padding:90px 20px 120px;
+    }
+
+    .services-center-copy{
+      position:relative;
+      z-index:20;
+      width:min(100%, 590px);
+      text-align:center;
+      padding:38px 30px;
+      background:rgba(15,16,18,.76);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:32px;
+      backdrop-filter:blur(10px);
+      box-shadow:var(--shadow);
+    }
+
+    .services-center-copy h3{
+      font-size:clamp(2.9rem,4.9vw,5rem);
+      line-height:.94;
+      margin-bottom:16px;
+    }
+
+    .services-center-copy p{
+      color:var(--muted);
+      max-width:48ch;
+      margin:0 auto;
+    }
+
+    .service-orbit{
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:var(--orbit-size);
+      height:var(--orbit-size);
+      margin-left:calc(var(--orbit-size) / -2);
+      margin-top:calc(var(--orbit-size) / -2);
+      border-radius:50%;
+      animation:spinOrbit var(--orbit-speed) linear infinite;
+      pointer-events:none;
+    }
+
+    .service-orbit.reverse{
+      animation-direction:reverse;
+    }
+
+    .service-card{
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:var(--card-w);
+      height:var(--card-h);
+      margin-left:calc(var(--card-w) / -2);
+      margin-top:calc(var(--card-h) / -2);
+      transform:
+        rotate(var(--angle))
+        translateY(calc(var(--radius) * -1))
+        rotate(calc(var(--angle) * -1))
+        rotate(var(--tilt));
+      transform-origin:center center;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+      background:#111;
+      transition:box-shadow var(--transition), border-color var(--transition);
+      pointer-events:auto;
+      animation:floatCard 5.4s ease-in-out infinite;
+    }
+
+    .service-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .45s ease;
+    }
+
+    .service-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(10,10,12,.05), rgba(10,10,12,.28));
+      pointer-events:none;
+    }
+
+    .service-card:hover{
+      border-color:rgba(188,141,93,.42);
+      box-shadow:0 34px 100px rgba(0,0,0,.44);
+    }
+
+    .service-card:hover img{
+      transform:scale(1.08);
+    }
+
+    .service-card.s1{ --angle: 8deg;   --tilt:-8deg; --card-w:250px; --card-h:170px; --radius:420px; animation-delay:0s; }
+    .service-card.s2{ --angle: 42deg;  --tilt:6deg;  --card-w:220px; --card-h:148px; --radius:395px; animation-delay:.35s; }
+    .service-card.s3{ --angle: 78deg;  --tilt:2deg;  --card-w:228px; --card-h:154px; --radius:385px; animation-delay:.7s; }
+    .service-card.s4{ --angle: 112deg; --tilt:7deg;  --card-w:246px; --card-h:168px; --radius:415px; animation-delay:1s; }
+    .service-card.s5{ --angle: 148deg; --tilt:-6deg; --card-w:234px; --card-h:158px; --radius:400px; animation-delay:1.35s; }
+    .service-card.s6{ --angle: 182deg; --tilt:5deg;  --card-w:240px; --card-h:162px; --radius:430px; animation-delay:1.7s; }
+    .service-card.s7{ --angle: 215deg; --tilt:-7deg; --card-w:224px; --card-h:150px; --radius:395px; animation-delay:2.05s; }
+    .service-card.s8{ --angle: 250deg; --tilt:4deg;  --card-w:248px; --card-h:168px; --radius:420px; animation-delay:2.4s; }
+    .service-card.s9{ --angle: 286deg; --tilt:-4deg; --card-w:216px; --card-h:146px; --radius:390px; animation-delay:2.75s; }
+    .service-card.s10{ --angle: 320deg; --tilt:3deg; --card-w:232px; --card-h:156px; --radius:405px; animation-delay:3.1s; }
+    .service-card.s11{ --angle: 350deg; --tilt:-3deg; --card-w:222px; --card-h:148px; --radius:435px; animation-delay:3.45s; }
+
+    .portfolio-section{
+      overflow:hidden;
+    }
+
+    .portfolio-stage{
+      position:relative;
+      min-height:760px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+    }
+
+    .portfolio-copy-wrap{
+      position:relative;
+      z-index:15;
+      width:min(620px, 100%);
+      padding:22px 0;
+    }
+
+    .portfolio-copy-wrap .kicker{
+      margin-bottom:16px;
+    }
+
+    .portfolio-copy-wrap h2{
+      font-family:"Cormorant Garamond",serif;
+      font-weight:600;
+      letter-spacing:-.04em;
+      font-size:clamp(3rem,5.4vw,5.4rem);
+      line-height:.94;
+      max-width:10ch;
+      margin-bottom:22px;
+    }
+
+    .portfolio-copy-wrap p{
+      font-size:clamp(1.12rem, 1.4vw, 1.32rem);
+      line-height:1.85;
+      color:rgba(246,239,230,.82);
+      max-width:44ch;
+      position:relative;
+      z-index:20;
+    }
+
+    .portfolio-marquee{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      z-index:5;
+      pointer-events:none;
+      overflow:hidden;
+    }
+
+    .portfolio-track{
+      display:flex;
+      align-items:center;
+      gap:30px;
+      width:max-content;
+      animation:portfolioFlow 42s linear infinite;
+      padding-left:40px;
+    }
+
+    .portfolio-group{
+      display:flex;
+      align-items:center;
+      gap:30px;
+      padding-right:30px;
+    }
+
+    .portfolio-card{
+      width:380px;
+      height:500px;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.09);
+      box-shadow:var(--shadow);
+      position:relative;
+      flex:0 0 auto;
+      opacity:.92;
+    }
+
+    .portfolio-card.tall{
+      height:560px;
+      width:400px;
+    }
+
+    .portfolio-card.wide{
+      width:460px;
+      height:470px;
+    }
+
+    .portfolio-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .portfolio-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(8,8,10,.08), rgba(8,8,10,.28));
+      pointer-events:none;
+    }
+
+    .portfolio-fade{
+      position:absolute;
+      inset:0;
+      z-index:12;
+      pointer-events:none;
+      background:
+        linear-gradient(90deg, rgba(15,16,18,.92) 0%, rgba(15,16,18,.84) 20%, rgba(15,16,18,0) 40%, rgba(15,16,18,0) 100%);
+    }
+
+    .blog-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:20px;
+    }
+
+    .blog-card{
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+    }
+
+    .blog-card img{
+      width:100%;
+      aspect-ratio:1.05;
+      object-fit:cover;
+    }
+
+    .blog-content{
+      padding:22px;
+    }
+
+    .blog-meta{
+      display:inline-block;
+      margin-bottom:10px;
+      color:var(--accent);
+      font-size:.72rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .blog-card h3{
+      font-size:1.85rem;
+      line-height:.97;
+      margin-bottom:10px;
+    }
+
+    .blog-card p{
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+
+    .read-more{
+      font-size:.82rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--cream);
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      gap:20px;
+    }
+
+    .contact-card,
+    .contact-form{
+      border-radius:28px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+      padding:30px;
+    }
+
+    .contact-card h3,
+    .contact-form h3{
+      font-size:2.2rem;
+      line-height:.95;
+      margin-bottom:14px;
+    }
+
+    .contact-card p,
+    .contact-form p{
+      color:var(--muted);
+    }
+
+    .contact-list{
+      display:grid;
+      gap:14px;
+      margin-top:24px;
+    }
+
+    .contact-item{
+      padding:16px 18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+    }
+
+    .contact-item span{
+      display:block;
+      margin-bottom:6px;
+      color:var(--faint);
+      font-size:.72rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    form{
+      display:grid;
+      gap:12px;
+      margin-top:22px;
+    }
+
+    label{
+      display:grid;
+      gap:8px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    input,textarea{
+      width:100%;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      border-radius:16px;
+      padding:14px 16px;
+      outline:none;
+      transition:border-color var(--transition), background var(--transition);
+    }
+
+    textarea{
+      min-height:150px;
+      resize:vertical;
+    }
+
+    input:focus,textarea:focus{
+      border-color:rgba(188,141,93,.46);
+      background:rgba(188,141,93,.06);
+    }
+
+    .footer{
+      padding:30px 0 40px;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      color:var(--faint);
+      font-size:.88rem;
+    }
+
+    [data-reveal]{
+      opacity:0;
+      transform:translateY(22px);
+      transition:opacity .9s ease, transform .9s ease;
+    }
+
+    [data-reveal].visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @keyframes marqueeLeft{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(-50%); }
+    }
+
+    @keyframes wordPulse{
+      0%, 100%{
+        transform:scale(1);
+        color:var(--text);
+      }
+      50%{
+        transform:scale(1.08);
+        color:var(--cream);
+      }
+    }
+
+    @keyframes floatCard{
+      0%,100%{ translate:0 0; }
+      50%{ translate:0 -8px; }
+    }
+
+    @keyframes spinOrbit{
+      from{ transform:rotate(0deg); }
+      to{ transform:rotate(360deg); }
+    }
+
+    @keyframes portfolioFlow{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(-50%); }
+    }
+
+    @media (max-width:1120px){
+      .section-head,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
+      .founder-card{
+        grid-template-columns:300px 1fr;
+        gap:26px;
+      }
+
+      .founder-media{
+        max-width:300px;
+        min-height:380px;
+      }
+
+      .blog-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .hero-stage{
+        min-height:840px;
+      }
+
+      .hero-video-box{
+        width:min(100%, 660px);
+        min-height:350px;
+      }
+
+      .values-layer{
+        top:418px;
+      }
+
+      .values-group span{
+        font-size:clamp(4.2rem, 11vw, 8.6rem);
+      }
+
+      .hero-bottom{
+        margin-top:110px;
+      }
+
+      .services-scatter{
+        min-height:1020px;
+        padding-bottom:140px;
+      }
+
+      .service-orbit{
+        transform:scale(.88);
+      }
+
+      .portfolio-stage{
+        min-height:760px;
+      }
+
+      .portfolio-card{
+        width:320px;
+        height:430px;
+      }
+
+      .portfolio-card.tall{
+        width:340px;
+        height:490px;
+      }
+
+      .portfolio-card.wide{
+        width:390px;
+        height:410px;
+      }
+    }
+
+    @media (max-width:760px){
+      .header-inner{
+        grid-template-columns:1fr;
+        justify-items:start;
+        min-height:auto;
+        padding:18px 0;
+      }
+
+      .brand{
+        justify-self:start;
+      }
+
+      .brand img{
+        height:38px;
+      }
+
+      .header-spacer{
+        display:none;
+      }
+
+      .hero{
+        padding-top:18px;
+      }
+
+      .hero-stage{
+        min-height:690px;
+        padding-top:18px;
+      }
+
+      .hero-video-box{
+        min-height:230px;
+        width:min(100%, 100%);
+      }
+
+      .values-layer{
+        top:255px;
+      }
+
+      .values-group{
+        gap:34px;
+        padding-right:34px;
+      }
+
+      .values-group span{
+        font-size:clamp(3.1rem, 14vw, 5.6rem);
+      }
+
+      .hero-bottom{
+        margin-top:88px;
+        width:min(100%, 94%);
+      }
+
+      .hero-copy h1{
+        font-size:clamp(2.55rem, 9vw, 3.7rem);
+      }
+
+      .founder-card{
+        grid-template-columns:1fr;
+      }
+
+      .founder-media{
+        max-width:260px;
+        min-height:320px;
+      }
+
+      .blog-grid{
+        grid-template-columns:1fr;
+      }
+
+      .founder-copy,
+      .contact-card,
+      .contact-form{
+        padding:0;
+      }
+
+      .contact-card,
+      .contact-form{
+        padding:24px;
+      }
+
+      .sponsors-group{
+        gap:38px;
+        padding-right:38px;
+      }
+
+      .sponsor-logo{
+        font-size:.9rem;
+        letter-spacing:.18em;
+      }
+
+      .services-scatter{
+        min-height:auto;
+        display:grid;
+        gap:18px;
+        padding:0 0 40px;
+      }
+
+      .services-center-copy{
+        width:100%;
+        padding:28px 22px;
+      }
+
+      .service-orbit{
+        position:relative;
+        top:auto;
+        left:auto;
+        width:100%;
+        height:auto;
+        margin:0;
+        animation:none;
+        display:grid;
+        gap:18px;
+      }
+
+      .service-card{
+        position:relative;
+        top:auto;
+        left:auto;
+        width:100% !important;
+        height:220px !important;
+        margin:0;
+        transform:none !important;
+        animation:floatCard 5.4s ease-in-out infinite;
+      }
+
+      .portfolio-stage{
+        min-height:auto;
+        padding-bottom:26px;
+      }
+
+      .portfolio-copy-wrap{
+        width:100%;
+      }
+
+      .portfolio-copy-wrap p{
+        font-size:1.05rem;
+      }
+
+      .portfolio-marquee{
+        position:relative;
+        margin-top:28px;
+      }
+
+      .portfolio-fade{
+        display:none;
+      }
+
+      .portfolio-track{
+        animation-duration:36s;
+      }
+
+      .portfolio-card{
+        width:270px;
+        height:350px;
+      }
+
+      .portfolio-card.tall{
+        width:290px;
+        height:400px;
+      }
+
+      .portfolio-card.wide{
+        width:330px;
+        height:340px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- BACKDROP Y MENÚ LATERAL IGUAL QUE ANTES -->
   <div class="menu-backdrop" id="menuBackdrop"></div>
 
   <aside class="menu-panel" id="menuPanel">
@@ -23,41 +1189,49 @@
 
       <nav class="menu-links">
         <a href="#home">HOME</a>
-        <a href="#about">OUR STORY</a>
+        <a href="#about">ABOUT US</a>
         <a href="#services">SERVICES</a>
-        <a href="#why">WHY LA FAMILIA</a>
-        <a href="#testimonials">CLIENT STORIES</a>
+        <a href="#portfolio">PORTFOLIO</a>
+        <a href="#blog">BLOG</a>
         <a href="#contact">CONTACT</a>
       </nav>
     </div>
 
     <div class="menu-socials">
       <a href="#" aria-label="Instagram">
-        <!-- icono instagram -->
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1"></circle>
+        </svg>
       </a>
+
       <a href="#" aria-label="LinkedIn">
-        <!-- icono linkedin -->
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56A1.96 1.96 0 1 0 3.24 4.94a1.96 1.96 0 0 0 3.92 0ZM20.44 12.9c0-3.45-1.84-5.05-4.3-5.05-1.98 0-2.86 1.09-3.36 1.85V8.5H9.4c.04.79 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.67.88-1.37 1.9-1.37 1.34 0 1.88 1.03 1.88 2.54V20H20.44v-7.1Z"/>
+        </svg>
       </a>
+
       <a href="#" aria-label="Facebook">
-        <!-- icono facebook -->
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.87.24-1.47 1.48-1.47H16.7V4.96c-.31-.04-1.36-.12-2.58-.12-2.56 0-4.32 1.56-4.32 4.44V11H7v3h2.8v8h3.7Z"/>
+        </svg>
       </a>
     </div>
   </aside>
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <button class="menu-btn" id="menuOpen">MENU</button>
 
       <a href="#home" class="brand" aria-label="La Familia home">
-        <img src="assets/images/LFm-logo-500x100.png" alt="La Familia Media logo">
+        <img src="assets/images/LFm-logo-500x100.png" alt="La Familia logo">
       </a>
 
       <div class="header-spacer"></div>
     </div>
   </header>
 
-  <!-- HERO / SECTION 01 -->
   <section class="hero" id="home">
     <div class="container hero-grid">
       <div class="hero-stage">
@@ -70,431 +1244,296 @@
         <div class="values-layer" data-reveal>
           <div class="values-track">
             <div class="values-group">
-              <span>BRANDS</span>
+              <span>LEGACY</span>
+              <span>UNITY</span>
+              <span>VALUES</span>
+              <span>HISTORY</span>
               <span>IDENTITY</span>
-              <span>STRATEGY</span>
-              <span>PRINT</span>
-              <span>DIGITAL</span>
             </div>
             <div class="values-group" aria-hidden="true">
-              <span>BRANDS</span>
+              <span>LEGACY</span>
+              <span>UNITY</span>
+              <span>VALUES</span>
+              <span>HISTORY</span>
               <span>IDENTITY</span>
-              <span>STRATEGY</span>
-              <span>PRINT</span>
-              <span>DIGITAL</span>
             </div>
           </div>
         </div>
 
         <div class="hero-bottom" data-reveal>
           <div class="hero-copy">
-            <p class="kicker">
-              South Florida's Creative Agency — Est. 2012
-            </p>
             <h1>
-              We Build Brands That<span class="zoom-word"> Mean Business.</span>
+              A visual brand built on
+              <span class="zoom-word">history</span>,
+              <span class="zoom-word">presence</span>,
+              and
+              <span class="zoom-word">connection</span>.
             </h1>
             <p>
-              12 years of crafting identities, websites, and marketing collateral for the companies that power South Florida — from startups to established names. We speak your language — literally.
+              LA FAMILIA is dedicated to building a strong identity around its legacy, image, and story, bringing together visual content, brand presence, and a clear narrative that connects with the people who experience it.
             </p>
           </div>
 
-          <div class="hero-actions">
-            <a href="#cta" class="services-link">START A PROJECT</a>
-            <a href="#testimonials" class="services-link">SEE OUR WORK</a>
-          </div>
-
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <strong>12+</strong>
-              <span>Years in Business</span>
-            </div>
-            <div class="hero-stat">
-              <strong>300+</strong>
-              <span>Brands Served</span>
-            </div>
-            <div class="hero-stat">
-              <strong>3</strong>
-              <span>Counties Covered</span>
-            </div>
-            <div class="hero-stat">
-              <strong>2</strong>
-              <span>Languages Spoken</span>
-            </div>
-          </div>
+          <a href="#services" class="services-link">SERVICES</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TRUSTED BY STRIP -->
   <div class="sponsors-bar">
     <div class="sponsors-track">
       <div class="sponsors-group">
-        <div class="sponsor-logo">SMALL BUSINESSES</div>
-        <div class="sponsor-logo">NON-PROFITS</div>
-        <div class="sponsor-logo">REAL ESTATE</div>
-        <div class="sponsor-logo">RESTAURANTS</div>
-        <div class="sponsor-logo">HEALTHCARE</div>
-        <div class="sponsor-logo">STARTUPS</div>
+        <div class="sponsor-logo">LOGO 01</div>
+        <div class="sponsor-logo">LOGO 02</div>
+        <div class="sponsor-logo">LOGO 03</div>
+        <div class="sponsor-logo">LOGO 04</div>
+        <div class="sponsor-logo">LOGO 05</div>
       </div>
       <div class="sponsors-group" aria-hidden="true">
-        <div class="sponsor-logo">SMALL BUSINESSES</div>
-        <div class="sponsor-logo">NON-PROFITS</div>
-        <div class="sponsor-logo">REAL ESTATE</div>
-        <div class="sponsor-logo">RESTAURANTS</div>
-        <div class="sponsor-logo">HEALTHCARE</div>
-        <div class="sponsor-logo">STARTUPS</div>
+        <div class="sponsor-logo">LOGO 01</div>
+        <div class="sponsor-logo">LOGO 02</div>
+        <div class="sponsor-logo">LOGO 03</div>
+        <div class="sponsor-logo">LOGO 04</div>
+        <div class="sponsor-logo">LOGO 05</div>
       </div>
     </div>
   </div>
 
-  <!-- ABOUT / OUR STORY (SECTION 02) -->
   <section class="section" id="about">
     <div class="container">
       <div class="section-head">
         <div>
-          <span class="kicker" data-reveal>Our Story</span>
-          <h2 data-reveal>Born from Hustle. Built on Trust.</h2>
+          <span class="kicker" data-reveal>About Us</span>
+          <h2 data-reveal>The biography of the family founder.</h2>
         </div>
         <p data-reveal>
-          La Familia Media didn't start in a fancy office. It started with a side business, a financial crisis, and an entrepreneur who refused to quit.
+          This section is designed to present the founder’s origin, journey, values, and vision in an elegant editorial way.
         </p>
       </div>
 
       <div class="founder-card">
         <div class="founder-media" data-reveal>
-          <img src="assets/images/WhatsApp Image 2026-04-29 at 10.31.11 PM.jpeg" alt="Sergio Castillo, Founder of La Familia Media">
+          <img src="assets/images/WhatsApp Image 2026-04-29 at 10.31.11 PM.jpeg" alt="Founder portrait">
         </div>
 
         <div class="founder-copy" data-reveal>
-          <h3>La Familia Media is built for the companies that power South Florida.</h3>
+          <h3>A central figure who transformed history into identity.</h3>
           <p>
-            Sergio Castillo founded La Familia Media in 2012 out of a belief that small businesses deserve the same quality branding as Fortune 500 companies — without the Fortune 500 price tag.
+            Here you can place the full founder biography: the beginning, key decisions, vision, and the legacy that still shapes LA FAMILIA today.
           </p>
           <p>
-            Over 12 years, we've grown into a full-service creative agency serving businesses across Miami-Dade, Broward, and Palm Beach counties. We've worked with everyone from corner restaurants to medical societies — and we bring the same dedication to every single project.
+            For now, this text works as an elegant placeholder until you add the final information and imagery.
           </p>
-          <p>
-            Hablamos español. We understand that South Florida is a diverse, bilingual community — and we're one of the few agencies that can serve you equally well in either language.
-          </p>
-
-          <div class="founder-meta">
-            <span class="founder-initials">SC</span>
-            <div>
-              <strong>Sergio Castillo</strong><br>
-              <span>Founder & Creative Director, La Familia Media</span>
-            </div>
-          </div>
+          <a href="#" class="btn-outline">VIEW MORE</a>
         </div>
-      </div>
-
-      <!-- PANEL DE VALORES DENTRO DE ABOUT -->
-      <div class="section-head" id="why">
-        <div>
-          <span class="kicker" data-reveal>What “La Familia” Means to Us</span>
-          <h2 data-reveal>We Treat Every Client Like Family.</h2>
-        </div>
-      </div>
-
-      <div class="blog-grid" data-reveal>
-        <article class="blog-card">
-          <div class="blog-content">
-            <span class="blog-meta">Value 01</span>
-            <h3>We Treat Every Client Like Family</h3>
-            <p>
-              You're not a ticket number. You work directly with our team, communicate your way — phone, text, email — and you're always kept in the loop.
-            </p>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-content">
-            <span class="blog-meta">Value 02</span>
-            <h3>Results, Not Just Pretty Designs</h3>
-            <p>
-              Great design should do something. Every project we take on is tied to a real business goal — more customers, more credibility, more sales.
-            </p>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-content">
-            <span class="blog-meta">Value 03</span>
-            <h3>One Agency, Everything You Need</h3>
-            <p>
-              Logo to website to printed materials to social media — we're your one stop. No chasing five vendors. No inconsistent branding. Just one trusted team.
-            </p>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-content">
-            <span class="blog-meta">Value 04</span>
-            <h3>Bilingual, Bicultural by Design</h3>
-            <p>
-              We don't just translate your brand into Spanish — we help you connect authentically with South Florida's Latino community.
-            </p>
-          </div>
-        </article>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES (SECTION 03) -->
   <section class="section" id="services">
     <div class="container">
       <div class="services-scatter" data-reveal>
+        <div class="service-orbit" style="--orbit-size: 940px; --orbit-speed: 34s;">
+          <article class="service-card s1">
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80" alt="Banner image 1">
+          </article>
+          <article class="service-card s3">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80" alt="Banner image 3">
+          </article>
+          <article class="service-card s5">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80" alt="Banner image 5">
+          </article>
+          <article class="service-card s7">
+            <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1000&q=80" alt="Banner image 7">
+          </article>
+          <article class="service-card s9">
+            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1000&q=80" alt="Banner image 9">
+          </article>
+          <article class="service-card s11">
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80" alt="Banner image 11">
+          </article>
+        </div>
+
+        <div class="service-orbit reverse" style="--orbit-size: 760px; --orbit-speed: 28s;">
+          <article class="service-card s2">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80" alt="Banner image 2">
+          </article>
+          <article class="service-card s4">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&q=80" alt="Banner image 4">
+          </article>
+          <article class="service-card s6">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80" alt="Banner image 6">
+          </article>
+          <article class="service-card s8">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" alt="Banner image 8">
+          </article>
+          <article class="service-card s10">
+            <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=1000&q=80" alt="Banner image 10">
+          </article>
+        </div>
+
         <div class="services-center-copy">
-          <span class="kicker">What We Do</span>
-          <h3>Every Tool Your Brand Needs, Under One Roof.</h3>
+          <span class="kicker">Services</span>
+          <h3>A visual section for image, branding, and presence.</h3>
           <p>
-            From your first logo to your thousandth business card, we handle the creative so you can handle the business.
+            These large frames are designed for featured imagery. Each one fades into the next to create a clean and continuous visual rhythm.
           </p>
         </div>
-
-        <!-- orbit de tarjetas se mantiene, solo cambiamos textos de labels si luego los conectas -->
-      </div>
-
-      <!-- grid simple de servicios textual -->
-      <div class="blog-grid" data-reveal>
-        <article class="blog-card">
-          <div class="blog-content">
-            <span class="blog-meta">Service 01</span>
-            <h3>Brand Identity & Logo Design</h3>
-            <p>
-              Your logo is the first impression you'll never get back. We craft marks that are strategic, timeless, and built to grow with your business — not trend-chasing clip art.
-            </p>
-            <span class="read-more">Start your brand →</span>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-content">
-            <span class="blog-meta">Service 02</span>
-            <h3>Website Design & Development</h3>
-            <p>
-              Responsive, fast, and built to convert. Whether you need a simple landing page or a complex business website, we build digital storefronts that work around the clock for you.
-            </p>
-            <span class="read-more">Get a free demo →</span>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-content">
-            <span class="blog-meta">Service 03</span>
-            <h3>Print Marketing Materials</h3>
-            <p>
-              Business cards, flyers, banners, brochures — premium printed materials that reflect the quality of your business. We design it and we print it, with no middleman.
-            </p>
-            <span class="read-more">Get a print quote →</span>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-content">
-            <span class="blog-meta">Service 04</span>
-            <h3>Social Media & Digital Marketing</h3>
-            <p>
-              Posting isn't a strategy. We build content plans that attract the right audience, convert followers into customers, and grow your brand's presence consistently and authentically.
-            </p>
-            <span class="read-more">Grow your presence →</span>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-content">
-            <span class="blog-meta">Service 05</span>
-            <h3>Custom Apparel & Merchandise</h3>
-            <p>
-              Wearable branding that turns your team and your customers into walking advertisements. From uniforms to promo gear, we handle design, print, and fulfillment.
-            </p>
-            <span class="read-more">Design your merch →</span>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-content">
-            <span class="blog-meta">Service 06</span>
-            <h3>Startup Business Consulting</h3>
-            <p>
-              Launching a business? We've been through it. We guide new entrepreneurs through the branding process, from registering your entity to launching your first campaign — with a real roadmap.
-            </p>
-            <span class="read-more">Let’s build it →</span>
-          </div>
-        </article>
       </div>
     </div>
   </section>
 
-  <!-- WHY LA FAMILIA (SECTION 04) -->
-  <section class="section" id="why">
+  <section class="section portfolio-section" id="portfolio">
+    <div class="container">
+      <div class="portfolio-stage" data-reveal>
+        <div class="portfolio-marquee">
+          <div class="portfolio-track">
+            <div class="portfolio-group">
+              <article class="portfolio-card tall">
+                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 1">
+              </article>
+
+              <article class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 2">
+              </article>
+
+              <article class="portfolio-card wide">
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80" alt="Portfolio image 3">
+              </article>
+
+              <article class="portfolio-card tall">
+                <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 4">
+              </article>
+
+              <article class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 5">
+              </article>
+            </div>
+
+            <div class="portfolio-group" aria-hidden="true">
+              <article class="portfolio-card tall">
+                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 1 duplicate">
+              </article>
+
+              <article class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 2 duplicate">
+              </article>
+
+              <article class="portfolio-card wide">
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80" alt="Portfolio image 3 duplicate">
+              </article>
+
+              <article class="portfolio-card tall">
+                <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 4 duplicate">
+              </article>
+
+              <article class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 5 duplicate">
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-fade"></div>
+
+        <div class="portfolio-copy-wrap">
+          <span class="kicker">Portfolio</span>
+          <h2>A gallery for projects, imagery, and visual moments.</h2>
+          <p>
+            This block can later hold editorial photography, campaign visuals, family archives, or any curated collection that supports the presence of LA FAMILIA.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="blog">
     <div class="container">
       <div class="section-head">
         <div>
-          <span class="kicker" data-reveal>Why La Familia</span>
-          <h2 data-reveal>We're Not the Biggest Agency. We're the Right One.</h2>
+          <span class="kicker" data-reveal>Blog</span>
+          <h2 data-reveal>A space for stories, ideas, and publications.</h2>
         </div>
         <p data-reveal>
-          Most agencies do one thing. We do everything — with a focus on real results, not just pretty visuals.
+          Here you can place articles, news, reflections, recipes, or any editorial content you want to include in the site.
         </p>
       </div>
 
       <div class="blog-grid">
         <article class="blog-card" data-reveal>
+          <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=80" alt="Blog placeholder 1">
           <div class="blog-content">
-            <span class="blog-meta">Differentiator 01</span>
-            <h3>12 Years of Proven Results</h3>
-            <p>
-              We've outlasted trends, recessions, and a global pandemic. Our longevity isn't luck — it's because we've consistently delivered work that actually moves the needle for our clients.
-              When you hire us, you're hiring 12 years of experience, not a freelancer who started last month.
-            </p>
+            <span class="blog-meta">Article</span>
+            <h3>How to preserve the most valuable memories.</h3>
+            <p>A placeholder for a future post about memory, legacy, and visual archives.</p>
+            <span class="read-more">READ MORE</span>
           </div>
         </article>
 
         <article class="blog-card" data-reveal>
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Blog placeholder 2">
           <div class="blog-content">
-            <span class="blog-meta">Differentiator 02</span>
-            <h3>Built for South Florida's Market</h3>
-            <p>
-              We understand this market because we grew up in it. We know the difference between marketing to Hialeah and marketing to Brickell. We know how to reach bilingual consumers, multicultural communities, and the fast-growing businesses that call South Florida home.
-            </p>
+            <span class="blog-meta">Story</span>
+            <h3>Moments that grow with time.</h3>
+            <p>Another ideal space for stories, traditions, and editorial writing with emotional depth.</p>
+            <span class="read-more">READ MORE</span>
           </div>
         </article>
 
         <article class="blog-card" data-reveal>
+          <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=1200&q=80" alt="Blog placeholder 3">
           <div class="blog-content">
-            <span class="blog-meta">Differentiator 03</span>
-            <h3>Personalized Service, Always</h3>
-            <p>
-              No account managers. No ticketing systems. You work directly with our creative team. We communicate your way — phone, text, email, or Zoom — and we give your project the attention it deserves, not a template and an automated response.
-            </p>
+            <span class="blog-meta">Recipe</span>
+            <h3>Flavors, customs, and memories of home.</h3>
+            <p>A placeholder for family recipes or meaningful culinary traditions.</p>
+            <span class="read-more">READ MORE</span>
           </div>
         </article>
 
         <article class="blog-card" data-reveal>
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80" alt="Blog placeholder 4">
           <div class="blog-content">
-            <span class="blog-meta">Differentiator 04</span>
-            <h3>Full-Service Under One Roof</h3>
-            <p>
-              Your logo, website, business cards, social media graphics, and branded apparel can all come from a single creative vision — ours. That means consistency across every touchpoint, without the coordination headache.
-            </p>
+            <span class="blog-meta">Journal</span>
+            <h3>Visual stories that continue across generations.</h3>
+            <p>A fourth editorial card for featured notes, family stories, or visual publications.</p>
+            <span class="read-more">READ MORE</span>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- CLIENT STORIES / TESTIMONIALS (SECTION 05) -->
-  <section class="section" id="testimonials">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="kicker" data-reveal>Client Stories</span>
-          <h2 data-reveal>Real Clients. Real Results.</h2>
-        </div>
-      </div>
-
-      <div class="blog-grid">
-        <article class="blog-card" data-reveal>
-          <div class="blog-content">
-            <span class="blog-meta">★★★★★</span>
-            <h3>"La Familia Media took our brand from zero to professional overnight."</h3>
-            <p>
-              Sergio and his team understood exactly what we needed — and delivered beyond expectations. We've been clients for 4 years and we're not going anywhere.
-            </p>
-            <p class="testimonial-signoff">
-              <strong>Maria R.</strong><br>
-              Small Business Owner, Miami
-            </p>
-          </div>
-        </article>
-
-        <article class="blog-card" data-reveal>
-          <div class="blog-content">
-            <span class="blog-meta">★★★★★</span>
-            <h3>"They handled everything in one project."</h3>
-            <p>
-              We needed a website, business cards, and social media graphics — all consistent. The process was smooth, the communication was great, and the final product was exactly what we envisioned.
-            </p>
-            <p class="testimonial-signoff">
-              <strong>James T.</strong><br>
-              Owner, Broward County Contractor
-            </p>
-          </div>
-        </article>
-
-        <article class="blog-card" data-reveal>
-          <div class="blog-content">
-            <span class="blog-meta">★★★★★</span>
-            <h3>"Encontramos una agencia que realmente entiende nuestra comunidad."</h3>
-            <p>
-              Como dueño de negocio que habla español, fue increíble encontrar una agencia que realmente entiende nuestra comunidad. No solo tradujeron nuestro contenido — entendieron nuestra cultura y la pusieron en nuestra marca.
-            </p>
-            <p class="testimonial-signoff">
-              <strong>Carlos A.</strong><br>
-              Restaurateur, Hialeah
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BAND (SECTION 05 / CTA) -->
-  <section class="section" id="cta">
-    <div class="container">
-      <div class="services-center-copy" data-reveal>
-        <span class="kicker">Call to Action</span>
-        <h3>Ready to Build Something Worth Remembering?</h3>
-        <p>
-          Schedule a free discovery call with our Creative Director. No obligation, no pressure — just real conversation about your brand.
-        </p>
-        <p>
-          ¿Prefiere hablar en español? Con gusto. Llámenos hoy.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#" class="services-link">SCHEDULE A DISCOVERY CALL</a>
-          <a href="tel:7862106327" class="services-link">(786) 210-6327</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOG SECCIÓN LA DEJAMOS COMO ESTÁ O LA REUTILIZAS PARA CONTENIDO FUTURO -->
-  <!-- CONTACT / FOOTER (SECTION 06 + footer copy) -->
   <section class="section" id="contact">
     <div class="container">
       <div class="contact-grid">
         <article class="contact-card" data-reveal>
-          <h3>La Familia Media</h3>
+          <h3>Contact</h3>
           <p>
-            South Florida's trusted creative agency for graphic design, web development, printing, and brand strategy. Serving Miami-Dade, Broward, and Palm Beach since 2012.
+            This section is ready for your real contact details, social links, address, or any other direct way to connect with LA FAMILIA.
           </p>
 
           <div class="contact-list">
             <div class="contact-item">
-              <span>Address</span>
-              3553 Cocoplum Cir, Coconut Creek, FL 33063
-            </div>
-
-            <div class="contact-item">
               <span>Email</span>
-              <a href="mailto:info@lafamiliamedia.com">info@lafamiliamedia.com</a>
+              hello@lafamilia.com
             </div>
 
             <div class="contact-item">
-              <span>Phone</span>
-              <a href="tel:7862106327">(786) 210-6327</a>
+              <span>Instagram</span>
+              @lafamilia
+            </div>
+
+            <div class="contact-item">
+              <span>Location</span>
+              San Pedro Sula, Honduras
             </div>
           </div>
         </article>
 
         <div class="contact-form" data-reveal>
-          <h3>Schedule a Call</h3>
+          <h3>Send us a message</h3>
           <p>
-            Tell us a bit about your brand and what you’re looking to build. We’ll follow up to schedule a no-pressure discovery call.
+            A temporary form that you can later connect to your email or preferred system.
           </p>
 
           <form>
@@ -510,7 +1549,7 @@
 
             <label>
               Message
-              <textarea placeholder="Tell us about your project"></textarea>
+              <textarea placeholder="Write your message here"></textarea>
             </label>
 
             <button type="button" class="btn-outline">SEND</button>
@@ -522,13 +1561,49 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <div>© La Familia Media</div>
-      <div>
-        Graphic Design, Web Design & Printing — South Florida
-      </div>
+      <div>LA FAMILIA</div>
+      <div>A visual identity shaped by story, values, and presence.</div>
     </div>
   </footer>
 
-  <!-- tu <script> original se mantiene igual -->
+  <script>
+    const menuOpen = document.getElementById("menuOpen");
+    const menuClose = document.getElementById("menuClose");
+    const menuPanel = document.getElementById("menuPanel");
+    const menuBackdrop = document.getElementById("menuBackdrop");
+    const menuLinks = document.querySelectorAll(".menu-links a");
+
+    function openMenu() {
+      menuPanel.classList.add("open");
+      menuBackdrop.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+      menuPanel.classList.remove("open");
+      menuBackdrop.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    menuOpen.addEventListener("click", openMenu);
+    menuClose.addEventListener("click", closeMenu);
+    menuBackdrop.addEventListener("click", closeMenu);
+    menuLinks.forEach(link => link.addEventListener("click", closeMenu));
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.14 });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  </script>
 </body>
 </html>
