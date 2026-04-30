@@ -6,7 +6,7 @@
   <title>LA FAMILIA</title>
   <meta
     name="description"
-    content="LA FAMILIA is an editorial and visual website to present its story, values, services, portfolio, blog, testimonials, and contact information."
+    content="LA FAMILIA is an editorial and visual website to present its story, values, services, portfolio, blog, reviews and contact information."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +29,13 @@
       --accent:#bc8d5d;
       --accent-soft:rgba(188,141,93,.16);
       --cream:#f0e0cc;
-      --radius:28px;
+      --electric-blue:#2e6bff;
+      --electric-blue-soft:#5aa7ff;
+      --electric-purple:#7b2cff;
+      --electric-violet:#9d4dff;
+      --hero-light:#ffffff;
+      --hero-text:#0e1320;
+      --hero-muted:#4d5877;
       --shadow:0 28px 80px rgba(0,0,0,.34);
       --max:1320px;
       --transition:280ms cubic-bezier(.16,1,.3,1);
@@ -232,6 +238,10 @@
       padding:30px 0 70px;
       border-bottom:1px solid rgba(255,255,255,.05);
       overflow:hidden;
+      background:
+        radial-gradient(circle at 20% 12%, rgba(90,167,255,.14), transparent 28%),
+        radial-gradient(circle at 78% 18%, rgba(123,44,255,.12), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #f7f8ff 100%);
     }
 
     .hero-grid{
@@ -243,12 +253,12 @@
 
     .hero-stage{
       position:relative;
-      min-height:930px;
+      min-height:980px;
       display:flex;
       flex-direction:column;
       align-items:center;
       justify-content:flex-start;
-      padding-top:22px;
+      padding-top:28px;
     }
 
     .hero-video-box{
@@ -257,10 +267,10 @@
       width:min(100%, 720px);
       border-radius:32px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.08);
+      border:1px solid rgba(46,107,255,.10);
       min-height:380px;
       background:#0d0f12;
-      box-shadow:var(--shadow);
+      box-shadow:0 28px 80px rgba(43,56,128,.18);
     }
 
     .hero-video-box video,
@@ -274,7 +284,7 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg, rgba(8,8,10,.30), rgba(8,8,10,.52));
+      background:linear-gradient(180deg, rgba(8,8,10,.16), rgba(8,8,10,.34));
       pointer-events:none;
     }
 
@@ -309,15 +319,15 @@
       line-height:.82;
       letter-spacing:-.07em;
       text-transform:uppercase;
-      color:rgba(255,255,255,.92);
+      color:rgba(46,107,255,.92);
       white-space:nowrap;
-      text-shadow:0 10px 28px rgba(0,0,0,.18);
+      text-shadow:0 10px 28px rgba(46,107,255,.14);
     }
 
     .hero-bottom{
       position:relative;
       z-index:6;
-      margin-top:118px;
+      margin-top:170px;
       width:min(100%, 960px);
       display:flex;
       flex-direction:column;
@@ -329,29 +339,34 @@
 
     .hero-copy h1{
       font-family:"Cormorant Garamond",serif;
-      font-size:clamp(3.1rem,5.4vw,5.2rem);
+      font-size:clamp(3.2rem,5.6vw,5.5rem);
       line-height:.92;
       letter-spacing:-.05em;
-      font-weight:600;
-      max-width:13ch;
+      font-weight:700;
+      max-width:12ch;
       margin:0 auto 16px;
+      background:linear-gradient(90deg, #1f77ff 0%, #5f3dff 48%, #9f40ff 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-fill-color:transparent;
     }
 
     .hero-copy p{
-      color:var(--muted);
+      color:var(--hero-muted);
       max-width:62ch;
       margin:0 auto;
-      font-size:1.04rem;
+      font-size:1.08rem;
     }
 
     .services-link{
       display:inline-block;
-      margin-top:4px;
+      margin-top:8px;
       font-size:1rem;
       letter-spacing:.2em;
       text-transform:uppercase;
-      color:var(--cream);
-      border-bottom:1px solid rgba(240,224,204,.7);
+      color:#3c49d6;
+      border-bottom:1px solid rgba(60,73,214,.55);
       padding-bottom:8px;
       transition:opacity var(--transition), transform var(--transition);
     }
@@ -362,41 +377,54 @@
     }
 
     .sponsors-bar{
-      padding:28px 0;
+      padding:34px 0;
+      min-height:132px;
       border-bottom:1px solid rgba(255,255,255,.05);
       overflow:hidden;
-      background:transparent;
+      background:
+        linear-gradient(90deg, #5a14ff 0%, #7b2cff 52%, #9f40ff 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.10),
+        0 18px 40px rgba(98,19,255,.28);
     }
 
     .sponsors-track{
       display:flex;
       width:max-content;
-      animation:marqueeLeft 18s linear infinite;
+      animation:marqueeLeft 24s linear infinite;
     }
 
     .sponsors-group{
       display:flex;
       align-items:center;
-      gap:68px;
-      padding-right:68px;
+      gap:46px;
+      padding-right:46px;
     }
 
     .sponsor-logo{
-      min-width:auto;
-      height:auto;
+      min-width:160px;
+      height:64px;
       border:none;
-      border-radius:0;
+      border-radius:18px;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:0;
+      padding:10px 18px;
       color:rgba(255,255,255,.88);
-      background:transparent;
-      font-size:1rem;
-      font-weight:600;
-      letter-spacing:.22em;
-      text-transform:uppercase;
+      background:rgba(255,255,255,.08);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);
       white-space:nowrap;
+      flex:0 0 auto;
+    }
+
+    .sponsor-logo img{
+      width:auto;
+      max-width:100%;
+      max-height:44px;
+      object-fit:contain;
+      filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));
     }
 
     .section{
@@ -629,28 +657,10 @@
     .service-card.s10{ --angle: 320deg; --tilt:3deg; --card-w:232px; --card-h:156px; --radius:405px; animation-delay:3.1s; }
     .service-card.s11{ --angle: 350deg; --tilt:-3deg; --card-w:222px; --card-h:148px; --radius:435px; animation-delay:3.45s; }
 
-    .portfolio-section{
-      overflow:hidden;
-    }
-
-    .portfolio-stage{
-      position:relative;
-      min-height:760px;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-    }
-
-    .portfolio-copy-wrap{
-      position:relative;
-      z-index:15;
-      width:min(620px, 100%);
-      padding:22px 0;
-    }
-
-    .portfolio-copy-wrap .kicker{
-      margin-bottom:16px;
-    }
+    .portfolio-section{ overflow:hidden; }
+    .portfolio-stage{ position:relative; min-height:760px; overflow:hidden; display:flex; align-items:center; }
+    .portfolio-copy-wrap{ position:relative; z-index:15; width:min(620px, 100%); padding:22px 0; }
+    .portfolio-copy-wrap .kicker{ margin-bottom:16px; }
 
     .portfolio-copy-wrap h2{
       font-family:"Cormorant Garamond",serif;
@@ -709,15 +719,8 @@
       opacity:.92;
     }
 
-    .portfolio-card.tall{
-      height:560px;
-      width:400px;
-    }
-
-    .portfolio-card.wide{
-      width:460px;
-      height:470px;
-    }
+    .portfolio-card.tall{ height:560px; width:400px; }
+    .portfolio-card.wide{ width:460px; height:470px; }
 
     .portfolio-card img{
       width:100%;
@@ -758,12 +761,6 @@
       box-shadow:var(--shadow);
     }
 
-    .blog-card img{
-      width:100%;
-      aspect-ratio:1.05;
-      object-fit:cover;
-    }
-
     .blog-content,
     .review-content{
       padding:22px;
@@ -797,13 +794,6 @@
       letter-spacing:.15em;
       margin-bottom:12px;
       font-size:.92rem;
-    }
-
-    .read-more{
-      font-size:.82rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--cream);
     }
 
     .contact-grid{
@@ -955,7 +945,7 @@
       }
 
       .hero-stage{
-        min-height:840px;
+        min-height:890px;
       }
 
       .hero-video-box{
@@ -972,7 +962,7 @@
       }
 
       .hero-bottom{
-        margin-top:110px;
+        margin-top:150px;
       }
 
       .services-scatter{
@@ -982,25 +972,6 @@
 
       .service-orbit{
         transform:scale(.88);
-      }
-
-      .portfolio-stage{
-        min-height:760px;
-      }
-
-      .portfolio-card{
-        width:320px;
-        height:430px;
-      }
-
-      .portfolio-card.tall{
-        width:340px;
-        height:490px;
-      }
-
-      .portfolio-card.wide{
-        width:390px;
-        height:410px;
       }
     }
 
@@ -1029,7 +1000,7 @@
       }
 
       .hero-stage{
-        min-height:690px;
+        min-height:760px;
         padding-top:18px;
       }
 
@@ -1052,12 +1023,36 @@
       }
 
       .hero-bottom{
-        margin-top:88px;
+        margin-top:125px;
         width:min(100%, 94%);
       }
 
       .hero-copy h1{
-        font-size:clamp(2.55rem, 9vw, 3.7rem);
+        font-size:clamp(2.7rem, 9vw, 3.9rem);
+      }
+
+      .hero-copy p{
+        font-size:1rem;
+      }
+
+      .sponsors-bar{
+        padding:26px 0;
+        min-height:110px;
+      }
+
+      .sponsors-group{
+        gap:24px;
+        padding-right:24px;
+      }
+
+      .sponsor-logo{
+        min-width:128px;
+        height:56px;
+        padding:8px 14px;
+      }
+
+      .sponsor-logo img{
+        max-height:34px;
       }
 
       .founder-card{
@@ -1074,25 +1069,9 @@
         grid-template-columns:1fr;
       }
 
-      .founder-copy,
-      .contact-card,
-      .contact-form{
-        padding:0;
-      }
-
       .contact-card,
       .contact-form{
         padding:24px;
-      }
-
-      .sponsors-group{
-        gap:38px;
-        padding-right:38px;
-      }
-
-      .sponsor-logo{
-        font-size:.9rem;
-        letter-spacing:.18em;
       }
 
       .services-scatter{
@@ -1128,47 +1107,6 @@
         margin:0;
         transform:none !important;
         animation:floatCard 5.4s ease-in-out infinite;
-      }
-
-      .portfolio-stage{
-        min-height:auto;
-        padding-bottom:26px;
-      }
-
-      .portfolio-copy-wrap{
-        width:100%;
-      }
-
-      .portfolio-copy-wrap p{
-        font-size:1.05rem;
-      }
-
-      .portfolio-marquee{
-        position:relative;
-        margin-top:28px;
-      }
-
-      .portfolio-fade{
-        display:none;
-      }
-
-      .portfolio-track{
-        animation-duration:36s;
-      }
-
-      .portfolio-card{
-        width:270px;
-        height:350px;
-      }
-
-      .portfolio-card.tall{
-        width:290px;
-        height:400px;
-      }
-
-      .portfolio-card.wide{
-        width:330px;
-        height:340px;
       }
     }
   </style>
@@ -1274,18 +1212,31 @@
   <div class="sponsors-bar">
     <div class="sponsors-track">
       <div class="sponsors-group">
-        <div class="sponsor-logo">LOGO 01</div>
-        <div class="sponsor-logo">LOGO 02</div>
-        <div class="sponsor-logo">LOGO 03</div>
-        <div class="sponsor-logo">LOGO 04</div>
-        <div class="sponsor-logo">LOGO 05</div>
+        <div class="sponsor-logo"><img src="assets/images/Brand1.gif" alt="Brand 1"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand2.gif" alt="Brand 2"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand3.gif" alt="Brand 3"></div>
+        <div class="sponsor-logo"><img src="assets/images/BRnad4.gif" alt="Brand 4"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand5.gif" alt="Brand 5"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand6.gif" alt="Brand 6"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand7.gif" alt="Brand 7"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand8.gif" alt="Brand 8"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand9.gif" alt="Brand 9"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand10.gif" alt="Brand 10"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand12.gif" alt="Brand 12"></div>
       </div>
+
       <div class="sponsors-group" aria-hidden="true">
-        <div class="sponsor-logo">LOGO 01</div>
-        <div class="sponsor-logo">LOGO 02</div>
-        <div class="sponsor-logo">LOGO 03</div>
-        <div class="sponsor-logo">LOGO 04</div>
-        <div class="sponsor-logo">LOGO 05</div>
+        <div class="sponsor-logo"><img src="assets/images/Brand1.gif" alt="Brand 1 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand2.gif" alt="Brand 2 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand3.gif" alt="Brand 3 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/BRnad4.gif" alt="Brand 4 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand5.gif" alt="Brand 5 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand6.gif" alt="Brand 6 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand7.gif" alt="Brand 7 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand8.gif" alt="Brand 8 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand9.gif" alt="Brand 9 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand10.gif" alt="Brand 10 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand12.gif" alt="Brand 12 duplicate"></div>
       </div>
     </div>
   </div>
@@ -1377,70 +1328,6 @@
     </div>
   </section>
 
-  <section class="section portfolio-section" id="portfolio">
-    <div class="container">
-      <div class="portfolio-stage" data-reveal>
-        <div class="portfolio-marquee">
-          <div class="portfolio-track">
-            <div class="portfolio-group">
-              <article class="portfolio-card tall">
-                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 1">
-              </article>
-
-              <article class="portfolio-card">
-                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 2">
-              </article>
-
-              <article class="portfolio-card wide">
-                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80" alt="Portfolio image 3">
-              </article>
-
-              <article class="portfolio-card tall">
-                <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 4">
-              </article>
-
-              <article class="portfolio-card">
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 5">
-              </article>
-            </div>
-
-            <div class="portfolio-group" aria-hidden="true">
-              <article class="portfolio-card tall">
-                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 1 duplicate">
-              </article>
-
-              <article class="portfolio-card">
-                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 2 duplicate">
-              </article>
-
-              <article class="portfolio-card wide">
-                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80" alt="Portfolio image 3 duplicate">
-              </article>
-
-              <article class="portfolio-card tall">
-                <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 4 duplicate">
-              </article>
-
-              <article class="portfolio-card">
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Portfolio image 5 duplicate">
-              </article>
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-fade"></div>
-
-        <div class="portfolio-copy-wrap">
-          <span class="kicker">Portfolio</span>
-          <h2>A gallery for projects, imagery, and visual moments.</h2>
-          <p>
-            This block can later hold editorial photography, campaign visuals, family archives, or any curated collection that supports the presence of LA FAMILIA.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section" id="blog">
     <div class="container">
       <div class="section-head">
@@ -1505,7 +1392,7 @@
           <h2 data-reveal>What clients are saying about La Familia Media.</h2>
         </div>
         <p data-reveal>
-          I found public review profiles for La Familia Media on Facebook and related web properties, but I could not reliably confirm the exact most recent Google review texts from your link in this environment, so this section is structured and ready for you to paste the latest verified reviews. [web:34][web:35][web:37]
+          This section is ready for your verified client reviews.
         </p>
       </div>
 
@@ -1513,10 +1400,10 @@
         <article class="review-card" data-reveal>
           <div class="review-content">
             <div class="stars">★★★★★</div>
-            <span class="review-meta">Latest review placeholder</span>
-            <h3>Add your latest verified review here.</h3>
+            <span class="review-meta">Latest review</span>
+            <h3>Add your newest Google review here.</h3>
             <p>
-              Paste the most recent Google review text here once you copy it from your Google Business profile.
+              Replace this card with your most recent verified testimonial.
             </p>
           </div>
         </article>
@@ -1524,10 +1411,10 @@
         <article class="review-card" data-reveal>
           <div class="review-content">
             <div class="stars">★★★★★</div>
-            <span class="review-meta">Latest review placeholder</span>
-            <h3>Add another recent client review.</h3>
+            <span class="review-meta">Latest review</span>
+            <h3>Add another recent review here.</h3>
             <p>
-              This card is ready for a second recent testimonial from Google, Facebook, or your official testimonials page.
+              This section is prepared for client feedback and social proof.
             </p>
           </div>
         </article>
@@ -1535,10 +1422,10 @@
         <article class="review-card" data-reveal>
           <div class="review-content">
             <div class="stars">★★★★★</div>
-            <span class="review-meta">Latest review placeholder</span>
-            <h3>Use this space for a bilingual review.</h3>
+            <span class="review-meta">Latest review</span>
+            <h3>Use this one for a bilingual testimonial.</h3>
             <p>
-              A Spanish or bilingual review can reinforce the brand’s South Florida positioning and bilingual service promise.
+              A Spanish or bilingual review fits well with the agency’s identity.
             </p>
           </div>
         </article>
@@ -1546,10 +1433,10 @@
         <article class="review-card" data-reveal>
           <div class="review-content">
             <div class="stars">★★★★★</div>
-            <span class="review-meta">Source links</span>
-            <h3>Public review sources found.</h3>
+            <span class="review-meta">Latest review</span>
+            <h3>One more client quote goes here.</h3>
             <p>
-              Publicly accessible review-related sources found for La Familia Media include a Facebook reviews page and a testimonials page on a related La Familia Media domain. [web:34][web:35][web:37]
+              Ideal for another strong review from a recent client.
             </p>
           </div>
         </article>
