@@ -536,7 +536,7 @@
 
     .founder-card{
       display:grid;
-      grid-template-columns:minmax(280px, 430px) minmax(0, 1fr);
+      grid-template-columns:minmax(320px, 430px) minmax(0, 1fr);
       gap:44px;
       align-items:center;
       margin-top:6px;
@@ -545,8 +545,9 @@
     .founder-media-wrap{
       position:relative;
       width:100%;
-      max-width:400px;
+      max-width:430px;
       justify-self:start;
+      grid-column:1;
     }
 
     .founder-glow{
@@ -587,6 +588,7 @@
     }
 
     .founder-copy{
+      grid-column:2;
       padding:20px 0;
       border:none;
       background:transparent;
@@ -594,8 +596,10 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
+      align-items:flex-start;
       max-width:760px;
       color:#ffffff;
+      text-align:left;
     }
 
     .founder-copy h3{
@@ -980,10 +984,12 @@
       }
 
       .founder-media-wrap{
+        grid-column:auto;
         justify-self:center;
       }
 
       .founder-copy{
+        grid-column:auto;
         max-width:100%;
       }
     }
