@@ -271,21 +271,22 @@
 
     .hero-paint{
       position:absolute;
-      top:42px;
+      top:-10px;
       left:50%;
-      width:min(860px, 92vw);
-      height:520px;
+      width:min(1120px, 110vw);
+      height:700px;
       transform:translateX(-50%);
       z-index:1;
       pointer-events:none;
-      filter:blur(18px) saturate(1.12);
-      opacity:.92;
+      filter:blur(32px) saturate(1.2);
+      opacity:1;
       background:
-        radial-gradient(circle at 18% 48%, rgba(255,55,109,.70), transparent 24%),
-        radial-gradient(circle at 35% 24%, rgba(94,42,255,.82), transparent 28%),
-        radial-gradient(circle at 57% 58%, rgba(41,122,255,.72), transparent 26%),
-        radial-gradient(circle at 72% 28%, rgba(163,77,255,.76), transparent 26%),
-        radial-gradient(circle at 82% 64%, rgba(255,82,125,.44), transparent 22%);
+        radial-gradient(circle at 14% 50%, rgba(255,55,109,.82), transparent 24%),
+        radial-gradient(circle at 32% 18%, rgba(94,42,255,.92), transparent 28%),
+        radial-gradient(circle at 53% 60%, rgba(41,122,255,.84), transparent 26%),
+        radial-gradient(circle at 72% 24%, rgba(163,77,255,.90), transparent 26%),
+        radial-gradient(circle at 85% 60%, rgba(255,82,125,.60), transparent 24%),
+        radial-gradient(circle at 60% 22%, rgba(80,126,255,.45), transparent 20%);
       mix-blend-mode:screen;
     }
 
@@ -320,7 +321,7 @@
       position:absolute;
       left:0;
       right:0;
-      top:420px;
+      top:390px;
       z-index:5;
       overflow:hidden;
       white-space:nowrap;
@@ -343,7 +344,7 @@
 
     .values-group span{
       font-family:"Inter",sans-serif;
-      font-size:clamp(4rem,9vw,7.2rem);
+      font-size:clamp(4.2rem,9.5vw,7.6rem);
       line-height:.84;
       letter-spacing:-.07em;
       text-transform:uppercase;
@@ -404,15 +405,12 @@
     }
 
     .sponsors-bar{
-      padding:20px 0;
-      min-height:146px;
+      padding:18px 0;
+      min-height:118px;
       border-bottom:1px solid rgba(255,255,255,.05);
       overflow:hidden;
-      background:
-        linear-gradient(90deg, #5a14ff 0%, #7b2cff 52%, #9f40ff 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.10),
-        0 18px 40px rgba(98,19,255,.28);
+      background:transparent;
+      box-shadow:none;
     }
 
     .sponsors-track{
@@ -424,8 +422,8 @@
     .sponsors-group{
       display:flex;
       align-items:center;
-      gap:60px;
-      padding-right:60px;
+      gap:72px;
+      padding-right:72px;
     }
 
     .sponsor-logo{
@@ -433,7 +431,7 @@
       align-items:center;
       justify-content:center;
       flex:0 0 auto;
-      height:92px;
+      height:110px;
       padding:0;
       background:transparent;
       box-shadow:none;
@@ -443,10 +441,10 @@
 
     .sponsor-logo img{
       width:auto;
-      max-width:260px;
-      max-height:86px;
+      max-width:300px;
+      max-height:100px;
       object-fit:contain;
-      filter:drop-shadow(0 8px 18px rgba(0,0,0,.22));
+      filter:none;
     }
 
     .section{
@@ -874,8 +872,9 @@
       }
 
       .hero-paint{
-        width:min(760px, 96vw);
-        height:460px;
+        top:0;
+        width:min(980px, 112vw);
+        height:620px;
       }
 
       .hero-video-box{
@@ -884,7 +883,7 @@
       }
 
       .values-layer{
-        top:400px;
+        top:375px;
       }
 
       .hero-bottom{
@@ -892,8 +891,8 @@
       }
 
       .sponsor-logo img{
-        max-width:220px;
-        max-height:78px;
+        max-width:250px;
+        max-height:86px;
       }
     }
 
@@ -927,10 +926,10 @@
       }
 
       .hero-paint{
-        top:36px;
-        width:94vw;
-        height:360px;
-        filter:blur(14px) saturate(1.06);
+        top:8px;
+        width:110vw;
+        height:430px;
+        filter:blur(22px) saturate(1.15);
       }
 
       .hero-video-box{
@@ -939,7 +938,7 @@
       }
 
       .values-layer{
-        top:250px;
+        top:232px;
       }
 
       .values-group{
@@ -948,7 +947,7 @@
       }
 
       .values-group span{
-        font-size:clamp(2.6rem, 11vw, 4.2rem);
+        font-size:clamp(2.8rem, 11vw, 4.4rem);
       }
 
       .hero-bottom{
@@ -965,22 +964,22 @@
       }
 
       .sponsors-bar{
-        padding:18px 0;
-        min-height:118px;
+        padding:12px 0;
+        min-height:92px;
       }
 
       .sponsors-group{
-        gap:34px;
-        padding-right:34px;
+        gap:40px;
+        padding-right:40px;
       }
 
       .sponsor-logo{
-        height:72px;
+        height:78px;
       }
 
       .sponsor-logo img{
-        max-width:180px;
-        max-height:66px;
+        max-width:190px;
+        max-height:68px;
       }
 
       .blog-grid,
