@@ -33,10 +33,6 @@
       --electric-purple:#7b2cff;
       --electric-violet:#9d4dff;
       --electric-red:#ff376d;
-      --salmon-1:#f2b1a0;
-      --salmon-2:#e59a88;
-      --salmon-3:#d98979;
-      --about-ink:#2e1d1a;
       --shadow:0 28px 80px rgba(0,0,0,.34);
       --max:1320px;
       --transition:280ms cubic-bezier(.16,1,.3,1);
@@ -446,8 +442,8 @@
 
     .sponsor-logo img{
       width:auto;
-      max-width:260px;
-      max-height:86px;
+      max-width:310px;
+      max-height:100px;
       object-fit:contain;
       filter:none;
     }
@@ -460,9 +456,38 @@
     .about-section{
       position:relative;
       overflow:hidden;
+      background:#0f131b;
+    }
+
+    .about-video-bg{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      overflow:hidden;
+    }
+
+    .about-video-bg video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:blur(6px) saturate(1.02);
+      transform:scale(1.08);
+      opacity:.68;
+    }
+
+    .about-video-bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,.18), transparent 22%),
-        linear-gradient(180deg, var(--salmon-1) 0%, var(--salmon-2) 55%, var(--salmon-3) 100%);
+        linear-gradient(180deg, rgba(8,10,15,.60), rgba(12,16,24,.72)),
+        radial-gradient(circle at center, rgba(66,96,170,.16), transparent 42%);
+      backdrop-filter:blur(2px);
+    }
+
+    .about-section .container{
+      position:relative;
+      z-index:2;
     }
 
     .section-head{
@@ -478,7 +503,7 @@
 
     .kicker{
       display:inline-block;
-      color:var(--about-ink);
+      color:#ffffff;
       font-size:.88rem;
       letter-spacing:.18em;
       text-transform:uppercase;
@@ -504,7 +529,7 @@
       line-height:.94;
       max-width:10ch;
       margin:0 auto;
-      color:var(--about-ink);
+      color:#ffffff;
       animation:titleZoomStrong 4.8s ease-in-out infinite;
       transform-origin:center;
     }
@@ -551,8 +576,8 @@
       overflow:hidden;
       border:1px solid rgba(255,255,255,.18);
       min-height:460px;
-      box-shadow:0 28px 70px rgba(77,38,33,.24);
-      background:#fff1ec;
+      box-shadow:0 28px 70px rgba(0,0,0,.26);
+      background:rgba(255,255,255,.06);
     }
 
     .founder-media img{
@@ -570,7 +595,7 @@
       flex-direction:column;
       justify-content:center;
       max-width:760px;
-      color:var(--about-ink);
+      color:#ffffff;
     }
 
     .founder-copy h3{
@@ -578,11 +603,11 @@
       line-height:.95;
       margin-bottom:14px;
       max-width:12ch;
-      color:var(--about-ink);
+      color:#ffffff;
     }
 
     .founder-copy p{
-      color:rgba(46,29,26,.86);
+      color:rgba(255,255,255,.88);
       margin-bottom:16px;
       max-width:60ch;
     }
@@ -595,9 +620,9 @@
       min-height:48px;
       padding:0 18px;
       border-radius:999px;
-      border:1px solid rgba(46,29,26,.18);
-      background:rgba(255,255,255,.20);
-      color:var(--about-ink);
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.10);
+      color:#ffffff;
       font-size:.82rem;
       letter-spacing:.14em;
       text-transform:uppercase;
@@ -606,8 +631,8 @@
 
     .btn-outline:hover{
       transform:translateY(-2px);
-      border-color:rgba(46,29,26,.36);
-      background:rgba(255,255,255,.36);
+      border-color:rgba(255,255,255,.34);
+      background:rgba(255,255,255,.16);
     }
 
     .services-scatter{
@@ -945,13 +970,13 @@
       }
 
       .sponsor-logo{
-        min-width:170px;
-        height:96px;
+        min-width:190px;
+        height:104px;
       }
 
       .sponsor-logo img{
-        max-width:220px;
-        max-height:72px;
+        max-width:270px;
+        max-height:92px;
       }
 
       .founder-media-wrap{
@@ -1040,13 +1065,13 @@
       }
 
       .sponsor-logo{
-        min-width:138px;
-        height:80px;
+        min-width:150px;
+        height:84px;
       }
 
       .sponsor-logo img{
-        max-width:150px;
-        max-height:56px;
+        max-width:180px;
+        max-height:64px;
       }
 
       .section-head{
@@ -1194,6 +1219,12 @@
   </div>
 
   <section class="section about-section" id="about">
+    <div class="about-video-bg">
+      <video autoplay muted loop playsinline>
+        <source src="assets/images/713910774 (1).mp4" type="video/mp4">
+      </video>
+    </div>
+
     <div class="container">
       <div class="section-head">
         <span class="kicker" data-reveal>About Us</span>
@@ -1403,7 +1434,7 @@
               <textarea placeholder="Write your message here"></textarea>
             </label>
 
-            <button type="button" class="btn-outline" style="color:var(--text); border-color:rgba(255,255,255,.12); background:rgba(255,255,255,.03);">SEND</button>
+            <button type="button" class="btn-outline">SEND</button>
           </form>
         </div>
       </div>
