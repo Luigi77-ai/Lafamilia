@@ -33,6 +33,9 @@
       --electric-purple:#7b2cff;
       --electric-violet:#9d4dff;
       --electric-red:#ff376d;
+      --about-blue-1:#10294d;
+      --about-blue-2:#173768;
+      --about-blue-3:#204887;
       --shadow:0 28px 80px rgba(0,0,0,.34);
       --max:1320px;
       --transition:280ms cubic-bezier(.16,1,.3,1);
@@ -406,12 +409,17 @@
     }
 
     .sponsors-bar{
-      padding:26px 0;
-      min-height:156px;
-      border-bottom:1px solid rgba(255,255,255,.05);
-      overflow:hidden;
+      padding:22px 0;
       background:transparent;
-      box-shadow:none;
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .sponsors-shell{
+      background:#ffffff;
+      border-radius:999px;
+      padding:20px 30px;
+      overflow:hidden;
+      box-shadow:0 22px 60px rgba(0,0,0,.22);
     }
 
     .sponsors-track{
@@ -423,8 +431,8 @@
     .sponsors-group{
       display:flex;
       align-items:center;
-      gap:30px;
-      padding-right:30px;
+      gap:34px;
+      padding-right:34px;
     }
 
     .sponsor-logo{
@@ -432,19 +440,19 @@
       align-items:center;
       justify-content:center;
       flex:0 0 auto;
-      min-width:200px;
-      height:118px;
-      padding:16px 26px;
-      background:#ffffff;
-      box-shadow:none;
+      min-width:170px;
+      height:96px;
+      background:transparent;
       border:none;
-      border-radius:999px;
+      box-shadow:none;
+      border-radius:0;
+      padding:0;
     }
 
     .sponsor-logo img{
       width:auto;
-      max-width:280px;
-      max-height:88px;
+      max-width:240px;
+      max-height:78px;
       object-fit:contain;
       filter:none;
     }
@@ -454,34 +462,24 @@
       border-bottom:1px solid rgba(255,255,255,.05);
     }
 
-    .section-head{
-      display:grid;
-      grid-template-columns:1fr .95fr;
-      gap:30px;
-      align-items:stretch;
-      margin-bottom:38px;
+    .about-section{
+      background:
+        radial-gradient(circle at top right, rgba(73,126,255,.20), transparent 30%),
+        linear-gradient(180deg, var(--about-blue-2) 0%, var(--about-blue-1) 100%);
     }
 
-    .section-head-left{
+    .section-head{
       display:flex;
       flex-direction:column;
-      justify-content:flex-end;
-    }
-
-    .section-head-right{
-      background:linear-gradient(180deg, rgba(45,108,255,.12), rgba(123,44,255,.10));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:28px;
-      padding:28px 30px;
-      display:flex;
       align-items:center;
       justify-content:center;
-      box-shadow:var(--shadow);
+      text-align:center;
+      gap:14px;
+      margin-bottom:44px;
     }
 
     .kicker{
       display:inline-block;
-      margin-bottom:14px;
       color:var(--electric-blue);
       font-size:.82rem;
       letter-spacing:.18em;
@@ -505,13 +503,7 @@
       font-size:clamp(2.8rem,5vw,5rem);
       line-height:.94;
       max-width:10ch;
-    }
-
-    .section-head-right p{
-      color:var(--text);
-      max-width:34ch;
-      font-size:1.05rem;
-      line-height:1.75;
+      margin:0 auto;
     }
 
     .founder-card{
@@ -526,7 +518,7 @@
       max-width:360px;
       border-radius:26px;
       overflow:hidden;
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.12);
       min-height:440px;
       box-shadow:var(--shadow);
       justify-self:start;
@@ -557,7 +549,7 @@
     }
 
     .founder-copy p{
-      color:var(--muted);
+      color:rgba(245,247,251,.82);
       margin-bottom:16px;
       max-width:60ch;
     }
@@ -570,8 +562,8 @@
       min-height:48px;
       padding:0 18px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.05);
       font-size:.82rem;
       letter-spacing:.14em;
       text-transform:uppercase;
@@ -580,8 +572,8 @@
 
     .btn-outline:hover{
       transform:translateY(-2px);
-      border-color:rgba(188,141,93,.46);
-      background:rgba(188,141,93,.08);
+      border-color:rgba(255,255,255,.38);
+      background:rgba(255,255,255,.10);
     }
 
     .services-scatter{
@@ -878,14 +870,11 @@
     }
 
     @media (max-width:1120px){
-      .section-head,
-      .contact-grid{
-        grid-template-columns:1fr;
-      }
-
       .blog-grid,
-      .reviews-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
+      .reviews-grid,
+      .contact-grid,
+      .founder-card{
+        grid-template-columns:1fr;
       }
 
       .hero-stage{
@@ -911,15 +900,17 @@
         margin-top:148px;
       }
 
-      .sponsor-logo{
-        min-width:180px;
-        height:108px;
-        padding:14px 22px;
+      .sponsor-logo img{
+        max-width:220px;
+        max-height:72px;
       }
 
-      .sponsor-logo img{
-        max-width:240px;
-        max-height:80px;
+      .founder-media{
+        justify-self:center;
+      }
+
+      .founder-copy{
+        max-width:100%;
       }
     }
 
@@ -990,9 +981,9 @@
         font-size:1.04rem;
       }
 
-      .sponsors-bar{
-        padding:18px 0;
-        min-height:122px;
+      .sponsors-shell{
+        padding:14px 18px;
+        border-radius:28px;
       }
 
       .sponsors-group{
@@ -1001,18 +992,13 @@
       }
 
       .sponsor-logo{
-        min-width:150px;
-        height:88px;
-        padding:12px 18px;
+        min-width:138px;
+        height:78px;
       }
 
       .sponsor-logo img{
-        max-width:150px;
-        max-height:58px;
-      }
-
-      .section-head-right{
-        padding:22px 22px;
+        max-width:145px;
+        max-height:52px;
       }
 
       .blog-grid,
@@ -1123,50 +1109,46 @@
   </section>
 
   <div class="sponsors-bar">
-    <div class="sponsors-track">
-      <div class="sponsors-group">
-        <div class="sponsor-logo"><img src="assets/images/Brand1.gif" alt="Brand 1"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand2.gif" alt="Brand 2"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand3.gif" alt="Brand 3"></div>
-        <div class="sponsor-logo"><img src="assets/images/BRnad4.gif" alt="Brand 4"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand5.gif" alt="Brand 5"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand6.gif" alt="Brand 6"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand7.gif" alt="Brand 7"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand8.gif" alt="Brand 8"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand9.gif" alt="Brand 9"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand10.gif" alt="Brand 10"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand12.gif" alt="Brand 12"></div>
-      </div>
+    <div class="container">
+      <div class="sponsors-shell">
+        <div class="sponsors-track">
+          <div class="sponsors-group">
+            <div class="sponsor-logo"><img src="assets/images/Brand1.gif" alt="Brand 1"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand2.gif" alt="Brand 2"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand3.gif" alt="Brand 3"></div>
+            <div class="sponsor-logo"><img src="assets/images/BRnad4.gif" alt="Brand 4"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand5.gif" alt="Brand 5"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand6.gif" alt="Brand 6"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand7.gif" alt="Brand 7"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand8.gif" alt="Brand 8"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand9.gif" alt="Brand 9"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand10.gif" alt="Brand 10"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand12.gif" alt="Brand 12"></div>
+          </div>
 
-      <div class="sponsors-group" aria-hidden="true">
-        <div class="sponsor-logo"><img src="assets/images/Brand1.gif" alt="Brand 1 duplicate"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand2.gif" alt="Brand 2 duplicate"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand3.gif" alt="Brand 3 duplicate"></div>
-        <div class="sponsor-logo"><img src="assets/images/BRnad4.gif" alt="Brand 4 duplicate"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand5.gif" alt="Brand 5 duplicate"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand6.gif" alt="Brand 6 duplicate"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand7.gif" alt="Brand 7 duplicate"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand8.gif" alt="Brand 8 duplicate"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand9.gif" alt="Brand 9 duplicate"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand10.gif" alt="Brand 10 duplicate"></div>
-        <div class="sponsor-logo"><img src="assets/images/Brand12.gif" alt="Brand 12 duplicate"></div>
+          <div class="sponsors-group" aria-hidden="true">
+            <div class="sponsor-logo"><img src="assets/images/Brand1.gif" alt="Brand 1 duplicate"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand2.gif" alt="Brand 2 duplicate"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand3.gif" alt="Brand 3 duplicate"></div>
+            <div class="sponsor-logo"><img src="assets/images/BRnad4.gif" alt="Brand 4 duplicate"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand5.gif" alt="Brand 5 duplicate"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand6.gif" alt="Brand 6 duplicate"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand7.gif" alt="Brand 7 duplicate"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand8.gif" alt="Brand 8 duplicate"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand9.gif" alt="Brand 9 duplicate"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand10.gif" alt="Brand 10 duplicate"></div>
+            <div class="sponsor-logo"><img src="assets/images/Brand12.gif" alt="Brand 12 duplicate"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <section class="section" id="about">
+  <section class="section about-section" id="about">
     <div class="container">
       <div class="section-head">
-        <div class="section-head-left">
-          <span class="kicker" data-reveal>About Us</span>
-          <h2 data-reveal>Born from Hustle. Built on Trust.</h2>
-        </div>
-
-        <div class="section-head-right" data-reveal>
-          <p>
-            This section is designed to present the founder’s origin, journey, values, and vision in an elegant editorial way.
-          </p>
-        </div>
+        <span class="kicker" data-reveal>About Us</span>
+        <h2 data-reveal>Born from Hustle. Built on Trust.</h2>
       </div>
 
       <div class="founder-card">
@@ -1225,16 +1207,8 @@
   <section class="section" id="blog">
     <div class="container">
       <div class="section-head">
-        <div class="section-head-left">
-          <span class="kicker" data-reveal>Blog</span>
-          <h2 data-reveal>We're Not the Biggest Agency. We're the Right One.</h2>
-        </div>
-
-        <div class="section-head-right" data-reveal>
-          <p>
-            Here’s why La Familia Media continues to be the right creative partner for brands across South Florida.
-          </p>
-        </div>
+        <span class="kicker" data-reveal>Blog</span>
+        <h2 data-reveal>We're Not the Biggest Agency. We're the Right One.</h2>
       </div>
 
       <div class="blog-grid">
@@ -1284,16 +1258,8 @@
   <section class="section" id="reviews">
     <div class="container">
       <div class="section-head">
-        <div class="section-head-left">
-          <span class="kicker" data-reveal>Reviews</span>
-          <h2 data-reveal>What clients are saying about La Familia Media.</h2>
-        </div>
-
-        <div class="section-head-right" data-reveal>
-          <p>
-            This section is ready for your verified client reviews.
-          </p>
-        </div>
+        <span class="kicker" data-reveal>Reviews</span>
+        <h2 data-reveal>What clients are saying about La Familia Media.</h2>
       </div>
 
       <div class="reviews-grid">
