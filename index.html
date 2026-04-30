@@ -33,9 +33,10 @@
       --electric-purple:#7b2cff;
       --electric-violet:#9d4dff;
       --electric-red:#ff376d;
-      --about-blue-1:#10294d;
-      --about-blue-2:#173768;
-      --about-blue-3:#204887;
+      --salmon-1:#f2b1a0;
+      --salmon-2:#e59a88;
+      --salmon-3:#d98979;
+      --about-ink:#2e1d1a;
       --shadow:0 28px 80px rgba(0,0,0,.34);
       --max:1320px;
       --transition:280ms cubic-bezier(.16,1,.3,1);
@@ -409,17 +410,12 @@
     }
 
     .sponsors-bar{
-      padding:22px 0;
-      background:transparent;
-      border-bottom:1px solid rgba(255,255,255,.05);
-    }
-
-    .sponsors-shell{
+      width:100%;
       background:#ffffff;
-      border-radius:999px;
-      padding:20px 30px;
+      padding:24px 0;
+      border-top:1px solid rgba(0,0,0,.05);
+      border-bottom:1px solid rgba(0,0,0,.06);
       overflow:hidden;
-      box-shadow:0 22px 60px rgba(0,0,0,.22);
     }
 
     .sponsors-track{
@@ -431,8 +427,8 @@
     .sponsors-group{
       display:flex;
       align-items:center;
-      gap:34px;
-      padding-right:34px;
+      gap:44px;
+      padding-right:44px;
     }
 
     .sponsor-logo{
@@ -440,19 +436,18 @@
       align-items:center;
       justify-content:center;
       flex:0 0 auto;
-      min-width:170px;
-      height:96px;
+      min-width:190px;
+      height:104px;
       background:transparent;
       border:none;
       box-shadow:none;
-      border-radius:0;
       padding:0;
     }
 
     .sponsor-logo img{
       width:auto;
-      max-width:240px;
-      max-height:78px;
+      max-width:260px;
+      max-height:86px;
       object-fit:contain;
       filter:none;
     }
@@ -463,9 +458,11 @@
     }
 
     .about-section{
+      position:relative;
+      overflow:hidden;
       background:
-        radial-gradient(circle at top right, rgba(73,126,255,.20), transparent 30%),
-        linear-gradient(180deg, var(--about-blue-2) 0%, var(--about-blue-1) 100%);
+        radial-gradient(circle at top right, rgba(255,255,255,.18), transparent 22%),
+        linear-gradient(180deg, var(--salmon-1) 0%, var(--salmon-2) 55%, var(--salmon-3) 100%);
     }
 
     .section-head{
@@ -474,17 +471,20 @@
       align-items:center;
       justify-content:center;
       text-align:center;
-      gap:14px;
-      margin-bottom:44px;
+      gap:10px;
+      margin-bottom:28px;
+      transform:translateY(-10px);
     }
 
     .kicker{
       display:inline-block;
-      color:var(--electric-blue);
-      font-size:.82rem;
+      color:var(--about-ink);
+      font-size:.88rem;
       letter-spacing:.18em;
       text-transform:uppercase;
       font-weight:800;
+      animation:titleZoom 4.8s ease-in-out infinite;
+      transform-origin:center;
     }
 
     .section-head h2,
@@ -504,24 +504,55 @@
       line-height:.94;
       max-width:10ch;
       margin:0 auto;
+      color:var(--about-ink);
+      animation:titleZoomStrong 4.8s ease-in-out infinite;
+      transform-origin:center;
     }
 
     .founder-card{
       display:grid;
-      grid-template-columns:minmax(260px, 380px) minmax(0, 1fr);
-      gap:34px;
+      grid-template-columns:minmax(280px, 430px) minmax(0, 1fr);
+      gap:44px;
       align-items:center;
+      margin-top:6px;
+    }
+
+    .founder-media-wrap{
+      position:relative;
+      width:100%;
+      max-width:400px;
+      justify-self:start;
+    }
+
+    .founder-glow{
+      position:absolute;
+      top:-26px;
+      left:-22px;
+      right:-18px;
+      bottom:-26px;
+      z-index:1;
+      filter:blur(26px) saturate(1.18);
+      opacity:.96;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 18% 50%, rgba(255,55,109,.44), transparent 24%),
+        radial-gradient(circle at 30% 18%, rgba(94,42,255,.50), transparent 30%),
+        radial-gradient(circle at 54% 64%, rgba(41,122,255,.46), transparent 26%),
+        radial-gradient(circle at 78% 26%, rgba(163,77,255,.48), transparent 26%),
+        radial-gradient(circle at 82% 72%, rgba(255,138,107,.42), transparent 22%);
+      mix-blend-mode:screen;
     }
 
     .founder-media{
+      position:relative;
+      z-index:2;
       width:100%;
-      max-width:360px;
-      border-radius:26px;
+      border-radius:28px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
-      min-height:440px;
-      box-shadow:var(--shadow);
-      justify-self:start;
+      border:1px solid rgba(255,255,255,.18);
+      min-height:460px;
+      box-shadow:0 28px 70px rgba(77,38,33,.24);
+      background:#fff1ec;
     }
 
     .founder-media img{
@@ -531,14 +562,15 @@
     }
 
     .founder-copy{
-      padding:18px 0;
+      padding:20px 0;
       border:none;
       background:transparent;
       box-shadow:none;
       display:flex;
       flex-direction:column;
       justify-content:center;
-      max-width:720px;
+      max-width:760px;
+      color:var(--about-ink);
     }
 
     .founder-copy h3{
@@ -546,10 +578,11 @@
       line-height:.95;
       margin-bottom:14px;
       max-width:12ch;
+      color:var(--about-ink);
     }
 
     .founder-copy p{
-      color:rgba(245,247,251,.82);
+      color:rgba(46,29,26,.86);
       margin-bottom:16px;
       max-width:60ch;
     }
@@ -562,8 +595,9 @@
       min-height:48px;
       padding:0 18px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.05);
+      border:1px solid rgba(46,29,26,.18);
+      background:rgba(255,255,255,.20);
+      color:var(--about-ink);
       font-size:.82rem;
       letter-spacing:.14em;
       text-transform:uppercase;
@@ -572,8 +606,8 @@
 
     .btn-outline:hover{
       transform:translateY(-2px);
-      border-color:rgba(255,255,255,.38);
-      background:rgba(255,255,255,.10);
+      border-color:rgba(46,29,26,.36);
+      background:rgba(255,255,255,.36);
     }
 
     .services-scatter{
@@ -869,6 +903,16 @@
       100%{ background-position:0% 50%; }
     }
 
+    @keyframes titleZoom{
+      0%,100%{ transform:scale(1); opacity:1; }
+      50%{ transform:scale(1.06); opacity:.92; }
+    }
+
+    @keyframes titleZoomStrong{
+      0%,100%{ transform:scale(1); }
+      50%{ transform:scale(1.045); }
+    }
+
     @media (max-width:1120px){
       .blog-grid,
       .reviews-grid,
@@ -900,12 +944,17 @@
         margin-top:148px;
       }
 
+      .sponsor-logo{
+        min-width:170px;
+        height:96px;
+      }
+
       .sponsor-logo img{
         max-width:220px;
         max-height:72px;
       }
 
-      .founder-media{
+      .founder-media-wrap{
         justify-self:center;
       }
 
@@ -981,24 +1030,28 @@
         font-size:1.04rem;
       }
 
-      .sponsors-shell{
-        padding:14px 18px;
-        border-radius:28px;
+      .sponsors-bar{
+        padding:18px 0;
       }
 
       .sponsors-group{
-        gap:20px;
-        padding-right:20px;
+        gap:26px;
+        padding-right:26px;
       }
 
       .sponsor-logo{
         min-width:138px;
-        height:78px;
+        height:80px;
       }
 
       .sponsor-logo img{
-        max-width:145px;
-        max-height:52px;
+        max-width:150px;
+        max-height:56px;
+      }
+
+      .section-head{
+        margin-bottom:22px;
+        transform:translateY(-6px);
       }
 
       .blog-grid,
@@ -1109,37 +1162,33 @@
   </section>
 
   <div class="sponsors-bar">
-    <div class="container">
-      <div class="sponsors-shell">
-        <div class="sponsors-track">
-          <div class="sponsors-group">
-            <div class="sponsor-logo"><img src="assets/images/Brand1.gif" alt="Brand 1"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand2.gif" alt="Brand 2"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand3.gif" alt="Brand 3"></div>
-            <div class="sponsor-logo"><img src="assets/images/BRnad4.gif" alt="Brand 4"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand5.gif" alt="Brand 5"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand6.gif" alt="Brand 6"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand7.gif" alt="Brand 7"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand8.gif" alt="Brand 8"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand9.gif" alt="Brand 9"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand10.gif" alt="Brand 10"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand12.gif" alt="Brand 12"></div>
-          </div>
+    <div class="sponsors-track">
+      <div class="sponsors-group">
+        <div class="sponsor-logo"><img src="assets/images/Brand1.gif" alt="Brand 1"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand2.gif" alt="Brand 2"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand3.gif" alt="Brand 3"></div>
+        <div class="sponsor-logo"><img src="assets/images/BRnad4.gif" alt="Brand 4"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand5.gif" alt="Brand 5"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand6.gif" alt="Brand 6"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand7.gif" alt="Brand 7"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand8.gif" alt="Brand 8"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand9.gif" alt="Brand 9"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand10.gif" alt="Brand 10"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand12.gif" alt="Brand 12"></div>
+      </div>
 
-          <div class="sponsors-group" aria-hidden="true">
-            <div class="sponsor-logo"><img src="assets/images/Brand1.gif" alt="Brand 1 duplicate"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand2.gif" alt="Brand 2 duplicate"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand3.gif" alt="Brand 3 duplicate"></div>
-            <div class="sponsor-logo"><img src="assets/images/BRnad4.gif" alt="Brand 4 duplicate"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand5.gif" alt="Brand 5 duplicate"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand6.gif" alt="Brand 6 duplicate"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand7.gif" alt="Brand 7 duplicate"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand8.gif" alt="Brand 8 duplicate"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand9.gif" alt="Brand 9 duplicate"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand10.gif" alt="Brand 10 duplicate"></div>
-            <div class="sponsor-logo"><img src="assets/images/Brand12.gif" alt="Brand 12 duplicate"></div>
-          </div>
-        </div>
+      <div class="sponsors-group" aria-hidden="true">
+        <div class="sponsor-logo"><img src="assets/images/Brand1.gif" alt="Brand 1 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand2.gif" alt="Brand 2 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand3.gif" alt="Brand 3 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/BRnad4.gif" alt="Brand 4 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand5.gif" alt="Brand 5 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand6.gif" alt="Brand 6 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand7.gif" alt="Brand 7 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand8.gif" alt="Brand 8 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand9.gif" alt="Brand 9 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand10.gif" alt="Brand 10 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand12.gif" alt="Brand 12 duplicate"></div>
       </div>
     </div>
   </div>
@@ -1152,8 +1201,11 @@
       </div>
 
       <div class="founder-card">
-        <div class="founder-media" data-reveal>
-          <img src="assets/images/WhatsApp Image 2026-04-29 at 10.31.11 PM.jpeg" alt="Founder portrait">
+        <div class="founder-media-wrap" data-reveal>
+          <div class="founder-glow"></div>
+          <div class="founder-media">
+            <img src="assets/images/WhatsApp Image 2026-04-29 at 10.31.11 PM.jpeg" alt="Founder portrait">
+          </div>
         </div>
 
         <div class="founder-copy" data-reveal>
@@ -1194,7 +1246,7 @@
         </div>
 
         <div class="services-center-copy">
-          <span class="kicker">Services</span>
+          <span class="kicker" style="color:#dbe5ff; animation:none;">Services</span>
           <h3>Every Tool Your Brand Needs, Under One Roof.</h3>
           <p>
             From your first logo to your thousandth business card, we handle the creative so you can handle the business.
@@ -1206,9 +1258,9 @@
 
   <section class="section" id="blog">
     <div class="container">
-      <div class="section-head">
-        <span class="kicker" data-reveal>Blog</span>
-        <h2 data-reveal>We're Not the Biggest Agency. We're the Right One.</h2>
+      <div class="section-head" style="transform:none;">
+        <span class="kicker" data-reveal style="color:var(--electric-blue); animation:none;">Blog</span>
+        <h2 data-reveal style="color:var(--text); animation:none;">We're Not the Biggest Agency. We're the Right One.</h2>
       </div>
 
       <div class="blog-grid">
@@ -1257,9 +1309,9 @@
 
   <section class="section" id="reviews">
     <div class="container">
-      <div class="section-head">
-        <span class="kicker" data-reveal>Reviews</span>
-        <h2 data-reveal>What clients are saying about La Familia Media.</h2>
+      <div class="section-head" style="transform:none;">
+        <span class="kicker" data-reveal style="color:var(--electric-blue); animation:none;">Reviews</span>
+        <h2 data-reveal style="color:var(--text); animation:none;">What clients are saying about La Familia Media.</h2>
       </div>
 
       <div class="reviews-grid">
@@ -1351,7 +1403,7 @@
               <textarea placeholder="Write your message here"></textarea>
             </label>
 
-            <button type="button" class="btn-outline">SEND</button>
+            <button type="button" class="btn-outline" style="color:var(--text); border-color:rgba(255,255,255,.12); background:rgba(255,255,255,.03);">SEND</button>
           </form>
         </div>
       </div>
