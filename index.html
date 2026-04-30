@@ -453,173 +453,144 @@
       border-bottom:1px solid rgba(255,255,255,.05);
     }
 
+    /* ABOUT US */
     .about-section{
       position:relative;
       overflow:hidden;
-      background:#0f131b;
+      padding:120px 0;
+      isolation:isolate;
+      background:#161a22;
     }
 
-    .about-video-bg{
+    .about-bg{
       position:absolute;
       inset:0;
       z-index:0;
-      overflow:hidden;
+      background-image:
+        linear-gradient(180deg, rgba(14,18,26,.38), rgba(14,18,26,.42)),
+        url("assets/images/pexels-anatoleos-30912707.jpg");
+      background-size:cover;
+      background-position:center center;
+      background-repeat:no-repeat;
+      filter:saturate(1.02) brightness(1.02);
+      transform:scale(1.03);
     }
 
-    .about-video-bg video{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      filter:blur(6px) saturate(1.02);
-      transform:scale(1.08);
-      opacity:.68;
-    }
-
-    .about-video-bg::after{
+    .about-bg::after{
       content:"";
       position:absolute;
       inset:0;
       background:
-        linear-gradient(180deg, rgba(8,10,15,.60), rgba(12,16,24,.72)),
-        radial-gradient(circle at center, rgba(66,96,170,.16), transparent 42%);
-      backdrop-filter:blur(2px);
+        linear-gradient(90deg, rgba(11,14,20,.24) 0%, rgba(11,14,20,.18) 30%, rgba(11,14,20,.28) 100%);
     }
 
-    .about-section .container{
+    .about-section .about-shell{
       position:relative;
       z-index:2;
-    }
-
-    .section-head{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      gap:10px;
-      margin-bottom:28px;
-      transform:translateY(-10px);
-    }
-
-    .kicker{
-      display:inline-block;
-      color:#ffffff;
-      font-size:.88rem;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      font-weight:800;
-      animation:titleZoom 4.8s ease-in-out infinite;
-      transform-origin:center;
-    }
-
-    .section-head h2,
-    .founder-copy h3,
-    .services-center-copy h3,
-    .blog-card h3,
-    .contact-card h3,
-    .contact-form h3,
-    .review-card h3{
-      font-family:"Inter",sans-serif;
-      font-weight:800;
-      letter-spacing:-.04em;
-    }
-
-    .section-head h2{
-      font-size:clamp(2.8rem,5vw,5rem);
-      line-height:.94;
-      max-width:10ch;
+      width:min(calc(100% - 32px), 1440px);
       margin:0 auto;
-      color:#ffffff;
-      animation:titleZoomStrong 4.8s ease-in-out infinite;
-      transform-origin:center;
     }
 
-    /* ABOUT US ARREGLADO: IMAGEN IZQUIERDA + TEXTO DERECHA */
-    .founder-card{
-      display:flex;
+    .about-layout{
+      display:grid;
+      grid-template-columns:460px minmax(0, 1fr);
       align-items:center;
-      justify-content:space-between;
-      gap:56px;
-      margin-top:20px;
-      flex-wrap:nowrap;
+      gap:64px;
+    }
+
+    .about-image-side{
+      width:100%;
+      display:flex;
+      justify-content:flex-start;
+      align-items:stretch;
     }
 
     .founder-media-wrap{
       position:relative;
-      flex:0 0 420px;
-      width:420px;
-      max-width:420px;
-      min-width:420px;
+      width:100%;
+      max-width:460px;
+      margin-left:0;
     }
 
     .founder-glow{
       position:absolute;
-      top:-26px;
-      left:-22px;
+      top:-20px;
+      left:-18px;
       right:-18px;
-      bottom:-26px;
+      bottom:-20px;
       z-index:1;
-      filter:blur(26px) saturate(1.18);
-      opacity:.96;
+      filter:blur(24px) saturate(1.08);
+      opacity:.62;
       pointer-events:none;
       background:
-        radial-gradient(circle at 18% 50%, rgba(255,55,109,.44), transparent 24%),
-        radial-gradient(circle at 30% 18%, rgba(94,42,255,.50), transparent 30%),
-        radial-gradient(circle at 54% 64%, rgba(41,122,255,.46), transparent 26%),
-        radial-gradient(circle at 78% 26%, rgba(163,77,255,.48), transparent 26%),
-        radial-gradient(circle at 82% 72%, rgba(255,138,107,.42), transparent 22%);
-      mix-blend-mode:screen;
+        radial-gradient(circle at 20% 40%, rgba(255,255,255,.10), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(188,141,93,.18), transparent 24%);
     }
 
     .founder-media{
       position:relative;
       z-index:2;
       width:100%;
-      height:520px;
+      height:620px;
       border-radius:28px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,.18);
-      box-shadow:0 28px 70px rgba(0,0,0,.26);
+      box-shadow:0 28px 70px rgba(0,0,0,.24);
       background:rgba(255,255,255,.06);
     }
 
     .founder-media img{
       width:100%;
       height:100%;
-      object-fit:cover;
-      object-position:center;
+      object-fit:contain;
+      object-position:center top;
+      background:rgba(10,12,16,.18);
     }
 
-    .founder-copy{
-      flex:1 1 auto;
-      min-width:0;
-      max-width:none;
-      padding:0;
-      border:none;
-      background:transparent;
-      box-shadow:none;
+    .about-copy{
       display:flex;
       flex-direction:column;
       justify-content:center;
       align-items:flex-start;
-      color:#ffffff;
       text-align:left;
-    }
-
-    .founder-copy h3{
-      font-size:clamp(2.3rem,4vw,4rem);
-      line-height:.95;
-      margin-bottom:18px;
-      max-width:14ch;
       color:#ffffff;
+      max-width:760px;
     }
 
-    .founder-copy p{
-      color:rgba(255,255,255,.92);
+    .about-copy .kicker{
+      margin-bottom:10px;
+      color:#ffffff;
+      animation:none;
+    }
+
+    .about-copy h2{
+      font-family:"Inter",sans-serif;
+      font-weight:800;
+      letter-spacing:-.04em;
+      font-size:clamp(2.8rem,5vw,5rem);
+      line-height:.94;
+      margin-bottom:22px;
+      color:#ffffff;
+      max-width:11ch;
+    }
+
+    .about-copy h3{
+      font-family:"Inter",sans-serif;
+      font-weight:800;
+      letter-spacing:-.04em;
+      font-size:clamp(2rem,3.5vw,3.5rem);
+      line-height:1;
+      margin-bottom:18px;
+      color:#ffffff;
+      max-width:15ch;
+    }
+
+    .about-copy p{
+      color:rgba(255,255,255,.93);
       margin-bottom:18px;
       max-width:62ch;
       font-size:1.04rem;
-      line-height:1.8;
+      line-height:1.82;
     }
 
     .btn-outline{
@@ -630,7 +601,7 @@
       min-height:48px;
       padding:0 18px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.20);
       background:rgba(255,255,255,.10);
       color:#ffffff;
       font-size:.82rem;
@@ -674,6 +645,9 @@
       margin-bottom:16px;
       max-width:10ch;
       margin-inline:auto;
+      font-family:"Inter",sans-serif;
+      font-weight:800;
+      letter-spacing:-.04em;
     }
 
     .services-center-copy p{
@@ -795,6 +769,9 @@
       font-size:1.85rem;
       line-height:.97;
       margin-bottom:10px;
+      font-family:"Inter",sans-serif;
+      font-weight:800;
+      letter-spacing:-.04em;
     }
 
     .blog-card p,
@@ -830,6 +807,9 @@
       font-size:2.2rem;
       line-height:.95;
       margin-bottom:14px;
+      font-family:"Inter",sans-serif;
+      font-weight:800;
+      letter-spacing:-.04em;
     }
 
     .contact-card p,
@@ -938,72 +918,39 @@
       100%{ background-position:0% 50%; }
     }
 
-    @keyframes titleZoom{
-      0%,100%{ transform:scale(1); opacity:1; }
-      50%{ transform:scale(1.06); opacity:.92; }
-    }
-
-    @keyframes titleZoomStrong{
-      0%,100%{ transform:scale(1); }
-      50%{ transform:scale(1.045); }
-    }
-
-    @media (max-width:1120px){
+    @media (max-width:1180px){
       .blog-grid,
       .reviews-grid,
       .contact-grid{
         grid-template-columns:1fr;
       }
 
-      .hero-stage{
-        min-height:900px;
+      .about-layout{
+        grid-template-columns:420px minmax(0, 1fr);
+        gap:42px;
       }
 
-      .hero-paint{
-        top:0;
-        width:min(980px, 112vw);
-        height:620px;
+      .founder-media{
+        height:580px;
+      }
+    }
+
+    @media (max-width:980px){
+      .about-layout{
+        grid-template-columns:1fr;
+        gap:34px;
       }
 
-      .hero-video-box{
-        width:min(100%, 660px);
-        min-height:350px;
-      }
-
-      .values-layer{
-        top:375px;
-      }
-
-      .hero-bottom{
-        margin-top:148px;
-      }
-
-      .sponsor-logo{
-        min-width:190px;
-        height:104px;
-      }
-
-      .sponsor-logo img{
-        max-width:270px;
-        max-height:92px;
-      }
-
-      .founder-card{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        gap:32px;
+      .about-image-side{
+        justify-content:center;
       }
 
       .founder-media-wrap{
-        width:min(100%, 420px);
-        max-width:420px;
-        min-width:unset;
-        flex:none;
+        max-width:460px;
       }
 
-      .founder-copy{
-        width:100%;
+      .about-copy{
+        max-width:100%;
       }
     }
 
@@ -1093,18 +1040,25 @@
         max-height:64px;
       }
 
-      .section-head{
-        margin-bottom:22px;
-        transform:translateY(-6px);
+      .about-section{
+        padding:90px 0;
+      }
+
+      .founder-media{
+        height:500px;
+      }
+
+      .about-copy h2{
+        font-size:clamp(2.2rem, 9vw, 3.5rem);
+      }
+
+      .about-copy h3{
+        font-size:clamp(1.7rem, 7vw, 2.6rem);
       }
 
       .blog-grid,
       .reviews-grid{
         grid-template-columns:1fr;
-      }
-
-      .founder-media{
-        height:420px;
       }
     }
   </style>
@@ -1242,37 +1196,36 @@
   </div>
 
   <section class="section about-section" id="about">
-    <div class="about-video-bg">
-      <video autoplay muted loop playsinline>
-        <source src="assets/images/713910774 (1).mp4" type="video/mp4">
-      </video>
-    </div>
+    <div class="about-bg"></div>
 
-    <div class="container">
-      <div class="section-head">
-        <span class="kicker" data-reveal>About Us</span>
-        <h2 data-reveal>Born from Hustle. Built on Trust.</h2>
-      </div>
-
-      <div class="founder-card">
-        <div class="founder-media-wrap" data-reveal>
-          <div class="founder-glow"></div>
-          <div class="founder-media">
-            <img src="assets/images/WhatsApp Image 2026-04-29 at 10.31.11 PM.jpeg" alt="Founder portrait">
+    <div class="about-shell">
+      <div class="about-layout">
+        <div class="about-image-side" data-reveal>
+          <div class="founder-media-wrap">
+            <div class="founder-glow"></div>
+            <div class="founder-media">
+              <img src="assets/images/WhatsApp Image 2026-04-29 at 10.31.11 PM.jpeg" alt="Founder portrait">
+            </div>
           </div>
         </div>
 
-        <div class="founder-copy" data-reveal>
+        <div class="about-copy" data-reveal>
+          <span class="kicker">About Us</span>
+          <h2>Born from Hustle. Built on Trust.</h2>
           <h3>La Familia Media didn't start in a fancy office.</h3>
+
           <p>
             It started with a side business, a financial crisis, and an entrepreneur who refused to quit. Sergio Castillo founded La Familia Media in 2012 out of a belief that small businesses deserve the same quality branding as Fortune 500 companies — without the Fortune 500 price tag.
           </p>
+
           <p>
             Over 12 years, we've grown into a full-service creative agency serving businesses across Miami-Dade, Broward, and Palm Beach counties. We've worked with everyone from corner restaurants to medical societies — and we bring the same dedication to every single project.
           </p>
+
           <p>
             Hablamos español. We understand that South Florida is a diverse, bilingual community — and we're one of the few agencies that can serve you equally well in either language.
           </p>
+
           <a href="#" class="btn-outline">VIEW MORE</a>
         </div>
       </div>
@@ -1312,9 +1265,9 @@
 
   <section class="section" id="blog">
     <div class="container">
-      <div class="section-head" style="transform:none;">
+      <div class="section-head" style="transform:none; display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; margin-bottom:28px;">
         <span class="kicker" data-reveal style="color:var(--electric-blue); animation:none;">Blog</span>
-        <h2 data-reveal style="color:var(--text); animation:none;">We're Not the Biggest Agency. We're the Right One.</h2>
+        <h2 data-reveal style="color:var(--text); animation:none; font-family:'Inter',sans-serif; font-weight:800; letter-spacing:-.04em; font-size:clamp(2.8rem,5vw,5rem); line-height:.94; max-width:10ch;">We're Not the Biggest Agency. We're the Right One.</h2>
       </div>
 
       <div class="blog-grid">
@@ -1363,9 +1316,9 @@
 
   <section class="section" id="reviews">
     <div class="container">
-      <div class="section-head" style="transform:none;">
+      <div class="section-head" style="transform:none; display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; margin-bottom:28px;">
         <span class="kicker" data-reveal style="color:var(--electric-blue); animation:none;">Reviews</span>
-        <h2 data-reveal style="color:var(--text); animation:none;">What clients are saying about La Familia Media.</h2>
+        <h2 data-reveal style="color:var(--text); animation:none; font-family:'Inter',sans-serif; font-weight:800; letter-spacing:-.04em; font-size:clamp(2.8rem,5vw,5rem); line-height:.94; max-width:10ch;">What clients are saying about La Familia Media.</h2>
       </div>
 
       <div class="reviews-grid">
