@@ -24,7 +24,7 @@
       --panel-2:rgba(255,255,255,.06);
       --line:rgba(255,255,255,.08);
       --text:#f5f7fb;
-      --muted:rgba(245,247,251,.72);
+      --muted:rgba(245,247,251,.76);
       --faint:rgba(245,247,251,.42);
       --accent:#bc8d5d;
       --accent-soft:rgba(188,141,93,.16);
@@ -382,7 +382,8 @@
       color:var(--muted);
       max-width:62ch;
       margin:0 auto;
-      font-size:1.08rem;
+      font-size:clamp(1.15rem, 1.2vw, 1.32rem);
+      line-height:1.75;
       font-family:"Inter",sans-serif;
     }
 
@@ -405,8 +406,8 @@
     }
 
     .sponsors-bar{
-      padding:18px 0;
-      min-height:118px;
+      padding:26px 0;
+      min-height:156px;
       border-bottom:1px solid rgba(255,255,255,.05);
       overflow:hidden;
       background:transparent;
@@ -422,8 +423,8 @@
     .sponsors-group{
       display:flex;
       align-items:center;
-      gap:72px;
-      padding-right:72px;
+      gap:30px;
+      padding-right:30px;
     }
 
     .sponsor-logo{
@@ -431,18 +432,19 @@
       align-items:center;
       justify-content:center;
       flex:0 0 auto;
-      height:110px;
-      padding:0;
-      background:transparent;
+      min-width:200px;
+      height:118px;
+      padding:16px 26px;
+      background:#ffffff;
       box-shadow:none;
       border:none;
-      border-radius:0;
+      border-radius:999px;
     }
 
     .sponsor-logo img{
       width:auto;
-      max-width:300px;
-      max-height:100px;
+      max-width:280px;
+      max-height:88px;
       object-fit:contain;
       filter:none;
     }
@@ -454,19 +456,37 @@
 
     .section-head{
       display:grid;
-      grid-template-columns:.82fr 1fr;
+      grid-template-columns:1fr .95fr;
       gap:30px;
-      align-items:end;
+      align-items:stretch;
       margin-bottom:38px;
+    }
+
+    .section-head-left{
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+
+    .section-head-right{
+      background:linear-gradient(180deg, rgba(45,108,255,.12), rgba(123,44,255,.10));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:28px;
+      padding:28px 30px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:var(--shadow);
     }
 
     .kicker{
       display:inline-block;
       margin-bottom:14px;
-      color:var(--accent);
-      font-size:.76rem;
+      color:var(--electric-blue);
+      font-size:.82rem;
       letter-spacing:.18em;
       text-transform:uppercase;
+      font-weight:800;
     }
 
     .section-head h2,
@@ -487,10 +507,11 @@
       max-width:10ch;
     }
 
-    .section-head p{
-      color:var(--muted);
-      max-width:60ch;
-      justify-self:end;
+    .section-head-right p{
+      color:var(--text);
+      max-width:34ch;
+      font-size:1.05rem;
+      line-height:1.75;
     }
 
     .founder-card{
@@ -890,9 +911,15 @@
         margin-top:148px;
       }
 
+      .sponsor-logo{
+        min-width:180px;
+        height:108px;
+        padding:14px 22px;
+      }
+
       .sponsor-logo img{
-        max-width:250px;
-        max-height:86px;
+        max-width:240px;
+        max-height:80px;
       }
     }
 
@@ -960,26 +987,32 @@
       }
 
       .hero-copy p{
-        font-size:1rem;
+        font-size:1.04rem;
       }
 
       .sponsors-bar{
-        padding:12px 0;
-        min-height:92px;
+        padding:18px 0;
+        min-height:122px;
       }
 
       .sponsors-group{
-        gap:40px;
-        padding-right:40px;
+        gap:20px;
+        padding-right:20px;
       }
 
       .sponsor-logo{
-        height:78px;
+        min-width:150px;
+        height:88px;
+        padding:12px 18px;
       }
 
       .sponsor-logo img{
-        max-width:190px;
-        max-height:68px;
+        max-width:150px;
+        max-height:58px;
+      }
+
+      .section-head-right{
+        padding:22px 22px;
       }
 
       .blog-grid,
@@ -1124,13 +1157,16 @@
   <section class="section" id="about">
     <div class="container">
       <div class="section-head">
-        <div>
+        <div class="section-head-left">
           <span class="kicker" data-reveal>About Us</span>
           <h2 data-reveal>Born from Hustle. Built on Trust.</h2>
         </div>
-        <p data-reveal>
-          This section is designed to present the founder’s origin, journey, values, and vision in an elegant editorial way.
-        </p>
+
+        <div class="section-head-right" data-reveal>
+          <p>
+            This section is designed to present the founder’s origin, journey, values, and vision in an elegant editorial way.
+          </p>
+        </div>
       </div>
 
       <div class="founder-card">
@@ -1189,13 +1225,16 @@
   <section class="section" id="blog">
     <div class="container">
       <div class="section-head">
-        <div>
+        <div class="section-head-left">
           <span class="kicker" data-reveal>Blog</span>
           <h2 data-reveal>We're Not the Biggest Agency. We're the Right One.</h2>
         </div>
-        <p data-reveal>
-          Here’s why La Familia Media continues to be the right creative partner for brands across South Florida.
-        </p>
+
+        <div class="section-head-right" data-reveal>
+          <p>
+            Here’s why La Familia Media continues to be the right creative partner for brands across South Florida.
+          </p>
+        </div>
       </div>
 
       <div class="blog-grid">
@@ -1245,13 +1284,16 @@
   <section class="section" id="reviews">
     <div class="container">
       <div class="section-head">
-        <div>
+        <div class="section-head-left">
           <span class="kicker" data-reveal>Reviews</span>
           <h2 data-reveal>What clients are saying about La Familia Media.</h2>
         </div>
-        <p data-reveal>
-          This section is ready for your verified client reviews.
-        </p>
+
+        <div class="section-head-right" data-reveal>
+          <p>
+            This section is ready for your verified client reviews.
+          </p>
+        </div>
       </div>
 
       <div class="reviews-grid">
