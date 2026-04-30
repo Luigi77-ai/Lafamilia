@@ -4,926 +4,1488 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LA FAMILIA</title>
-  <meta name="description" content="La Familia Media - branding, websites, and marketing collateral for South Florida businesses." />
+  <meta
+    name="description"
+    content="LA FAMILIA is an editorial and visual website to present its story, values, services, portfolio, blog, reviews and contact information."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    :root {
-      --bg: #0b0b0b;
-      --surface: #141414;
-      --surface-2: #1c1c1c;
-      --text: #f4f1ea;
-      --muted: #b8b1a3;
-      --line: rgba(255,255,255,0.12);
-      --gold: #d6b16d;
-      --gold-2: #b8904f;
-      --max: 1240px;
-      --radius: 22px;
-      --shadow: 0 18px 60px rgba(0,0,0,.28);
+    :root{
+      --bg:#0d0f14;
+      --bg-soft:#141821;
+      --panel:rgba(255,255,255,.04);
+      --panel-2:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.08);
+      --text:#f5f7fb;
+      --muted:rgba(245,247,251,.76);
+      --faint:rgba(245,247,251,.42);
+      --accent:#bc8d5d;
+      --accent-soft:rgba(188,141,93,.16);
+      --cream:#f0e0cc;
+      --electric-blue:#2d6cff;
+      --electric-purple:#7b2cff;
+      --electric-violet:#9d4dff;
+      --electric-red:#ff376d;
+      --shadow:0 28px 80px rgba(0,0,0,.34);
+      --max:1320px;
+      --transition:280ms cubic-bezier(.16,1,.3,1);
     }
 
-    * {
-      box-sizing: border-box;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html{
+      scroll-behavior:smooth;
     }
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin-inline: auto;
-    }
-
-    .section {
-      padding: 72px 0;
-    }
-
-    .section-tight {
-      padding-top: 40px;
-      padding-bottom: 72px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: 12px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-
-    h1, h2, h3, h4, p {
-      margin: 0;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      line-height: 1.05;
-      margin-bottom: 14px;
-    }
-
-    .section-copy {
-      color: var(--muted);
-      max-width: 760px;
-      font-size: 1.05rem;
-    }
-
-    /* Header */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(12px);
-      background: rgba(11,11,11,.78);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .header-inner {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      font-weight: 800;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      font-size: .95rem;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      font-size: .92rem;
-      color: var(--muted);
-    }
-
-    .nav a:hover {
-      color: var(--text);
-    }
-
-    /* Hero */
-    .hero {
-      padding: 84px 0 40px;
-      border-bottom: 1px solid var(--line);
+    body{
+      font-family:"Inter",sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(214,177,109,.16), transparent 32%),
-        linear-gradient(180deg, rgba(255,255,255,.02), transparent 40%);
+        radial-gradient(circle at top left, rgba(46,108,255,.10), transparent 22%),
+        linear-gradient(180deg,#0d0f14 0%,#131720 100%);
+      color:var(--text);
+      overflow-x:hidden;
+      line-height:1.55;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 34px;
-      align-items: center;
+    a{
+      color:inherit;
+      text-decoration:none;
     }
 
-    .hero h1 {
-      font-size: clamp(2.6rem, 6vw, 5.4rem);
-      line-height: .95;
-      margin-bottom: 20px;
+    img,video{
+      display:block;
+      max-width:100%;
     }
 
-    .hero p {
-      font-size: 1.08rem;
-      color: var(--muted);
-      max-width: 720px;
-      margin-bottom: 26px;
+    button,input,textarea{
+      font:inherit;
+      color:inherit;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+    .container{
+      width:min(calc(100% - 32px),var(--max));
+      margin:0 auto;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      font-weight: 700;
-      transition: .2s ease;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: #111;
-      border-color: transparent;
-    }
-
-    .btn-primary:hover {
-      background: #e6c17b;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,.05);
-    }
-
-    .hero-brands {
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      border: 1px solid var(--line);
-      border-radius: calc(var(--radius) + 8px);
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .brands-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .brand-chip {
-      border: 1px solid var(--line);
-      background: var(--surface);
-      border-radius: 18px;
-      min-height: 84px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      text-align: center;
-      padding: 10px;
-      font-size: .92rem;
-    }
-
-    /* About */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 34px;
-      align-items: start;
-    }
-
-    .about-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
-    }
-
-    .about-card p + p {
-      margin-top: 16px;
-    }
-
-    /* Services */
-    .services {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:120;
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
       background:
-        linear-gradient(180deg, rgba(255,255,255,.02), transparent 30%),
-        #0d0d0d;
+        linear-gradient(120deg,
+          rgba(32,72,255,.86) 0%,
+          rgba(92,44,255,.82) 28%,
+          rgba(170,56,255,.78) 52%,
+          rgba(255,66,132,.80) 76%,
+          rgba(72,172,255,.84) 100%);
+      background-size:200% 200%;
+      border-bottom:1px solid rgba(255,255,255,.16);
+      box-shadow:0 10px 30px rgba(68,24,168,.20);
+      animation:headerFlow 10s ease infinite;
     }
 
-    .services-head {
-      margin-bottom: 28px;
+    .header-inner{
+      min-height:84px;
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:20px;
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 18px;
+    .menu-btn{
+      appearance:none;
+      border:none;
+      background:transparent;
+      color:#fff;
+      font-size:.82rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      cursor:pointer;
+      font-weight:800;
     }
 
-    .service-card {
-      grid-column: span 4;
-      background: linear-gradient(180deg, #171717, #121212);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      min-height: 340px;
+    .brand{
+      justify-self:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
-    .service-image-wrap {
+    .brand img{
+      width:auto;
+      height:46px;
+      object-fit:contain;
+    }
+
+    .header-spacer{
+      width:72px;
+      justify-self:end;
+    }
+
+    .menu-panel{
+      position:fixed;
+      inset:0 auto 0 0;
+      width:min(420px,100%);
+      background:rgba(14,15,18,.97);
+      border-right:1px solid rgba(255,255,255,.08);
+      transform:translateX(-102%);
+      transition:transform var(--transition);
+      z-index:140;
+      padding:28px 24px 30px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      box-shadow:var(--shadow);
+    }
+
+    .menu-panel.open{
+      transform:translateX(0);
+    }
+
+    .menu-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:26px;
+    }
+
+    .menu-title{
+      font-size:.76rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--faint);
+    }
+
+    .menu-close{
+      border:none;
+      background:transparent;
+      color:var(--text);
+      font-size:.82rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      cursor:pointer;
+    }
+
+    .menu-links{
+      display:grid;
+      gap:16px;
+    }
+
+    .menu-links a{
+      font-family:"Inter",sans-serif;
+      font-size:clamp(1.9rem,5vw,3rem);
+      line-height:.92;
+      letter-spacing:-.04em;
+      font-weight:800;
+      transition:transform var(--transition), color var(--transition);
+    }
+
+    .menu-links a:hover{
+      transform:translateX(8px);
+      color:#fff;
+    }
+
+    .menu-socials{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:30px;
+    }
+
+    .menu-socials a{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.12);
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.03);
+      transition:transform var(--transition), border-color var(--transition), background var(--transition);
+    }
+
+    .menu-socials a:hover{
+      transform:translateY(-2px);
+      border-color:rgba(188,141,93,.45);
+      background:rgba(188,141,93,.08);
+    }
+
+    .menu-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.46);
+      opacity:0;
+      visibility:hidden;
+      transition:opacity var(--transition), visibility var(--transition);
+      z-index:130;
+    }
+
+    .menu-backdrop.show{
+      opacity:1;
+      visibility:visible;
+    }
+
+    .hero{
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:30px 0 90px;
+      border-bottom:1px solid rgba(255,255,255,.05);
+      overflow:hidden;
       background:
-        linear-gradient(180deg, rgba(214,177,109,.08), rgba(255,255,255,.01)),
-        #111;
-      padding: 14px;
-      height: 270px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+        radial-gradient(circle at 18% 12%, rgba(46,108,255,.12), transparent 24%),
+        radial-gradient(circle at 82% 16%, rgba(123,44,255,.10), transparent 24%),
+        linear-gradient(180deg,#0d0f14 0%,#141922 58%, #18283d 82%, #223f63 100%);
     }
 
-    .service-image {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      border-radius: 14px;
-      background: #0f0f0f;
+    .hero::after{
+      content:"";
+      position:absolute;
+      left:-4%;
+      right:-4%;
+      bottom:-120px;
+      height:320px;
+      z-index:1;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(58,120,208,.18), transparent 30%),
+        radial-gradient(circle at 50% 55%, rgba(76,145,230,.16), transparent 34%),
+        radial-gradient(circle at 78% 40%, rgba(98,162,235,.20), transparent 30%),
+        linear-gradient(180deg, rgba(26,44,67,0) 0%, rgba(38,72,112,.26) 54%, rgba(66,118,176,.34) 100%);
+      filter:blur(24px);
+      opacity:.95;
     }
 
-    .service-info {
-      padding: 18px 18px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .hero-grid{
+      width:100%;
+      display:grid;
+      gap:0;
+      position:relative;
+      z-index:2;
     }
 
-    .service-info h3 {
-      font-size: 1rem;
-      letter-spacing: .03em;
+    .hero-stage{
+      position:relative;
+      min-height:980px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      padding-top:34px;
     }
 
-    .service-info p {
-      color: var(--muted);
-      font-size: .95rem;
+    .hero-paint{
+      position:absolute;
+      top:-10px;
+      left:50%;
+      width:min(1120px, 110vw);
+      height:700px;
+      transform:translateX(-50%);
+      z-index:1;
+      pointer-events:none;
+      filter:blur(32px) saturate(1.2);
+      opacity:1;
+      background:
+        radial-gradient(circle at 14% 50%, rgba(255,55,109,.82), transparent 24%),
+        radial-gradient(circle at 32% 18%, rgba(94,42,255,.92), transparent 28%),
+        radial-gradient(circle at 53% 60%, rgba(41,122,255,.84), transparent 26%),
+        radial-gradient(circle at 72% 24%, rgba(163,77,255,.90), transparent 26%),
+        radial-gradient(circle at 85% 60%, rgba(255,82,125,.60), transparent 24%),
+        radial-gradient(circle at 60% 22%, rgba(80,126,255,.45), transparent 20%);
+      mix-blend-mode:screen;
     }
 
-    /* PDF section */
-    .pdf-showcase {
-      padding-top: 28px;
-      padding-bottom: 70px;
+    .hero-video-box{
+      position:relative;
+      z-index:3;
+      width:min(100%, 720px);
+      border-radius:32px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      min-height:380px;
+      background:#0d0f12;
+      box-shadow:0 28px 80px rgba(0,0,0,.35);
     }
 
-    .pdf-shell {
-      margin-top: 18px;
-      background: linear-gradient(180deg, #171717, #111);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 18px;
-      box-shadow: var(--shadow);
+    .hero-video-box video,
+    .hero-video-box img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
     }
 
-    .pdf-frame-wrap {
-      position: relative;
-      background: #0e0e0e;
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 18px;
-      overflow: hidden;
+    .hero-video-box::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(8,8,10,.16), rgba(8,8,10,.34));
+      pointer-events:none;
     }
 
-    .pdf-frame {
-      width: 100%;
-      height: 820px;
-      border: 0;
-      display: block;
-      background: #111;
+    .values-layer{
+      position:absolute;
+      left:0;
+      right:0;
+      top:390px;
+      z-index:5;
+      overflow:hidden;
+      white-space:nowrap;
+      pointer-events:none;
+      mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+      -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
     }
 
-    .pdf-actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      padding-top: 16px;
+    .values-track{
+      display:flex;
+      width:max-content;
+      animation:marqueeLeft 24s linear infinite;
     }
 
-    .pdf-actions p {
-      color: var(--muted);
-      font-size: .96rem;
-      margin: 0;
+    .values-group{
+      display:flex;
+      gap:64px;
+      padding-right:64px;
     }
 
-    .pdf-btns {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+    .values-group span{
+      font-family:"Inter",sans-serif;
+      font-size:clamp(4.8rem,10.6vw,8.4rem);
+      line-height:.84;
+      letter-spacing:-.07em;
+      text-transform:uppercase;
+      font-weight:800;
+      color:#ffffff;
+      white-space:nowrap;
+      text-shadow:0 10px 28px rgba(255,255,255,.08);
     }
 
-    /* Blog / reviews / contact */
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
+    .hero-bottom{
+      position:relative;
+      z-index:6;
+      margin-top:145px;
+      width:min(100%, 940px);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:20px;
     }
 
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
+    .hero-copy h1{
+      font-family:"Inter",sans-serif;
+      font-size:clamp(3rem,5.6vw,5rem);
+      line-height:.94;
+      letter-spacing:-.06em;
+      font-weight:800;
+      max-width:11ch;
+      margin:0 auto 16px;
+      color:#ffffff;
     }
 
-    .card h3 {
-      margin: 10px 0 10px;
-      font-size: 1.35rem;
+    .hero-copy p{
+      color:var(--muted);
+      max-width:62ch;
+      margin:0 auto;
+      font-size:clamp(1.15rem, 1.2vw, 1.32rem);
+      line-height:1.75;
+      font-family:"Inter",sans-serif;
     }
 
-    .card p {
-      color: var(--muted);
+    .services-link{
+      display:inline-block;
+      margin-top:8px;
+      font-size:1rem;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      color:#dbe5ff;
+      border-bottom:1px solid rgba(219,229,255,.5);
+      padding-bottom:8px;
+      transition:opacity var(--transition), transform var(--transition);
+      font-weight:700;
     }
 
-    .review-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+    .services-link:hover{
+      opacity:.78;
+      transform:translateY(-2px);
     }
 
-    .review-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 22px;
+    .sponsors-bar{
+      width:100%;
+      background:#ffffff;
+      padding:24px 0;
+      border-top:1px solid rgba(0,0,0,.05);
+      border-bottom:1px solid rgba(0,0,0,.06);
+      overflow:hidden;
     }
 
-    .review-card .stars {
-      color: var(--gold);
-      margin-bottom: 12px;
-      letter-spacing: .2em;
+    .sponsors-track{
+      display:flex;
+      width:max-content;
+      animation:marqueeLeft 24s linear infinite;
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 22px;
+    .sponsors-group{
+      display:flex;
+      align-items:center;
+      gap:44px;
+      padding-right:44px;
     }
 
-    .contact-list {
-      display: grid;
-      gap: 14px;
+    .sponsor-logo{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      min-width:190px;
+      height:104px;
+      background:transparent;
+      border:none;
+      box-shadow:none;
+      padding:0;
     }
 
-    .contact-item {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
+    .sponsor-logo img{
+      width:auto;
+      max-width:310px;
+      max-height:100px;
+      object-fit:contain;
+      filter:none;
     }
 
-    .contact-item strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--gold);
-      font-size: .82rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
+    .section{
+      padding:110px 0;
+      border-bottom:1px solid rgba(255,255,255,.05);
     }
 
-    form {
-      display: grid;
-      gap: 14px;
+    .about-section{
+      position:relative;
+      overflow:hidden;
+      padding:120px 0;
+      isolation:isolate;
+      background:#161a22;
     }
 
-    input, textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: #111;
-      color: var(--text);
-      font: inherit;
+    .about-bg{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background-image:
+        linear-gradient(180deg, rgba(14,18,26,.38), rgba(14,18,26,.42)),
+        url("assets/images/pexels-anatoleos-30912707.jpg");
+      background-size:cover;
+      background-position:center center;
+      background-repeat:no-repeat;
+      filter:saturate(1.02) brightness(1.02);
+      transform:scale(1.03);
     }
 
-    textarea {
-      min-height: 150px;
-      resize: vertical;
+    .about-bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(11,14,20,.24) 0%, rgba(11,14,20,.18) 30%, rgba(11,14,20,.28) 100%);
     }
 
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 0 42px;
-      color: var(--muted);
-      font-size: .95rem;
+    .about-section .about-shell{
+      position:relative;
+      z-index:2;
+      width:min(calc(100% - 32px), 1440px);
+      margin:0 auto;
     }
 
-    @media (max-width: 1080px) {
-      .hero-grid,
-      .about-grid,
-      .contact-grid,
-      .stack-grid {
-        grid-template-columns: 1fr;
+    .about-layout{
+      display:grid;
+      grid-template-columns:460px minmax(0, 1fr);
+      align-items:center;
+      gap:64px;
+    }
+
+    .about-image-side{
+      width:100%;
+      display:flex;
+      justify-content:flex-start;
+      align-items:stretch;
+    }
+
+    .founder-media-wrap{
+      position:relative;
+      width:100%;
+      max-width:460px;
+      margin-left:0;
+    }
+
+    .founder-glow{
+      position:absolute;
+      top:-20px;
+      left:-18px;
+      right:-18px;
+      bottom:-20px;
+      z-index:1;
+      filter:blur(24px) saturate(1.08);
+      opacity:.62;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 20% 40%, rgba(255,255,255,.10), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(188,141,93,.18), transparent 24%);
+    }
+
+    .founder-media{
+      position:relative;
+      z-index:2;
+      width:100%;
+      height:620px;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 28px 70px rgba(0,0,0,.24);
+      background:rgba(255,255,255,.06);
+    }
+
+    .founder-media img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center top;
+      background:rgba(10,12,16,.18);
+    }
+
+    .about-copy{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:flex-start;
+      text-align:left;
+      color:#ffffff;
+      max-width:760px;
+    }
+
+    .about-copy .kicker{
+      margin-bottom:10px;
+      color:#ffffff;
+      animation:none;
+      display:inline-block;
+      font-size:.88rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+
+    .about-copy h2{
+      font-family:"Inter",sans-serif;
+      font-weight:800;
+      letter-spacing:-.04em;
+      font-size:clamp(2.8rem,5vw,5rem);
+      line-height:.94;
+      margin-bottom:22px;
+      color:#ffffff;
+      max-width:11ch;
+    }
+
+    .about-copy h3{
+      font-family:"Inter",sans-serif;
+      font-weight:800;
+      letter-spacing:-.04em;
+      font-size:clamp(2rem,3.5vw,3.5rem);
+      line-height:1;
+      margin-bottom:18px;
+      color:#ffffff;
+      max-width:15ch;
+    }
+
+    .about-copy p{
+      color:rgba(255,255,255,.93);
+      margin-bottom:18px;
+      max-width:62ch;
+      font-size:1.04rem;
+      line-height:1.82;
+    }
+
+    .btn-outline{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:max-content;
+      min-height:48px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.20);
+      background:rgba(255,255,255,.10);
+      color:#ffffff;
+      font-size:.82rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      transition:transform var(--transition), border-color var(--transition), background var(--transition);
+    }
+
+    .btn-outline:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,.34);
+      background:rgba(255,255,255,.16);
+    }
+
+    .services-scatter{
+      position:relative;
+      min-height:1100px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:visible;
+      padding:90px 20px 120px;
+    }
+
+    .services-center-copy{
+      position:relative;
+      z-index:20;
+      width:min(100%, 590px);
+      text-align:center;
+      padding:38px 30px;
+      background:rgba(15,16,18,.76);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:32px;
+      backdrop-filter:blur(10px);
+      box-shadow:var(--shadow);
+    }
+
+    .services-center-copy h3{
+      font-size:clamp(2.9rem,4.9vw,5rem);
+      line-height:.94;
+      margin-bottom:16px;
+      max-width:10ch;
+      margin-inline:auto;
+      font-family:"Inter",sans-serif;
+      font-weight:800;
+      letter-spacing:-.04em;
+    }
+
+    .services-center-copy p{
+      color:var(--muted);
+      max-width:48ch;
+      margin:0 auto;
+    }
+
+    .service-orbit{
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:var(--orbit-size);
+      height:var(--orbit-size);
+      margin-left:calc(var(--orbit-size) / -2);
+      margin-top:calc(var(--orbit-size) / -2);
+      border-radius:50%;
+      animation:spinOrbit var(--orbit-speed) linear infinite;
+      pointer-events:none;
+    }
+
+    .service-orbit.reverse{
+      animation-direction:reverse;
+    }
+
+    .service-card{
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:var(--card-w);
+      height:var(--card-h);
+      margin-left:calc(var(--card-w) / -2);
+      margin-top:calc(var(--card-h) / -2);
+      transform:
+        rotate(var(--angle))
+        translateY(calc(var(--radius) * -1))
+        rotate(calc(var(--angle) * -1))
+        rotate(var(--tilt));
+      transform-origin:center center;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+      background:#111;
+      transition:box-shadow var(--transition), border-color var(--transition);
+      pointer-events:auto;
+      animation:floatCard 5.4s ease-in-out infinite;
+    }
+
+    .service-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .45s ease;
+    }
+
+    .service-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(10,10,12,.05), rgba(10,10,12,.28));
+      pointer-events:none;
+    }
+
+    .service-card:hover{
+      border-color:rgba(188,141,93,.42);
+      box-shadow:0 34px 100px rgba(0,0,0,.44);
+    }
+
+    .service-card:hover img{
+      transform:scale(1.08);
+    }
+
+    .service-card.s1{ --angle: 8deg; --tilt:-8deg; --card-w:250px; --card-h:170px; --radius:420px; animation-delay:0s; }
+    .service-card.s2{ --angle: 42deg; --tilt:6deg; --card-w:220px; --card-h:148px; --radius:395px; animation-delay:.35s; }
+    .service-card.s3{ --angle: 78deg; --tilt:2deg; --card-w:228px; --card-h:154px; --radius:385px; animation-delay:.7s; }
+    .service-card.s4{ --angle: 112deg; --tilt:7deg; --card-w:246px; --card-h:168px; --radius:415px; animation-delay:1s; }
+    .service-card.s5{ --angle: 148deg; --tilt:-6deg; --card-w:234px; --card-h:158px; --radius:400px; animation-delay:1.35s; }
+    .service-card.s6{ --angle: 182deg; --tilt:5deg; --card-w:240px; --card-h:162px; --radius:430px; animation-delay:1.7s; }
+    .service-card.s7{ --angle: 215deg; --tilt:-7deg; --card-w:224px; --card-h:150px; --radius:395px; animation-delay:2.05s; }
+    .service-card.s8{ --angle: 250deg; --tilt:4deg; --card-w:248px; --card-h:168px; --radius:420px; animation-delay:2.4s; }
+    .service-card.s9{ --angle: 286deg; --tilt:-4deg; --card-w:216px; --card-h:146px; --radius:390px; animation-delay:2.75s; }
+    .service-card.s10{ --angle: 320deg; --tilt:3deg; --card-w:232px; --card-h:156px; --radius:405px; animation-delay:3.1s; }
+    .service-card.s11{ --angle: 350deg; --tilt:-3deg; --card-w:222px; --card-h:148px; --radius:435px; animation-delay:3.45s; }
+
+    .blog-grid,
+    .reviews-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:20px;
+    }
+
+    .blog-card,
+    .review-card{
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+    }
+
+    .blog-content,
+    .review-content{
+      padding:22px;
+    }
+
+    .blog-meta,
+    .review-meta{
+      display:inline-block;
+      margin-bottom:10px;
+      color:var(--accent);
+      font-size:.72rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .blog-card h3,
+    .review-card h3{
+      font-size:1.85rem;
+      line-height:.97;
+      margin-bottom:10px;
+      font-family:"Inter",sans-serif;
+      font-weight:800;
+      letter-spacing:-.04em;
+    }
+
+    .blog-card p,
+    .review-card p{
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+
+    .stars{
+      color:var(--cream);
+      letter-spacing:.15em;
+      margin-bottom:12px;
+      font-size:.92rem;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      gap:20px;
+    }
+
+    .contact-card,
+    .contact-form{
+      border-radius:28px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+      padding:30px;
+    }
+
+    .contact-card h3,
+    .contact-form h3{
+      font-size:2.2rem;
+      line-height:.95;
+      margin-bottom:14px;
+      font-family:"Inter",sans-serif;
+      font-weight:800;
+      letter-spacing:-.04em;
+    }
+
+    .contact-card p,
+    .contact-form p{
+      color:var(--muted);
+    }
+
+    .contact-list{
+      display:grid;
+      gap:14px;
+      margin-top:24px;
+    }
+
+    .contact-item{
+      padding:16px 18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+    }
+
+    .contact-item span{
+      display:block;
+      margin-bottom:6px;
+      color:var(--faint);
+      font-size:.72rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    form{
+      display:grid;
+      gap:12px;
+      margin-top:22px;
+    }
+
+    label{
+      display:grid;
+      gap:8px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    input,textarea{
+      width:100%;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      border-radius:16px;
+      padding:14px 16px;
+      outline:none;
+      transition:border-color var(--transition), background var(--transition);
+    }
+
+    textarea{
+      min-height:150px;
+      resize:vertical;
+    }
+
+    input:focus,textarea:focus{
+      border-color:rgba(188,141,93,.46);
+      background:rgba(188,141,93,.06);
+    }
+
+    .footer{
+      padding:30px 0 40px;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      color:var(--faint);
+      font-size:.88rem;
+    }
+
+    [data-reveal]{
+      opacity:0;
+      transform:translateY(22px);
+      transition:opacity .9s ease, transform .9s ease;
+    }
+
+    [data-reveal].visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @keyframes marqueeLeft{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(-50%); }
+    }
+
+    @keyframes floatCard{
+      0%,100%{ translate:0 0; }
+      50%{ translate:0 -8px; }
+    }
+
+    @keyframes spinOrbit{
+      from{ transform:rotate(0deg); }
+      to{ transform:rotate(360deg); }
+    }
+
+    @keyframes headerFlow{
+      0%{ background-position:0% 50%; }
+      50%{ background-position:100% 50%; }
+      100%{ background-position:0% 50%; }
+    }
+
+    @media (max-width:1180px){
+      .blog-grid,
+      .reviews-grid,
+      .contact-grid{
+        grid-template-columns:1fr;
       }
 
-      .review-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .about-layout{
+        grid-template-columns:420px minmax(0, 1fr);
+        gap:42px;
       }
 
-      .service-card {
-        grid-column: span 6;
-      }
-
-      .pdf-frame {
-        height: 720px;
+      .founder-media{
+        height:580px;
       }
     }
 
-    @media (max-width: 720px) {
-      .section {
-        padding: 56px 0;
+    @media (max-width:980px){
+      .about-layout{
+        grid-template-columns:1fr;
+        gap:34px;
       }
 
-      .section-tight {
-        padding-top: 22px;
-        padding-bottom: 56px;
+      .about-image-side{
+        justify-content:center;
       }
 
-      .nav {
-        gap: 12px;
+      .founder-media-wrap{
+        max-width:460px;
       }
 
-      .brands-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .about-copy{
+        max-width:100%;
+      }
+    }
+
+    @media (max-width:760px){
+      .header-inner{
+        grid-template-columns:1fr;
+        justify-items:start;
+        min-height:auto;
+        padding:18px 0;
       }
 
-      .services-grid {
-        gap: 16px;
+      .brand{
+        justify-self:start;
       }
 
-      .service-card {
-        grid-column: span 12;
-        min-height: auto;
+      .brand img{
+        height:38px;
       }
 
-      .service-image-wrap {
-        height: 250px;
+      .header-spacer{
+        display:none;
       }
 
-      .review-grid {
-        grid-template-columns: 1fr;
+      .hero{
+        padding-top:18px;
+        padding-bottom:72px;
       }
 
-      .pdf-frame {
-        height: 560px;
+      .hero-stage{
+        min-height:760px;
+        padding-top:18px;
       }
 
-      .pdf-actions {
-        align-items: flex-start;
-        flex-direction: column;
+      .hero-paint{
+        top:8px;
+        width:110vw;
+        height:430px;
+        filter:blur(22px) saturate(1.15);
+      }
+
+      .hero-video-box{
+        min-height:230px;
+        width:min(100%, 100%);
+      }
+
+      .values-layer{
+        top:232px;
+      }
+
+      .values-group{
+        gap:34px;
+        padding-right:34px;
+      }
+
+      .values-group span{
+        font-size:clamp(3.2rem, 12vw, 5.2rem);
+      }
+
+      .hero-bottom{
+        margin-top:104px;
+        width:min(100%, 94%);
+      }
+
+      .hero-copy h1{
+        font-size:clamp(2.35rem, 9vw, 3.7rem);
+      }
+
+      .hero-copy p{
+        font-size:1.04rem;
+      }
+
+      .sponsors-bar{
+        padding:18px 0;
+      }
+
+      .sponsors-group{
+        gap:26px;
+        padding-right:26px;
+      }
+
+      .sponsor-logo{
+        min-width:150px;
+        height:84px;
+      }
+
+      .sponsor-logo img{
+        max-width:180px;
+        max-height:64px;
+      }
+
+      .about-section{
+        padding:90px 0;
+      }
+
+      .founder-media{
+        height:500px;
+      }
+
+      .about-copy h2{
+        font-size:clamp(2.2rem, 9vw, 3.5rem);
+      }
+
+      .about-copy h3{
+        font-size:clamp(1.7rem, 7vw, 2.6rem);
+      }
+
+      .blog-grid,
+      .reviews-grid{
+        grid-template-columns:1fr;
       }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#home" class="logo">LA FAMILIA</a>
-      <nav class="nav">
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+
+  <aside class="menu-panel" id="menuPanel">
+    <div>
+      <div class="menu-top">
+        <span class="menu-title">Navigation</span>
+        <button class="menu-close" id="menuClose">Close</button>
+      </div>
+
+      <nav class="menu-links">
         <a href="#home">HOME</a>
         <a href="#about">ABOUT US</a>
         <a href="#services">SERVICES</a>
-        <a href="#pdf-intro">PDF</a>
+        <a href="#portfolio">PORTFOLIO</a>
         <a href="#blog">BLOG</a>
         <a href="#reviews">REVIEWS</a>
         <a href="#contact">CONTACT</a>
       </nav>
     </div>
+
+    <div class="menu-socials">
+      <a href="#" aria-label="Instagram">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1"></circle>
+        </svg>
+      </a>
+
+      <a href="#" aria-label="LinkedIn">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56A1.96 1.96 0 1 0 3.24 4.94a1.96 1.96 0 0 0 3.92 0ZM20.44 12.9c0-3.45-1.84-5.05-4.3-5.05-1.98 0-2.86 1.09-3.36 1.85V8.5H9.4c.04.79 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.67.88-1.37 1.9-1.37 1.34 0 1.88 1.03 1.88 2.54V20H20.44v-7.1Z"/>
+        </svg>
+      </a>
+
+      <a href="#" aria-label="Facebook">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.87.24-1.47 1.48-1.47H16.7V4.96c-.31-.04-1.36-.12-2.58-.12-2.56 0-4.32 1.56-4.32 4.44V11H7v3h2.8v8h3.7Z"/>
+        </svg>
+      </a>
+    </div>
+  </aside>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="menu-btn" id="menuOpen">MENU</button>
+
+      <a href="#home" class="brand" aria-label="La Familia home">
+        <img src="assets/images/LFm-logo-500x100.png" alt="La Familia logo">
+      </a>
+
+      <div class="header-spacer"></div>
+    </div>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Legacy · Unity · Values · History · Identity</span>
-          <h1>We Build Brands That Mean Business.</h1>
-          <p>
-            12 years of crafting identities, websites, and marketing collateral for the companies that power South Florida — from startups to established names. We speak your language — literally.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#services">SERVICES</a>
-            <a class="btn btn-secondary" href="#contact">CONTACT</a>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-stage">
+        <div class="hero-paint"></div>
+
+        <div class="hero-video-box" data-reveal>
+          <video autoplay muted loop playsinline poster="assets/images/LFm-logo-500x100.png">
+            <source src="assets/images/713910774 (1).mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="values-layer" data-reveal>
+          <div class="values-track">
+            <div class="values-group">
+              <span>LEGACY</span>
+              <span>UNITY</span>
+              <span>VALUES</span>
+              <span>HISTORY</span>
+              <span>IDENTITY</span>
+            </div>
+            <div class="values-group" aria-hidden="true">
+              <span>LEGACY</span>
+              <span>UNITY</span>
+              <span>VALUES</span>
+              <span>HISTORY</span>
+              <span>IDENTITY</span>
+            </div>
           </div>
         </div>
 
-        <div class="hero-brands">
-          <div class="brands-grid">
-            <div class="brand-chip">Brand 1</div>
-            <div class="brand-chip">Brand 2</div>
-            <div class="brand-chip">Brand 3</div>
-            <div class="brand-chip">Brand 4</div>
-            <div class="brand-chip">Brand 5</div>
-            <div class="brand-chip">Brand 6</div>
-            <div class="brand-chip">Brand 7</div>
-            <div class="brand-chip">Brand 8</div>
-            <div class="brand-chip">Brand 9</div>
-            <div class="brand-chip">Brand 10</div>
-            <div class="brand-chip">Brand 11</div>
-            <div class="brand-chip">Brand 12</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container about-grid">
-        <div>
-          <span class="eyebrow">About Us</span>
-          <h2 class="section-title">Born from Hustle. Built on Trust.</h2>
-          <p class="section-copy">
-            La Familia Media started with grit, vision, and a belief that small businesses deserve serious branding without Fortune 500 pricing.
-          </p>
-        </div>
-
-        <div class="about-card">
-          <p>
-            Sergio Castillo founded La Familia Media in 2012 out of a belief that small businesses deserve the same quality branding as major companies.
-          </p>
-          <p>
-            Over 12 years, the agency has grown into a full-service creative partner serving businesses across Miami-Dade, Broward, and Palm Beach.
-          </p>
-          <p>
-            Hablamos español. We understand South Florida’s bilingual market and help brands connect clearly across communities.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section services" id="services">
-      <div class="container">
-        <div class="services-head">
-          <span class="eyebrow">Services</span>
-          <h2 class="section-title">Every Tool Your Brand Needs, Under One Roof.</h2>
-          <p class="section-copy">
-            Reemplacé las imágenes de esta sección con las 11 nuevas del repositorio y ajusté el encuadre para que se vean completas, sin recortes.
-          </p>
-        </div>
-
-        <div class="services-grid">
-          <article class="service-card">
-            <div class="service-image-wrap">
-              <img class="service-image" src="./assets/images/79%20(1).jpg" alt="Service work sample 1" loading="lazy">
-            </div>
-            <div class="service-info">
-              <h3>Creative Work 01</h3>
-              <p>Visual sample from the updated services gallery.</p>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-image-wrap">
-              <img class="service-image" src="./assets/images/BRnad4.gif" alt="Service work sample 2" loading="lazy">
-            </div>
-            <div class="service-info">
-              <h3>Creative Work 02</h3>
-              <p>Animated brand piece displayed without image cropping.</p>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-image-wrap">
-              <img class="service-image" src="./assets/images/Brand12.gif" alt="Service work sample 3" loading="lazy">
-            </div>
-            <div class="service-info">
-              <h3>Creative Work 03</h3>
-              <p>Updated media asset inside the Services section.</p>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-image-wrap">
-              <img class="service-image" src="./assets/images/Brand3.gif" alt="Service work sample 4" loading="lazy">
-            </div>
-            <div class="service-info">
-              <h3>Creative Work 04</h3>
-              <p>Scaled with contain mode to preserve the full frame.</p>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-image-wrap">
-              <img class="service-image" src="./assets/images/Brand8.gif" alt="Service work sample 5" loading="lazy">
-            </div>
-            <div class="service-info">
-              <h3>Creative Work 05</h3>
-              <p>Optimized card layout for a cleaner gallery look.</p>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-image-wrap">
-              <img class="service-image" src="./assets/images/DSC00096.JPG" alt="Service work sample 6" loading="lazy">
-            </div>
-            <div class="service-info">
-              <h3>Creative Work 06</h3>
-              <p>Photo sample shown fully inside the card area.</p>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-image-wrap">
-              <img class="service-image" src="./assets/images/GabyV-Spa-Rep5.jpg" alt="Service work sample 7" loading="lazy">
-            </div>
-            <div class="service-info">
-              <h3>Creative Work 07</h3>
-              <p>Updated image mapped to the Services gallery.</p>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-image-wrap">
-              <img class="service-image" src="./assets/images/IMG_0654.HEIC" alt="Service work sample 8" loading="lazy">
-            </div>
-            <div class="service-info">
-              <h3>Creative Work 08</h3>
-              <p>Using contain fit so the image is not cut off.</p>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-image-wrap">
-              <img class="service-image" src="./assets/images/IMG_1464.HEIC" alt="Service work sample 9" loading="lazy">
-            </div>
-            <div class="service-info">
-              <h3>Creative Work 09</h3>
-              <p>Another full-frame asset placed in the grid.</p>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-image-wrap">
-              <img class="service-image" src="./assets/images/LFM%20Flyer%20Intro.png" alt="Service work sample 10" loading="lazy">
-            </div>
-            <div class="service-info">
-              <h3>Creative Work 10</h3>
-              <p>Flyer image added as part of the refreshed section.</p>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-image-wrap">
-              <img class="service-image" src="./assets/images/jae%20(1).jpg" alt="Service work sample 11" loading="lazy">
-            </div>
-            <div class="service-info">
-              <h3>Creative Work 11</h3>
-              <p>Eleventh image included to fill all service cards.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-tight pdf-showcase" id="pdf-intro">
-      <div class="container">
-        <span class="eyebrow">Presentation PDF</span>
-        <h2 class="section-title">LFM Intro</h2>
-        <p class="section-copy">
-          Este visor quedó colocado cerca de Services y muestra el PDF completo debajo de esa sección, con desplazamiento automático para recorrerlo.
-        </p>
-
-        <div class="pdf-shell">
-          <div class="pdf-frame-wrap">
-            <iframe
-              id="pdfViewer"
-              class="pdf-frame"
-              src="./assets/images/LFM-Intro%20(1).pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH"
-              title="LFM Intro PDF"
-            ></iframe>
-          </div>
-
-          <div class="pdf-actions">
+        <div class="hero-bottom" data-reveal>
+          <div class="hero-copy">
+            <h1>We Build Brands That Mean Business.</h1>
             <p>
-              Puedes verlo aquí mismo, abrirlo en una pestaña aparte o descargarlo directamente.
+              12 years of crafting identities, websites, and marketing collateral for the companies that power South Florida — from startups to established names. We speak your language — literally.
             </p>
+          </div>
 
-            <div class="pdf-btns">
-              <a class="btn btn-primary" href="./assets/images/LFM-Intro%20(1).pdf" download>
-                DESCARGAR PDF
-              </a>
-              <a class="btn btn-secondary" href="./assets/images/LFM-Intro%20(1).pdf" target="_blank" rel="noopener noreferrer">
-                VER PDF
-              </a>
+          <a href="#services" class="services-link">SERVICES</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sponsors-bar">
+    <div class="sponsors-track">
+      <div class="sponsors-group">
+        <div class="sponsor-logo"><img src="assets/images/Brand1.gif" alt="Brand 1"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand2.gif" alt="Brand 2"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand3.gif" alt="Brand 3"></div>
+        <div class="sponsor-logo"><img src="assets/images/BRnad4.gif" alt="Brand 4"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand5.gif" alt="Brand 5"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand6.gif" alt="Brand 6"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand7.gif" alt="Brand 7"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand8.gif" alt="Brand 8"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand9.gif" alt="Brand 9"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand10.gif" alt="Brand 10"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand12.gif" alt="Brand 12"></div>
+      </div>
+
+      <div class="sponsors-group" aria-hidden="true">
+        <div class="sponsor-logo"><img src="assets/images/Brand1.gif" alt="Brand 1 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand2.gif" alt="Brand 2 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand3.gif" alt="Brand 3 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/BRnad4.gif" alt="Brand 4 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand5.gif" alt="Brand 5 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand6.gif" alt="Brand 6 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand7.gif" alt="Brand 7 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand8.gif" alt="Brand 8 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand9.gif" alt="Brand 9 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand10.gif" alt="Brand 10 duplicate"></div>
+        <div class="sponsor-logo"><img src="assets/images/Brand12.gif" alt="Brand 12 duplicate"></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section about-section" id="about">
+    <div class="about-bg"></div>
+
+    <div class="about-shell">
+      <div class="about-layout">
+        <div class="about-image-side" data-reveal>
+          <div class="founder-media-wrap">
+            <div class="founder-glow"></div>
+            <div class="founder-media">
+              <img src="assets/images/WhatsApp Image 2026-04-29 at 10.31.11 PM.jpeg" alt="Founder portrait">
             </div>
           </div>
         </div>
+
+        <div class="about-copy" data-reveal>
+          <span class="kicker">About Us</span>
+          <h2>Born from Hustle. Built on Trust.</h2>
+          <h3>La Familia Media didn't start in a fancy office.</h3>
+
+          <p>
+            It started with a side business, a financial crisis, and an entrepreneur who refused to quit. Sergio Castillo founded La Familia Media in 2012 out of a belief that small businesses deserve the same quality branding as Fortune 500 companies — without the Fortune 500 price tag.
+          </p>
+
+          <p>
+            Over 12 years, we've grown into a full-service creative agency serving businesses across Miami-Dade, Broward, and Palm Beach counties. We've worked with everyone from corner restaurants to medical societies — and we bring the same dedication to every single project.
+          </p>
+
+          <p>
+            Hablamos español. We understand that South Florida is a diverse, bilingual community — and we're one of the few agencies that can serve you equally well in either language.
+          </p>
+
+          <a href="#" class="btn-outline">VIEW MORE</a>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="blog">
-      <div class="container">
-        <span class="eyebrow">Blog</span>
-        <h2 class="section-title">We’re Not the Biggest Agency. We’re the Right One.</h2>
+  <section class="section" id="services">
+    <div class="container">
+      <div class="services-scatter" data-reveal>
+        <div class="service-orbit" style="--orbit-size: 940px; --orbit-speed: 34s;">
+          <article class="service-card s1"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80" alt="Banner image 1"></article>
+          <article class="service-card s3"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80" alt="Banner image 3"></article>
+          <article class="service-card s5"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80" alt="Banner image 5"></article>
+          <article class="service-card s7"><img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1000&q=80" alt="Banner image 7"></article>
+          <article class="service-card s9"><img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1d0?auto=format&fit=crop&w=1000&q=80" alt="Banner image 9"></article>
+          <article class="service-card s11"><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80" alt="Banner image 11"></article>
+        </div>
 
-        <div class="stack-grid" style="margin-top: 24px;">
-          <article class="card">
-            <span class="eyebrow">Why La Familia</span>
+        <div class="service-orbit reverse" style="--orbit-size: 760px; --orbit-speed: 28s;">
+          <article class="service-card s2"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80" alt="Banner image 2"></article>
+          <article class="service-card s4"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&q=80" alt="Banner image 4"></article>
+          <article class="service-card s6"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80" alt="Banner image 6"></article>
+          <article class="service-card s8"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" alt="Banner image 8"></article>
+          <article class="service-card s10"><img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=1000&q=80" alt="Banner image 10"></article>
+        </div>
+
+        <div class="services-center-copy">
+          <span class="kicker" style="color:#dbe5ff; animation:none;">Services</span>
+          <h3>Every Tool Your Brand Needs, Under One Roof.</h3>
+          <p>
+            From your first logo to your thousandth business card, we handle the creative so you can handle the business.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="blog">
+    <div class="container">
+      <div class="section-head" style="transform:none; display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; margin-bottom:28px;">
+        <span class="kicker" data-reveal style="color:var(--electric-blue); animation:none; display:inline-block; font-size:.88rem; letter-spacing:.18em; text-transform:uppercase; font-weight:800;">Blog</span>
+        <h2 data-reveal style="color:var(--text); animation:none; font-family:'Inter',sans-serif; font-weight:800; letter-spacing:-.04em; font-size:clamp(2.8rem,5vw,5rem); line-height:.94; max-width:10ch;">We're Not the Biggest Agency. We're the Right One.</h2>
+      </div>
+
+      <div class="blog-grid">
+        <article class="blog-card" data-reveal>
+          <div class="blog-content">
+            <span class="blog-meta">Why La Familia</span>
             <h3>12 Years of Proven Results</h3>
             <p>
-              We’ve outlasted trends, recessions, and a global pandemic by delivering work that helps businesses move forward.
+              We've outlasted trends, recessions, and a global pandemic. Our longevity isn't luck — it's because we've consistently delivered work that actually moves the needle for our clients. When you hire us, you're hiring 12 years of experience, not a freelancer who started last month.
             </p>
-          </article>
+          </div>
+        </article>
 
-          <article class="card">
-            <span class="eyebrow">Why La Familia</span>
-            <h3>Built for South Florida’s Market</h3>
+        <article class="blog-card" data-reveal>
+          <div class="blog-content">
+            <span class="blog-meta">Why La Familia</span>
+            <h3>Built for South Florida's Market</h3>
             <p>
-              We understand bilingual audiences, local neighborhoods, and the businesses that shape the region.
+              We understand this market because we grew up in it. We know the difference between marketing to Hialeah and marketing to Brickell. We know how to reach bilingual consumers, multicultural communities, and the fast-growing businesses that call South Florida home.
             </p>
-          </article>
+          </div>
+        </article>
 
-          <article class="card">
-            <span class="eyebrow">Why La Familia</span>
+        <article class="blog-card" data-reveal>
+          <div class="blog-content">
+            <span class="blog-meta">Why La Familia</span>
             <h3>Personalized Service, Always</h3>
             <p>
-              No ticketing systems, no layers of confusion, just direct communication and focused creative work.
+              No account managers. No ticketing systems. You work directly with our creative team. We communicate your way — phone, text, email, or Zoom — and we give your project the attention it deserves, not a template and an automated response.
             </p>
-          </article>
+          </div>
+        </article>
 
-          <article class="card">
-            <span class="eyebrow">Why La Familia</span>
+        <article class="blog-card" data-reveal>
+          <div class="blog-content">
+            <span class="blog-meta">Why La Familia</span>
             <h3>Full-Service Under One Roof</h3>
             <p>
-              Branding, websites, collateral, and visuals can all come from one consistent creative direction.
+              Most agencies do one thing. We do everything. Your logo, website, business cards, social media graphics, and branded apparel can all come from a single creative vision — ours. That means consistency across every touchpoint, without the coordination headache.
             </p>
-          </article>
-        </div>
+          </div>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="reviews">
-      <div class="container">
-        <span class="eyebrow">Reviews</span>
-        <h2 class="section-title">What clients are saying about La Familia Media.</h2>
-
-        <div class="review-grid" style="margin-top: 24px;">
-          <article class="review-card">
-            <div class="stars">★★★★★</div>
-            <h3>LATEST REVIEW</h3>
-            <p>Add your newest Google review here.</p>
-          </article>
-
-          <article class="review-card">
-            <div class="stars">★★★★★</div>
-            <h3>LATEST REVIEW</h3>
-            <p>Replace this card with another recent testimonial.</p>
-          </article>
-
-          <article class="review-card">
-            <div class="stars">★★★★★</div>
-            <h3>LATEST REVIEW</h3>
-            <p>Use this one for a bilingual review if you want.</p>
-          </article>
-
-          <article class="review-card">
-            <div class="stars">★★★★★</div>
-            <h3>LATEST REVIEW</h3>
-            <p>Ideal for another strong quote from a recent client.</p>
-          </article>
-        </div>
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-head" style="transform:none; display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; margin-bottom:28px;">
+        <span class="kicker" data-reveal style="color:var(--electric-blue); animation:none; display:inline-block; font-size:.88rem; letter-spacing:.18em; text-transform:uppercase; font-weight:800;">Reviews</span>
+        <h2 data-reveal style="color:var(--text); animation:none; font-family:'Inter',sans-serif; font-weight:800; letter-spacing:-.04em; font-size:clamp(2.8rem,5vw,5rem); line-height:.94; max-width:10ch;">What clients are saying about La Familia Media.</h2>
       </div>
-    </section>
 
-    <section class="section" id="contact">
-      <div class="container contact-grid">
-        <div>
-          <span class="eyebrow">Contact</span>
-          <h2 class="section-title">Let’s build something that lasts.</h2>
-          <p class="section-copy">
+      <div class="reviews-grid">
+        <article class="review-card" data-reveal>
+          <div class="review-content">
+            <div class="stars">★★★★★</div>
+            <span class="review-meta">Latest review</span>
+            <h3>Add your newest Google review here.</h3>
+            <p>Replace this card with your most recent verified testimonial.</p>
+          </div>
+        </article>
+
+        <article class="review-card" data-reveal>
+          <div class="review-content">
+            <div class="stars">★★★★★</div>
+            <span class="review-meta">Latest review</span>
+            <h3>Add another recent review here.</h3>
+            <p>This section is prepared for client feedback and social proof.</p>
+          </div>
+        </article>
+
+        <article class="review-card" data-reveal>
+          <div class="review-content">
+            <div class="stars">★★★★★</div>
+            <span class="review-meta">Latest review</span>
+            <h3>Use this one for a bilingual testimonial.</h3>
+            <p>A Spanish or bilingual review fits well with the agency’s identity.</p>
+          </div>
+        </article>
+
+        <article class="review-card" data-reveal>
+          <div class="review-content">
+            <div class="stars">★★★★★</div>
+            <span class="review-meta">Latest review</span>
+            <h3>One more client quote goes here.</h3>
+            <p>Ideal for another strong review from a recent client.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <article class="contact-card" data-reveal>
+          <h3>Contact</h3>
+          <p>
             This section is ready for your real contact details, social links, address, or any other direct way to connect with LA FAMILIA.
           </p>
 
-          <div class="contact-list" style="margin-top: 24px;">
+          <div class="contact-list">
             <div class="contact-item">
-              <strong>Email</strong>
+              <span>Email</span>
               hello@lafamilia.com
             </div>
+
             <div class="contact-item">
-              <strong>Instagram</strong>
+              <span>Instagram</span>
               @lafamilia
             </div>
+
             <div class="contact-item">
-              <strong>Location</strong>
+              <span>Location</span>
               San Pedro Sula, Honduras
             </div>
           </div>
-        </div>
+        </article>
 
-        <div class="card">
-          <span class="eyebrow">Send us a message</span>
+        <div class="contact-form" data-reveal>
+          <h3>Send us a message</h3>
+          <p>
+            A temporary form that you can later connect to your email or preferred system.
+          </p>
+
           <form>
-            <input type="text" placeholder="Name" aria-label="Name" />
-            <input type="email" placeholder="Email" aria-label="Email" />
-            <textarea placeholder="Message" aria-label="Message"></textarea>
-            <button type="submit" class="btn btn-primary">SEND</button>
+            <label>
+              Name
+              <input type="text" placeholder="Your name">
+            </label>
+
+            <label>
+              Email
+              <input type="email" placeholder="Your email">
+            </label>
+
+            <label>
+              Message
+              <textarea placeholder="Your message"></textarea>
+            </label>
+
+            <button type="button" class="btn-outline">SEND</button>
           </form>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer>
-    <div class="container">
-      LA FAMILIA — A visual identity shaped by story, values, and presence.
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>LA FAMILIA</div>
+      <div>A visual identity shaped by story, values, and presence.</div>
     </div>
   </footer>
 
   <script>
-    (function () {
-      const iframe = document.getElementById('pdfViewer');
-      if (!iframe) return;
+    const menuOpen = document.getElementById("menuOpen");
+    const menuClose = document.getElementById("menuClose");
+    const menuPanel = document.getElementById("menuPanel");
+    const menuBackdrop = document.getElementById("menuBackdrop");
+    const menuLinks = document.querySelectorAll(".menu-links a");
 
-      let scrollPos = 0;
-      let direction = 1;
-      let maxScroll = 0;
-      const step = 520;
-      const pause = 3500;
+    function openMenu() {
+      menuPanel.classList.add("open");
+      menuBackdrop.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
 
-      function tryAutoScroll() {
-        try {
-          const doc = iframe.contentWindow.document;
-          const scroller = doc.documentElement || doc.body;
-          const body = doc.body;
+    function closeMenu() {
+      menuPanel.classList.remove("open");
+      menuBackdrop.classList.remove("show");
+      document.body.style.overflow = "";
+    }
 
-          maxScroll = Math.max(
-            (scroller ? scroller.scrollHeight : 0),
-            (body ? body.scrollHeight : 0)
-          ) - iframe.contentWindow.innerHeight;
+    menuOpen.addEventListener("click", openMenu);
+    menuClose.addEventListener("click", closeMenu);
+    menuBackdrop.addEventListener("click", closeMenu);
+    menuLinks.forEach(link => link.addEventListener("click", closeMenu));
 
-          if (maxScroll <= 0) return;
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
 
-          setInterval(() => {
-            scrollPos += step * direction;
-
-            if (scrollPos >= maxScroll) {
-              scrollPos = maxScroll;
-              direction = -1;
-            } else if (scrollPos <= 0) {
-              scrollPos = 0;
-              direction = 1;
-            }
-
-            iframe.contentWindow.scrollTo({
-              top: scrollPos,
-              behavior: 'smooth'
-            });
-          }, pause);
-        } catch (e) {
-          console.log('PDF auto-scroll may be limited by browser PDF viewer permissions.');
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
         }
-      }
-
-      iframe.addEventListener('load', function () {
-        setTimeout(tryAutoScroll, 1800);
       });
-    })();
+    }, { threshold: 0.14 });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
   </script>
 </body>
 </html>
