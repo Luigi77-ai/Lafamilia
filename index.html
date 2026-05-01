@@ -641,7 +641,6 @@
       background:rgba(255,255,255,.16);
     }
 
-    /* SERVICES */
     .services-showcase{
       display:grid;
       gap:30px;
@@ -906,7 +905,6 @@
       background:#fff;
     }
 
-    /* BLOG */
     #blog{
       position:relative;
       overflow:hidden;
@@ -1001,7 +999,7 @@
       margin-bottom:14px;
     }
 
-    /* PORTFOLIO */
+    /* PORTFOLIO - SOLO CAMBIOS PEDIDOS */
     #portfolio{
       position:relative;
       overflow:hidden;
@@ -1014,26 +1012,59 @@
       inset:0;
       z-index:0;
       background:
-        radial-gradient(circle at 4% 18%, rgba(56,134,255,.28), transparent 18%),
-        radial-gradient(circle at 96% 20%, rgba(255,74,116,.26), transparent 18%),
-        radial-gradient(circle at 8% 84%, rgba(82,155,255,.24), transparent 18%),
-        radial-gradient(circle at 92% 80%, rgba(255,196,72,.18), transparent 16%),
+        linear-gradient(180deg, rgba(12,14,20,.82), rgba(12,14,20,.80)),
+        radial-gradient(circle at 2% 18%, rgba(66,144,255,.42), transparent 18%),
+        radial-gradient(circle at 98% 16%, rgba(255,76,118,.40), transparent 18%),
+        radial-gradient(circle at 4% 84%, rgba(78,160,255,.34), transparent 18%),
+        radial-gradient(circle at 96% 82%, rgba(255,210,90,.24), transparent 16%),
         linear-gradient(180deg, rgba(13,15,20,.96), rgba(17,20,28,.98));
     }
 
     #portfolio::after{
       content:"";
       position:absolute;
-      inset:-8%;
+      inset:-10%;
       z-index:0;
       pointer-events:none;
       background:
-        radial-gradient(circle at 0% 30%, rgba(66,147,255,.22), transparent 20%),
-        radial-gradient(circle at 100% 28%, rgba(255,70,118,.22), transparent 20%),
-        radial-gradient(circle at 4% 84%, rgba(51,129,255,.18), transparent 18%),
-        radial-gradient(circle at 98% 78%, rgba(255,208,86,.14), transparent 16%);
-      filter:blur(30px);
+        radial-gradient(circle at 0% 24%, rgba(84,158,255,.34), transparent 18%),
+        radial-gradient(circle at 100% 22%, rgba(255,74,116,.34), transparent 18%),
+        radial-gradient(circle at 4% 84%, rgba(60,138,255,.26), transparent 18%),
+        radial-gradient(circle at 98% 78%, rgba(255,208,86,.18), transparent 16%);
+      filter:blur(34px);
       opacity:1;
+    }
+
+    .portfolio-logo-bg{
+      position:absolute;
+      top:-44px;
+      right:-24px;
+      width:min(34vw, 520px);
+      aspect-ratio:1/1;
+      z-index:1;
+      pointer-events:none;
+      opacity:.22;
+      filter:drop-shadow(0 18px 50px rgba(0,0,0,.22));
+      mix-blend-mode:screen;
+    }
+
+    .portfolio-logo-bg::before{
+      content:"";
+      position:absolute;
+      inset:-12%;
+      background:
+        radial-gradient(circle at 58% 38%, rgba(98,168,255,.22), transparent 28%),
+        radial-gradient(circle at 42% 62%, rgba(255,74,116,.18), transparent 28%);
+      filter:blur(26px);
+      z-index:0;
+    }
+
+    .portfolio-logo-bg img{
+      position:relative;
+      z-index:1;
+      width:100%;
+      height:100%;
+      object-fit:contain;
     }
 
     #portfolio .container{
@@ -1123,7 +1154,7 @@
       margin-top:28px;
     }
 
-    /* REVIEWS */
+    /* REVIEWS - SOLO CAMBIOS PEDIDOS */
     #reviews{
       position:relative;
       overflow:hidden;
@@ -1139,7 +1170,7 @@
         linear-gradient(180deg, rgba(12,14,20,.80), rgba(12,14,20,.78)),
         url("assets/images/DSC00174.JPG");
       background-size:cover;
-      background-position:center center;
+      background-position:center 34%;
       background-repeat:no-repeat;
       filter:saturate(1.02) brightness(.52);
       transform:scale(1.05);
@@ -1166,7 +1197,7 @@
 
     .reviews-layout{
       position:relative;
-      min-height:980px;
+      min-height:1060px;
       display:grid;
       place-items:center;
     }
@@ -1208,6 +1239,23 @@
       color:var(--muted);
       max-width:48ch;
       margin:0 auto 22px;
+    }
+
+    .reviews-extra{
+      width:min(100%, 360px);
+      margin:18px auto 0;
+    }
+
+    .reviews-extra .review-card{
+      position:relative;
+      width:100%;
+      top:auto;
+      left:auto;
+      right:auto;
+      bottom:auto;
+      transform:none;
+      opacity:1;
+      pointer-events:auto;
     }
 
     .reviews-grid{
@@ -1428,6 +1476,12 @@
       .portfolio-item.medium{ grid-column:span 3; }
       .portfolio-item.slim{ grid-column:span 3; }
 
+      .portfolio-logo-bg{
+        width:min(42vw, 420px);
+        top:-18px;
+        right:-12px;
+      }
+
       .reviews-layout{
         min-height:auto;
         gap:30px;
@@ -1462,6 +1516,11 @@
 
       #reviews.reviews-visible .review-card .review-content{
         transform:scale(1) !important;
+      }
+
+      .reviews-extra .review-card{
+        transform:none !important;
+        opacity:1 !important;
       }
     }
 
@@ -1628,8 +1687,20 @@
         min-height:240px;
       }
 
+      .portfolio-logo-bg{
+        width:min(58vw, 300px);
+        top:-10px;
+        right:-18px;
+        opacity:.18;
+      }
+
       .reviews-grid{
         grid-template-columns:1fr;
+      }
+
+      .reviews-extra{
+        width:min(100%, 100%);
+        margin-top:16px;
       }
     }
   </style>
@@ -1935,6 +2006,10 @@
   </section>
 
   <section class="section" id="portfolio">
+    <div class="portfolio-logo-bg" aria-hidden="true">
+      <img src="assets/images/services-new/LFM-logo-500x500.png" alt="">
+    </div>
+
     <div class="container">
       <div class="portfolio-head" data-reveal>
         <span class="kicker">Portfolio</span>
@@ -1986,6 +2061,17 @@
           >
             Reviews
           </a>
+
+          <div class="reviews-extra">
+            <article class="review-card">
+              <div class="review-content">
+                <div class="stars">★★★★★</div>
+                <span class="review-meta">Latest review</span>
+                <h3>Add one more featured review here.</h3>
+                <p>This card sits below the button without touching it, so the center area stays clean.</p>
+              </div>
+            </article>
+          </div>
         </div>
 
         <div class="reviews-grid">
