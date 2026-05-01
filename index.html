@@ -7,12 +7,12 @@
   <meta
     name="description"
     content="LA FAMILIA is an editorial and visual website to present its story, values, services, portfolio, blog, reviews and contact information."
+  ."
   />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  //fonts.googleapis.com" " />
+  //fonts.gstatic.com" crossorigin n />
+  //fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
 
@@ -63,7 +63,7 @@
       text-decoration:none;
     }
 
-    img,video{
+    img,video,canvas{
       display:block;
       max-width:100%;
     }
@@ -723,17 +723,22 @@
     .service-card img{
       width:100%;
       height:100%;
-      object-fit:contain;
-      object-position:center;
-      background:#111;
+      object-fit:cover;
+      object-position:center center;
       transition:transform .45s ease;
+      background:#111;
     }
+
+    .service-card.img-top img{ object-position:center top; }
+    .service-card.img-bottom img{ object-position:center bottom; }
+    .service-card.img-left img{ object-position:left center; }
+    .service-card.img-right img{ object-position:right center; }
 
     .service-card::after{
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg, rgba(10,10,12,.05), rgba(10,10,12,.28));
+      background:linear-gradient(180deg, rgba(10,10,12,.05), rgba(10,10,12,.22));
       pointer-events:none;
     }
 
@@ -758,29 +763,101 @@
     .service-card.s10{ --angle: 320deg; --tilt:3deg; --card-w:232px; --card-h:156px; --radius:405px; animation-delay:3.1s; }
     .service-card.s11{ --angle: 350deg; --tilt:-3deg; --card-w:222px; --card-h:148px; --radius:435px; animation-delay:3.45s; }
 
-    .services-pdf-wrap{
+    .pdf-showcase{
       position:relative;
       z-index:25;
-      width:min(100%, 960px);
-      margin:36px auto 0;
-      padding:20px;
-      border-radius:28px;
-      background:rgba(15,16,18,.76);
+      width:min(100%, 1120px);
+      margin:10px auto 0;
+      padding:22px;
+      border-radius:30px;
+      background:rgba(15,16,18,.78);
       border:1px solid rgba(255,255,255,.08);
       backdrop-filter:blur(10px);
       box-shadow:var(--shadow);
+      overflow:hidden;
     }
 
-    .services-pdf-frame{
-      width:100%;
-      height:760px;
-      border:none;
+    .pdf-showcase-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+
+    .pdf-showcase-head h4{
+      font-size:1rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#dbe5ff;
+      font-weight:800;
+    }
+
+    .pdf-showcase-note{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .pdf-carousel-shell{
+      position:relative;
+      overflow:hidden;
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.08);
+      padding:18px;
+    }
+
+    .pdf-carousel{
+      display:flex;
+      gap:18px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+      padding-bottom:6px;
+    }
+
+    .pdf-carousel::-webkit-scrollbar{
+      display:none;
+    }
+
+    .pdf-page{
+      flex:0 0 min(78vw, 320px);
       border-radius:20px;
-      background:#111;
-      display:block;
+      overflow:hidden;
+      background:#0f1014;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 20px 50px rgba(0,0,0,.28);
     }
 
-    .services-pdf-actions{
+    .pdf-page canvas{
+      width:100%;
+      height:auto;
+      display:block;
+      background:#fff;
+    }
+
+    .pdf-page-meta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px 14px;
+      color:var(--muted);
+      font-size:.84rem;
+      border-top:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.02);
+    }
+
+    .pdf-page-num{
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#fff;
+      font-weight:700;
+    }
+
+    .pdf-actions{
       display:flex;
       align-items:center;
       justify-content:center;
@@ -789,7 +866,7 @@
       margin-top:18px;
     }
 
-    .services-pdf-btn{
+    .pdf-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -805,10 +882,19 @@
       transition:transform var(--transition), border-color var(--transition), background var(--transition);
     }
 
-    .services-pdf-btn:hover{
+    .pdf-btn:hover{
       transform:translateY(-2px);
       border-color:rgba(255,255,255,.34);
       background:rgba(255,255,255,.16);
+    }
+
+    .pdf-loading{
+      min-height:240px;
+      display:grid;
+      place-items:center;
+      color:var(--muted);
+      text-align:center;
+      padding:24px;
     }
 
     .blog-grid,
@@ -1145,13 +1231,16 @@
         padding:90px 20px 72px;
       }
 
-      .services-pdf-wrap{
-        margin-top:28px;
+      .pdf-showcase{
         padding:14px;
       }
 
-      .services-pdf-frame{
-        height:520px;
+      .pdf-carousel-shell{
+        padding:12px;
+      }
+
+      .pdf-page{
+        flex:0 0 78vw;
       }
     }
   </style>
@@ -1181,8 +1270,8 @@
       <a href="#" aria-label="Instagram">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
           <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-          <circle cx="12" cy="12" r="4"></circle>
-          <circle cx="17.5" cy="6.5" r="1"></circle>
+          ircle cx="12" cy="12" r="4"></circle>
+          ircle cx="17.5" cy="6.5" r="1"></circle>
         </svg>
       </a>
 
@@ -1329,18 +1418,18 @@
     <div class="container">
       <div class="services-scatter" data-reveal>
         <div class="service-orbit" style="--orbit-size: 940px; --orbit-speed: 34s;">
-          <article class="service-card s1"><img src="assets/images/services-new/79 (1).jpg" alt="Banner image 1"></article>
+          <article class="service-card s1 img-top"><img src="assets/images/services-new/79 (1).jpg" alt="Banner image 1"></article>
           <article class="service-card s3"><img src="assets/images/services-new/Brand12.gif" alt="Banner image 3"></article>
           <article class="service-card s5"><img src="assets/images/services-new/Brand8.gif" alt="Banner image 5"></article>
-          <article class="service-card s7"><img src="assets/images/services-new/GabyV-Spa-Rep5.jpg" alt="Banner image 7"></article>
+          <article class="service-card s7 img-top"><img src="assets/images/services-new/GabyV-Spa-Rep5.jpg" alt="Banner image 7"></article>
           <article class="service-card s9"><img src="assets/images/services-new/IMG_1464.HEIC" alt="Banner image 9"></article>
-          <article class="service-card s11"><img src="assets/images/services-new/jae (1).jpg" alt="Banner image 11"></article>
+          <article class="service-card s11 img-top"><img src="assets/images/services-new/jae (1).jpg" alt="Banner image 11"></article>
         </div>
 
         <div class="service-orbit reverse" style="--orbit-size: 760px; --orbit-speed: 28s;">
           <article class="service-card s2"><img src="assets/images/services-new/BRnad4.gif" alt="Banner image 2"></article>
           <article class="service-card s4"><img src="assets/images/services-new/Brand3.gif" alt="Banner image 4"></article>
-          <article class="service-card s6"><img src="assets/images/services-new/DSC00096.JPG" alt="Banner image 6"></article>
+          <article class="service-card s6 img-top"><img src="assets/images/services-new/DSC00096.JPG" alt="Banner image 6"></article>
           <article class="service-card s8"><img src="assets/images/services-new/IMG_0654.HEIC" alt="Banner image 8"></article>
           <article class="service-card s10"><img src="assets/images/services-new/LFM Flyer Intro.png" alt="Banner image 10"></article>
         </div>
@@ -1354,20 +1443,26 @@
         </div>
       </div>
 
-      <div class="services-pdf-wrap" data-reveal>
-        <iframe
-          id="servicesPdfFrame"
-          class="services-pdf-frame"
-          src="assets/images/LFM-Intro%20(1).pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH"
-          title="LFM Intro PDF"
-        ></iframe>
+      <div class="pdf-showcase" data-reveal>
+        <div class="pdf-showcase-head">
+          <h4>LFM Intro</h4>
+          <p class="pdf-showcase-note">Each PDF page is shown as an image and moves automatically to the right.</p>
+        </div>
 
-        <div class="services-pdf-actions">
+        <div class="pdf-carousel-shell">
+          <div class="pdf-carousel" id="pdfCarousel">
+            <div class="pdf-loading" id="pdfLoading">
+              Loading PDF pages...
+            </div>
+          </div>
+        </div>
+
+        <div class="pdf-actions">
           <a
             href="assets/images/LFM-Intro%20(1).pdf"
             target="_blank"
             rel="noopener noreferrer"
-            class="services-pdf-btn"
+            class="pdf-btn"
           >
             View PDF
           </a>
@@ -1375,7 +1470,7 @@
           <a
             href="assets/images/LFM-Intro%20(1).pdf"
             download
-            class="services-pdf-btn"
+            class="pdf-btn"
           >
             Download PDF
           </a>
@@ -1516,17 +1611,17 @@
           </p>
 
           <form>
-            <label>
+            abel>
               Name
               <input type="text" placeholder="Your name">
             </label>
 
-            <label>
+            abel>
               Email
               <input type="email" placeholder="Your email">
             </label>
 
-            <label>
+            abel>
               Message
               <textarea placeholder="Your message"></textarea>
             </label>
@@ -1545,7 +1640,12 @@
     </div>
   </footer>
 
-  <script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs" type="module"></script>
+  <script type="module">
+    import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs";
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs";
+
     const menuOpen = document.getElementById("menuOpen");
     const menuClose = document.getElementById("menuClose");
     const menuPanel = document.getElementById("menuPanel");
@@ -1582,31 +1682,76 @@
       });
     }, { threshold: 0.14 });
 
-    revealItems.forEach((item) => revealObserver.observe(item));
+    revealItems.forEach((item) => rever.observe(item));
 
-    const servicesPdfFrame = document.getElementById("servicesPdfFrame");
+    const pdfUrl = "assets/images/LFM-Intro%20(1).pdf";
+    const pdfCarousel = document.getElementById("pdfCarousel");
+    const pdfLoading = document.getElementById("pdfLoading");
 
-    if (servicesPdfFrame) {
-      servicesPdfFrame.addEventListener("load", () => {
-        setTimeout(() => {
-          try {
-            let currentStep = 0;
-            const stepSize = 520;
-            const pdfWindow = servicesPdfFrame.contentWindow;
+    async function renderPdfCarousel() {
+      try {
+        const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+        pdfCarousel.innerHTML = "";
 
-            setInterval(() => {
-              currentStep += stepSize;
-              pdfWindow.scrollTo({
-                top: currentStep,
-                behavior: "smooth"
-              });
-            }, 2600);
-          } catch (error) {
-            console.log("PDF auto-scroll depends on browser PDF viewer support.");
-          }
-        }, 1200);
-      });
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+          const page = await pdf.getPage(pageNum);
+          const viewport = page.getViewport({ scale: 1.25 });
+
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+
+          await page.render({
+            canvasContext: context,
+            viewport
+          }).promise;
+
+          const card = document.createElement("article");
+          card.className = "pdf-page";
+
+          const meta = document.createElement("div");
+          meta.className = "pdf-page-meta";
+          meta.innerHTML = `
+            <span class="pdf-page-num">Page ${pageNum}</span>
+            <span>${Math.round(viewport.width)} × ${Math.round(viewport.height)}</span>
+          `;
+
+          card.appendChild(canvas);
+          card.appendChild(meta);
+          pdfCarousel.appendChild(card);
+        }
+
+        startPdfAutoScroll();
+      } catch (error) {
+        pdfCarousel.innerHTML = `
+          <div class="pdf-loading">
+            Could not render PDF preview here. Use the View PDF button instead.
+          </div>
+        `;
+      }
     }
+
+    function startPdfAutoScroll() {
+      const pages = pdfCarousel.querySelectorAll(".pdf-page");
+      if (!pages.length) return;
+
+      let currentIndex = 0;
+
+      setInterval(() => {
+        const page = pages[currentIndex];
+        if (!page) return;
+
+        pdfCarousel.scrollTo({
+          left: page.offsetLeft - 18,
+          behavior: "smooth"
+        });
+
+        currentIndex = (currentIndex + 1) % pages.length;
+      }, 2400);
+    }
+
+    renderPdfCarousel();
   </script>
 </body>
 </html>
