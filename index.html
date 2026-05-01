@@ -63,7 +63,7 @@
       text-decoration:none;
     }
 
-    img,video,canvas{
+    img,video{
       display:block;
       max-width:100%;
     }
@@ -639,22 +639,55 @@
       background:rgba(255,255,255,.16);
     }
 
-    /* SOLO SERVICES NUEVO */
+    /* SERVICES */
     .services-showcase{
       display:grid;
-      gap:28px;
+      gap:30px;
     }
 
-    .services-intro{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
+    .services-stage{
+      position:relative;
+      overflow:hidden;
+      border-radius:36px;
+      min-height:660px;
+      padding:42px 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(46,108,255,.10), transparent 28%),
+        radial-gradient(circle at 80% 30%, rgba(255,66,132,.10), transparent 26%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.07);
+      box-shadow:var(--shadow);
+      isolation:isolate;
+    }
+
+    .services-stage::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+      background:
+        linear-gradient(90deg, rgba(11,12,16,.66) 0%, rgba(11,12,16,.10) 18%, rgba(11,12,16,.10) 82%, rgba(11,12,16,.66) 100%),
+        linear-gradient(180deg, rgba(11,12,16,.34) 0%, rgba(11,12,16,0) 20%, rgba(11,12,16,0) 80%, rgba(11,12,16,.34) 100%);
+    }
+
+    .services-center-card{
+      position:absolute;
+      inset:50% auto auto 50%;
+      transform:translate(-50%, -50%);
+      z-index:5;
+      width:min(100% - 40px, 640px);
       text-align:center;
-      gap:14px;
-      margin-bottom:8px;
+      padding:38px 32px;
+      border-radius:30px;
+      background:rgba(13,15,20,.78);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      box-shadow:0 24px 70px rgba(0,0,0,.42);
     }
 
-    .services-intro .kicker{
+    .services-center-card .kicker{
       color:#dbe5ff;
       animation:none;
       display:inline-block;
@@ -662,37 +695,46 @@
       letter-spacing:.18em;
       text-transform:uppercase;
       font-weight:800;
+      margin-bottom:10px;
     }
 
-    .services-intro h3{
+    .services-center-card h3{
       font-size:clamp(2.9rem,4.9vw,5rem);
       line-height:.94;
       max-width:10ch;
+      margin:0 auto 16px;
       font-family:"Inter",sans-serif;
       font-weight:800;
       letter-spacing:-.04em;
     }
 
-    .services-intro p{
+    .services-center-card p{
       color:var(--muted);
-      max-width:58ch;
+      max-width:48ch;
       margin:0 auto;
     }
 
     .services-marquee{
       position:relative;
+      z-index:2;
       overflow:hidden;
-      border-radius:34px;
-      padding:10px 0;
-      mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-      -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+      -webkit-mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    }
+
+    .services-marquee.top{
+      margin-top:42px;
+    }
+
+    .services-marquee.bottom{
+      margin-top:110px;
     }
 
     .services-row{
       display:flex;
       width:max-content;
-      gap:24px;
-      padding:12px 0;
+      gap:26px;
+      padding:16px 0;
       will-change:transform;
     }
 
@@ -706,8 +748,8 @@
 
     .service-banner{
       flex:0 0 auto;
-      width:420px;
-      height:250px;
+      width:430px;
+      height:255px;
       border-radius:28px;
       overflow:hidden;
       position:relative;
@@ -739,18 +781,21 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg, rgba(10,10,12,.02), rgba(10,10,12,.18));
+      background:linear-gradient(180deg, rgba(10,10,12,.02), rgba(10,10,12,.16));
       pointer-events:none;
     }
 
     .services-pdf-block{
-      margin-top:18px;
+      position:relative;
+      overflow:hidden;
       border-radius:30px;
       border:1px solid rgba(255,255,255,.08);
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      background:
+        radial-gradient(circle at 14% 20%, rgba(46,108,255,.12), transparent 24%),
+        radial-gradient(circle at 86% 18%, rgba(255,66,132,.12), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       box-shadow:var(--shadow);
-      padding:28px 22px 24px;
-      overflow:hidden;
+      padding:30px 24px;
     }
 
     .services-pdf-top{
@@ -759,7 +804,7 @@
       justify-content:space-between;
       gap:18px;
       flex-wrap:wrap;
-      margin-bottom:18px;
+      margin-bottom:22px;
     }
 
     .services-pdf-copy h4{
@@ -799,37 +844,77 @@
       border-color:rgba(255,255,255,.34);
     }
 
-    .pdf-marquee{
+    .pdf-preview-frame{
+      position:relative;
+      border-radius:24px;
       overflow:hidden;
-      mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-      -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-    }
-
-    .pdf-track{
-      display:flex;
-      gap:18px;
-      width:max-content;
-      animation:pdfScroll 38s linear infinite;
-      align-items:flex-start;
-      padding:8px 0 2px;
-    }
-
-    .pdf-page{
-      flex:0 0 auto;
-      width:280px;
-      aspect-ratio:0.72;
-      border-radius:20px;
-      overflow:hidden;
-      background:#0f1014;
       border:1px solid rgba(255,255,255,.08);
-      box-shadow:0 18px 44px rgba(0,0,0,.28);
+      background:rgba(7,8,12,.64);
+      min-height:520px;
+      box-shadow:0 22px 60px rgba(0,0,0,.30);
     }
 
-    .pdf-page canvas{
-      width:100%;
+    .pdf-preview-frame::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(90deg, rgba(8,9,14,.55) 0%, rgba(8,9,14,0) 16%, rgba(8,9,14,0) 84%, rgba(8,9,14,.55) 100%);
+      z-index:2;
+    }
+
+    .pdf-preview-frame iframe{
+      position:absolute;
+      inset:0;
+      width:140%;
       height:100%;
-      display:block;
+      border:0;
+      left:-20%;
+      animation:pdfPan 22s linear infinite alternate;
+      filter:saturate(.95) contrast(1.02);
       background:#fff;
+    }
+
+    /* BLOG FONDO */
+    #blog{
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+    }
+
+    #blog::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background-image:
+        linear-gradient(180deg, rgba(12,14,20,.80), rgba(12,14,20,.78)),
+        url("assets/images/pexels-dominic-muser-2157293283-34650399.jpg");
+      background-size:cover;
+      background-position:center center;
+      background-repeat:no-repeat;
+      filter:saturate(1.05) brightness(.60);
+      transform:scale(1.05);
+    }
+
+    #blog::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      background:
+        linear-gradient(90deg, rgba(10,12,18,.84) 0%, rgba(10,12,18,.28) 18%, rgba(10,12,18,.24) 82%, rgba(10,12,18,.84) 100%),
+        radial-gradient(circle at 18% 24%, rgba(46,108,255,.16), transparent 24%),
+        radial-gradient(circle at 52% 70%, rgba(123,44,255,.12), transparent 28%),
+        radial-gradient(circle at 82% 24%, rgba(255,66,132,.16), transparent 24%);
+      filter:blur(2px);
+    }
+
+    #blog .container{
+      position:relative;
+      z-index:2;
     }
 
     .blog-grid,
@@ -1017,9 +1102,9 @@
       to{ transform:translateX(0); }
     }
 
-    @keyframes pdfScroll{
+    @keyframes pdfPan{
       from{ transform:translateX(0); }
-      to{ transform:translateX(-50%); }
+      to{ transform:translateX(-14%); }
     }
 
     @media (max-width:1180px){
@@ -1171,18 +1256,27 @@
         grid-template-columns:1fr;
       }
 
+      .services-stage{
+        min-height:620px;
+      }
+
+      .services-center-card{
+        width:min(100% - 24px, 94%);
+        padding:28px 22px;
+      }
+
       .service-banner{
         width:300px;
         height:190px;
         border-radius:22px;
       }
 
-      .services-pdf-block{
-        padding:22px 14px 20px;
+      .services-marquee.bottom{
+        margin-top:84px;
       }
 
-      .pdf-page{
-        width:220px;
+      .pdf-preview-frame{
+        min-height:390px;
       }
     }
   </style>
@@ -1359,47 +1453,49 @@
   <section class="section" id="services">
     <div class="container">
       <div class="services-showcase" data-reveal>
-        <div class="services-intro">
-          <span class="kicker">Services</span>
-          <h3>Every Tool Your Brand Needs, Under One Roof.</h3>
-          <p>
-            From your first logo to your thousandth business card, we handle the creative so you can handle the business.
-          </p>
-        </div>
+        <div class="services-stage">
+          <div class="services-marquee top">
+            <div class="services-row row-left">
+              <article class="service-banner"><img src="assets/images/services-new/History-Makers.jpg" alt="History Makers banner"></article>
+              <article class="service-banner"><img src="assets/images/services-new/LFM Pro Digital Services-1 ANG.jpg" alt="Digital services banner"></article>
+              <article class="service-banner"><img src="assets/images/services-new/LFM800x800Banner-12years.jpg" alt="12 years banner"></article>
+              <article class="service-banner"><img src="assets/images/services-new/rickwater-LFM-ad.jpg" alt="Rickwater banner"></article>
+              <article class="service-banner"><img src="assets/images/services-new/GabyV-Spa-Rep5.jpg" alt="Spa banner"></article>
+              <article class="service-banner"><img src="assets/images/services-new/DSC00096.JPG" alt="Photography banner"></article>
 
-        <div class="services-marquee">
-          <div class="services-row row-left">
-            <article class="service-banner"><img src="assets/images/services-new/History-Makers.jpg" alt="History Makers banner"></article>
-            <article class="service-banner"><img src="assets/images/services-new/LFM Pro Digital Services-1 ANG.jpg" alt="Digital services banner"></article>
-            <article class="service-banner"><img src="assets/images/services-new/LFM800x800Banner-12years.jpg" alt="12 years banner"></article>
-            <article class="service-banner"><img src="assets/images/services-new/rickwater-LFM-ad.jpg" alt="Rickwater banner"></article>
-            <article class="service-banner"><img src="assets/images/services-new/GabyV-Spa-Rep5.jpg" alt="Spa banner"></article>
-            <article class="service-banner"><img src="assets/images/services-new/DSC00096.JPG" alt="Photography banner"></article>
-
-            <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/History-Makers.jpg" alt="History Makers banner duplicate"></article>
-            <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/LFM Pro Digital Services-1 ANG.jpg" alt="Digital services banner duplicate"></article>
-            <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/LFM800x800Banner-12years.jpg" alt="12 years banner duplicate"></article>
-            <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/rickwater-LFM-ad.jpg" alt="Rickwater banner duplicate"></article>
-            <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/GabyV-Spa-Rep5.jpg" alt="Spa banner duplicate"></article>
-            <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/DSC00096.JPG" alt="Photography banner duplicate"></article>
+              <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/History-Makers.jpg" alt="History Makers banner duplicate"></article>
+              <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/LFM Pro Digital Services-1 ANG.jpg" alt="Digital services banner duplicate"></article>
+              <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/LFM800x800Banner-12years.jpg" alt="12 years banner duplicate"></article>
+              <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/rickwater-LFM-ad.jpg" alt="Rickwater banner duplicate"></article>
+              <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/GabyV-Spa-Rep5.jpg" alt="Spa banner duplicate"></article>
+              <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/DSC00096.JPG" alt="Photography banner duplicate"></article>
+            </div>
           </div>
-        </div>
 
-        <div class="services-marquee">
-          <div class="services-row row-right">
-            <article class="service-banner"><img src="assets/images/services-new/LFM Flyer Intro.png" alt="LFM flyer intro"></article>
-            <article class="service-banner"><img src="assets/images/services-new/79 (1).jpg" alt="Promo banner"></article>
-            <article class="service-banner"><img src="assets/images/services-new/jae (1).jpg" alt="Jae banner"></article>
-            <article class="service-banner"><img src="assets/images/services-new/Brand3.gif" alt="Brand animation 3"></article>
-            <article class="service-banner"><img src="assets/images/services-new/BRnad4.gif" alt="Brand animation 4"></article>
-            <article class="service-banner"><img src="assets/images/services-new/Brand12.gif" alt="Brand animation 12"></article>
+          <div class="services-center-card">
+            <span class="kicker">Services</span>
+            <h3>Every Tool Your Brand Needs, Under One Roof.</h3>
+            <p>
+              From your first logo to your thousandth business card, we handle the creative so you can handle the business.
+            </p>
+          </div>
 
-            <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/LFM Flyer Intro.png" alt="LFM flyer intro duplicate"></article>
-            <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/79 (1).jpg" alt="Promo banner duplicate"></article>
-            <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/jae (1).jpg" alt="Jae banner duplicate"></article>
-            <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/Brand3.gif" alt="Brand animation 3 duplicate"></article>
-            <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/BRnad4.gif" alt="Brand animation 4 duplicate"></article>
-            <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/Brand12.gif" alt="Brand animation 12 duplicate"></article>
+          <div class="services-marquee bottom">
+            <div class="services-row row-right">
+              <article class="service-banner"><img src="assets/images/services-new/LFM Flyer Intro.png" alt="LFM flyer intro"></article>
+              <article class="service-banner"><img src="assets/images/services-new/79 (1).jpg" alt="Promo banner"></article>
+              <article class="service-banner"><img src="assets/images/services-new/jae (1).jpg" alt="Jae banner"></article>
+              <article class="service-banner"><img src="assets/images/services-new/Brand3.gif" alt="Brand animation 3"></article>
+              <article class="service-banner"><img src="assets/images/services-new/BRnad4.gif" alt="Brand animation 4"></article>
+              <article class="service-banner"><img src="assets/images/services-new/Brand12.gif" alt="Brand animation 12"></article>
+
+              <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/LFM Flyer Intro.png" alt="LFM flyer intro duplicate"></article>
+              <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/79 (1).jpg" alt="Promo banner duplicate"></article>
+              <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/jae (1).jpg" alt="Jae banner duplicate"></article>
+              <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/Brand3.gif" alt="Brand animation 3 duplicate"></article>
+              <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/BRnad4.gif" alt="Brand animation 4 duplicate"></article>
+              <article class="service-banner" aria-hidden="true"><img src="assets/images/services-new/Brand12.gif" alt="Brand animation 12 duplicate"></article>
+            </div>
           </div>
         </div>
 
@@ -1408,7 +1504,7 @@
             <div class="services-pdf-copy">
               <h4>LFM Intro PDF</h4>
               <p>
-                Browse the presentation below as a horizontal moving gallery and download the full PDF directly.
+                Preview the presentation in a cleaner widescreen frame and download the full file directly.
               </p>
             </div>
 
@@ -1423,18 +1519,11 @@
             </a>
           </div>
 
-          <div class="pdf-marquee">
-            <div class="pdf-track" id="pdfTrack">
-              <div class="pdf-page"><canvas id="pdf-page-1"></canvas></div>
-              <div class="pdf-page"><canvas id="pdf-page-2"></canvas></div>
-              <div class="pdf-page"><canvas id="pdf-page-3"></canvas></div>
-              <div class="pdf-page"><canvas id="pdf-page-4"></canvas></div>
-
-              <div class="pdf-page" aria-hidden="true"><canvas id="pdf-page-1-dup"></canvas></div>
-              <div class="pdf-page" aria-hidden="true"><canvas id="pdf-page-2-dup"></canvas></div>
-              <div class="pdf-page" aria-hidden="true"><canvas id="pdf-page-3-dup"></canvas></div>
-              <div class="pdf-page" aria-hidden="true"><canvas id="pdf-page-4-dup"></canvas></div>
-            </div>
+          <div class="pdf-preview-frame">
+            <iframe
+              src="assets/images/LFM-Intro%20(1).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+              title="LFM Intro PDF preview"
+            ></iframe>
           </div>
         </div>
       </div>
@@ -1602,13 +1691,7 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs" type="module"></script>
-
-  <script type="module">
-    import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs";
-
-    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs";
-
+  <script>
     const menuOpen = document.getElementById("menuOpen");
     const menuClose = document.getElementById("menuClose");
     const menuPanel = document.getElementById("menuPanel");
@@ -1646,51 +1729,6 @@
     }, { threshold: 0.14 });
 
     revealItems.forEach((item) => revealObserver.observe(item));
-
-    async function renderPdfPreview() {
-      const url = "assets/images/LFM-Intro%20(1).pdf";
-      const canvasIds = [
-        "pdf-page-1", "pdf-page-2", "pdf-page-3", "pdf-page-4",
-        "pdf-page-1-dup", "pdf-page-2-dup", "pdf-page-3-dup", "pdf-page-4-dup"
-      ];
-
-      try {
-        const loadingTask = pdfjsLib.getDocument(url);
-        const pdf = await loadingTask.promise;
-        const pagesToRender = Math.min(4, pdf.numPages);
-
-        for (let i = 1; i <= pagesToRender; i++) {
-          const page = await pdf.getPage(i);
-          const viewport = page.getViewport({ scale: 1.15 });
-
-          const targets = [canvasIds[i - 1], canvasIds[i - 1 + 4]];
-
-          for (const id of targets) {
-            const canvas = document.getElementById(id);
-            if (!canvas) continue;
-
-            const context = canvas.getContext("2d");
-            const ratio = window.devicePixelRatio || 1;
-
-            canvas.width = viewport.width * ratio;
-            canvas.height = viewport.height * ratio;
-            canvas.style.width = `${viewport.width}px`;
-            canvas.style.height = `${viewport.height}px`;
-
-            context.setTransform(ratio, 0, 0, ratio, 0, 0);
-
-            await page.render({
-              canvasContext: context,
-              viewport
-            }).promise;
-          }
-        }
-      } catch (error) {
-        console.error("PDF preview failed:", error);
-      }
-    }
-
-    renderPdfPreview();
   </script>
 </body>
 </html>
