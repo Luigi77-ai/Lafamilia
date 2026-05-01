@@ -641,7 +641,6 @@
       background:rgba(255,255,255,.16);
     }
 
-    /* SERVICES */
     .services-showcase{
       display:grid;
       gap:30px;
@@ -654,12 +653,14 @@
       min-height:660px;
       padding:42px 0;
       background:
-        radial-gradient(circle at 12% 14%, rgba(255,55,109,.22), transparent 24%),
-        radial-gradient(circle at 86% 16%, rgba(94,42,255,.22), transparent 24%),
-        radial-gradient(circle at 16% 86%, rgba(41,122,255,.20), transparent 26%),
-        radial-gradient(circle at 84% 84%, rgba(163,77,255,.20), transparent 26%),
-        radial-gradient(circle at 52% 50%, rgba(80,126,255,.10), transparent 28%),
-        linear-gradient(180deg, rgba(16,18,28,.78), rgba(17,19,29,.74));
+        radial-gradient(circle at 50% -4%, rgba(85,150,255,.36), transparent 20%),
+        radial-gradient(circle at 56% -2%, rgba(245,197,58,.22), transparent 16%),
+        radial-gradient(circle at 16% 16%, rgba(255,55,109,.18), transparent 22%),
+        radial-gradient(circle at 86% 18%, rgba(94,42,255,.20), transparent 22%),
+        radial-gradient(circle at 12% 102%, rgba(41,122,255,.22), transparent 20%),
+        radial-gradient(circle at 76% 104%, rgba(255,66,132,.22), transparent 20%),
+        radial-gradient(circle at 50% 104%, rgba(215,74,96,.18), transparent 18%),
+        linear-gradient(180deg, rgba(16,18,28,.80), rgba(17,19,29,.76));
       border:1px solid rgba(255,255,255,.07);
       box-shadow:var(--shadow);
       isolation:isolate;
@@ -673,22 +674,7 @@
       z-index:1;
       background:
         linear-gradient(90deg, rgba(11,12,16,.54) 0%, rgba(11,12,16,.10) 18%, rgba(11,12,16,.10) 82%, rgba(11,12,16,.54) 100%),
-        linear-gradient(180deg, rgba(11,12,16,.28) 0%, rgba(11,12,16,0) 20%, rgba(11,12,16,0) 80%, rgba(11,12,16,.28) 100%);
-    }
-
-    .services-stage::after{
-      content:"";
-      position:absolute;
-      inset:-20%;
-      z-index:0;
-      pointer-events:none;
-      background:
-        radial-gradient(circle at 10% 18%, rgba(255,55,109,.16), transparent 22%),
-        radial-gradient(circle at 90% 20%, rgba(94,42,255,.16), transparent 22%),
-        radial-gradient(circle at 14% 86%, rgba(41,122,255,.16), transparent 22%),
-        radial-gradient(circle at 86% 84%, rgba(255,82,125,.14), transparent 22%);
-      filter:blur(26px);
-      opacity:.96;
+        linear-gradient(180deg, rgba(11,12,16,.18) 0%, rgba(11,12,16,0) 18%, rgba(11,12,16,0) 82%, rgba(11,12,16,.18) 100%);
     }
 
     .services-center-card{
@@ -842,7 +828,8 @@
     }
 
     .pdf-download-btn,
-    .reviews-btn{
+    .reviews-btn,
+    .portfolio-more{
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -857,10 +844,12 @@
       text-transform:uppercase;
       transition:transform var(--transition), background var(--transition), border-color var(--transition);
       white-space:nowrap;
+      cursor:pointer;
     }
 
     .pdf-download-btn:hover,
-    .reviews-btn:hover{
+    .reviews-btn:hover,
+    .portfolio-more:hover{
       transform:translateY(-2px);
       background:rgba(255,255,255,.14);
       border-color:rgba(255,255,255,.34);
@@ -898,7 +887,6 @@
       background:#fff;
     }
 
-    /* BLOG */
     #blog{
       position:relative;
       overflow:hidden;
@@ -993,7 +981,110 @@
       margin-bottom:14px;
     }
 
-    /* REVIEWS */
+    #portfolio{
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+    }
+
+    #portfolio::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(46,108,255,.10), transparent 24%),
+        radial-gradient(circle at 82% 22%, rgba(255,66,132,.10), transparent 22%),
+        linear-gradient(180deg, rgba(13,15,20,.96), rgba(17,20,28,.98));
+    }
+
+    #portfolio .container{
+      position:relative;
+      z-index:2;
+    }
+
+    .portfolio-head{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:12px;
+      margin-bottom:34px;
+    }
+
+    .portfolio-head .kicker{
+      color:var(--review-blue);
+      font-size:.88rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+
+    .portfolio-head h2{
+      font-family:"Inter",sans-serif;
+      font-weight:800;
+      letter-spacing:-.04em;
+      font-size:clamp(2.8rem,5vw,5rem);
+      line-height:.94;
+      max-width:10ch;
+    }
+
+    .portfolio-head p{
+      color:var(--muted);
+      max-width:70ch;
+    }
+
+    .portfolio-grid{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:18px;
+      grid-auto-flow:dense;
+    }
+
+    .portfolio-item{
+      position:relative;
+      overflow:hidden;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      box-shadow:0 18px 48px rgba(0,0,0,.24);
+      min-height:220px;
+      transition:transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .portfolio-item:hover{
+      transform:translateY(-6px);
+      border-color:rgba(255,255,255,.18);
+      box-shadow:0 28px 70px rgba(0,0,0,.34);
+    }
+
+    .portfolio-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+    }
+
+    .portfolio-item.wide{ grid-column:span 6; min-height:260px; }
+    .portfolio-item.tall{ grid-column:span 4; grid-row:span 2; min-height:540px; }
+    .portfolio-item.square{ grid-column:span 4; min-height:260px; }
+    .portfolio-item.medium{ grid-column:span 5; min-height:280px; }
+    .portfolio-item.slim{ grid-column:span 3; min-height:220px; }
+
+    .portfolio-hidden{
+      display:none;
+    }
+
+    .portfolio-hidden.show{
+      display:contents;
+    }
+
+    .portfolio-action{
+      display:flex;
+      justify-content:center;
+      margin-top:28px;
+    }
+
     #reviews{
       position:relative;
       overflow:hidden;
@@ -1035,7 +1126,7 @@
 
     .reviews-layout{
       position:relative;
-      min-height:760px;
+      min-height:980px;
       display:grid;
       place-items:center;
     }
@@ -1043,15 +1134,12 @@
     .reviews-center{
       position:relative;
       z-index:3;
-      width:min(100%, 620px);
+      width:min(100%, 640px);
       text-align:center;
-      padding:34px 28px;
-      border-radius:32px;
-      background:rgba(13,15,20,.78);
-      border:1px solid rgba(255,255,255,.10);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-      box-shadow:0 24px 70px rgba(0,0,0,.42);
+      padding:10px 10px 0;
+      background:transparent;
+      border:none;
+      box-shadow:none;
     }
 
     .reviews-center .kicker{
@@ -1086,25 +1174,34 @@
       position:absolute;
       inset:0;
       display:block;
+      pointer-events:none;
     }
 
     .review-card{
       position:absolute;
-      width:min(320px, calc(100vw - 48px));
-      transform:scale(.86);
+      width:300px;
       opacity:0;
+      transform:translateY(28px) scale(.92);
       transition:transform 1s cubic-bezier(.16,1,.3,1), opacity 1s ease;
+      pointer-events:auto;
     }
 
     #reviews.reviews-visible .review-card{
-      transform:scale(1);
       opacity:1;
+      transform:translateY(0) scale(1);
     }
 
-    .review-card.r1{ top:20px; left:20px; transition-delay:.05s; }
-    .review-card.r2{ top:24px; right:20px; transition-delay:.16s; }
-    .review-card.r3{ bottom:24px; left:56px; transition-delay:.28s; }
-    .review-card.r4{ bottom:24px; right:56px; transition-delay:.40s; }
+    .review-card.r1{ top:30px; left:20px; transition-delay:.05s; }
+    .review-card.r2{ top:36px; right:20px; transition-delay:.12s; }
+    .review-card.r3{ top:290px; left:60px; transition-delay:.20s; }
+    .review-card.r4{ top:300px; right:60px; transition-delay:.28s; }
+    .review-card.r5{ bottom:120px; left:18px; transition-delay:.36s; }
+    .review-card.r6{ bottom:110px; right:18px; transition-delay:.44s; }
+    .review-card.r7{ bottom:18px; left:50%; transform:translate(-50%, 28px) scale(.92); transition-delay:.52s; }
+
+    #reviews.reviews-visible .review-card.r7{
+      transform:translate(-50%, 0) scale(1);
+    }
 
     .stars{
       color:var(--cream);
@@ -1269,28 +1366,42 @@
         height:220px;
       }
 
+      .portfolio-grid{
+        grid-template-columns:repeat(6,1fr);
+      }
+
+      .portfolio-item.wide{ grid-column:span 6; }
+      .portfolio-item.tall{ grid-column:span 3; }
+      .portfolio-item.square{ grid-column:span 3; }
+      .portfolio-item.medium{ grid-column:span 3; }
+      .portfolio-item.slim{ grid-column:span 3; }
+
       .reviews-layout{
         min-height:auto;
-        gap:24px;
-        display:grid;
+        gap:30px;
       }
 
       .reviews-grid{
         position:relative;
+        inset:auto;
         display:grid;
         grid-template-columns:1fr 1fr;
         gap:20px;
-        inset:auto;
-        margin-top:30px;
+        margin-top:40px;
       }
 
       .review-card{
         position:relative;
-        top:auto;
-        left:auto;
-        right:auto;
-        bottom:auto;
         width:100%;
+        top:auto !important;
+        left:auto !important;
+        right:auto !important;
+        bottom:auto !important;
+        transform:translateY(28px) scale(.92) !important;
+      }
+
+      #reviews.reviews-visible .review-card{
+        transform:translateY(0) scale(1) !important;
       }
     }
 
@@ -1441,6 +1552,20 @@
 
       .pdf-preview-frame{
         min-height:390px;
+      }
+
+      .portfolio-grid{
+        grid-template-columns:1fr;
+      }
+
+      .portfolio-item,
+      .portfolio-item.wide,
+      .portfolio-item.tall,
+      .portfolio-item.square,
+      .portfolio-item.medium,
+      .portfolio-item.slim{
+        grid-column:span 1;
+        min-height:240px;
       }
 
       .reviews-grid{
@@ -1749,6 +1874,41 @@
     </div>
   </section>
 
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="portfolio-head" data-reveal>
+        <span class="kicker">Portfolio</span>
+        <h2>Completed Projects</h2>
+        <p>
+          See some of our completed projects ranging from design, to websites, and printed items.
+          Want to see more? Follow our Instagram <a href="http://instagram.com/lafamilamedia" target="_blank" rel="noopener noreferrer">@lafamiliamedia</a> to see more of our work!
+        </p>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="portfolio-item wide" data-reveal><img src="assets/images/services-new/History-Makers.jpg" alt="Portfolio banner 1"></article>
+        <article class="portfolio-item tall" data-reveal><img src="assets/images/services-new/LFM Pro Digital Services-1 ANG.jpg" alt="Portfolio banner 2"></article>
+        <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/LFM800x800Banner-12years.jpg" alt="Portfolio banner 3"></article>
+        <article class="portfolio-item medium" data-reveal><img src="assets/images/services-new/rickwater-LFM-ad.jpg" alt="Portfolio banner 4"></article>
+        <article class="portfolio-item slim" data-reveal><img src="assets/images/services-new/GabyV-Spa-Rep5.jpg" alt="Portfolio banner 5"></article>
+        <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/LFM Flyer Intro.png" alt="Portfolio banner 6"></article>
+        <article class="portfolio-item medium" data-reveal><img src="assets/images/services-new/jae (1).jpg" alt="Portfolio banner 7"></article>
+
+        <div class="portfolio-hidden" id="portfolioHidden">
+          <article class="portfolio-item wide"><img src="assets/images/services-new/DSC00096.JPG" alt="Portfolio banner 8"></article>
+          <article class="portfolio-item square"><img src="assets/images/services-new/79 (1).jpg" alt="Portfolio banner 9"></article>
+          <article class="portfolio-item slim"><img src="assets/images/services-new/Brand3.gif" alt="Portfolio banner 10"></article>
+          <article class="portfolio-item medium"><img src="assets/images/services-new/BRnad4.gif" alt="Portfolio banner 11"></article>
+          <article class="portfolio-item tall"><img src="assets/images/services-new/Brand12.gif" alt="Portfolio banner 12"></article>
+        </div>
+      </div>
+
+      <div class="portfolio-action">
+        <button class="portfolio-more" id="portfolioMore">Show More</button>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="reviews">
     <div class="container">
       <div class="reviews-layout">
@@ -1802,6 +1962,33 @@
               <span class="review-meta">Latest review</span>
               <h3>One more client quote goes here.</h3>
               <p>Ideal for another strong review from a recent client.</p>
+            </div>
+          </article>
+
+          <article class="review-card r5">
+            <div class="review-content">
+              <div class="stars">★★★★★</div>
+              <span class="review-meta">Latest review</span>
+              <h3>Add another highlighted testimonial here.</h3>
+              <p>Perfect for a client that mentions quality, speed, or communication.</p>
+            </div>
+          </article>
+
+          <article class="review-card r6">
+            <div class="review-content">
+              <div class="stars">★★★★★</div>
+              <span class="review-meta">Latest review</span>
+              <h3>Use this card for a print or design review.</h3>
+              <p>Great space for a review focused on banners, flyers, or branded materials.</p>
+            </div>
+          </article>
+
+          <article class="review-card r7">
+            <div class="review-content">
+              <div class="stars">★★★★★</div>
+              <span class="review-meta">Latest review</span>
+              <h3>Use this one for a website project review.</h3>
+              <p>Ideal for a testimonial about web design, responsiveness, and final delivery.</p>
             </div>
           </article>
         </div>
@@ -1878,6 +2065,8 @@
     const menuPanel = document.getElementById("menuPanel");
     const menuBackdrop = document.getElementById("menuBackdrop");
     const menuLinks = document.querySelectorAll(".menu-links a");
+    const portfolioMore = document.getElementById("portfolioMore");
+    const portfolioHidden = document.getElementById("portfolioHidden");
 
     function openMenu() {
       menuPanel.classList.add("open");
@@ -1918,9 +2107,16 @@
           reviewsSection.classList.add("reviews-visible");
         }
       });
-    }, { threshold: 0.24 });
+    }, { threshold: 0.20 });
 
     if (reviewsSection) reviewsObserver.observe(reviewsSection);
+
+    if (portfolioMore && portfolioHidden) {
+      portfolioMore.addEventListener("click", () => {
+        portfolioHidden.classList.add("show");
+        portfolioMore.style.display = "none";
+      });
+    }
   </script>
 </body>
 </html>
