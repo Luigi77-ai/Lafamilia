@@ -461,9 +461,9 @@
       flex:0 0 auto;
       min-width:190px;
       height:104px;
-      background:transparent;
+      background:transparent !important;
       border:none;
-      box-shadow:none;
+      box-shadow:none !important;
       padding:0;
     }
 
@@ -473,6 +473,7 @@
       max-height:100px;
       object-fit:contain;
       filter:none;
+      background:transparent;
     }
 
     .section{
@@ -558,10 +559,24 @@
       width:100%;
       height:620px;
       border-radius:28px;
-      overflow:hidden;
+      overflow:visible;
       border:1px solid rgba(255,255,255,.18);
       box-shadow:0 28px 70px rgba(0,0,0,.24);
       background:rgba(255,255,255,.06);
+    }
+
+    .founder-media::before{
+      content:"";
+      position:absolute;
+      inset:-22px;
+      z-index:1;
+      border-radius:40px;
+      background:
+        radial-gradient(circle at 20% 24%, rgba(94,156,255,.25), transparent 22%),
+        radial-gradient(circle at 78% 16%, rgba(255,215,96,.18), transparent 20%),
+        radial-gradient(circle at 50% 88%, rgba(255,255,255,.14), transparent 20%);
+      filter:blur(24px);
+      opacity:.95;
     }
 
     .founder-media img{
@@ -949,7 +964,8 @@
       inset:0;
       z-index:156;
       display:flex;
-      justify-content:flex-end;
+      justify-content:center;
+      align-items:center;
       opacity:0;
       visibility:hidden;
       pointer-events:none;
@@ -959,6 +975,7 @@
       -webkit-backdrop-filter:blur(6px);
       overflow-y:auto;
       overscroll-behavior:contain;
+      padding:24px 0;
     }
 
     .services-overlay.show{
@@ -974,7 +991,9 @@
 
     .services-overlay-panel{
       width:min(760px, 100%);
-      min-height:100vh;
+      min-height:auto;
+      max-height:calc(100vh - 56px);
+      margin:0 auto;
       padding:42px 34px 54px;
       border-left:1px solid rgba(255,255,255,.12);
       background:linear-gradient(180deg, rgba(17,20,29,.40), rgba(17,20,29,.20));
@@ -1088,6 +1107,13 @@
       stroke:#ffffff;
     }
 
+    .service-icon img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:16px;
+    }
+
     .service-detail h4{
       font-size:1.08rem;
       font-weight:800;
@@ -1193,11 +1219,11 @@
     .pdf-preview-frame iframe{
       position:absolute;
       inset:0;
-      width:140%;
+      width:100%;
       height:100%;
       border:0;
-      left:-20%;
-      animation:pdfPan 22s linear infinite alternate;
+      left:0;
+      animation:none;
       filter:saturate(.95) contrast(1.02);
       background:#fff;
     }
@@ -1498,6 +1524,13 @@
       text-transform:uppercase;
       font-weight:800;
       margin-bottom:10px;
+    }
+
+    .reviews-logo{
+      width:180px;
+      max-width:100%;
+      margin:0 auto 18px;
+      display:block;
     }
 
     .reviews-center h2{
@@ -2493,7 +2526,7 @@
           <div class="founder-media-wrap">
             <div class="founder-glow"></div>
             <div class="founder-media">
-              <img src="assets/images/services-new/WhatsApp Image 2026-04-29 at 10.31.11 PM.jpeg" alt="Founder portrait">
+              <img src="assets/images/WhatsApp_Image_2026-04-29_at_10.31.11_PM-removebg-preview (1).png" alt="Founder portrait">
             </div>
           </div>
         </div>
@@ -2671,7 +2704,7 @@
         <div class="services-pdf-block">
           <div class="services-pdf-top">
             <div class="services-pdf-copy">
-              <h4>LFM Intro PDF</h4>
+              <h4>LA FAMILIA SERVICES</h4>
               <p>
                 Preview the presentation in a cleaner widescreen frame and download the full file directly.
               </p>
@@ -2714,7 +2747,7 @@
           <div class="services-list">
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l3.8-1 11-11a2.12 2.12 0 0 0-3-3l-11 11L3 21z"></path><path d="M14.5 5.5l4 4"></path></svg>
+                <img src="assets/images/services-new/History-Makers.jpg" alt="History Makers">
               </div>
               <div>
                 <h4>Logo Design</h4>
@@ -2724,7 +2757,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"></circle><circle cx="6.5" cy="17.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle><path d="M8.7 15.9l2.6-7"></path><path d="M15.6 8.9l.8 5.9"></path><path d="M8.9 18h6.1"></path></svg>
+                <img src="assets/images/services-new/LFM Pro Digital Services-1 ANG.jpg" alt="Digital services">
               </div>
               <div>
                 <h4>Graphic Design</h4>
@@ -2734,7 +2767,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M8 20h8"></path><path d="M12 18v2"></path></svg>
+                <img src="assets/images/services-new/LFM800x800Banner-12years.jpg" alt="12 years banner">
               </div>
               <div>
                 <h4>Web Development</h4>
@@ -2744,7 +2777,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3L20 11l-5.4 2.7L12 19l-2.6-5.3L4 11l5.4-2.7L12 3z"></path></svg>
+                <img src="assets/images/services-new/rickwater-LFM-ad.jpg" alt="Rickwater banner">
               </div>
               <div>
                 <h4>Custom Illustrations</h4>
@@ -2754,7 +2787,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V4h12v4"></path><rect x="4" y="8" width="16" height="8" rx="2"></rect><path d="M7 16v4h10v-4"></path></svg>
+                <img src="assets/images/services-new/GabyV-Spa-Rep5.jpg" alt="Spa banner">
               </div>
               <div>
                 <h4>Custom Media Printing</h4>
@@ -2764,7 +2797,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l1.5 4"></path><path d="M16 4l-1.5 4"></path><path d="M9.5 8h5"></path><path d="M7 8l-2 12h14L17 8"></path></svg>
+                <img src="assets/images/services-new/LFM Flyer Intro.png" alt="Flyer intro">
               </div>
               <div>
                 <h4>Custom Apparel Printing</h4>
@@ -2774,7 +2807,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16"></path><path d="M7 16V9"></path><path d="M12 16V5"></path><path d="M17 16v-4"></path></svg>
+                <img src="assets/images/services-new/jae (1).jpg" alt="Jae banner">
               </div>
               <div>
                 <h4>Social Media &amp; Digital Marketing</h4>
@@ -2784,7 +2817,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z"></path><path d="M9.5 12l1.7 1.7 3.3-3.4"></path></svg>
+                <img src="assets/images/services-new/79 (1).jpg" alt="Promo banner">
               </div>
               <div>
                 <h4>Start-Up Business Consulting</h4>
@@ -2800,15 +2833,15 @@
   <section class="section" id="blog">
     <div class="container">
       <div class="section-head" style="transform:none; display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; margin-bottom:28px;">
-        <span class="kicker" data-reveal style="color:var(--electric-blue); animation:none; display:inline-block; font-size:.88rem; letter-spacing:.18em; text-transform:uppercase; font-weight:800;">Blog</span>
-        <h2 data-reveal style="color:var(--text); animation:none; font-family:'Inter',sans-serif; font-weight:800; letter-spacing:-.04em; font-size:clamp(2.8rem,5vw,5rem); line-height:.94; max-width:10ch;">We're Not the Biggest Agency. We're the Right One.</h2>
+        <span class="kicker" data-reveal style="color:var(--electric-blue); animation:none; display:inline-block; font-size:.88rem; letter-spacing:.18em; text-transform:uppercase; font-weight:800;">Why us</span>
+        <h2 data-reveal style="color:var(--text); animation:none; font-family:'Inter',sans-serif; font-weight:800; letter-spacing:-.04em; font-size:clamp(2.8rem,5vw,5rem); line-height:.94; max-width:10ch;">We're Not the Biggest Agency.<br>We're the Right One.</h2>
       </div>
 
       <div class="blog-grid">
         <article class="blog-card" data-reveal>
           <div class="blog-content">
             <span class="blog-meta">Why La Familia</span>
-            <h3>12 Years of Proven Results</h3>
+            <h3>We're Not the Biggest Agency. We're the Right One.</h3>
             <p>
               We've outlasted trends, recessions, and a global pandemic. Our longevity isn't luck — it's because we've consistently delivered work that actually moves the needle for our clients. When you hire us, you're hiring 12 years of experience, not a freelancer who started last month.
             </p>
@@ -2818,7 +2851,7 @@
         <article class="blog-card" data-reveal>
           <div class="blog-content">
             <span class="blog-meta">Why La Familia</span>
-            <h3>Built for South Florida's Market</h3>
+            <h3>We're Not the Biggest Agency. We're the Right One.</h3>
             <p>
               We understand this market because we grew up in it. We know the difference between marketing to Hialeah and marketing to Brickell. We know how to reach bilingual consumers, multicultural communities, and the fast-growing businesses that call South Florida home.
             </p>
@@ -2828,7 +2861,7 @@
         <article class="blog-card" data-reveal>
           <div class="blog-content">
             <span class="blog-meta">Why La Familia</span>
-            <h3>Personalized Service, Always</h3>
+            <h3>We're Not the Biggest Agency. We're the Right One.</h3>
             <p>
               No account managers. No ticketing systems. You work directly with our creative team. We communicate your way — phone, text, email, or Zoom — and we give your project the attention it deserves, not a template and an automated response.
             </p>
@@ -2838,7 +2871,7 @@
         <article class="blog-card" data-reveal>
           <div class="blog-content">
             <span class="blog-meta">Why La Familia</span>
-            <h3>Full-Service Under One Roof</h3>
+            <h3>We're Not the Biggest Agency. We're the Right One.</h3>
             <p>
               Most agencies do one thing. We do everything. Your logo, website, business cards, social media graphics, and branded apparel can all come from a single creative vision — ours. That means consistency across every touchpoint, without the coordination headache.
             </p>
@@ -2904,6 +2937,7 @@
     <div class="container">
       <div class="reviews-layout">
         <div class="reviews-center" data-reveal>
+          <img src="assets/extraphotos/googlereview.png" alt="Google review logo" class="reviews-logo">
           <span class="kicker">Reviews</span>
           <h2>What clients are saying about La Familia Media.</h2>
           <p>
