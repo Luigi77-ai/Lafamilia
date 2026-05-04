@@ -959,53 +959,53 @@
 
 
 
-    .services-overlay{
-      position:fixed;
-      inset:0;
-      z-index:156;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
-      transition:opacity var(--transition), visibility var(--transition);
-      background:rgba(7,10,16,.18);
-      backdrop-filter:blur(6px);
-      -webkit-backdrop-filter:blur(6px);
-      overflow-y:auto;
-      overscroll-behavior:contain;
-      padding:24px 0;
-    }
+   .services-overlay{
+  position:fixed;
+  inset:0;
+  z-index:156;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity var(--transition), visibility var(--transition);
+  background:rgba(7,10,16,.42);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  padding:24px;
+}
 
-    .services-overlay.show{
-      opacity:1;
-      visibility:visible;
-      pointer-events:auto;
-    }
+.services-overlay.show{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
 
-    .services-overlay-backdrop{
-      flex:1 1 auto;
-      min-height:100%;
-    }
+.services-overlay-backdrop{
+  position:absolute;
+  inset:0;
+}
 
-    .services-overlay-panel{
-      width:min(760px, 100%);
-      min-height:auto;
-      max-height:calc(100vh - 56px);
-      margin:0 auto;
-      padding:42px 34px 54px;
-      border-left:1px solid rgba(255,255,255,.12);
-      background:linear-gradient(180deg, rgba(17,20,29,.40), rgba(17,20,29,.20));
-      backdrop-filter:blur(18px);
-      -webkit-backdrop-filter:blur(18px);
-      box-shadow:-24px 0 70px rgba(0,0,0,.24);
-      overflow-y:auto;
-      overflow-x:hidden;
-      scrollbar-width:thin;
-      scrollbar-color:rgba(255,255,255,.35) transparent;
-      -webkit-overflow-scrolling:touch;
-    }
+.services-overlay-panel{
+  position:relative;
+  z-index:2;
+  width:min(980px, calc(100vw - 32px));
+  max-height:min(88vh, 920px);
+  min-height:auto;
+  padding:34px 30px 36px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:30px;
+  background:linear-gradient(180deg, rgba(17,20,29,.78), rgba(17,20,29,.68));
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:0 28px 80px rgba(0,0,0,.34);
+  overflow-y:auto;
+  overflow-x:hidden;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.35) transparent;
+  -webkit-overflow-scrolling:touch;
+}
 
     .services-overlay-panel::-webkit-scrollbar{
       width:10px;
