@@ -544,12 +544,15 @@
       right:-18px;
       bottom:-20px;
       z-index:1;
-      filter:blur(24px) saturate(1.08);
-      opacity:.62;
+      filter:blur(32px) saturate(1.3);
+      opacity:.7;
       pointer-events:none;
       background:
-        radial-gradient(circle at 20% 40%, rgba(255,255,255,.10), transparent 28%),
-        radial-gradient(circle at 80% 20%, rgba(188,141,93,.18), transparent 24%);
+        radial-gradient(circle at 18% 35%, rgba(45,108,255,.32), transparent 30%),
+        radial-gradient(circle at 82% 22%, rgba(188,141,93,.28), transparent 26%),
+        radial-gradient(circle at 50% 65%, rgba(123,44,255,.26), transparent 32%),
+        radial-gradient(circle at 25% 70%, rgba(157,77,255,.22), transparent 28%),
+        radial-gradient(circle at 75% 50%, rgba(255,102,157,.18), transparent 28%);
     }
 
     .founder-media{
@@ -1072,14 +1075,22 @@
     }
 
     .service-icon{
-      width:48px;
-      height:48px;
+      width:64px;
+      height:64px;
       border-radius:16px;
       background:rgba(255,255,255,.10);
       border:1px solid rgba(255,255,255,.12);
       display:grid;
       place-items:center;
       flex-shrink:0;
+      overflow:hidden;
+      padding:4px;
+    }
+
+    .service-icon img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
     }
 
     .service-icon svg{
@@ -1193,10 +1204,10 @@
     .pdf-preview-frame iframe{
       position:absolute;
       inset:0;
-      width:140%;
+      width:100%;
       height:100%;
       border:0;
-      left:-20%;
+      left:0;
       animation:pdfPan 22s linear infinite alternate;
       filter:saturate(.95) contrast(1.02);
       background:#fff;
@@ -2349,7 +2360,7 @@
         <a href="#about">ABOUT US</a>
         <a href="#services">SERVICES</a>
         <a href="#portfolio">PORTFOLIO</a>
-        <a href="#blog">BLOG</a>
+        <a href="#blog">WHY US</a>
         <a href="#reviews">REVIEWS</a>
         <a href="#contact">CONTACT</a>
       </nav>
@@ -2389,7 +2400,7 @@
       <button class="menu-btn" id="menuOpen">MENU</button>
 
       <a href="#home" class="brand" aria-label="La Familia home">
-        <img src="assets/images/LFm-logo-500x100.png" alt="La Familia logo">
+        <img src="assets/images/services-new/wide-pen-LFM.png" alt="La Familia logo">
       </a>
 
       <div class="header-spacer">
@@ -2655,7 +2666,7 @@
           <div class="services-list">
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <img src="assets/images/Brand1.gif" alt="logo" style="width: 40px; height: 40px;">
+                <img src="assets/extraphotos/logo11.gif" alt="logo design">
               </div>
               <div>
                 <h4>Logo Design</h4>
@@ -2665,7 +2676,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <img src="assets/images/Brand2.gif" alt="logo" style="width: 40px; height: 40px;">
+                <img src="assets/images/services-new/GabyV-Spa-Rep5.jpg" alt="graphic design">
               </div>
               <div>
                 <h4>Graphic Design</h4>
@@ -2675,7 +2686,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <img src="assets/images/Brand3.gif" alt="logo" style="width: 40px; height: 40px;">
+                <img src="assets/images/services-new/BRnad4.gif" alt="web development">
               </div>
               <div>
                 <h4>Web Development</h4>
@@ -2685,7 +2696,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <img src="assets/images/Brand5.gif" alt="logo" style="width: 40px; height: 40px;">
+                <img src="assets/images/services-new/History-Makers.jpg" alt="custom illustrations">
               </div>
               <div>
                 <h4>Custom Illustrations</h4>
@@ -2695,7 +2706,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <img src="assets/images/Brand6.gif" alt="logo" style="width: 40px; height: 40px;">
+                <img src="assets/images/Brand12.gif" alt="custom media printing">
               </div>
               <div>
                 <h4>Custom Media Printing</h4>
@@ -2705,7 +2716,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <img src="assets/images/Brand7.gif" alt="logo" style="width: 40px; height: 40px;">
+                <img src="assets/images/Brand5.gif" alt="custom apparel printing">
               </div>
               <div>
                 <h4>Custom Apparel Printing</h4>
@@ -2715,7 +2726,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <img src="assets/images/Brand8.gif" alt="logo" style="width: 40px; height: 40px;">
+                <img src="assets/images/services-new/LFM Pro Digital Services-1 ANG.jpg" alt="social media marketing">
               </div>
               <div>
                 <h4>Social Media &amp; Digital Marketing</h4>
@@ -2725,7 +2736,7 @@
 
             <article class="service-detail">
               <div class="service-icon" aria-hidden="true">
-                <img src="assets/images/Brand9.gif" alt="logo" style="width: 40px; height: 40px;">
+                <img src="assets/images/services-new/LFM Flyer Intro.png" alt="startup consulting">
               </div>
               <div>
                 <h4>Start-Up Business Consulting</h4>
@@ -2748,7 +2759,7 @@
       <div class="blog-grid">
         <article class="blog-card" data-reveal>
           <div class="blog-content">
-            <span class="blog-meta">Why u</span>
+            <span class="blog-meta">Why us</span>
             <h3>12 Years of Proven Results</h3>
             <p>
               We've outlasted trends, recessions, and a global pandemic. Our longevity isn't luck — it's because we've consistently delivered work that actually moves the needle for our clients. When you hire us, you're hiring 12 years of experience, not a freelancer who started last month.
@@ -2758,7 +2769,7 @@
 
         <article class="blog-card" data-reveal>
           <div class="blog-content">
-            <span class="blog-meta">Why u</span>
+            <span class="blog-meta">Why us</span>
             <h3>Built for South Florida's Market</h3>
             <p>
               We understand this market because we grew up in it. We know the difference between marketing to Hialeah and marketing to Brickell. We know how to reach bilingual consumers, multicultural communities, and the fast-growing businesses that call South Florida home.
@@ -2768,7 +2779,7 @@
 
         <article class="blog-card" data-reveal>
           <div class="blog-content">
-            <span class="blog-meta">Why u</span>
+            <span class="blog-meta">Why us</span>
             <h3>Personalized Service, Always</h3>
             <p>
               No account managers. No ticketing systems. You work directly with our creative team. We communicate your way — phone, text, email, or Zoom — and we give your project the attention it deserves, not a template and an automated response.
@@ -2778,7 +2789,7 @@
 
         <article class="blog-card" data-reveal>
           <div class="blog-content">
-            <span class="blog-meta">Why u</span>
+            <span class="blog-meta">Why us</span>
             <h3>Full-Service Under One Roof</h3>
             <p>
               Most agencies do one thing. We do everything. Your logo, website, business cards, social media graphics, and branded apparel can all come from a single creative vision — ours. That means consistency across every touchpoint, without the coordination headache.
@@ -2845,7 +2856,7 @@
     <div class="container">
       <div class="reviews-layout">
         <div class="reviews-center" data-reveal>
-          <img src="assets/images/large-603459ac924304141037f63c_google-review-removebg-preview (1).png" alt="Google Review" style="width: 100px; height: auto; margin-bottom: 10px;">
+          <img src="assets/images/services-new/wide-pen-LFM.png" alt="La Familia logo" style="width: 140px; height: auto; margin-bottom: 16px;">
           <span class="kicker">Reviews</span>
           <h2>What clients are saying about La Familia Media.</h2>
           <p>
@@ -2990,7 +3001,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="assets/images/LFm-logo-500x100.png" alt="La Familia logo">
+        <img src="assets/images/services-new/wide-pen-LFM.png" alt="La Familia logo">
       </div>
 
       <div class="footer-socials">
