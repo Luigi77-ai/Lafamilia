@@ -473,7 +473,6 @@
       max-height:100px;
       object-fit:contain;
       filter:none;
-      background:transparent;
     }
 
     .section{
@@ -559,24 +558,10 @@
       width:100%;
       height:620px;
       border-radius:28px;
-      overflow:visible;
+      overflow:hidden;
       border:1px solid rgba(255,255,255,.18);
       box-shadow:0 28px 70px rgba(0,0,0,.24);
       background:rgba(255,255,255,.06);
-    }
-
-    .founder-media::before{
-      content:"";
-      position:absolute;
-      inset:-22px;
-      z-index:1;
-      border-radius:40px;
-      background:
-        radial-gradient(circle at 20% 24%, rgba(94,156,255,.25), transparent 22%),
-        radial-gradient(circle at 78% 16%, rgba(255,215,96,.18), transparent 20%),
-        radial-gradient(circle at 50% 88%, rgba(255,255,255,.14), transparent 20%);
-      filter:blur(24px);
-      opacity:.95;
     }
 
     .founder-media img{
@@ -708,7 +693,6 @@
 
     .about-overlay-panel::-webkit-scrollbar{ width:10px; }
     .about-overlay-panel::-webkit-scrollbar-track{ background:transparent; }
-
     .about-overlay-panel::-webkit-scrollbar-thumb{
       background:rgba(255,255,255,.28);
       border-radius:999px;
@@ -957,21 +941,24 @@
       background:linear-gradient(180deg, rgba(10,10,12,.02), rgba(10,10,12,.16));
       pointer-events:none;
     }
-        .services-overlay{
+
+
+
+    .services-overlay{
       position:fixed;
       inset:0;
       z-index:156;
       display:flex;
-      align-items:center;
-      justify-content:center;
+      justify-content:flex-end;
       opacity:0;
       visibility:hidden;
       pointer-events:none;
       transition:opacity var(--transition), visibility var(--transition);
-      background:rgba(7,10,16,.42);
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-      padding:24px;
+      background:rgba(7,10,16,.18);
+      backdrop-filter:blur(6px);
+      -webkit-backdrop-filter:blur(6px);
+      overflow-y:auto;
+      overscroll-behavior:contain;
     }
 
     .services-overlay.show{
@@ -981,23 +968,19 @@
     }
 
     .services-overlay-backdrop{
-      position:absolute;
-      inset:0;
+      flex:1 1 auto;
+      min-height:100%;
     }
 
     .services-overlay-panel{
-      position:relative;
-      z-index:2;
-      width:min(980px, calc(100vw - 32px));
-      max-height:min(88vh, 920px);
-      min-height:auto;
-      padding:34px 30px 36px;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:30px;
-      background:linear-gradient(180deg, rgba(17,20,29,.78), rgba(17,20,29,.68));
+      width:min(760px, 100%);
+      min-height:100vh;
+      padding:42px 34px 54px;
+      border-left:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg, rgba(17,20,29,.40), rgba(17,20,29,.20));
       backdrop-filter:blur(18px);
       -webkit-backdrop-filter:blur(18px);
-      box-shadow:0 28px 80px rgba(0,0,0,.34);
+      box-shadow:-24px 0 70px rgba(0,0,0,.24);
       overflow-y:auto;
       overflow-x:hidden;
       scrollbar-width:thin;
@@ -1105,13 +1088,6 @@
       stroke:#ffffff;
     }
 
-    .service-icon img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      border-radius:16px;
-    }
-
     .service-detail h4{
       font-size:1.08rem;
       font-weight:800;
@@ -1217,11 +1193,11 @@
     .pdf-preview-frame iframe{
       position:absolute;
       inset:0;
-      width:100%;
+      width:140%;
       height:100%;
       border:0;
-      left:0;
-      animation:none;
+      left:-20%;
+      animation:pdfPan 22s linear infinite alternate;
       filter:saturate(.95) contrast(1.02);
       background:#fff;
     }
@@ -1522,13 +1498,6 @@
       text-transform:uppercase;
       font-weight:800;
       margin-bottom:10px;
-    }
-
-    .reviews-logo{
-      width:180px;
-      max-width:100%;
-      margin:0 auto 18px;
-      display:block;
     }
 
     .reviews-center h2{
@@ -2366,7 +2335,7 @@
   </style>
 </head>
 <body>
-    <div class="menu-backdrop" id="menuBackdrop"></div>
+  <div class="menu-backdrop" id="menuBackdrop"></div>
 
   <aside class="menu-panel" id="menuPanel">
     <div>
@@ -2587,7 +2556,8 @@
       </div>
     </div>
   </section>
-    <section class="section" id="services">
+
+  <section class="section" id="services">
     <div class="container">
       <div class="services-showcase" data-reveal>
         <div class="services-stage">
@@ -2642,15 +2612,16 @@
         <div class="services-pdf-block">
           <div class="services-pdf-top">
             <div class="services-pdf-copy">
-              <h4>Download our services PDF</h4>
+              <h4>LFM Intro PDF</h4>
               <p>
-                Get a clean overview of our capabilities and share it with your team.
+                Preview the presentation in a cleaner widescreen frame and download the full file directly.
               </p>
             </div>
 
             <a
-              href="assets/images/LFM services.pdf"
               class="pdf-download-btn"
+              href="assets/images/LFM-Intro%20(1).pdf"
+              download
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -2660,17 +2631,596 @@
 
           <div class="pdf-preview-frame">
             <iframe
-              src="assets/images/LFM services.pdf"
-              title="La Familia Services PDF Preview"
-              loading="lazy"
+              src="assets/images/LFM-Intro%20(1).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+              title="LFM Intro PDF preview"
             ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="services-overlay" id="servicesOverlay">
+        <div class="services-overlay-backdrop" id="servicesOverlayBackdrop"></div>
+
+        <div class="services-overlay-panel">
+          <div class="services-overlay-top">
+            <span class="services-overlay-kicker">Services</span>
+            <button type="button" class="services-overlay-close" id="servicesOverlayClose">Close</button>
+          </div>
+
+          <h3>Creative solutions for your business</h3>
+          <p class="services-overlay-intro">
+            Together, we'll make your business stand out from the crowd and leave a lasting impression. Reach out to us now and let's embark on this exciting journey together.
+          </p>
+
+          <div class="services-list">
+            <article class="service-detail">
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l3.8-1 11-11a2.12 2.12 0 0 0-3-3l-11 11L3 21z"></path><path d="M14.5 5.5l4 4"></path></svg>
+              </div>
+              <div>
+                <h4>Logo Design</h4>
+                <p>Crafting the perfect symbol for your brand identity. Elevate your business with a memorable logo designed to make an impact.</p>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"></circle><circle cx="6.5" cy="17.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle><path d="M8.7 15.9l2.6-7"></path><path d="M15.6 8.9l.8 5.9"></path><path d="M8.9 18h6.1"></path></svg>
+              </div>
+              <div>
+                <h4>Graphic Design</h4>
+                <p>Transforming ideas into visually stunning creations. From eye-catching posters to captivating social media graphics, we bring your vision to life</p>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M8 20h8"></path><path d="M12 18v2"></path></svg>
+              </div>
+              <div>
+                <h4>Web Development</h4>
+                <p>Your digital storefront, meticulously crafted. We build responsive websites that engage visitors and drive results, seamlessly blending design and functionality.</p>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3L20 11l-5.4 2.7L12 19l-2.6-5.3L4 11l5.4-2.7L12 3z"></path></svg>
+              </div>
+              <div>
+                <h4>Custom Illustrations</h4>
+                <p>Work with our talented illustrators to sketch and create your vision in a digital format.</p>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8V4h12v4"></path><rect x="4" y="8" width="16" height="8" rx="2"></rect><path d="M7 16v4h10v-4"></path></svg>
+              </div>
+              <div>
+                <h4>Custom Media Printing</h4>
+                <p>Turn your imagination into reality with our custom media printing services. From brochures to banners, we print quality materials tailored to your needs.</p>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l1.5 4"></path><path d="M16 4l-1.5 4"></path><path d="M9.5 8h5"></path><path d="M7 8l-2 12h14L17 8"></path></svg>
+              </div>
+              <div>
+                <h4>Custom Apparel Printing</h4>
+                <p>Wear your brand proudly. Our custom apparel printing services offer high-quality, personalized clothing that speaks volumes about your brand.</p>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16"></path><path d="M7 16V9"></path><path d="M12 16V5"></path><path d="M17 16v-4"></path></svg>
+              </div>
+              <div>
+                <h4>Social Media &amp; Digital Marketing</h4>
+                <p>Unlock the power of social media and digital marketing. From strategic campaigns to engaging content, we help you connect with your audience and grow your brand online.</p>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z"></path><path d="M9.5 12l1.7 1.7 3.3-3.4"></path></svg>
+              </div>
+              <div>
+                <h4>Start-Up Business Consulting</h4>
+                <p>Launch your own business and allow us to guide you every step of the way. From setting up your business to branding, we can share our blueprint for success</p>
+              </div>
+            </article>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="services-overlay" id="servicesOverlay">
+  <section class="section" id="blog">
+    <div class="container">
+      <div class="section-head" style="transform:none; display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; margin-bottom:28px;">
+        <span class="kicker" data-reveal style="color:var(--electric-blue); animation:none; display:inline-block; font-size:.88rem; letter-spacing:.18em; text-transform:uppercase; font-weight:800;">Blog</span>
+        <h2 data-reveal style="color:var(--text); animation:none; font-family:'Inter',sans-serif; font-weight:800; letter-spacing:-.04em; font-size:clamp(2.8rem,5vw,5rem); line-height:.94; max-width:10ch;">We're Not the Biggest Agency. We're the Right One.</h2>
+      </div>
+
+      <div class="blog-grid">
+        <article class="blog-card" data-reveal>
+          <div class="blog-content">
+            <span class="blog-meta">Why La Familia</span>
+            <h3>12 Years of Proven Results</h3>
+            <p>
+              We've outlasted trends, recessions, and a global pandemic. Our longevity isn't luck — it's because we've consistently delivered work that actually moves the needle for our clients. When you hire us, you're hiring 12 years of experience, not a freelancer who started last month.
+            </p>
+          </div>
+        </article>
+
+        <article class="blog-card" data-reveal>
+          <div class="blog-content">
+            <span class="blog-meta">Why La Familia</span>
+            <h3>Built for South Florida's Market</h3>
+            <p>
+              We understand this market because we grew up in it. We know the difference between marketing to Hialeah and marketing to Brickell. We know how to reach bilingual consumers, multicultural communities, and the fast-growing businesses that call South Florida home.
+            </p>
+          </div>
+        </article>
+
+        <article class="blog-card" data-reveal>
+          <div class="blog-content">
+            <span class="blog-meta">Why La Familia</span>
+            <h3>Personalized Service, Always</h3>
+            <p>
+              No account managers. No ticketing systems. You work directly with our creative team. We communicate your way — phone, text, email, or Zoom — and we give your project the attention it deserves, not a template and an automated response.
+            </p>
+          </div>
+        </article>
+
+        <article class="blog-card" data-reveal>
+          <div class="blog-content">
+            <span class="blog-meta">Why La Familia</span>
+            <h3>Full-Service Under One Roof</h3>
+            <p>
+              Most agencies do one thing. We do everything. Your logo, website, business cards, social media graphics, and branded apparel can all come from a single creative vision — ours. That means consistency across every touchpoint, without the coordination headache.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="portfolio-head" data-reveal>
+        <span class="kicker">Portfolio</span>
+
+        <div class="portfolio-title-row">
+          <h2>Completed Projects</h2>
+          <a
+            class="portfolio-instagram"
+            href="https://www.instagram.com/lafamiliamedia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Instagram"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1"></circle>
+            </svg>
+          </a>
+        </div>
+
+        <p>
+          See some of our completed projects ranging from design, to websites, and printed items.
+          Want to see more? Follow our Instagram <a href="https://www.instagram.com/lafamiliamedia/" target="_blank" rel="noopener noreferrer">@lafamiliamedia</a> to see more of our work!
+        </p>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="portfolio-item wide" data-reveal><img src="assets/images/services-new/History-Makers.jpg" alt="Portfolio banner 1"></article>
+        <article class="portfolio-item tall" data-reveal><img src="assets/images/services-new/LFM Pro Digital Services-1 ANG.jpg" alt="Portfolio banner 2"></article>
+        <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/LFM800x800Banner-12years.jpg" alt="Portfolio banner 3"></article>
+        <article class="portfolio-item medium" data-reveal><img src="assets/images/services-new/rickwater-LFM-ad.jpg" alt="Portfolio banner 4"></article>
+        <article class="portfolio-item.slim" data-reveal><img src="assets/images/services-new/GabyV-Spa-Rep5.jpg" alt="Portfolio banner 5"></article>
+        <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/LFM Flyer Intro.png" alt="Portfolio banner 6"></article>
+        <article class="portfolio-item medium" data-reveal><img src="assets/images/services-new/jae (1).jpg" alt="Portfolio banner 7"></article>
+        <article class="portfolio-item slim" data-reveal><img src="assets/images/services-new/DSC00096.JPG" alt="Portfolio banner 8"></article>
+
+        <div class="portfolio-hidden" id="portfolioHidden">
+          <article class="portfolio-item wide"><img src="assets/images/services-new/79 (1).jpg" alt="Portfolio banner 9"></article>
+          <article class="portfolio-item square"><img src="assets/images/services-new/Brand3.gif" alt="Portfolio banner 10"></article>
+          <article class="portfolio-item medium"><img src="assets/images/services-new/BRnad4.gif" alt="Portfolio banner 11"></article>
+          <article class="portfolio-item tall"><img src="assets/images/services-new/Brand12.gif" alt="Portfolio banner 12"></article>
+        </div>
+      </div>
+
+      <div class="portfolio-action">
+        <button class="portfolio-more" id="portfolioMore">Show More</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="reviews-layout">
+        <div class="reviews-center" data-reveal>
+          <span class="kicker">Reviews</span>
+          <h2>What clients are saying about La Familia Media.</h2>
+          <p>
+            Real client feedback, social proof, and the experience people remember after working with La Familia Media.
+          </p>
+          <a
+            class="reviews-btn"
+            href="https://www.google.com/search?q=La+Familia+Media+reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Reviews
+          </a>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card r2">
+            <div class="review-content">
+              <div class="stars">★★★★★</div>
+              <span class="review-meta">Latest review</span>
+              <h3>Add another recent review here.</h3>
+              <p>This section is prepared for client feedback and social proof.</p>
+            </div>
+          </article>
+
+          <article class="review-card r3">
+            <div class="review-content">
+              <div class="stars">★★★★★</div>
+              <span class="review-meta">Latest review</span>
+              <h3>Use this one for a bilingual testimonial.</h3>
+              <p>A Spanish or bilingual review fits well with the agency's identity.</p>
+            </div>
+          </article>
+
+          <article class="review-card r4">
+            <div class="review-content">
+              <div class="stars">★★★★★</div>
+              <span class="review-meta">Latest review</span>
+              <h3>One more client quote goes here.</h3>
+              <p>Ideal for another strong review from a recent client.</p>
+            </div>
+          </article>
+
+          <article class="review-card r5">
+            <div class="review-content">
+              <div class="stars">★★★★★</div>
+              <span class="review-meta">Latest review</span>
+              <h3>Add another highlighted testimonial here.</h3>
+              <p>Perfect for a client that mentions quality, speed, or communication.</p>
+            </div>
+          </article>
+
+          <article class="review-card r6">
+            <div class="review-content">
+              <div class="stars">★★★★★</div>
+              <span class="review-meta">Latest review</span>
+              <h3>Use this card for a print or design review.</h3>
+              <p>Great space for a review focused on banners, flyers, or branded materials.</p>
+            </div>
+          </article>
+
+          <article class="review-card r7">
+            <div class="review-content">
+              <div class="stars">★★★★★</div>
+              <span class="review-meta">Latest review</span>
+              <h3>Use this one for a website project review.</h3>
+              <p>Ideal for a testimonial about web design, responsiveness, and final delivery.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="reviews-tagline">
+          <span>IF YOU ARE STARTING</span>
+          <span>OR RUNNING A BUSINESS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <article class="contact-card" data-reveal>
+          <h3>Contact</h3>
+          <p>
+            This section is ready with your updated contact details so clients can reach LA FAMILIA directly.
+          </p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <span>Phone</span>
+              (786) 210-6327
+            </div>
+
+            <div class="contact-item">
+              <span>Email</span>
+              <a href="mailto:info@lafamiliamedia.com">info@lafamiliamedia.com</a> | <a href="mailto:sergio@lafamiliamedia.com">sergio@lafamiliamedia.com</a>
+            </div>
+
+            <div class="contact-item">
+              <span>Instagram</span>
+              <a href="https://www.instagram.com/lafamiliamedia/" target="_blank" rel="noopener noreferrer">@lafamiliamedia</a>
+            </div>
+
+            <div class="contact-item">
+              <span>Location</span>
+              3553 Cocoplum Cir, Coconut Creek, FL 33063
+            </div>
+          </div>
+        </article>
+
+        <div class="contact-form" data-reveal>
+          <h3>Send us a message</h3>
+          <p>
+            A temporary form that you can later connect to your email or preferred system.
+          </p>
+
+          <form>
+            <label>
+              Name
+              <input type="text" placeholder="Your name">
+            </label>
+
+            <label>
+              Email
+              <input type="email" placeholder="Your email">
+            </label>
+
+            <label>
+              Message
+              <textarea placeholder="Your message"></textarea>
+            </label>
+
+            <button type="button" class="btn-outline">SEND</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/images/LFm-logo-500x100.png" alt="La Familia logo">
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/lafamiliamedia" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.87.24-1.47 1.48-1.47H16.7V4.96c-.31-.04-1.36-.12-2.58-.12-2.56 0-4.32 1.56-4.32 4.44V11H7v3h2.8v8h3.7Z"/>
+          </svg>
+        </a>
+
+        <a href="https://wa.me/17862106327" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.52 3.48A11.8 11.8 0 0 0 12.07 0C5.49 0 .13 5.36.13 11.94c0 2.1.55 4.15 1.6 5.96L0 24l6.28-1.64a11.84 11.84 0 0 0 5.79 1.48h.01c6.58 0 11.94-5.36 11.94-11.94 0-3.19-1.24-6.19-3.5-8.42ZM12.08 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.73.98 1-3.64-.24-.37a9.82 9.82 0 0 1-1.5-5.25c0-5.42 4.41-9.83 9.84-9.83 2.62 0 5.08 1.02 6.93 2.88a9.75 9.75 0 0 1 2.88 6.94c0 5.42-4.41 9.83-9.82 9.83Zm5.39-7.34c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.19.29-.76.95-.93 1.14-.17.2-.34.22-.63.08-.29-.15-1.22-.45-2.33-1.42-.86-.77-1.45-1.71-1.62-2-.17-.29-.02-.44.13-.58.13-.13.29-.34.44-.51.14-.17.19-.29.29-.49.1-.2.05-.37-.02-.51-.08-.15-.66-1.59-.9-2.18-.24-.57-.49-.49-.66-.5h-.56c-.2 0-.51.08-.78.37-.27.29-1.03 1-1.03 2.43 0 1.42 1.05 2.79 1.2 2.98.15.2 2.05 3.13 4.96 4.38.69.3 1.23.48 1.65.61.69.22 1.31.19 1.81.12.55-.08 1.72-.7 1.96-1.37.24-.66.24-1.23.17-1.36-.07-.12-.27-.2-.56-.34Z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.instagram.com/lafamiliamedia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="1"></circle>
+          </svg>
+        </a>
+
+        <a href="https://www.linkedin.com/company/lafamiliamedia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56A1.96 1.96 0 1 0 3.24 4.94a1.96 1.96 0 0 0 3.92 0ZM20.44 12.9c0-3.45-1.84-5.05-4.3-5.05-1.98 0-2.86 1.09-3.36 1.85V8.5H9.4c.04.79 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.67.88-1.37 1.9-1.37 1.34 0 1.88 1.03 1.88 2.54V20H20.44v-7.1Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="promoModal">
+    <div class="promo-modal">
+      <div class="promo-header">
+        <div>
+          <div class="promo-kicker">NEW CLIENT OFFER</div>
+          <div class="promo-title">Let's plan your next project this week.</div>
+        </div>
+
+        <button class="promo-close" id="promoClose" aria-label="Close promo">✕</button>
+      </div>
+
+      <div class="promo-body">
+        <p>
+          Reserve a call with our team and lock in preferred dates for your upcoming campaign, launch, or rebrand.
+        </p>
+
+        <div class="promo-actions">
+          <button class="promo-main-btn" id="promoTalk" type="button">TALK WITH US</button>
+          <button class="promo-sec-btn" id="promoLater" type="button">MAYBE LATER</button>
+        </div>
+
+        <p class="promo-phone">Or call us at <strong>1 786 210-6327</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-widget">
+    <div class="chat-panel" id="chatPanel">
+      <div class="chat-header">
+        <div class="chat-title">
+          <span>CHAT</span>
+          <span>La Familia Media</span>
+        </div>
+        <button type="button" id="chatClose">CLOSE</button>
+      </div>
+
+      <div class="chat-body">
+        <p>Have a question about a shoot, branding package, or event?</p>
+        <p>Send us a message or tap below and we'll connect you directly.</p>
+      </div>
+
+      <div class="chat-footer">
+        <div class="chat-phone">Call or text <strong>1 786 210-6327</strong></div>
+
+        <div class="chat-actions">
+          <a href="tel:17862106327" class="chat-call">CALL</a>
+          <a href="https://wa.me/17862106327" target="_blank" rel="noopener noreferrer" class="chat-whatsapp">WHATSAPP</a>
+        </div>
+      </div>
+    </div>
+
+    <button class="chat-bubble-btn" id="chatToggle" type="button" aria-label="Open chat">
+      <span>💬</span>
+    </button>
+  </div>
+
+  <script>
+    const menuOpen = document.getElementById("menuOpen");
+    const menuClose = document.getElementById("menuClose");
+    const menuPanel = document.getElementById("menuPanel");
+    const menuBackdrop = document.getElementById("menuBackdrop");
+    const menuLinks = document.querySelectorAll(".menu-links a");
+    const portfolioMore = document.getElementById("portfolioMore");
+    const portfolioHidden = document.getElementById("portfolioHidden");
+    const aboutMoreOpen = document.getElementById("aboutMoreOpen");
+    const aboutOverlay = document.getElementById("aboutOverlay");
+    const aboutOverlayClose = document.getElementById("aboutOverlayClose");
+    const aboutOverlayBackdrop = document.getElementById("aboutOverlayBackdrop");
+    const servicesMoreOpen = document.getElementById("servicesMoreOpen");
+    const servicesOverlay = document.getElementById("servicesOverlay");
+    const servicesOverlayClose = document.getElementById("servicesOverlayClose");
+    const servicesOverlayBackdrop = document.getElementById("servicesOverlayBackdrop");
+
+    function openMenu() {
+      menuPanel.classList.add("open");
+      menuBackdrop.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+      menuPanel.classList.remove("open");
+      menuBackdrop.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    menuOpen.addEventListener("click", openMenu);
+    menuClose.addEventListener("click", closeMenu);
+    menuBackdrop.addEventListener("click", closeMenu);
+    menuLinks.forEach(link => link.addEventListener("click", closeMenu));
+
+    function openAboutOverlay() {
+      aboutOverlay.classList.add("show");
+      document.body.style.overflow = "hidden";
+      aboutOverlay.scrollTop = 0;
+      document.querySelector(".about-overlay-panel").scrollTop = 0;
+    }
+
+    function closeAboutOverlay() {
+      aboutOverlay.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    function openServicesOverlay() {
+      servicesOverlay.classList.add("show");
+      document.body.style.overflow = "hidden";
+      servicesOverlay.scrollTop = 0;
+      document.querySelector(".services-overlay-panel").scrollTop = 0;
+    }
+
+    function closeServicesOverlay() {
+      servicesOverlay.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    aboutMoreOpen.addEventListener("click", openAboutOverlay);
+    aboutOverlayClose.addEventListener("click", closeAboutOverlay);
+    aboutOverlayBackdrop.addEventListener("click", closeAboutOverlay);
+    servicesMoreOpen.addEventListener("click", openServicesOverlay);
+    servicesOverlayClose.addEventListener("click", closeServicesOverlay);
+    servicesOverlayBackdrop.addEventListener("click", closeServicesOverlay);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeMenu();
+        closeAboutOverlay();
+        closeServicesOverlay();
+      }
+    });
+
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.14 });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    const reviewsSection = document.getElementById("reviews");
+    const reviewsObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          reviewsSection.classList.add("reviews-visible");
+        }
+      });
+    }, { threshold: 0.18 });
+
+    if (reviewsSection) reviewsObserver.observe(reviewsSection);
+
+    if (portfolioMore && portfolioHidden) {
+      portfolioMore.addEventListener("click", () => {
+        portfolioHidden.classList.add("show");
+        portfolioMore.style.display = "none";
+      });
+    }
+
+    const promoModal = document.getElementById("promoModal");
+    const promoClose = document.getElementById("promoClose");
+    const promoLater = document.getElementById("promoLater");
+    const promoTalk = document.getElementById("promoTalk");
+
+    function openPromo() {
+      promoModal.classList.add("show");
+    }
+
+    function closePromo() {
+      promoModal.classList.remove("show");
+    }
+
+    window.addEventListener("load", () => {
+      setTimeout(openPromo, 4000);
+    });
+
+    promoClose.addEventListener("click", closePromo);
+    promoLater.addEventListener("click", closePromo);
+    promoModal.addEventListener("click", (e) => {
+      if (e.target === promoModal) closePromo();
+    });
+
+    promoTalk.addEventListener("click", () => {
+      window.open("https://calendar.google.com/calendar/u/0/r?tab=mc", "_blank");
+      closePromo();
+    });
+
+    const chatToggle = document.getElementById("chatToggle");
+    const chatPanel = document.getElementById("chatPanel");
+    const chatClose = document.getElementById("chatClose");
+
+    chatToggle.addEventListener("click", () => {
+      chatPanel.classList.toggle("open");
+    });
+
+    chatClose.addEventListener("click", () => {
+      chatPanel.classList.remove("open");
+    });
+  </script>
+
+  <div class="services-overlay" id="servicesOverlay" aria-hidden="true">
     <div class="services-overlay-backdrop" data-services-close></div>
 
     <aside class="services-overlay-panel" role="dialog" aria-modal="true" aria-labelledby="servicesOverlayTitle">
@@ -2801,501 +3351,5 @@
     </aside>
   </div>
 
-  <section class="section" id="blog">
-    <div class="container">
-      <div class="section-head" style="transform:none; display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; margin-bottom:28px;">
-        <span class="kicker" data-reveal style="color:var(--electric-blue); animation:none; display:inline-block; font-size:.88rem; letter-spacing:.18em; text-transform:uppercase; font-weight:800;">Blog</span>
-        <h2 data-reveal style="color:var(--text); animation:none; font-family:'Inter',sans-serif; font-weight:800; letter-spacing:-.04em; font-size:clamp(2.8rem,5vw,5rem); line-height:.94; max-width:10ch;">We're Not the Biggest Agency. We're the Right One.</h2>
-      </div>
-
-      <div class="blog-grid">
-        <article class="blog-card" data-reveal>
-          <div class="blog-content">
-            <span class="blog-meta">Why La Familia</span>
-            <h3>12 Years of Proven Results</h3>
-            <p>
-              We've outlasted trends, recessions, and a global pandemic. Our longevity isn't luck — it's because we've consistently delivered work that actually moves the needle for our clients. When you hire us, you're hiring 12 years of experience, not a freelancer who started last month.
-            </p>
-          </div>
-        </article>
-
-        <article class="blog-card" data-reveal>
-          <div class="blog-content">
-            <span class="blog-meta">Why La Familia</span>
-            <h3>Built for South Florida's Market</h3>
-            <p>
-              We understand this market because we grew up in it. We know the difference between marketing to Hialeah and marketing to Brickell. We know how to reach bilingual consumers, multicultural communities, and the fast-growing businesses that call South Florida home.
-            </p>
-          </div>
-        </article>
-
-        <article class="blog-card" data-reveal>
-          <div class="blog-content">
-            <span class="blog-meta">Why La Familia</span>
-            <h3>Personalized Service, Always</h3>
-            <p>
-              No account managers. No ticketing systems. You work directly with our creative team. We communicate your way — phone, text, email, or Zoom — and we give your project the attention it deserves, not a template and an automated response.
-            </p>
-          </div>
-        </article>
-
-        <article class="blog-card" data-reveal>
-          <div class="blog-content">
-            <span class="blog-meta">Why La Familia</span>
-            <h3>Full-Service Under One Roof</h3>
-            <p>
-              Most agencies do one thing. We do everything. Your logo, website, business cards, social media graphics, and branded apparel can all come from a single creative vision — ours. That means consistency across every touchpoint, without the coordination headache.
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="portfolio">
-    <div class="container">
-      <div class="portfolio-head" data-reveal>
-        <span class="kicker">Portfolio</span>
-
-        <div class="portfolio-title-row">
-          <h2>Completed Projects</h2>
-          <a
-            class="portfolio-instagram"
-            href="https://www.instagram.com/lafamiliamedia/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open Instagram"
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-              <circle cx="12" cy="12" r="4"></circle>
-              <circle cx="17.5" cy="6.5" r="1"></circle>
-            </svg>
-          </a>
-        </div>
-
-        <p>
-          See some of our completed projects ranging from design, to websites, and printed items.
-          Want to see more? Follow our Instagram <a href="https://www.instagram.com/lafamiliamedia/" target="_blank" rel="noopener noreferrer">@lafamiliamedia</a> to see more of our work!
-        </p>
-      </div>
-
-      <div class="portfolio-grid">
-        <article class="portfolio-item wide" data-reveal><img src="assets/images/services-new/History-Makers.jpg" alt="Portfolio banner 1"></article>
-        <article class="portfolio-item tall" data-reveal><img src="assets/images/services-new/LFM Pro Digital Services-1 ANG.jpg" alt="Portfolio banner 2"></article>
-        <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/LFM800x800Banner-12years.jpg" alt="Portfolio banner 3"></article>
-        <article class="portfolio-item medium" data-reveal><img src="assets/images/services-new/rickwater-LFM-ad.jpg" alt="Portfolio banner 4"></article>
-        <article class="portfolio-item.slim" data-reveal><img src="assets/images/services-new/GabyV-Spa-Rep5.jpg" alt="Portfolio banner 5"></article>
-        <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/LFM Flyer Intro.png" alt="Portfolio banner 6"></article>
-        <article class="portfolio-item medium" data-reveal><img src="assets/images/services-new/jae (1).jpg" alt="Portfolio banner 7"></article>
-        <article class="portfolio-item.slim" data-reveal><img src="assets/images/services-new/DSC00096.JPG" alt="Portfolio banner 8"></article>
-
-        <div class="portfolio-hidden" id="portfolioHidden">
-          <article class="portfolio-item wide"><img src="assets/images/services-new/79 (1).jpg" alt="Portfolio banner 9"></article>
-          <article class="portfolio-item square"><img src="assets/images/services-new/Brand3.gif" alt="Portfolio banner 10"></article>
-          <article class="portfolio-item medium"><img src="assets/images/services-new/BRnad4.gif" alt="Portfolio banner 11"></article>
-          <article class="portfolio-item tall"><img src="assets/images/services-new/Brand12.gif" alt="Portfolio banner 12"></article>
-        </div>
-      </div>
-
-      <div class="portfolio-action">
-        <button class="portfolio-more" id="portfolioMore">Show More</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="reviews">
-    <div class="container">
-      <div class="reviews-layout">
-        <div class="reviews-center" data-reveal>
-          <img src="assets/images/google-logo.png" alt="Google logo" class="reviews-logo">
-          <span class="kicker">Reviews</span>
-          <h2>What clients are saying about La Familia Media.</h2>
-          <p>
-            Real client feedback, social proof, and the experience people remember after working with La Familia Media.
-          </p>
-          <a
-            class="reviews-btn"
-            href="https://www.google.com/search?q=La+Familia+Media+reviews"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Reviews
-          </a>
-        </div>
-
-        <div class="reviews-grid">
-          <article class="review-card r2">
-            <div class="review-content">
-              <div class="stars">★★★★★</div>
-              <span class="review-meta">Latest review</span>
-              <h3>Add another recent review here.</h3>
-              <p>This section is prepared for client feedback and social proof.</p>
-            </div>
-          </article>
-
-          <article class="review-card r3">
-            <div class="review-content">
-              <div class="stars">★★★★★</div>
-              <span class="review-meta">Latest review</span>
-              <h3>Use this one for a bilingual testimonial.</h3>
-              <p>A Spanish or bilingual review fits well with the agency's identity.</p>
-            </div>
-          </article>
-
-          <article class="review-card r4">
-            <div class="review-content">
-              <div class="stars">★★★★★</div>
-              <span class="review-meta">Latest review</span>
-              <h3>Highlight trust and communication.</h3>
-              <p>Great spot for a review focused on speed, quality, and professionalism.</p>
-            </div>
-          </article>
-
-          <article class="review-card r5">
-            <div class="review-content">
-              <div class="stars">★★★★★</div>
-              <span class="review-meta">Latest review</span>
-              <h3>Perfect place for a local business review.</h3>
-              <p>You can paste feedback from a South Florida client here.</p>
-            </div>
-          </article>
-
-          <article class="review-card r6">
-            <div class="review-content">
-              <div class="stars">★★★★★</div>
-              <span class="review-meta">Latest review</span>
-              <h3>Use this for branding or website praise.</h3>
-              <p>A review about visual quality and brand impact works very well here.</p>
-            </div>
-          </article>
-
-          <article class="review-card r7">
-            <div class="review-content">
-              <div class="stars">★★★★★</div>
-              <span class="review-meta">Latest review</span>
-              <h3>Keep one slot for your strongest testimonial.</h3>
-              <p>This card works best with a direct quote that feels personal and specific.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="reviews-tagline" aria-hidden="true">
-          <span>YOUR BUSINESS</span>
-          <span>DESERVES TO</span>
-          <span>LOOK ESTABLISHED</span>
-        </div>
-      </div>
-    </div>
-  </section>
-    <section class="section" id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-card" data-reveal>
-          <h3>Let's build something unforgettable.</h3>
-          <p>
-            Reach out to La Familia Media for branding, websites, print, digital marketing, and consulting.
-          </p>
-
-          <div class="contact-list">
-            <div class="contact-item">
-              <span>Phone</span>
-              <a href="tel:+17862106327">(786) 210-6327</a>
-            </div>
-
-            <div class="contact-item">
-              <span>Email</span>
-              <a href="mailto:lafamiliamedia@gmail.com">lafamiliamedia@gmail.com</a>
-            </div>
-
-            <div class="contact-item">
-              <span>Instagram</span>
-              <a href="https://www.instagram.com/lafamiliamedia/" target="_blank" rel="noopener noreferrer">@lafamiliamedia</a>
-            </div>
-
-            <div class="contact-item">
-              <span>Facebook</span>
-              <a href="https://www.facebook.com/lafamiliamedia" target="_blank" rel="noopener noreferrer">La Familia Media</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-form" data-reveal>
-          <h3>Send us a message</h3>
-          <p>Tell us what you need and we'll get back to you as soon as possible.</p>
-
-          <form action="https://formsubmit.co/lafamiliamedia@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New La Familia Media website form submission">
-            <input type="hidden" name="_captcha" value="false">
-
-            <label>
-              Name
-              <input type="text" name="name" placeholder="Your name" required>
-            </label>
-
-            <label>
-              Email
-              <input type="email" name="email" placeholder="Your email" required>
-            </label>
-
-            <label>
-              Phone
-              <input type="text" name="phone" placeholder="Your phone number">
-            </label>
-
-            <label>
-              Message
-              <textarea name="message" placeholder="Tell us about your project" required></textarea>
-            </label>
-
-            <button type="submit" class="pdf-download-btn">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <a href="#home" class="footer-brand" aria-label="La Familia home">
-        <img src="assets/images/LFm-logo-500x100.png" alt="La Familia logo">
-      </a>
-
-      <div class="footer-socials">
-        <a href="https://www.instagram.com/lafamiliamedia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-            <circle cx="12" cy="12" r="4"></circle>
-            <circle cx="17.5" cy="6.5" r="1"></circle>
-          </svg>
-        </a>
-
-        <a href="https://www.linkedin.com/company/lafamiliamedia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56A1.96 1.96 0 1 0 3.24 4.94a1.96 1.96 0 0 0 3.92 0ZM20.44 12.9c0-3.45-1.84-5.05-4.3-5.05-1.98 0-2.86 1.09-3.36 1.85V8.5H9.4c.04.79 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.67.88-1.37 1.9-1.37 1.34 0 1.88 1.03 1.88 2.54V20H20.44v-7.1Z"/>
-          </svg>
-        </a>
-
-        <a href="https://www.facebook.com/lafamiliamedia" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.87.24-1.47 1.48-1.47H16.7V4.96c-.31-.04-1.36-.12-2.58-.12-2.56 0-4.32 1.56-4.32 4.44V11H7v3h2.8v8h3.7Z"/>
-          </svg>
-        </a>
-
-        <a href="https://wa.me/17862106327" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20.52 3.48A11.8 11.8 0 0 0 12.07 0C5.49 0 .13 5.36.13 11.94c0 2.1.55 4.15 1.6 5.96L0 24l6.28-1.64a11.84 11.84 0 0 0 5.79 1.48h.01c6.58 0 11.94-5.36 11.94-11.94 0-3.19-1.24-6.19-3.5-8.42ZM12.08 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.73.98 1-3.64-.24-.37a9.82 9.82 0 0 1-1.5-5.25c0-5.42 4.41-9.83 9.84-9.83 2.62 0 5.08 1.02 6.93 2.88a9.75 9.75 0 0 1 2.88 6.94c0 5.42-4.41 9.83-9.82 9.83Zm5.39-7.34c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.19.29-.76.95-.93 1.14-.17.2-.34.22-.63.08-.29-.15-1.22-.45-2.33-1.42-.86-.77-1.45-1.71-1.62-2-.17-.29-.02-.44.13-.58.13-.13.29-.34.44-.51.14-.17.19-.29.29-.49.1-.2.05-.37-.02-.51-.08-.15-.66-1.59-.9-2.18-.24-.57-.49-.49-.66-.5h-.56c-.2 0-.51.08-.78.37-.27.29-1.03 1-1.03 2.43 0 1.42 1.05 2.79 1.2 2.98.15.2 2.05 3.13 4.96 4.38.69.3 1.23.48 1.65.61.69.22 1.31.19 1.81.12.55-.08 1.72-.7 1.96-1.37.24-.66.24-1.23.17-1.36-.07-.12-.27-.2-.56-.34Z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <div class="modal-backdrop" id="promoModal">
-    <div class="promo-modal">
-      <div class="promo-header">
-        <div>
-          <div class="promo-kicker">La Familia Media</div>
-          <h3 class="promo-title">Ready to elevate your brand?</h3>
-        </div>
-        <button class="promo-close" id="promoClose" aria-label="Close modal">✕</button>
-      </div>
-
-      <div class="promo-body">
-        Let’s talk about your website, branding, print materials, or next campaign.
-      </div>
-
-      <div class="promo-actions">
-        <a href="#contact" class="promo-main-btn" id="promoContactBtn">Contact Us</a>
-        <a href="https://wa.me/17862106327" target="_blank" rel="noopener noreferrer" class="promo-sec-btn">WhatsApp</a>
-      </div>
-
-      <div class="promo-phone">
-        Call us: <strong>(786) 210-6327</strong>
-      </div>
-    </div>
-  </div>
-
-  <div class="chat-widget">
-    <div class="chat-panel" id="chatPanel">
-      <div class="chat-header">
-        <div class="chat-title">
-          <span>La Familia</span>
-          <span>Need help?</span>
-        </div>
-        <button id="chatClose">Close</button>
-      </div>
-
-      <div class="chat-body">
-        <p>We can help you with branding, websites, printing, and digital marketing.</p>
-        <p>Reach out now and let’s get your project moving.</p>
-      </div>
-
-      <div class="chat-footer">
-        <div class="chat-phone">Call: <strong>(786) 210-6327</strong></div>
-        <div class="chat-actions">
-          <a href="tel:+17862106327" class="chat-call">Call</a>
-          <a href="https://wa.me/17862106327" target="_blank" rel="noopener noreferrer" class="chat-whatsapp">WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <button class="chat-bubble-btn" id="chatOpen" aria-label="Open chat">
-      <span>✦</span>
-    </button>
-  </div>
-
-  <script>
-    const menuPanel = document.getElementById('menuPanel');
-    const menuBackdrop = document.getElementById('menuBackdrop');
-    const menuOpen = document.getElementById('menuOpen');
-    const menuClose = document.getElementById('menuClose');
-
-    function openMenu(){
-      menuPanel.classList.add('open');
-      menuBackdrop.classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu(){
-      menuPanel.classList.remove('open');
-      menuBackdrop.classList.remove('show');
-      document.body.style.overflow = '';
-    }
-
-    if(menuOpen) menuOpen.addEventListener('click', openMenu);
-    if(menuClose) menuClose.addEventListener('click', closeMenu);
-    if(menuBackdrop) menuBackdrop.addEventListener('click', closeMenu);
-
-    document.querySelectorAll('.menu-links a').forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
-
-    const revealItems = document.querySelectorAll('[data-reveal]');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.16 });
-
-    revealItems.forEach(item => revealObserver.observe(item));
-
-    const aboutOverlay = document.getElementById('aboutOverlay');
-    const aboutMoreOpen = document.getElementById('aboutMoreOpen');
-    const aboutOverlayClose = document.getElementById('aboutOverlayClose');
-    const aboutOverlayBackdrop = document.getElementById('aboutOverlayBackdrop');
-
-    function openAboutOverlay(){
-      aboutOverlay.classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeAboutOverlay(){
-      aboutOverlay.classList.remove('show');
-      document.body.style.overflow = '';
-    }
-
-    if(aboutMoreOpen) aboutMoreOpen.addEventListener('click', openAboutOverlay);
-    if(aboutOverlayClose) aboutOverlayClose.addEventListener('click', closeAboutOverlay);
-    if(aboutOverlayBackdrop) aboutOverlayBackdrop.addEventListener('click', closeAboutOverlay);
-
-    const servicesOverlay = document.getElementById('servicesOverlay');
-    const servicesMoreOpen = document.getElementById('servicesMoreOpen');
-    const servicesCloseEls = document.querySelectorAll('[data-services-close]');
-
-    function openServicesOverlay(){
-      servicesOverlay.classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeServicesOverlay(){
-      servicesOverlay.classList.remove('show');
-      document.body.style.overflow = '';
-    }
-
-    if(servicesMoreOpen) servicesMoreOpen.addEventListener('click', openServicesOverlay);
-    servicesCloseEls.forEach(el => el.addEventListener('click', closeServicesOverlay));
-
-    const portfolioMore = document.getElementById('portfolioMore');
-    const portfolioHidden = document.getElementById('portfolioHidden');
-
-    if(portfolioMore && portfolioHidden){
-      portfolioMore.addEventListener('click', () => {
-        portfolioHidden.classList.toggle('show');
-        portfolioMore.textContent = portfolioHidden.classList.contains('show') ? 'Show Less' : 'Show More';
-      });
-    }
-
-    const reviewsSection = document.getElementById('reviews');
-    if(reviewsSection){
-      const reviewsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            reviewsSection.classList.add('reviews-visible');
-          }
-        });
-      }, { threshold: 0.2 });
-
-      reviewsObserver.observe(reviewsSection);
-    }
-
-    const promoModal = document.getElementById('promoModal');
-    const promoClose = document.getElementById('promoClose');
-    const promoContactBtn = document.getElementById('promoContactBtn');
-
-    function openPromoModal(){
-      if(!sessionStorage.getItem('lfmPromoShown')){
-        promoModal.classList.add('show');
-        sessionStorage.setItem('lfmPromoShown', 'true');
-      }
-    }
-
-    function closePromoModal(){
-      promoModal.classList.remove('show');
-    }
-
-    window.addEventListener('load', () => {
-      setTimeout(openPromoModal, 1800);
-    });
-
-    if(promoClose) promoClose.addEventListener('click', closePromoModal);
-    if(promoModal) {
-      promoModal.addEventListener('click', (e) => {
-        if(e.target === promoModal) closePromoModal();
-      });
-    }
-    if(promoContactBtn) {
-      promoContactBtn.addEventListener('click', closePromoModal);
-    }
-
-    const chatPanel = document.getElementById('chatPanel');
-    const chatOpen = document.getElementById('chatOpen');
-    const chatClose = document.getElementById('chatClose');
-
-    if(chatOpen && chatPanel){
-      chatOpen.addEventListener('click', () => {
-        chatPanel.classList.toggle('open');
-      });
-    }
-
-    if(chatClose && chatPanel){
-      chatClose.addEventListener('click', () => {
-        chatPanel.classList.remove('open');
-      });
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape'){
-        closeMenu();
-        closeAboutOverlay();
-        closeServicesOverlay();
-        closePromoModal();
-        if(chatPanel) chatPanel.classList.remove('open');
-      }
-    });
-  </script>
 </body>
 </html>
