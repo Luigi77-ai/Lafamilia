@@ -1081,19 +1081,23 @@
       overflow:hidden;
       isolation:isolate;
     }
+    #blog .blog-video-bg{
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      filter:brightness(.7);
+    }
     #blog::before{
       content:"";
       position:absolute;
       inset:0;
       z-index:0;
-      background-image:
-        linear-gradient(180deg, rgba(12,14,20,.48), rgba(12,14,20,.52)),
-        url("assets/images/pexels-dominic-muser-2157293283-34650399.jpg");
-      background-size:cover;
-      background-position:center center;
-      background-repeat:no-repeat;
-      filter:saturate(1.10) brightness(.88);
-      transform:scale(1.05);
+      background:radial-gradient(ellipse at center, rgba(12,14,20,.55) 0%, rgba(12,14,20,.30) 40%, rgba(12,14,20,.55) 100%);
+      pointer-events:none;
     }
     #blog::after{
       content:"";
@@ -1201,7 +1205,8 @@
       align-items:center;
       justify-content:center;
       gap:14px;
-      flex-wrap:wrap;
+      flex-wrap:nowrap;
+      white-space:nowrap;
     }
     .portfolio-head .kicker{
       color:var(--review-blue);
@@ -2094,7 +2099,7 @@
         <img src="assets/images/services-new/wide-pen-LFM.png" alt="La Familia logo">
       </a>
       <div class="header-spacer">
-        <a href="https://calendar.google.com/calendar/u/0/r?tab=mc" target="_blank" rel="noopener noreferrer" class="header-cta-btn">TALK WITH US</a>
+        <a href="https://calendar.app.google/L6VLU7FX31znSA2m9" target="_blank" rel="noopener noreferrer" class="header-cta-btn">TALK WITH US</a>
       </div>
     </div>
   </header>
@@ -2210,7 +2215,7 @@
             Over 14 years, we've grown into a full-service creative agency serving businesses across Miami-Dade, Broward, and Palm Beach counties. We've worked with everyone from corner restaurants to medical societies and we bring the same dedication to every single project.
           </p>
           <p>
-            Hablamos español. We understand that South Florida is a diverse, bilingual community and we're one of the few agencies that can serve you equally well in either language.
+            Hablamos espaÃ±ol. We understand that South Florida is a diverse, bilingual community and we're one of the few agencies that can serve you equally well in either language.
           </p>
           <button type="button" class="btn-outline" id="aboutMoreOpen">VIEW MORE</button>
         </div>
@@ -2225,7 +2230,7 @@
         </div>
         <h3>Our Story</h3>
         <p class="about-overlay-intro">
-          From a side hustle to a full-service creative agency — here is the journey of La Familia Media.
+          From a side hustle to a full-service creative agency â here is the journey of La Familia Media.
         </p>
         <div class="choose-grid">
           <article class="choose-item">
@@ -2461,10 +2466,13 @@
     </div>
   </section>
   <section class="section" id="blog">
+    <video class="blog-video-bg" autoplay muted loop playsinline>
+      <source src="assets/images/713910774 (1).mp4" type="video/mp4">
+    </video>
     <div class="container">
       <div class="section-head" style="transform:none; display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; margin-bottom:28px;">
         <span class="kicker" data-reveal style="color:var(--electric-blue); animation:none; display:inline-block; font-size:.88rem; letter-spacing:.18em; text-transform:uppercase; font-weight:800;">Why choose us</span>
-        <h2 data-reveal style="color:var(--text); animation:none; font-family:'Inter',sans-serif; font-weight:800; letter-spacing:-.04em; font-size:clamp(2.8rem,5vw,5rem); line-height:.94; max-width:10ch;">We're Not the Biggest Agency.<br>We're the Right One.</h2>
+        <h2 data-reveal style="color:var(--text); animation:none; font-family:'Inter',sans-serif; font-weight:800; letter-spacing:-.04em; font-size:clamp(2.8rem,5vw,5rem); line-height:.94;">We're Not the Biggest Agency.<br>We're the Right One.</h2>
       </div>
       <div class="blog-grid">
         <article class="blog-card" data-reveal>
@@ -2532,19 +2540,19 @@
         </p>
       </div>
       <div class="portfolio-grid">
-        <article class="portfolio-item wide" data-reveal><img src="assets/images/services-new/History-Makers.jpg" alt="Portfolio banner 1"></article>
-        <article class="portfolio-item tall" data-reveal><img src="assets/images/services-new/LFM Pro Digital Services-1 ANG.jpg" alt="Portfolio banner 2"></article>
+        <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/History-Makers.jpg" alt="Portfolio banner 1"></article>
+        <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/LFM Pro Digital Services-1 ANG.jpg" alt="Portfolio banner 2"></article>
         <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/LFM800x800Banner-12years.jpg" alt="Portfolio banner 3"></article>
-        <article class="portfolio-item medium" data-reveal><img src="assets/images/services-new/rickwater-LFM-ad.jpg" alt="Portfolio banner 4"></article>
-        <article class="portfolio-item.slim" data-reveal><img src="assets/images/services-new/GabyV-Spa-Rep5.jpg" alt="Portfolio banner 5"></article>
+        <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/rickwater-LFM-ad.jpg" alt="Portfolio banner 4"></article>
+        <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/GabyV-Spa-Rep5.jpg" alt="Portfolio banner 5"></article>
         <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/LFM Flyer Intro.png" alt="Portfolio banner 6"></article>
-        <article class="portfolio-item medium" data-reveal><img src="assets/images/services-new/jae (1).jpg" alt="Portfolio banner 7"></article>
-        <article class="portfolio-item slim" data-reveal><img src="assets/images/services-new/DSC00096.JPG" alt="Portfolio banner 8"></article>
+        <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/jae (1).jpg" alt="Portfolio banner 7"></article>
+        <article class="portfolio-item square" data-reveal><img src="assets/images/services-new/DSC00096.JPG" alt="Portfolio banner 8"></article>
         <div class="portfolio-hidden" id="portfolioHidden">
-          <article class="portfolio-item wide"><img src="assets/images/services-new/79 (1).jpg" alt="Portfolio banner 9"></article>
+          <article class="portfolio-item square"><img src="assets/images/services-new/79 (1).jpg" alt="Portfolio banner 9"></article>
           <article class="portfolio-item square"><img src="assets/images/services-new/Brand3.gif" alt="Portfolio banner 10"></article>
-          <article class="portfolio-item medium"><img src="assets/images/services-new/BRnad4.gif" alt="Portfolio banner 11"></article>
-          <article class="portfolio-item tall"><img src="assets/images/services-new/Brand12.gif" alt="Portfolio banner 12"></article>
+          <article class="portfolio-item square"><img src="assets/images/services-new/BRnad4.gif" alt="Portfolio banner 11"></article>
+          <article class="portfolio-item square"><img src="assets/images/services-new/Brand12.gif" alt="Portfolio banner 12"></article>
         </div>
       </div>
       <div class="portfolio-action">
@@ -2556,7 +2564,7 @@
     <div class="container">
       <div class="reviews-layout">
         <div class="reviews-center" data-reveal>
-          <img src="assets/images/services-new/wide-pen-LFM.png" alt="La Familia logo" style="width: 140px; height: auto; margin-bottom: 16px;">
+          <img src="assets/images/large-603459ac924304141037f63c_google-review-removebg-preview (1).png" alt="Google Reviews" style="width: 200px; height: auto; margin-bottom: 16px; display: block; margin-left: auto; margin-right: auto;">
           <span class="kicker">Reviews</span>
           <h2>What clients are saying about La Familia Media.</h2>
           <p>
