@@ -1946,51 +1946,43 @@ select{
       line-height:1;
     }
     @media (max-width:1180px){
-      .blog-grid,
-      .contact-grid{ grid-template-columns:1fr; }
-      .about-layout{
-        grid-template-columns:420px minmax(0, 1fr);
-        gap:42px;
-      }
-      .founder-media{ height:580px; }
-      .service-banner{ width:360px; height:220px; }
-      .portfolio-grid{ grid-template-columns:repeat(6,1fr); }
-      .portfolio-item.wide{ grid-column:span 6; }
-      .portfolio-item.tall{ grid-column:span 3; }
-      .portfolio-item.square{ grid-column:span 3; }
-      .portfolio-item.medium{ grid-column:span 3; }
-      .portfolio-item.slim{ grid-column:span 3; }
-      .reviews-layout{
-        min-height:auto;
-        gap:30px;
-        padding-bottom:90px;
-      }
-      .reviews-grid{
-        position:relative;
-        inset:auto;
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:28px;
-        margin-top:40px;
-      }
-      .review-card{
-        position:relative;
-        width:100% !important;
-        top:auto !important;
-        left:auto !important;
-        right:auto !important;
-        bottom:auto !important;
-        transform:translateY(48px) scale(.72) !important;
-      }
-      #reviews.reviews-visible .review-card{
-        transform:translateY(0) scale(1) !important;
-      }
-      .review-card .review-content{
-        transform:scale(.94) !important;
-      }
-      #reviews.reviews-visible .review-card .review-content{
-        transform:scale(1) !important;
-      }
+  .blog-grid,
+  .contact-grid{ grid-template-columns:1fr; }
+
+  .about-layout{
+    grid-template-columns:420px minmax(0, 1fr);
+    gap:42px;
+  }
+
+  .founder-media{ height:580px; }
+  .service-banner{ width:360px; height:220px; }
+
+  .portfolio-grid{ grid-template-columns:repeat(6,1fr); }
+  .portfolio-item.wide{ grid-column:span 6; }
+  .portfolio-item.tall{ grid-column:span 3; }
+  .portfolio-item.square{ grid-column:span 3; }
+  .portfolio-item.medium{ grid-column:span 3; }
+  .portfolio-item.slim{ grid-column:span 3; }
+
+  .reviews-layout{
+    min-height:auto;
+    gap:34px;
+    padding-bottom:90px;
+  }
+
+  .reviews-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:24px;
+    width:min(100%, 860px);
+  }
+
+  .reviews-tagline{
+    position:relative;
+    bottom:auto;
+    margin-top:0;
+    white-space:normal;
+  }
+}
       .reviews-tagline{
         position:relative;
         bottom:auto;
