@@ -2666,98 +2666,263 @@ select{
     </div>
   </section>
   <section class="section" id="reviews">
-    <div class="container">
-      <div class="reviews-layout">
-        <div class="reviews-center" data-reveal>
-          <img src="assets/extraphotos/googlereview.png" alt="Google Reviews" style="width: 200px; height: auto; margin-bottom: 16px; display: block; margin-left: auto; margin-right: auto;">
-          <span class="kicker">Reviews</span>
-          <h2>What clients are saying about La Familia Media.</h2>
-          <p>
-            Real client feedback, social proof, and the experience people remember after working with La Familia Media.
-          </p>
-          <a
-            class="reviews-btn"
-            href="https://www.google.com/search?q=La+Familia+Media+reviews"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Reviews
-                 <div class="reviews-grid left">
-          <article class="review-card r2">
-            <div class="review-content">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <span class="review-meta">Maria G. — Miami, FL</span>
-              <h3>Absolutely incredible work from start to finish!</h3>
-              <p>La Familia Media transformed our brand completely. From the logo to the website, everything came out better than we imagined. Sergio and his team are professional, responsive, and truly talented. Highly recommend!</p>
-            </div>
-          </article>
+  <style>
+    #reviews .reviews-layout{
+      display:grid;
+      grid-template-columns:minmax(260px,1fr) minmax(320px,640px) minmax(260px,1fr);
+      gap:32px;
+      align-items:start;
+      padding:40px 0 90px;
+    }
 
-          <article class="review-card r3">
-            <div class="review-content">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <span class="review-meta">Carlos R. — Hialeah, FL</span>
-              <h3>The best creative agency in South Florida!</h3>
-              <p>Llevamos trabajando con La Familia Media por más de 2 años y los resultados hablan por sí solos. Nuestro negocio ha crecido gracias a su trabajo en branding y redes sociales. Son un equipo excepcional.</p>
-            </div>
-          </article>
-        </div>
+    #reviews .reviews-column{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:24px;
+      align-content:start;
+    }
 
-        <div class="reviews-center">
-          <span class="kicker">Reviews</span>
-          <h2>What clients are saying about La Familia Media.</h2>
-          <p>
-            Real client feedback, social proof, and the experience people remember after working with La Familia Media.
-          </p>
-          <a class="reviews-btn" href="https://www.google.com/search?q=La+Familia+Media+reviews" target="_blank" rel="noopener noreferrer">Reviews</a>
-        </div>
+    #reviews .reviews-center{
+      text-align:center;
+      padding:8px 10px 0;
+      max-width:640px;
+      margin:0 auto;
+    }
 
-        <div class="reviews-grid right">
-          <article class="review-card r4">
-            <div class="review-content">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <span class="review-meta">Jennifer L. &mdash; Coral Gables, FL</span>
-              <h3>They delivered beyond our expectations.</h3>
-              <p>We hired La Familia Media for a full rebrand and website redesign. The whole process was smooth, creative, and on time. Our clients constantly compliment our new look. We couldn't be happier!</p>
-            </div>
-          </article>
+    #reviews .reviews-center .kicker{
+      color:var(--review-blue);
+      display:inline-block;
+      font-size:.88rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:800;
+      margin-bottom:10px;
+    }
 
-          <article class="review-card r5">
-            <div class="review-content">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <span class="review-meta">David P. &mdash; Doral, FL</span>
-              <h3>Fast, professional, and results-driven.</h3>
-              <p>From day one, La Familia Media showed they understood our vision. They delivered our business cards, flyers, and branded apparel on time and with outstanding quality. Communication was always clear and quick.</p>
-            </div>
-          </article>
-        </div>
+    #reviews .reviews-center h2{
+      color:var(--text);
+      font-family:"Inter",sans-serif;
+      font-weight:800;
+      letter-spacing:-.04em;
+      font-size:clamp(2.5rem,4.6vw,4.6rem);
+      line-height:.94;
+      max-width:10ch;
+      margin:0 auto 18px;
+    }
 
-        <div class="reviews-grid bottom">
-          <article class="review-card r6">
-            <div class="review-content">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <span class="review-meta">Stephanie C. — Startup Founder</span>
-              <h3>A partner you can actually talk to.</h3>
-              <p>I didn’t know where to start with branding. Sergio walked me through everything step by step, explained options clearly, and helped me make smart decisions for my budget. I recommend them to every entrepreneur I know.</p>
-            </div>
-          </article>
+    #reviews .reviews-center p{
+      color:var(--muted);
+      max-width:52ch;
+      margin:0 auto 22px;
+      font-size:clamp(1.02rem,1.3vw,1.2rem);
+      line-height:1.75;
+    }
 
-          <article class="review-card r7">
-            <div class="review-content">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <span class="review-meta">Victor M. — Construction Company</span>
-              <h3>They gave us a brand we’re proud of.</h3>
-              <p>From our trucks to our business cards, everything finally matches and looks professional. Clients take us more seriously, and it has definitely helped us win more projects.</p>
-            </div>
-          </article>
-        </div>
-        <div class="reviews-tagline">
-          <span>IF YOU ARE STARTING</span>
-          <span>OR RUNNING A BUSINESS,</span>
-          <span>WE'RE YOUR PARTNER IN SUCCESS</span>
-        </div>
+    #reviews .reviews-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.20);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      font-size:.82rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      transition:transform var(--transition), background var(--transition), border-color var(--transition);
+      white-space:nowrap;
+      cursor:pointer;
+    }
+
+    #reviews .reviews-btn:hover{
+      transform:translateY(-2px);
+      background:rgba(255,255,255,.14);
+      border-color:rgba(255,255,255,.34);
+    }
+
+    #reviews .review-card{
+      position:relative;
+      width:100%;
+      opacity:1;
+      transform:none;
+      pointer-events:auto;
+    }
+
+    #reviews .review-card .review-content{
+      height:100%;
+      padding:22px;
+      transform:none;
+    }
+
+    #reviews .reviews-tagline{
+      grid-column:1 / -1;
+      text-align:center;
+      margin-top:22px;
+      font-family:"Inter",sans-serif;
+      font-weight:800;
+      letter-spacing:-.05em;
+      line-height:1.02;
+      font-size:clamp(2rem,5vw,4rem);
+      padding-bottom:8px;
+      background:linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #ffffff 30%,
+        #7fc3ff 42%,
+        #ffe38a 50%,
+        #ff8fb2 58%,
+        #ffffff 70%,
+        #ffffff 100%
+      );
+      background-size:220% auto;
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      animation:shineText 5.5s linear infinite;
+      text-transform:uppercase;
+      filter:drop-shadow(0 6px 22px rgba(0,0,0,.22));
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:.06em;
+      white-space:normal;
+    }
+
+    #reviews .reviews-tagline span{
+      display:block;
+    }
+
+    @media (max-width: 1100px){
+      #reviews .reviews-layout{
+        grid-template-columns:1fr;
+        gap:28px;
+      }
+
+      #reviews .reviews-center{
+        order:1;
+      }
+
+      #reviews .reviews-column.left{
+        order:2;
+      }
+
+      #reviews .reviews-column.right{
+        order:3;
+      }
+
+      #reviews .reviews-tagline{
+        order:4;
+        margin-top:8px;
+      }
+    }
+
+    @media (max-width: 760px){
+      #reviews .reviews-layout{
+        padding:20px 0 70px;
+      }
+
+      #reviews .reviews-column{
+        gap:18px;
+      }
+
+      #reviews .reviews-center h2{
+        font-size:clamp(2.1rem,9vw,3.2rem);
+      }
+
+      #reviews .reviews-tagline{
+        padding:0 12px 8px;
+      }
+    }
+  </style>
+
+  <div class="container">
+    <div class="reviews-layout">
+      <div class="reviews-column left">
+        <article class="review-card r2">
+          <div class="review-content">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <span class="review-meta">Maria G. — Miami, FL</span>
+            <h3>Absolutely incredible work from start to finish!</h3>
+            <p>La Familia Media transformed our brand completely. From the logo to the website, everything came out better than we imagined. Sergio and his team are professional, responsive, and truly talented. Highly recommend!</p>
+          </div>
+        </article>
+
+        <article class="review-card r3">
+          <div class="review-content">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <span class="review-meta">Carlos R. — Hialeah, FL</span>
+            <h3>The best creative agency in South Florida!</h3>
+            <p>Llevamos trabajando con La Familia Media por más de 2 años y los resultados hablan por sí solos. Nuestro negocio ha crecido gracias a su trabajo en branding y redes sociales. Son un equipo excepcional.</p>
+          </div>
+        </article>
+
+        <article class="review-card r4">
+          <div class="review-content">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <span class="review-meta">Jennifer L. — Coral Gables, FL</span>
+            <h3>They delivered beyond our expectations.</h3>
+            <p>We hired La Familia Media for a full rebrand and website redesign. The whole process was smooth, creative, and on time. Our clients constantly compliment our new look. We couldn't be happier!</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="reviews-center" data-reveal>
+        <img src="assets/extraphotos/googlereview.png" alt="Google Reviews" style="width:200px;height:auto;margin:0 auto 16px;display:block;">
+        <span class="kicker">Reviews</span>
+        <h2>What clients are saying about La Familia Media.</h2>
+        <p>
+          Real client feedback, social proof, and the experience people remember after working with La Familia Media.
+        </p>
+        <a
+          class="reviews-btn"
+          href="https://www.google.com/search?q=La+Familia+Media+reviews"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Reviews
+        </a>
+      </div>
+
+      <div class="reviews-column right">
+        <article class="review-card r5">
+          <div class="review-content">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <span class="review-meta">David P. — Doral, FL</span>
+            <h3>Fast, professional, and results-driven.</h3>
+            <p>From day one, La Familia Media showed they understood our vision. They delivered our business cards, flyers, and branded apparel on time and with outstanding quality. Communication was always clear and quick.</p>
+          </div>
+        </article>
+
+        <article class="review-card r6">
+          <div class="review-content">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <span class="review-meta">Stephanie C. — Startup Founder</span>
+            <h3>A partner you can actually talk to.</h3>
+            <p>I didn’t know where to start with branding. Sergio walked me through everything step by step, explained options clearly, and helped me make smart decisions for my budget. I recommend them to every entrepreneur I know.</p>
+          </div>
+        </article>
+
+        <article class="review-card r7">
+          <div class="review-content">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <span class="review-meta">Victor M. — Construction Company</span>
+            <h3>They gave us a brand we’re proud of.</h3>
+            <p>From our trucks to our business cards, everything finally matches and looks professional. Clients take us more seriously, and it has definitely helped us win more projects.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="reviews-tagline">
+        <span>IF YOU ARE STARTING</span>
+        <span>OR RUNNING A BUSINESS,</span>
+        <span>WE'RE YOUR PARTNER IN SUCCESS</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
   <section class="section" id="contact">
     <div class="container">
       <div class="contact-grid">
