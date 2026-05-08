@@ -1370,8 +1370,12 @@
   position:relative;
   min-height:auto;
   display:grid;
-  gap:46px;
-  place-items:center;
+  grid-template-columns:minmax(260px,1fr) minmax(320px,760px) minmax(260px,1fr);
+  grid-template-areas:
+    "left center right"
+    "bottom bottom bottom";
+  align-items:start;
+  gap:28px;
   padding:40px 0 120px;
 }
 
@@ -1417,15 +1421,16 @@
 }
 
 .reviews-grid{
-  position: relative;
-  inset: auto;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
-  width: min(100%, 1120px);
-  margin: 8px auto 0;
-  pointer-events: auto;
-  align-items: stretch;
+  position:relative;
+  inset:auto;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:24px;
+  width:100%;
+  max-width:none;
+  margin:0;
+  pointer-events:auto;
+  align-items:stretch;
 }
 
 .reviews-grid .r2{
