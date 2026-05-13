@@ -13,6 +13,7 @@
 <link rel="apple-touch-icon" href="./assets/images/services-new/LFM-logo-500x500.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/css/intlTelInput.min.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
@@ -2982,7 +2983,7 @@ select{
             </label>
             <label>
               Phone Number
-              <input type="tel" name="phone" placeholder="(786) 000-0000">
+              <input type="tel" name="phone" id="contactPhone" placeholder="(786) 000-0000" required>
             </label>
             <label>
               Email Address *
@@ -3217,7 +3218,7 @@ select{
     promoModal.addEventListener("click", (e) => {
       if (e.target === promoModal) closePromo();
     });
-    promoTalk.addEventListener("click", () => {
+    if (promoTalk) promoTalk.addEventListener("click", () => {
       window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1k1m5zURCT_nCS4KVnXSffm8D56TXiWJwiQOZweX7f6BzQmGhmkHvx8xD2jh-3QqJzzO0p5TSH", "_blank");
       closePromo();
     });
@@ -3231,5 +3232,276 @@ select{
       chatPanel.classList.remove("open");
     });
   </script>
+
+  <div id="lfmSuccessOverlay" class="lfm-success-overlay" role="dialog" aria-modal="true" aria-labelledby="lfmSuccessTitle" aria-hidden="true">
+    <div class="lfm-success-card">
+      <div class="lfm-success-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="32" cy="32" r="28"></circle>
+          <path d="M20 33 l9 9 l16 -18"></path>
+        </svg>
+      </div>
+      <h3 id="lfmSuccessTitle">Thank you for reaching out!</h3>
+      <p>Your project request has been received. A member of the La Familia Media team will get back to you within 24 hours at the email you provided.</p>
+      <button type="button" id="lfmSuccessClose" class="lfm-success-btn">CLOSE</button>
+    </div>
+  </div>
+  <style>
+    .lfm-success-overlay{
+      position:fixed; inset:0; z-index:1000;
+      background:rgba(8,10,16,.72);
+      backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+      display:flex; align-items:center; justify-content:center;
+      padding:24px;
+      opacity:0; pointer-events:none;
+      transition:opacity 260ms cubic-bezier(.16,1,.3,1);
+    }
+    .lfm-success-overlay.show{ opacity:1; pointer-events:auto; }
+    .lfm-success-card{
+      width:min(440px, 100%);
+      border-radius:22px;
+      padding:34px 30px 28px;
+      text-align:center;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(82,168,255,.30), transparent 45%),
+        radial-gradient(circle at 100% 0%, rgba(255,110,154,.26), transparent 45%),
+        linear-gradient(180deg, rgba(13,16,24,.98), rgba(8,10,16,.98));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 22px 60px rgba(0,0,0,.55);
+      color:#f5f7fb;
+      transform:translateY(14px) scale(.98);
+      transition:transform 260ms cubic-bezier(.16,1,.3,1);
+    }
+    .lfm-success-overlay.show .lfm-success-card{ transform:translateY(0) scale(1); }
+    .lfm-success-icon{
+      width:72px; height:72px; margin:0 auto 16px;
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      background:rgba(125,220,170,.12);
+      color:#7ddca6;
+      border:1px solid rgba(125,220,170,.35);
+    }
+    .lfm-success-card h3{
+      font-size:1.35rem; font-weight:700; margin:0 0 10px;
+      letter-spacing:.01em;
+    }
+    .lfm-success-card p{
+      font-size:.96rem; color:rgba(245,247,251,.78);
+      margin:0 0 22px; line-height:1.55;
+    }
+    .lfm-success-btn{
+      appearance:none; border:none; cursor:pointer;
+      padding:12px 28px;
+      border-radius:999px;
+      background:linear-gradient(120deg,#2d6cff,#7b2cff,#ff376d);
+      color:#fff; font-weight:700; letter-spacing:.18em; font-size:.82rem;
+      transition:transform 180ms ease, box-shadow 180ms ease;
+    }
+    .lfm-success-btn:hover{ transform:translateY(-1px); box-shadow:0 10px 28px rgba(123,44,255,.35); }
+    /* intl-tel-input theming */
+    .iti{ width:100%; }
+    .iti__country-list{ background:#141821; color:#f5f7fb; border:1px solid rgba(255,255,255,.10); }
+    .iti__country.iti__highlight{ background:rgba(255,255,255,.06); }
+    .iti__divider{ border-bottom-color:rgba(255,255,255,.12); }
+    .iti--separate-dial-code .iti__selected-flag{ background:rgba(255,255,255,.04); }
+    .iti__selected-flag:focus{ outline:2px solid rgba(125,140,255,.6); }
+    .iti input[type=tel]{ padding-left:92px !important; }
+    .phone-error{
+      display:none; color:#ff8aa3; font-size:.82rem; margin-top:6px; letter-spacing:.02em;
+    }
+    .phone-error.show{ display:block; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/intlTelInput.min.js" defer></script>
+
+  <script>
+  (function(){
+    // ---- Patch 1: prevent earlier inline script crash from killing later listeners (defensive) ----
+    // The original script references some IDs that may not exist; we re-attach chat handlers here unconditionally.
+    function safe(id){ return document.getElementById(id); }
+
+    // ---- Patch 2: ensure chat bubble works (WhatsApp + Call already inside the panel) ----
+    var chatToggle = safe('chatToggle');
+    var chatPanel  = safe('chatPanel');
+    var chatClose  = safe('chatClose');
+    if (chatToggle && chatPanel) {
+      chatToggle.addEventListener('click', function(e){
+        e.stopPropagation();
+        chatPanel.classList.toggle('open');
+      });
+    }
+    if (chatClose && chatPanel) {
+      chatClose.addEventListener('click', function(){ chatPanel.classList.remove('open'); });
+    }
+    // Close panel when clicking outside
+    document.addEventListener('click', function(e){
+      if (!chatPanel || !chatPanel.classList.contains('open')) return;
+      if (chatPanel.contains(e.target) || (chatToggle && chatToggle.contains(e.target))) return;
+      chatPanel.classList.remove('open');
+    });
+
+    // ---- Patch 3: trim 1 second off the start of the hero video ----
+    var heroVideo = document.querySelector('.hero video, video');
+    if (heroVideo) {
+      var SKIP = 1.0; // seconds
+      var applied = false;
+      function applyTrim(){
+        try {
+          if (heroVideo.duration && heroVideo.currentTime < SKIP) {
+            heroVideo.currentTime = SKIP;
+          }
+        } catch(_) {}
+      }
+      heroVideo.addEventListener('loadedmetadata', applyTrim);
+      heroVideo.addEventListener('play', function(){ if(!applied){ applied = true; applyTrim(); }});
+      // Loop handling: when video time approaches end, reset to SKIP instead of 0
+      heroVideo.addEventListener('timeupdate', function(){
+        if (heroVideo.duration && heroVideo.currentTime >= heroVideo.duration - 0.05) {
+          try { heroVideo.currentTime = SKIP; heroVideo.play(); } catch(_){}
+        }
+      });
+      // Also handle the standard 'seeked' to 0 on loop
+      heroVideo.addEventListener('seeked', function(){
+        if (heroVideo.currentTime < SKIP - 0.05) {
+          try { heroVideo.currentTime = SKIP; } catch(_){}
+        }
+      });
+      // Kick once on load
+      if (heroVideo.readyState >= 1) applyTrim();
+    }
+
+    // ---- Patch 4: intl-tel-input for phone field with per-country digit-length validation ----
+    var phoneInput = document.getElementById('contactPhone');
+    var iti = null;
+    function initPhone(){
+      if (!phoneInput || !window.intlTelInput) return;
+      iti = window.intlTelInput(phoneInput, {
+        initialCountry: 'us',
+        preferredCountries: ['us','mx','co','ve','pe','ar','cl','ec','do','pr','es'],
+        separateDialCode: true,
+        nationalMode: true,
+        utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.12/build/js/utils.js',
+        autoPlaceholder: 'aggressive'
+      });
+      // live digit-length enforcement: cap input to expected length for selected country
+      function maxDigitsFor(){
+        try {
+          var country = iti.getSelectedCountryData();
+          if (!country || !country.iso2) return 15;
+          if (!window.intlTelInputUtils) return 15;
+          var example = window.intlTelInputUtils.getExampleNumber(country.iso2, true, window.intlTelInputUtils.numberFormat.E164) || '';
+          // strip leading + and country dial code to leave national digits
+          var dial = '+' + (country.dialCode||'');
+          var national = example.indexOf(dial) === 0 ? example.slice(dial.length) : example.replace(/^\+/, '');
+          var digits = (national.match(/\d/g) || []).length;
+          return digits || 15;
+        } catch(e){ return 15; }
+      }
+      function enforce(){
+        var allowed = maxDigitsFor();
+        var raw = phoneInput.value;
+        var digits = (raw.match(/\d/g) || []).join('');
+        if (digits.length > allowed) digits = digits.slice(0, allowed);
+        // Keep the visual formatting that intl-tel-input would produce by re-writing only when over the limit
+        if ((raw.match(/\d/g)||[]).length !== digits.length) {
+          phoneInput.value = digits;
+        }
+      }
+      phoneInput.addEventListener('input', enforce);
+      phoneInput.addEventListener('countrychange', function(){
+        phoneInput.value = '';
+        phoneInput.dispatchEvent(new Event('input'));
+      });
+      // Add an error label under the input
+      var err = document.createElement('div');
+      err.className = 'phone-error';
+      err.id = 'contactPhoneError';
+      err.textContent = 'Please enter a valid phone number for the selected country.';
+      phoneInput.parentNode.appendChild(err);
+    }
+    if (window.intlTelInput) {
+      initPhone();
+    } else {
+      window.addEventListener('load', initPhone);
+    }
+
+    // ---- Patch 5: form submission to Formsubmit.co (info@ + sergio@) with success modal ----
+    var form = document.getElementById('contactForm') || document.querySelector('form');
+    var overlay = document.getElementById('lfmSuccessOverlay');
+    var overlayClose = document.getElementById('lfmSuccessClose');
+    function showSuccess(){
+      if (!overlay) return;
+      overlay.classList.add('show');
+      overlay.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function hideSuccess(){
+      if (!overlay) return;
+      overlay.classList.remove('show');
+      overlay.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+    if (overlayClose) overlayClose.addEventListener('click', hideSuccess);
+    if (overlay) overlay.addEventListener('click', function(e){ if (e.target === overlay) hideSuccess(); });
+
+    if (form) {
+      form.setAttribute('novalidate','novalidate');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        // Validate phone if iti available
+        if (iti && window.intlTelInputUtils) {
+          var ok = iti.isValidNumber();
+          var errEl = document.getElementById('contactPhoneError');
+          if (!ok) {
+            if (errEl) errEl.classList.add('show');
+            phoneInput.focus();
+            return;
+          } else {
+            if (errEl) errEl.classList.remove('show');
+            // Replace value with full E.164 international number for the email
+            try {
+              var full = iti.getNumber();
+              if (full) phoneInput.value = full;
+            } catch(_){}
+          }
+        }
+        // Build payload
+        var fd = new FormData(form);
+        var btn = document.getElementById('contactSubmitBtn');
+        var originalText = btn ? btn.textContent : '';
+        if (btn) { btn.disabled = true; btn.textContent = 'SENDING...'; }
+        // Add formsubmit hidden fields
+        fd.append('_subject', 'New Project Inquiry — La Familia Media');
+        fd.append('_template', 'table');
+        fd.append('_cc', 'sergio@lafamiliamedia.com');
+        fd.append('_captcha', 'false');
+
+        fetch('https://formsubmit.co/ajax/info@lafamiliamedia.com', {
+          method:'POST',
+          headers: { 'Accept':'application/json' },
+          body: fd
+        }).then(function(r){ return r.json(); })
+          .then(function(){
+            form.reset();
+            if (iti) try { iti.setCountry('us'); } catch(_){}
+            showSuccess();
+          })
+          .catch(function(){
+            // Fallback: mailto with prefilled body
+            var data = {};
+            new FormData(form).forEach(function(v,k){ data[k]=v; });
+            var body = Object.keys(data).map(function(k){ return k+': '+data[k]; }).join('\n');
+            var href = 'mailto:info@lafamiliamedia.com?cc=sergio@lafamiliamedia.com'
+                    + '&subject=' + encodeURIComponent('New Project Inquiry — La Familia Media')
+                    + '&body=' + encodeURIComponent(body);
+            window.location.href = href;
+          })
+          .finally(function(){
+            if (btn) { btn.disabled = false; btn.textContent = originalText || 'SEND MESSAGE'; }
+          });
+      });
+    }
+  })();
+  </script>
+
 </body>
   </html>
